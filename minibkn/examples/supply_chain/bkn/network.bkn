@@ -1,0 +1,12 @@
+---
+type: knowledge_network
+id: supply_chain
+name: Supply Chain Inventory Network
+version: 1
+tags: [portfolio, supply-chain]
+business_domain: procurement
+---
+
+# Supply Chain Inventory Network
+
+Models materials, suppliers, replenishment alerts, and their risk policy.

@@ -1,0 +1,17 @@
+---
+type: risk_type
+id: high_value_expense_confirmation
+name: High Value Expense Confirmation
+tags: [finance, risk, generated]
+level: high
+policy: confirm
+applies_to_actions: [approve_expense]
+condition:
+  gte:
+    - ref: object.amount
+    - 30000
+---
+
+## RiskType: High Value Expense Confirmation
+
+Generated frozen risk rule.

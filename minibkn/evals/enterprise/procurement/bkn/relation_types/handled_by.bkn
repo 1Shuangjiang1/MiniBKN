@@ -1,0 +1,20 @@
+---
+type: relation_type
+id: handled_by
+name: Handled By
+tags: [procurement, evaluation, generated]
+---
+
+## RelationType: Handled By
+
+### Endpoint
+
+| Source | Target | Type |
+| --- | --- | --- |
+| purchase_order | buyer | direct |
+
+### Mapping Rules
+
+| Source Property | Target Property |
+| --- | --- |
+| buyer_id | buyer_id |

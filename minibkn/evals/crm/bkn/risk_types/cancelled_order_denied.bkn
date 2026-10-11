@@ -1,0 +1,17 @@
+---
+type: risk_type
+id: cancelled_order_denied
+name: Cancelled Order Denied
+tags: [crm, risk]
+level: critical
+policy: deny
+applies_to_actions: [approve_order]
+condition:
+  eq:
+    - ref: object.status
+    - cancelled
+---
+
+## RiskType: Cancelled Order Denied
+
+Cancelled orders cannot be approved.

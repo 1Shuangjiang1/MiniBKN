@@ -1,0 +1,32 @@
+---
+type: object_type
+id: job_change
+name: Job Change
+tags: [hr, evaluation, generated]
+---
+
+## ObjectType: Job Change
+
+Generated hr business object.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| change_id | Change ID | string | Change ID | change_id |
+| employee_id | Employee ID | string | Employee ID | employee_id |
+| from_dept_id | From Department | string | From Department | from_dept_id |
+| to_dept_id | To Department | string | To Department | to_dept_id |
+| effective_date | Effective Date | date | Effective Date | effective_date |
+| status | Status | string | Status | status |
+
+### Keys
+
+Primary Keys: change_id
+Display Key: change_id
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | job_changes_csv | job_changes.csv |

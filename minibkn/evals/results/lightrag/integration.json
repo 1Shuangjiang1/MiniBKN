@@ -1,0 +1,94 @@
+{
+  "generated_at": "2026-08-17T15:56:42.852037+00:00",
+  "provider": {
+    "provider": "lightrag",
+    "enabled": true,
+    "capabilities": [
+      "ingest_text",
+      "track_status",
+      "query_data",
+      "isolated_collections"
+    ],
+    "details": {
+      "crm/public": "healthy"
+    }
+  },
+  "fixture_count": 3,
+  "ingestions": [
+    {
+      "file": "customer_service_handbook.md",
+      "status": "already_present"
+    },
+    {
+      "file": "data_governance_policy.md",
+      "status": "already_present"
+    },
+    {
+      "file": "sales_discount_policy.md",
+      "status": "already_present"
+    }
+  ],
+  "retrieval": {
+    "passed": 3,
+    "total": 3,
+    "cases": [
+      {
+        "question": "销售折扣超过10%需要谁审批？",
+        "expected": "销售经理",
+        "passed": true,
+        "evidence_count": 3,
+        "citations": [
+          "document://public/sales_discount_policy.md#chunk=1",
+          "document://public/customer_service_handbook.md#chunk=2",
+          "document://public/data_governance_policy.md#chunk=3"
+        ]
+      },
+      {
+        "question": "VIP客户工单首次响应时限是多少？",
+        "expected": "2 小时",
+        "passed": true,
+        "evidence_count": 3,
+        "citations": [
+          "document://public/customer_service_handbook.md#chunk=1",
+          "document://public/data_governance_policy.md#chunk=2",
+          "document://public/sales_discount_policy.md#chunk=3"
+        ]
+      },
+      {
+        "question": "离职员工访问凭证多久停用？",
+        "expected": "4 小时",
+        "passed": true,
+        "evidence_count": 3,
+        "citations": [
+          "document://public/data_governance_policy.md#chunk=1",
+          "document://public/customer_service_handbook.md#chunk=2",
+          "document://public/sales_discount_policy.md#chunk=3"
+        ]
+      }
+    ]
+  },
+  "routing": {
+    "auto_document": true,
+    "auto_structured": true,
+    "hybrid_both": true,
+    "hybrid_document_evidence": 3,
+    "hybrid_structured_evidence": 14,
+    "hybrid_citations": [
+      "bkn://object_types/order.bkn",
+      "bkn://object_types/customer.bkn",
+      "bkn://relation_types/placed_by.bkn",
+      "resource://customers_csv#row=2",
+      "resource://customers_csv#row=3",
+      "resource://customers_csv#row=4",
+      "resource://orders_csv#row=2",
+      "resource://orders_csv#row=3",
+      "resource://orders_csv#row=4",
+      "resource://orders_csv#row=5",
+      "bkn://relation/placed_by",
+      "document://public/sales_discount_policy.md#chunk=1",
+      "document://public/customer_service_handbook.md#chunk=2",
+      "document://public/data_governance_policy.md#chunk=3"
+    ]
+  },
+  "elapsed_seconds": 5.089
+}

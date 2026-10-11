@@ -1,0 +1,20 @@
+---
+type: relation_type
+id: billed_to
+name: Billed To
+tags: [finance, evaluation, generated]
+---
+
+## RelationType: Billed To
+
+### Endpoint
+
+| Source | Target | Type |
+| --- | --- | --- |
+| invoice | client | direct |
+
+### Mapping Rules
+
+| Source Property | Target Property |
+| --- | --- |
+| client_id | client_id |

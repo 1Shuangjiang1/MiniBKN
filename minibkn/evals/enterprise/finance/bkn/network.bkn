@@ -1,0 +1,10 @@
+---
+type: knowledge_network
+id: finance_holdout
+name: Finance Holdout
+tags: [finance, evaluation, generated]
+---
+
+# Finance Holdout
+
+Deterministic multi-domain blind evaluation network.

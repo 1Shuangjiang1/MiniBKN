@@ -1,0 +1,32 @@
+---
+type: object_type
+id: purchase_order
+name: Purchase Order
+tags: [procurement, evaluation, generated]
+---
+
+## ObjectType: Purchase Order
+
+Generated procurement business object.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| po_id | PO ID | string | PO ID | po_id |
+| supplier_id | Supplier ID | string | Supplier ID | supplier_id |
+| buyer_id | Buyer ID | string | Buyer ID | buyer_id |
+| amount | Amount | decimal | Amount | amount |
+| status | Status | string | Status | status |
+| created_at | Created At | date | Created At | created_at |
+
+### Keys
+
+Primary Keys: po_id
+Display Key: po_id
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | purchase_orders_csv | purchase_orders.csv |

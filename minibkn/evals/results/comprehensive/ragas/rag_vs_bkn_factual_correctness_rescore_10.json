@@ -1,0 +1,950 @@
+{
+  "created_at": "2026-08-17T14:50:11.685431+00:00",
+  "comparison": {
+    "baseline": "traditional hybrid RAG: top-20 retrieval without QueryPlan",
+    "candidate": "MiniBKN: frozen validated QueryPlan plus deterministic execution",
+    "answer_model": "deepseek-chat",
+    "judge_model": "deepseek-chat",
+    "embedding_model": "BAAI/bge-m3",
+    "same_prompt_and_answer_model": true
+  },
+  "sample": {
+    "size": 10,
+    "categories": {
+      "filter_aggregate": 5,
+      "multi_hop": 5
+    },
+    "structured_execution_exact": 1.0
+  },
+  "token_usage": {
+    "traditional_rag": {
+      "average_prompt_tokens": 450.3,
+      "average_completion_tokens": 105.9,
+      "average_total_tokens": 556.2,
+      "total_prompt_tokens": 4503,
+      "total_completion_tokens": 1059,
+      "total_tokens": 5562,
+      "average_retrieval_reference_coverage": 0.25
+    },
+    "minibkn_queryplan": {
+      "average_prompt_tokens": 265.1,
+      "average_completion_tokens": 74.3,
+      "average_total_tokens": 339.4,
+      "total_prompt_tokens": 2651,
+      "total_completion_tokens": 743,
+      "total_tokens": 3394,
+      "average_retrieval_reference_coverage": 1.0
+    },
+    "prompt_token_reduction": 0.4113,
+    "total_token_reduction": 0.3898,
+    "measurement": "provider-reported DeepSeek API usage"
+  },
+  "ragas": {
+    "traditional_rag": {
+      "factual_correctness": {
+        "mean": 0.276,
+        "successful_cases": 10,
+        "failed_cases": 0
+      }
+    },
+    "minibkn_queryplan": {
+      "factual_correctness": {
+        "mean": 0.9,
+        "successful_cases": 10,
+        "failed_cases": 0
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "crm-141",
+      "category": "filter_aggregate",
+      "question": "金额不低于 1000 的订单有多少",
+      "reference": "对于问题“金额不低于 1000 的订单有多少”，正确答案是：符合条件的记录数量为 2441。",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "structured_execution_exact": true,
+      "systems": {
+        "traditional_rag": {
+          "contexts": [
+            "order ORD-01800 order_id ORD-01800 customer_id CUST-0101 amount 7000.00 status paid created_at 2025-06-30",
+            "Approve Order Evaluates whether an order may enter approval. The benchmark only simulates this action. order",
+            "order ORD-01375 order_id ORD-01375 customer_id CUST-0376 amount 8775.00 status paid created_at 2025-10-23",
+            "order ORD-00507 order_id ORD-00507 customer_id CUST-0120 amount 9859.00 status shipped created_at 2026-05-23",
+            "order_item ITEM-003341 item_id ITEM-003341 order_id ORD-01752 product_id PROD-0108 quantity 6 unit_price 500.00",
+            "customer Enterprise Customer 0001 customer_id CUST-0001 name Enterprise Customer 0001 tier growth region west rep_id REP-002 credit_limit 15000.00",
+            "order ORD-01887 order_id ORD-01887 customer_id CUST-0080 amount 18919.00 status shipped created_at 2025-09-25",
+            "customer Enterprise Customer 0002 customer_id CUST-0002 name Enterprise Customer 0002 tier vip region north rep_id REP-003 credit_limit 20000.00",
+            "customer Enterprise Customer 0003 customer_id CUST-0003 name Enterprise Customer 0003 tier standard region south rep_id REP-004 credit_limit 25000.00",
+            "order ORD-00477 order_id ORD-00477 customer_id CUST-0110 amount 5749.00 status shipped created_at 2026-04-23"
+          ],
+          "retrieval_reference_coverage": 0.0,
+          "answer": "根据提供的证据，我只能确认以下订单金额不低于1000：\n\n- ORD-01800：金额 7000.00\n- ORD-01375：金额 8775.00\n- ORD-00507：金额 9859.00\n- ORD-01887：金额 18919.00\n- ORD-00477：金额 5749.00\n\n证据中仅列出了这5个订单，未提供其他订单信息，因此无法统计全部符合条件的订单总数。若需准确总数，需提供完整订单列表。",
+          "prompt_tokens": 439,
+          "completion_tokens": 117,
+          "total_tokens": 556,
+          "latency_ms": 1948.83,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 0.0
+            },
+            "answer_relevancy": {
+              "value": 0.7946
+            },
+            "context_precision": {
+              "value": 0.0
+            },
+            "context_recall": {
+              "value": 0.0
+            },
+            "noise_sensitivity": {
+              "value": 0.6
+            }
+          }
+        },
+        "minibkn_queryplan": {
+          "contexts": [
+            "结构化查询计划已根据筛选条件完成计算，结果为：count=2441",
+            "order_id ORD-00005 customer_id CUST-0086 amount 1085.00 status paid created_at 2025-01-06",
+            "order_id ORD-00006 customer_id CUST-0103 amount 1222.00 status paid created_at 2025-01-07",
+            "order_id ORD-00007 customer_id CUST-0120 amount 1359.00 status shipped created_at 2025-01-08",
+            "order_id ORD-00008 customer_id CUST-0137 amount 1496.00 status pending created_at 2025-01-09",
+            "order_id ORD-00009 customer_id CUST-0154 amount 1633.00 status cancelled created_at 2025-01-10",
+            "order_id ORD-00010 customer_id CUST-0171 amount 1770.00 status paid created_at 2025-01-11",
+            "order_id ORD-00011 customer_id CUST-0188 amount 1907.00 status paid created_at 2025-01-12",
+            "order_id ORD-00012 customer_id CUST-0205 amount 2044.00 status shipped created_at 2025-01-13",
+            "order_id ORD-00013 customer_id CUST-0222 amount 2181.00 status pending created_at 2025-01-14"
+          ],
+          "retrieval_reference_coverage": 1.0,
+          "answer": "根据证据[1]，金额不低于1000的订单数量为 **2441**。",
+          "prompt_tokens": 387,
+          "completion_tokens": 18,
+          "total_tokens": 405,
+          "latency_ms": 939.18,
+          "ragas": {
+            "faithfulness": {
+              "value": 0.0
+            },
+            "factual_correctness": {
+              "value": 1.0
+            },
+            "answer_relevancy": {
+              "value": 0.8899
+            },
+            "context_precision": {
+              "value": 1.0
+            },
+            "context_recall": {
+              "value": 1.0
+            },
+            "noise_sensitivity": {
+              "value": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "crm-153",
+      "category": "filter_aggregate",
+      "question": "金额不低于 10000 的订单有多少",
+      "reference": "对于问题“金额不低于 10000 的订单有多少”，正确答案是：符合条件的记录数量为 1657。",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "structured_execution_exact": true,
+      "systems": {
+        "traditional_rag": {
+          "contexts": [
+            "order_item ITEM-000910 item_id ITEM-000910 order_id ORD-00011 product_id PROD-0011 quantity 7 unit_price 325.00",
+            "Approve Order Evaluates whether an order may enter approval. The benchmark only simulates this action. order",
+            "order_item ITEM-000110 item_id ITEM-000110 order_id ORD-01211 product_id PROD-0051 quantity 7 unit_price 575.00",
+            "customer Enterprise Customer 0001 customer_id CUST-0001 name Enterprise Customer 0001 tier growth region west rep_id REP-002 credit_limit 15000.00",
+            "order_item ITEM-000911 item_id ITEM-000911 order_id ORD-00022 product_id PROD-0018 quantity 8 unit_price 500.00",
+            "customer Enterprise Customer 0002 customer_id CUST-0002 name Enterprise Customer 0002 tier vip region north rep_id REP-003 credit_limit 20000.00",
+            "order_item ITEM-000510 item_id ITEM-000510 order_id ORD-00611 product_id PROD-0091 quantity 7 unit_price 75.00",
+            "customer Enterprise Customer 0003 customer_id CUST-0003 name Enterprise Customer 0003 tier standard region south rep_id REP-004 credit_limit 25000.00",
+            "order_item ITEM-001015 item_id ITEM-001015 order_id ORD-01166 product_id PROD-0026 quantity 8 unit_price 700.00",
+            "customer Enterprise Customer 0004 customer_id CUST-0004 name Enterprise Customer 0004 tier growth region east rep_id REP-005 credit_limit 30000.00"
+          ],
+          "retrieval_reference_coverage": 0.0,
+          "answer": "根据提供的证据，无法确定金额不低于10000的订单数量。证据中仅包含订单项（order_item）的单价和数量，但未提供订单总金额的计算结果，且未列出所有订单的完整信息。例如，证据[1]中订单ORD-00011的金额为7×325=2275，证据[3]中ORD-01211的金额为7×575=4025，证据[5]中ORD-00022的金额为8×500=4000，证据[7]中ORD-00611的金额为7×75=525，证据[9]中ORD-01166的金额为8×700=5600，均未达到10000。但证据未覆盖所有订单，因此无法给出确切数量。",
+          "prompt_tokens": 437,
+          "completion_tokens": 163,
+          "total_tokens": 600,
+          "latency_ms": 4528.62,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 0.0
+            },
+            "answer_relevancy": {
+              "value": 0.0
+            },
+            "context_precision": {
+              "value": 0.0
+            },
+            "context_recall": {
+              "value": 0.0
+            },
+            "noise_sensitivity": {
+              "value": 0.4167
+            }
+          }
+        },
+        "minibkn_queryplan": {
+          "contexts": [
+            "结构化查询计划已根据筛选条件完成计算，结果为：count=1657",
+            "order_id ORD-00071 customer_id CUST-0208 amount 10127.00 status paid created_at 2025-03-13",
+            "order_id ORD-00072 customer_id CUST-0225 amount 10264.00 status shipped created_at 2025-03-14",
+            "order_id ORD-00073 customer_id CUST-0242 amount 10401.00 status pending created_at 2025-03-15",
+            "order_id ORD-00074 customer_id CUST-0259 amount 10538.00 status cancelled created_at 2025-03-16",
+            "order_id ORD-00075 customer_id CUST-0276 amount 10675.00 status paid created_at 2025-03-17",
+            "order_id ORD-00076 customer_id CUST-0293 amount 10812.00 status paid created_at 2025-03-18",
+            "order_id ORD-00077 customer_id CUST-0310 amount 10949.00 status shipped created_at 2025-03-19",
+            "order_id ORD-00078 customer_id CUST-0327 amount 11086.00 status pending created_at 2025-03-20",
+            "order_id ORD-00079 customer_id CUST-0344 amount 11223.00 status cancelled created_at 2025-03-21"
+          ],
+          "retrieval_reference_coverage": 1.0,
+          "answer": "根据证据[1]中的结构化查询计划计算结果，金额不低于10000的订单数量为 **1657**。",
+          "prompt_tokens": 387,
+          "completion_tokens": 24,
+          "total_tokens": 411,
+          "latency_ms": 1334.95,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 0.0
+            },
+            "answer_relevancy": {
+              "value": 0.7826
+            },
+            "context_precision": {
+              "value": 1.0
+            },
+            "context_recall": {
+              "value": 1.0
+            },
+            "noise_sensitivity": {
+              "value": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "crm-165",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 2500 的订单总额",
+      "reference": "对于问题“已支付且金额不低于 2500 的订单总额”，正确答案是：符合条件的金额总和为 14919149.0。",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "structured_execution_exact": true,
+      "systems": {
+        "traditional_rag": {
+          "contexts": [
+            "order ORD-00185 order_id ORD-00185 customer_id CUST-0146 amount 25745.00 status paid created_at 2025-07-05",
+            "order ORD-02446 order_id ORD-02446 customer_id CUST-0083 amount 5502.00 status paid created_at 2025-10-14",
+            "Approve Order Evaluates whether an order may enter approval. The benchmark only simulates this action. order",
+            "customer Enterprise Customer 0001 customer_id CUST-0001 name Enterprise Customer 0001 tier growth region west rep_id REP-002 credit_limit 15000.00",
+            "order ORD-02375 order_id ORD-02375 customer_id CUST-0376 amount 25775.00 status paid created_at 2025-08-04",
+            "customer Enterprise Customer 0002 customer_id CUST-0002 name Enterprise Customer 0002 tier vip region north rep_id REP-003 credit_limit 20000.00",
+            "order ORD-02345 order_id ORD-02345 customer_id CUST-0366 amount 21665.00 status paid created_at 2025-07-05",
+            "order ORD-02165 order_id ORD-02165 customer_id CUST-0306 amount 27005.00 status paid created_at 2025-01-06",
+            "customer Enterprise Customer 0003 customer_id CUST-0003 name Enterprise Customer 0003 tier standard region south rep_id REP-004 credit_limit 25000.00",
+            "customer Enterprise Customer 0004 customer_id CUST-0004 name Enterprise Customer 0004 tier growth region east rep_id REP-005 credit_limit 30000.00"
+          ],
+          "retrieval_reference_coverage": 0.0,
+          "answer": "根据提供的证据，已支付且金额不低于2500的订单有：\n\n- ORD-00185：金额 25745.00，状态 paid\n- ORD-02446：金额 5502.00，状态 paid\n- ORD-02375：金额 25775.00，状态 paid\n- ORD-02345：金额 21665.00，状态 paid\n- ORD-02165：金额 27005.00，状态 paid\n\n这些订单的总额为：25745.00 + 5502.00 + 25775.00 + 21665.00 + 27005.00 = **105692.00**。\n\n因此，已支付且金额不低于2500的订单总额为 **105692.00**。",
+          "prompt_tokens": 440,
+          "completion_tokens": 162,
+          "total_tokens": 602,
+          "latency_ms": 2390.56,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 0.0
+            },
+            "answer_relevancy": {
+              "value": 0.9096
+            },
+            "context_precision": {
+              "value": 0.0
+            },
+            "context_recall": {
+              "value": 0.0
+            },
+            "noise_sensitivity": {
+              "value": 0.7143
+            }
+          }
+        },
+        "minibkn_queryplan": {
+          "contexts": [
+            "结构化查询计划已根据筛选条件完成计算，结果为：total_amount=14919149.0",
+            "order_id ORD-00016 customer_id CUST-0273 amount 2592.00 status paid created_at 2025-01-17",
+            "order_id ORD-00020 customer_id CUST-0341 amount 3140.00 status paid created_at 2025-01-21",
+            "order_id ORD-00021 customer_id CUST-0358 amount 3277.00 status paid created_at 2025-01-22",
+            "order_id ORD-00025 customer_id CUST-0426 amount 3825.00 status paid created_at 2025-01-26",
+            "order_id ORD-00026 customer_id CUST-0443 amount 3962.00 status paid created_at 2025-01-27",
+            "order_id ORD-00030 customer_id CUST-0011 amount 4510.00 status paid created_at 2025-01-31",
+            "order_id ORD-00031 customer_id CUST-0028 amount 4647.00 status paid created_at 2025-02-01",
+            "order_id ORD-00035 customer_id CUST-0096 amount 5195.00 status paid created_at 2025-02-05",
+            "order_id ORD-00036 customer_id CUST-0113 amount 5332.00 status paid created_at 2025-02-06"
+          ],
+          "retrieval_reference_coverage": 1.0,
+          "answer": "根据证据[1]，已支付且金额不低于2500的订单总额为 **14,919,149.0** 元。",
+          "prompt_tokens": 394,
+          "completion_tokens": 28,
+          "total_tokens": 422,
+          "latency_ms": 1168.81,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 1.0
+            },
+            "answer_relevancy": {
+              "value": 0.9173
+            },
+            "context_precision": {
+              "value": 1.0
+            },
+            "context_recall": {
+              "value": 1.0
+            },
+            "noise_sensitivity": {
+              "value": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "crm-177",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 8500 的订单总额",
+      "reference": "对于问题“已支付且金额不低于 8500 的订单总额”，正确答案是：符合条件的金额总和为 13768589.0。",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "structured_execution_exact": true,
+      "systems": {
+        "traditional_rag": {
+          "contexts": [
+            "order ORD-00500 order_id ORD-00500 customer_id CUST-0001 amount 8900.00 status paid created_at 2026-05-16",
+            "order ORD-00496 order_id ORD-00496 customer_id CUST-0433 amount 8352.00 status paid created_at 2026-05-12",
+            "order ORD-00705 order_id ORD-00705 customer_id CUST-0486 amount 6985.00 status paid created_at 2025-06-15",
+            "order ORD-00495 order_id ORD-00495 customer_id CUST-0416 amount 8215.00 status paid created_at 2026-05-11",
+            "Approve Order Evaluates whether an order may enter approval. The benchmark only simulates this action. order",
+            "order ORD-00351 order_id ORD-00351 customer_id CUST-0468 amount 18487.00 status paid created_at 2025-12-18",
+            "customer Enterprise Customer 0001 customer_id CUST-0001 name Enterprise Customer 0001 tier growth region west rep_id REP-002 credit_limit 15000.00",
+            "customer Enterprise Customer 0002 customer_id CUST-0002 name Enterprise Customer 0002 tier vip region north rep_id REP-003 credit_limit 20000.00",
+            "customer Enterprise Customer 0003 customer_id CUST-0003 name Enterprise Customer 0003 tier standard region south rep_id REP-004 credit_limit 25000.00",
+            "order ORD-02465 order_id ORD-02465 customer_id CUST-0406 amount 8105.00 status paid created_at 2025-11-02"
+          ],
+          "retrieval_reference_coverage": 0.0,
+          "answer": "根据提供的证据，已支付且金额不低于8500的订单有：\n\n- ORD-00500：金额 8900.00，状态 paid\n- ORD-00351：金额 18487.00，状态 paid\n\n因此，这些订单的总额为 8900.00 + 18487.00 = **27387.00**。\n\n（注：其他订单如ORD-00496金额8352.00、ORD-00705金额6985.00、ORD-00495金额8215.00、ORD-02465金额8105.00均低于8500，不符合条件。）",
+          "prompt_tokens": 442,
+          "completion_tokens": 128,
+          "total_tokens": 570,
+          "latency_ms": 2196.5,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 0.0
+            },
+            "answer_relevancy": {
+              "value": 0.8576
+            },
+            "context_precision": {
+              "value": 0.0
+            },
+            "context_recall": {
+              "value": 0.0
+            },
+            "noise_sensitivity": {
+              "value": 0.75
+            }
+          }
+        },
+        "minibkn_queryplan": {
+          "contexts": [
+            "结构化查询计划已根据筛选条件完成计算，结果为：total_amount=13768589.0",
+            "order_id ORD-00060 customer_id CUST-0021 amount 8620.00 status paid created_at 2025-03-02",
+            "order_id ORD-00061 customer_id CUST-0038 amount 8757.00 status paid created_at 2025-03-03",
+            "order_id ORD-00065 customer_id CUST-0106 amount 9305.00 status paid created_at 2025-03-07",
+            "order_id ORD-00066 customer_id CUST-0123 amount 9442.00 status paid created_at 2025-03-08",
+            "order_id ORD-00070 customer_id CUST-0191 amount 9990.00 status paid created_at 2025-03-12",
+            "order_id ORD-00071 customer_id CUST-0208 amount 10127.00 status paid created_at 2025-03-13",
+            "order_id ORD-00075 customer_id CUST-0276 amount 10675.00 status paid created_at 2025-03-17",
+            "order_id ORD-00076 customer_id CUST-0293 amount 10812.00 status paid created_at 2025-03-18",
+            "order_id ORD-00080 customer_id CUST-0361 amount 11360.00 status paid created_at 2025-03-22"
+          ],
+          "retrieval_reference_coverage": 1.0,
+          "answer": "根据证据[1]中的结构化查询计划计算结果，已支付且金额不低于8500的订单总额为 **13,768,589.0**。",
+          "prompt_tokens": 394,
+          "completion_tokens": 32,
+          "total_tokens": 426,
+          "latency_ms": 1288.87,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 1.0
+            },
+            "answer_relevancy": {
+              "value": 0.9103
+            },
+            "context_precision": {
+              "value": 1.0
+            },
+            "context_recall": {
+              "value": 1.0
+            },
+            "noise_sensitivity": {
+              "value": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "crm-189",
+      "category": "filter_aggregate",
+      "question": "vip 等级客户有多少",
+      "reference": "对于问题“vip 等级客户有多少”，正确答案是：符合条件的记录数量为 167。",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "structured_execution_exact": true,
+      "systems": {
+        "traditional_rag": {
+          "contexts": [
+            "customer Enterprise Customer 0008 customer_id CUST-0008 name Enterprise Customer 0008 tier vip region east rep_id REP-009 credit_limit 50000.00",
+            "customer Enterprise Customer 0026 customer_id CUST-0026 name Enterprise Customer 0026 tier vip region north rep_id REP-007 credit_limit 40000.00",
+            "customer Enterprise Customer 0116 customer_id CUST-0116 name Enterprise Customer 0116 tier vip region east rep_id REP-017 credit_limit 90000.00",
+            "customer Enterprise Customer 0023 customer_id CUST-0023 name Enterprise Customer 0023 tier vip region south rep_id REP-004 credit_limit 25000.00",
+            "customer Enterprise Customer 0056 customer_id CUST-0056 name Enterprise Customer 0056 tier vip region east rep_id REP-017 credit_limit 90000.00",
+            "customer Enterprise Customer 0020 customer_id CUST-0020 name Enterprise Customer 0020 tier vip region east rep_id REP-001 credit_limit 10000.00",
+            "customer Enterprise Customer 0032 customer_id CUST-0032 name Enterprise Customer 0032 tier vip region east rep_id REP-013 credit_limit 70000.00",
+            "customer Enterprise Customer 0128 customer_id CUST-0128 name Enterprise Customer 0128 tier vip region east rep_id REP-009 credit_limit 50000.00",
+            "customer Enterprise Customer 0107 customer_id CUST-0107 name Enterprise Customer 0107 tier vip region south rep_id REP-008 credit_limit 45000.00",
+            "customer Enterprise Customer 0068 customer_id CUST-0068 name Enterprise Customer 0068 tier vip region east rep_id REP-009 credit_limit 50000.00"
+          ],
+          "retrieval_reference_coverage": 0.0,
+          "answer": "根据提供的证据，共有 **10** 位 vip 等级客户（证据中所有记录的 tier 均为 vip）。",
+          "prompt_tokens": 438,
+          "completion_tokens": 24,
+          "total_tokens": 462,
+          "latency_ms": 1328.74,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 0.0
+            },
+            "answer_relevancy": {
+              "value": 0.8647
+            },
+            "context_precision": {
+              "value": 0.0
+            },
+            "context_recall": {
+              "value": 0.0
+            },
+            "noise_sensitivity": {
+              "value": 0.5
+            }
+          }
+        },
+        "minibkn_queryplan": {
+          "contexts": [
+            "结构化查询计划已根据筛选条件完成计算，结果为：count=167",
+            "customer_id CUST-0002 name Enterprise Customer 0002 tier vip region north rep_id REP-003 credit_limit 20000.00",
+            "customer_id CUST-0005 name Enterprise Customer 0005 tier vip region west rep_id REP-006 credit_limit 35000.00",
+            "customer_id CUST-0008 name Enterprise Customer 0008 tier vip region east rep_id REP-009 credit_limit 50000.00",
+            "customer_id CUST-0011 name Enterprise Customer 0011 tier vip region south rep_id REP-012 credit_limit 65000.00",
+            "customer_id CUST-0014 name Enterprise Customer 0014 tier vip region north rep_id REP-015 credit_limit 80000.00",
+            "customer_id CUST-0017 name Enterprise Customer 0017 tier vip region west rep_id REP-018 credit_limit 95000.00",
+            "customer_id CUST-0020 name Enterprise Customer 0020 tier vip region east rep_id REP-001 credit_limit 10000.00",
+            "customer_id CUST-0023 name Enterprise Customer 0023 tier vip region south rep_id REP-004 credit_limit 25000.00",
+            "customer_id CUST-0026 name Enterprise Customer 0026 tier vip region north rep_id REP-007 credit_limit 40000.00"
+          ],
+          "retrieval_reference_coverage": 1.0,
+          "answer": "根据证据，vip 等级客户共有 **167** 名。",
+          "prompt_tokens": 365,
+          "completion_tokens": 15,
+          "total_tokens": 380,
+          "latency_ms": 669.6,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 1.0
+            },
+            "answer_relevancy": {
+              "value": 0.8966
+            },
+            "context_precision": {
+              "value": 1.0
+            },
+            "context_recall": {
+              "value": 1.0
+            },
+            "noise_sensitivity": {
+              "value": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "crm-071",
+      "category": "multi_hop",
+      "question": "订单 ORD-00001 是哪个客户下的，请给出双方信息",
+      "reference": "正确结果应包含业务对象 CUST-0018、ORD-00001；对应事实：order_id ORD-00001 customer_id CUST-0018 amount 537.00 status paid created_at 2025-01-02；customer_id CUST-0018 name Enterprise Customer 0018 tier standard region north rep_id REP-019 credit_limit 100000.00",
+      "expected_document_ids": [
+        "instance:customer:CUST-0018",
+        "instance:order:ORD-00001"
+      ],
+      "structured_execution_exact": true,
+      "systems": {
+        "traditional_rag": {
+          "contexts": [
+            "order ORD-00001 order_id ORD-00001 customer_id CUST-0018 amount 537.00 status paid created_at 2025-01-02",
+            "order ORD-00401 order_id ORD-00401 customer_id CUST-0318 amount 25337.00 status paid created_at 2026-02-06",
+            "order ORD-01001 order_id ORD-01001 customer_id CUST-0018 amount 17537.00 status paid created_at 2026-04-07",
+            "order ORD-00010 order_id ORD-00010 customer_id CUST-0171 amount 1770.00 status paid created_at 2025-01-11",
+            "order ORD-01008 order_id ORD-01008 customer_id CUST-0137 amount 18496.00 status pending created_at 2026-04-14",
+            "order_item ITEM-002500 item_id ITEM-002500 order_id ORD-00001 product_id PROD-0101 quantity 5 unit_price 325.00",
+            "order ORD-01006 order_id ORD-01006 customer_id CUST-0103 amount 18222.00 status paid created_at 2026-04-12",
+            "order_item ITEM-005000 item_id ITEM-005000 order_id ORD-00001 product_id PROD-0081 quantity 1 unit_price 575.00",
+            "order ORD-01002 order_id ORD-01002 customer_id CUST-0035 amount 17674.00 status shipped created_at 2026-04-08",
+            "Approve Order Evaluates whether an order may enter approval. The benchmark only simulates this action. order"
+          ],
+          "retrieval_reference_coverage": 0.5,
+          "answer": "根据现有证据，订单 ORD-00001 的客户ID为 **CUST-0018**（证据[1]），但证据中未提供该客户的姓名、联系方式等具体信息。同时，证据中也没有包含订单 ORD-00001 对应的客户详细信息（如客户名称、地址等）。因此，目前只能确认客户ID，无法提供双方（客户与订单）的完整信息。如需更多客户详情，需补充相关客户数据。",
+          "prompt_tokens": 451,
+          "completion_tokens": 97,
+          "total_tokens": 548,
+          "latency_ms": 2177.8,
+          "ragas": {
+            "faithfulness": {
+              "value": 0.9
+            },
+            "factual_correctness": {
+              "value": 0.25
+            },
+            "answer_relevancy": {
+              "value": 0.8676
+            },
+            "context_precision": {
+              "value": 1.0
+            },
+            "context_recall": {
+              "value": 0.0
+            },
+            "noise_sensitivity": {
+              "value": 0.0
+            }
+          }
+        },
+        "minibkn_queryplan": {
+          "contexts": [
+            "order_id ORD-00001 customer_id CUST-0018 amount 537.00 status paid created_at 2025-01-02",
+            "customer_id CUST-0018 name Enterprise Customer 0018 tier standard region north rep_id REP-019 credit_limit 100000.00",
+            "ORD-00001 -[placed_by]-> CUST-0018"
+          ],
+          "retrieval_reference_coverage": 1.0,
+          "answer": "根据证据，订单 ORD-00001 是由客户 CUST-0018 下的。双方信息如下：\n\n- **订单信息**：订单号 ORD-00001，金额 537.00，状态为已支付（paid），创建于 2025-01-02。\n- **客户信息**：客户 ID CUST-0018，名称为 Enterprise Customer 0018，等级为标准（standard），所属区域为 north，客户代表 ID 为 REP-019，信用额度为 100,000.00。\n\n（注：证据中未提供客户联系人、地址等更多信息。）",
+          "prompt_tokens": 144,
+          "completion_tokens": 127,
+          "total_tokens": 271,
+          "latency_ms": 2277.03,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 1.0
+            },
+            "answer_relevancy": {
+              "value": 0.8906
+            },
+            "context_precision": {
+              "value": 1.0
+            },
+            "context_recall": {
+              "value": 1.0
+            },
+            "noise_sensitivity": {
+              "value": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "crm-085",
+      "category": "multi_hop",
+      "question": "订单 ORD-00267 是哪个客户下的，请给出双方信息",
+      "reference": "正确结果应包含业务对象 CUST-0040、ORD-00267；对应事实：order_id ORD-00267 customer_id CUST-0040 amount 6979.00 status shipped created_at 2025-09-25；customer_id CUST-0040 name Enterprise Customer 0040 tier growth region east rep_id REP-001 credit_limit 10000.00",
+      "expected_document_ids": [
+        "instance:customer:CUST-0040",
+        "instance:order:ORD-00267"
+      ],
+      "structured_execution_exact": true,
+      "systems": {
+        "traditional_rag": {
+          "contexts": [
+            "order ORD-00267 order_id ORD-00267 customer_id CUST-0040 amount 6979.00 status shipped created_at 2025-09-25",
+            "order ORD-00067 order_id ORD-00067 customer_id CUST-0140 amount 9579.00 status shipped created_at 2025-03-09",
+            "order ORD-02067 order_id ORD-02067 customer_id CUST-0140 amount 13579.00 status shipped created_at 2026-03-24",
+            "order ORD-01067 order_id ORD-01067 customer_id CUST-0140 amount 26579.00 status shipped created_at 2026-06-12",
+            "order_item ITEM-000706 item_id ITEM-000706 order_id ORD-00267 product_id PROD-0023 quantity 3 unit_price 625.00",
+            "order ORD-00287 order_id ORD-00287 customer_id CUST-0380 amount 9719.00 status shipped created_at 2025-10-15",
+            "order_item ITEM-003206 item_id ITEM-003206 order_id ORD-00267 product_id PROD-0003 quantity 7 unit_price 125.00",
+            "order_item ITEM-005706 item_id ITEM-005706 order_id ORD-00267 product_id PROD-0103 quantity 3 unit_price 375.00",
+            "order ORD-00257 order_id ORD-00257 customer_id CUST-0370 amount 5609.00 status shipped created_at 2025-09-15",
+            "order ORD-02367 order_id ORD-02367 customer_id CUST-0240 amount 24679.00 status shipped created_at 2025-07-27"
+          ],
+          "retrieval_reference_coverage": 0.5,
+          "answer": "根据证据，订单 ORD-00267 的客户ID是 **CUST-0040**（证据[1]）。但证据中未提供该客户的姓名、联系方式等具体信息，因此无法给出完整的双方信息。如需客户详细资料，需补充客户表数据。",
+          "prompt_tokens": 468,
+          "completion_tokens": 59,
+          "total_tokens": 527,
+          "latency_ms": 2162.66,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 0.67
+            },
+            "answer_relevancy": {
+              "value": 0.8764
+            },
+            "context_precision": {
+              "value": 0.0
+            },
+            "context_recall": {
+              "value": 0.6667
+            },
+            "noise_sensitivity": {
+              "value": 0.25
+            }
+          }
+        },
+        "minibkn_queryplan": {
+          "contexts": [
+            "order_id ORD-00267 customer_id CUST-0040 amount 6979.00 status shipped created_at 2025-09-25",
+            "customer_id CUST-0040 name Enterprise Customer 0040 tier growth region east rep_id REP-001 credit_limit 10000.00",
+            "ORD-00267 -[placed_by]-> CUST-0040"
+          ],
+          "retrieval_reference_coverage": 1.0,
+          "answer": "根据证据，订单 ORD-00267 是由客户 CUST-0040 下的单。双方信息如下：\n\n- **订单方**：订单号 ORD-00267，金额 6979.00，状态为已发货（shipped），创建日期为 2025-09-25。\n- **客户方**：客户 ID CUST-0040，名称为“Enterprise Customer 0040”，客户等级为 growth，所属区域为 east，负责销售代表为 REP-001，信用额度为 10000.00。\n\n（注：证据中未提供客户的具体联系人姓名或地址等更多信息。）",
+          "prompt_tokens": 145,
+          "completion_tokens": 132,
+          "total_tokens": 277,
+          "latency_ms": 1925.37,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 1.0
+            },
+            "answer_relevancy": {
+              "value": 0.8981
+            },
+            "context_precision": {
+              "value": 1.0
+            },
+            "context_recall": {
+              "value": 1.0
+            },
+            "noise_sensitivity": {
+              "value": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "crm-099",
+      "category": "multi_hop",
+      "question": "订单 ORD-00533 是哪个客户下的，请给出双方信息",
+      "reference": "正确结果应包含业务对象 CUST-0062、ORD-00533；对应事实：order_id ORD-00533 customer_id CUST-0062 amount 13421.00 status pending created_at 2026-06-18；customer_id CUST-0062 name Enterprise Customer 0062 tier vip region north rep_id REP-003 credit_limit 20000.00",
+      "expected_document_ids": [
+        "instance:customer:CUST-0062",
+        "instance:order:ORD-00533"
+      ],
+      "structured_execution_exact": true,
+      "systems": {
+        "traditional_rag": {
+          "contexts": [
+            "order ORD-00533 order_id ORD-00533 customer_id CUST-0062 amount 13421.00 status pending created_at 2026-06-18",
+            "order ORD-00033 order_id ORD-00033 customer_id CUST-0062 amount 4921.00 status pending created_at 2025-02-03",
+            "order ORD-00733 order_id ORD-00733 customer_id CUST-0462 amount 10821.00 status pending created_at 2025-07-13",
+            "order_item ITEM-001412 item_id ITEM-001412 order_id ORD-00533 product_id PROD-0045 quantity 5 unit_price 425.00",
+            "order ORD-00596 order_id ORD-00596 customer_id CUST-0133 amount 22052.00 status paid created_at 2025-02-26",
+            "order ORD-01353 order_id ORD-01353 customer_id CUST-0002 amount 5761.00 status pending created_at 2025-10-01",
+            "order_item ITEM-003912 item_id ITEM-003912 order_id ORD-00533 product_id PROD-0025 quantity 1 unit_price 675.00",
+            "order ORD-00833 order_id ORD-00833 customer_id CUST-0162 amount 24521.00 status pending created_at 2025-10-21",
+            "order ORD-00541 order_id ORD-00541 customer_id CUST-0198 amount 14517.00 status paid created_at 2025-01-02",
+            "order ORD-00035 order_id ORD-00035 customer_id CUST-0096 amount 5195.00 status paid created_at 2025-02-05"
+          ],
+          "retrieval_reference_coverage": 0.5,
+          "answer": "根据证据[1]，订单 ORD-00533 的客户ID为 **CUST-0062**。但证据中未提供该客户的姓名、联系方式等具体信息，也未提供订单对应的产品名称或双方（客户与供应商）的详细资料。因此，目前只能确认客户ID，无法给出完整的双方信息。",
+          "prompt_tokens": 468,
+          "completion_tokens": 69,
+          "total_tokens": 537,
+          "latency_ms": 1557.57,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 0.5
+            },
+            "answer_relevancy": {
+              "value": 0.88
+            },
+            "context_precision": {
+              "value": 1.0
+            },
+            "context_recall": {
+              "value": 0.6667
+            },
+            "noise_sensitivity": {
+              "value": 0.0
+            }
+          }
+        },
+        "minibkn_queryplan": {
+          "contexts": [
+            "order_id ORD-00533 customer_id CUST-0062 amount 13421.00 status pending created_at 2026-06-18",
+            "customer_id CUST-0062 name Enterprise Customer 0062 tier vip region north rep_id REP-003 credit_limit 20000.00",
+            "ORD-00533 -[placed_by]-> CUST-0062"
+          ],
+          "retrieval_reference_coverage": 1.0,
+          "answer": "根据证据，订单 ORD-00533 是由客户 CUST-0062 下的单。双方信息如下：\n\n- **订单方**：订单号 ORD-00533，金额 13421.00，状态 pending，创建时间 2026-06-18。\n- **客户方**：客户 ID CUST-0062，名称 Enterprise Customer 0062，等级 vip，区域 north，销售代表 REP-003，信用额度 20000.00。\n\n（注：证据中未提供客户联系人姓名、地址等更多信息。）",
+          "prompt_tokens": 145,
+          "completion_tokens": 116,
+          "total_tokens": 261,
+          "latency_ms": 1579.15,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 1.0
+            },
+            "answer_relevancy": {
+              "value": 0.903
+            },
+            "context_precision": {
+              "value": 0.5833
+            },
+            "context_recall": {
+              "value": 1.0
+            },
+            "noise_sensitivity": {
+              "value": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "crm-113",
+      "category": "multi_hop",
+      "question": "订单 ORD-00799 是哪个客户下的，请给出双方信息",
+      "reference": "正确结果应包含业务对象 CUST-0084、ORD-00799；对应事实：order_id ORD-00799 customer_id CUST-0084 amount 19863.00 status cancelled created_at 2025-09-17；customer_id CUST-0084 name Enterprise Customer 0084 tier standard region east rep_id REP-005 credit_limit 30000.00",
+      "expected_document_ids": [
+        "instance:customer:CUST-0084",
+        "instance:order:ORD-00799"
+      ],
+      "structured_execution_exact": true,
+      "systems": {
+        "traditional_rag": {
+          "contexts": [
+            "order ORD-00799 order_id ORD-00799 customer_id CUST-0084 amount 19863.00 status cancelled created_at 2025-09-17",
+            "order ORD-00747 order_id ORD-00747 customer_id CUST-0200 amount 12739.00 status shipped created_at 2025-07-27",
+            "order ORD-01747 order_id ORD-01747 customer_id CUST-0200 amount 29739.00 status shipped created_at 2025-05-08",
+            "order ORD-00697 order_id ORD-00697 customer_id CUST-0350 amount 5889.00 status shipped created_at 2025-06-07",
+            "order_item ITEM-002118 item_id ITEM-002118 order_id ORD-00799 product_id PROD-0067 quantity 7 unit_price 225.00",
+            "order ORD-02493 order_id ORD-02493 customer_id CUST-0382 amount 11941.00 status pending created_at 2025-11-30",
+            "order ORD-00870 order_id ORD-00870 customer_id CUST-0291 amount 29590.00 status paid created_at 2025-11-27",
+            "order_item ITEM-004618 item_id ITEM-004618 order_id ORD-00799 product_id PROD-0047 quantity 3 unit_price 475.00",
+            "order ORD-00197 order_id ORD-00197 customer_id CUST-0350 amount 27389.00 status shipped created_at 2025-07-17",
+            "Approve Order Evaluates whether an order may enter approval. The benchmark only simulates this action. order"
+          ],
+          "retrieval_reference_coverage": 0.5,
+          "answer": "根据现有证据，订单 ORD-00799 的客户ID为 **CUST-0084**（证据[1]），但证据中未提供该客户的姓名、联系方式等具体信息。同时，订单金额为 **19863.00**，状态为 **cancelled**，创建时间为 **2025-09-17**（证据[1]）。此外，该订单包含两个商品项：PROD-0067（数量7，单价225.00）和PROD-0047（数量3，单价475.00）（证据[5][8]）。\n\n由于证据中未包含客户 CUST-0084 的详细资料，无法提供双方（客户与供应商）的完整信息。如需客户名称、地址等，请补充相关数据。",
+          "prompt_tokens": 452,
+          "completion_tokens": 163,
+          "total_tokens": 615,
+          "latency_ms": 1913.6,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 0.67
+            },
+            "answer_relevancy": {
+              "value": 0.8446
+            },
+            "context_precision": {
+              "value": 1.0
+            },
+            "context_recall": {
+              "value": 0.0
+            },
+            "noise_sensitivity": {
+              "value": 0.0
+            }
+          }
+        },
+        "minibkn_queryplan": {
+          "contexts": [
+            "order_id ORD-00799 customer_id CUST-0084 amount 19863.00 status cancelled created_at 2025-09-17",
+            "customer_id CUST-0084 name Enterprise Customer 0084 tier standard region east rep_id REP-005 credit_limit 30000.00",
+            "ORD-00799 -[placed_by]-> CUST-0084"
+          ],
+          "retrieval_reference_coverage": 1.0,
+          "answer": "根据证据，订单 ORD-00799 是由客户 CUST-0084 下的。双方信息如下：\n\n- **订单方**：订单号 ORD-00799，金额 19863.00，状态为已取消（cancelled），创建日期 2025-09-17。\n- **客户方**：客户 ID CUST-0084，名称 Enterprise Customer 0084，等级 standard，区域 east，销售代表 REP-005，信用额度 30000.00。\n\n（注：证据中未提供客户联系人姓名或地址等更多信息。）",
+          "prompt_tokens": 145,
+          "completion_tokens": 121,
+          "total_tokens": 266,
+          "latency_ms": 1434.76,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 1.0
+            },
+            "answer_relevancy": {
+              "value": 0.8821
+            },
+            "context_precision": {
+              "value": 1.0
+            },
+            "context_recall": {
+              "value": 1.0
+            },
+            "noise_sensitivity": {
+              "value": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "crm-127",
+      "category": "multi_hop",
+      "question": "订单 ORD-01065 是哪个客户下的，请给出双方信息",
+      "reference": "正确结果应包含业务对象 CUST-0106、ORD-01065；对应事实：order_id ORD-01065 customer_id CUST-0106 amount 26305.00 status paid created_at 2026-06-10；customer_id CUST-0106 name Enterprise Customer 0106 tier growth region north rep_id REP-007 credit_limit 40000.00",
+      "expected_document_ids": [
+        "instance:customer:CUST-0106",
+        "instance:order:ORD-01065"
+      ],
+      "structured_execution_exact": true,
+      "systems": {
+        "traditional_rag": {
+          "contexts": [
+            "order ORD-01065 order_id ORD-01065 customer_id CUST-0106 amount 26305.00 status paid created_at 2026-06-10",
+            "order ORD-00065 order_id ORD-00065 customer_id CUST-0106 amount 9305.00 status paid created_at 2025-03-07",
+            "order_item ITEM-000324 item_id ITEM-000324 order_id ORD-01065 product_id PROD-0109 quantity 5 unit_price 525.00",
+            "order ORD-02065 order_id ORD-02065 customer_id CUST-0106 amount 13305.00 status paid created_at 2026-03-22",
+            "order ORD-01085 order_id ORD-01085 customer_id CUST-0446 amount 29045.00 status paid created_at 2025-01-06",
+            "order_item ITEM-002824 item_id ITEM-002824 order_id ORD-01065 product_id PROD-0089 quantity 1 unit_price 775.00",
+            "order ORD-01068 order_id ORD-01068 customer_id CUST-0157 amount 26716.00 status pending created_at 2026-06-13",
+            "order_item ITEM-005324 item_id ITEM-005324 order_id ORD-01065 product_id PROD-0069 quantity 5 unit_price 275.00",
+            "order ORD-01067 order_id ORD-01067 customer_id CUST-0140 amount 26579.00 status shipped created_at 2026-06-12",
+            "order ORD-00068 order_id ORD-00068 customer_id CUST-0157 amount 9716.00 status pending created_at 2025-03-10"
+          ],
+          "retrieval_reference_coverage": 0.5,
+          "answer": "根据证据，订单 ORD-01065 的客户ID为 **CUST-0106**（证据[1]）。但证据中未提供该客户的姓名、联系方式等具体信息，也未提供订单对应的产品明细（如产品名称）或双方（客户与供应商）的完整信息。因此，目前只能确认客户ID，无法给出完整的双方信息。",
+          "prompt_tokens": 468,
+          "completion_tokens": 77,
+          "total_tokens": 545,
+          "latency_ms": 1557.44,
+          "ragas": {
+            "faithfulness": {
+              "value": 0.75
+            },
+            "factual_correctness": {
+              "value": 0.67
+            },
+            "answer_relevancy": {
+              "value": 0.8502
+            },
+            "context_precision": {
+              "value": 1.0
+            },
+            "context_recall": {
+              "value": 0.6667
+            },
+            "noise_sensitivity": {
+              "value": 0.0
+            }
+          }
+        },
+        "minibkn_queryplan": {
+          "contexts": [
+            "order_id ORD-01065 customer_id CUST-0106 amount 26305.00 status paid created_at 2026-06-10",
+            "customer_id CUST-0106 name Enterprise Customer 0106 tier growth region north rep_id REP-007 credit_limit 40000.00",
+            "ORD-01065 -[placed_by]-> CUST-0106"
+          ],
+          "retrieval_reference_coverage": 1.0,
+          "answer": "根据证据，订单 ORD-01065 是由客户 CUST-0106 下的单。双方信息如下：\n\n- **订单方**：订单号 ORD-01065，金额 26305.00，状态为已支付（paid），创建日期为 2026-06-10。\n- **客户方**：客户 ID CUST-0106，名称为 “Enterprise Customer 0106”，客户等级为 growth，所属区域为 north，销售代表 ID 为 REP-007，信用额度为 40000.00。\n\n（注：证据中未提供客户联系人、地址等更多详细信息。）",
+          "prompt_tokens": 145,
+          "completion_tokens": 130,
+          "total_tokens": 275,
+          "latency_ms": 1411.11,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 1.0
+            },
+            "answer_relevancy": {
+              "value": 0.8951
+            },
+            "context_precision": {
+              "value": 1.0
+            },
+            "context_recall": {
+              "value": 1.0
+            },
+            "noise_sensitivity": {
+              "value": 0.0
+            }
+          }
+        }
+      }
+    }
+  ]
+}

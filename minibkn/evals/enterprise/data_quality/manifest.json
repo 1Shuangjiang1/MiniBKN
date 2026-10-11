@@ -1,0 +1,58 @@
+{
+  "seed": 20260817,
+  "cases": [
+    {
+      "id": "quality-composite",
+      "expected_primary": {
+        "composite_parent_csv": [
+          "tenant_id",
+          "code"
+        ]
+      },
+      "expected_foreign": {
+        "composite_child_csv": {
+          "target": "composite_parent_csv",
+          "fields": [
+            "tenant_id",
+            "code"
+          ]
+        }
+      }
+    },
+    {
+      "id": "quality-orphan",
+      "expected_foreign": {
+        "orphan_child_csv": {
+          "target": "parent_csv",
+          "fields": [
+            "parent_id"
+          ],
+          "recommended": true,
+          "coverage": 0.8
+        }
+      }
+    },
+    {
+      "id": "quality-no-false-key",
+      "resource": "duplicate_and_null_csv",
+      "forbidden_primary": [
+        "business_id"
+      ]
+    }
+  ],
+  "schema_drift": {
+    "baseline_columns": [
+      "parent_id",
+      "name"
+    ],
+    "added_columns": [
+      "parent_id",
+      "name",
+      "status"
+    ],
+    "renamed_columns": [
+      "id",
+      "name"
+    ]
+  }
+}

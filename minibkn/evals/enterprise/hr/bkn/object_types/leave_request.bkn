@@ -1,0 +1,32 @@
+---
+type: object_type
+id: leave_request
+name: Leave Request
+tags: [hr, evaluation, generated]
+---
+
+## ObjectType: Leave Request
+
+Generated hr business object.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| leave_id | Leave ID | string | Leave ID | leave_id |
+| employee_id | Employee ID | string | Employee ID | employee_id |
+| days | Days | integer | Days | days |
+| leave_type | Leave Type | string | Leave Type | leave_type |
+| status | Status | string | Status | status |
+| start_date | Start Date | date | Start Date | start_date |
+
+### Keys
+
+Primary Keys: leave_id
+Display Key: leave_id
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | leave_requests_csv | leave_requests.csv |

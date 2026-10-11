@@ -1,0 +1,309 @@
+{
+  "created_at": "2026-08-17T14:37:53.927645+00:00",
+  "comparison": {
+    "baseline": "traditional hybrid RAG: top-20 retrieval without QueryPlan",
+    "candidate": "MiniBKN: frozen validated QueryPlan plus deterministic execution",
+    "answer_model": "deepseek-chat",
+    "judge_model": "deepseek-chat",
+    "embedding_model": "BAAI/bge-m3",
+    "same_prompt_and_answer_model": true
+  },
+  "sample": {
+    "size": 2,
+    "categories": {
+      "filter_aggregate": 1,
+      "multi_hop": 1
+    },
+    "structured_execution_exact": 1.0
+  },
+  "token_usage": {
+    "traditional_rag": {
+      "average_prompt_tokens": 845.5,
+      "average_completion_tokens": 121.5,
+      "average_total_tokens": 967.0,
+      "total_prompt_tokens": 1691,
+      "total_completion_tokens": 243,
+      "total_tokens": 1934,
+      "average_retrieval_reference_coverage": 0.25
+    },
+    "minibkn_queryplan": {
+      "average_prompt_tokens": 277.5,
+      "average_completion_tokens": 78.0,
+      "average_total_tokens": 355.5,
+      "total_prompt_tokens": 555,
+      "total_completion_tokens": 156,
+      "total_tokens": 711,
+      "average_retrieval_reference_coverage": 1.0
+    },
+    "prompt_token_reduction": 0.6718,
+    "total_token_reduction": 0.6324,
+    "measurement": "provider-reported DeepSeek API usage"
+  },
+  "ragas": {
+    "traditional_rag": {
+      "faithfulness": {
+        "mean": 1.0,
+        "successful_cases": 2,
+        "failed_cases": 0
+      },
+      "factual_correctness": {
+        "mean": 0.165,
+        "successful_cases": 2,
+        "failed_cases": 0
+      },
+      "answer_relevancy": {
+        "mean": 0.8877,
+        "successful_cases": 2,
+        "failed_cases": 0
+      },
+      "context_precision": {
+        "mean": 0.0,
+        "successful_cases": 2,
+        "failed_cases": 0
+      },
+      "context_recall": {
+        "mean": 0.0,
+        "successful_cases": 2,
+        "failed_cases": 0
+      },
+      "noise_sensitivity": {
+        "mean": 0.3333,
+        "successful_cases": 2,
+        "failed_cases": 0
+      }
+    },
+    "minibkn_queryplan": {
+      "faithfulness": {
+        "mean": 0.5,
+        "successful_cases": 2,
+        "failed_cases": 0
+      },
+      "factual_correctness": {
+        "mean": 1.0,
+        "successful_cases": 2,
+        "failed_cases": 0
+      },
+      "answer_relevancy": {
+        "mean": 0.8821,
+        "successful_cases": 2,
+        "failed_cases": 0
+      },
+      "context_precision": {
+        "mean": 0.5454,
+        "successful_cases": 2,
+        "failed_cases": 0
+      },
+      "context_recall": {
+        "mean": 0.5,
+        "successful_cases": 2,
+        "failed_cases": 0
+      },
+      "noise_sensitivity": {
+        "mean": 0.0,
+        "successful_cases": 2,
+        "failed_cases": 0
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "crm-141",
+      "category": "filter_aggregate",
+      "question": "金额不低于 1000 的订单有多少",
+      "reference": "正确的结构化计算结果是：[{\"count\": 2441}]",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "structured_execution_exact": true,
+      "systems": {
+        "traditional_rag": {
+          "contexts": [
+            "order ORD-01800 order_id ORD-01800 customer_id CUST-0101 amount 7000.00 status paid created_at 2025-06-30",
+            "Approve Order Evaluates whether an order may enter approval. The benchmark only simulates this action. order",
+            "order ORD-01375 order_id ORD-01375 customer_id CUST-0376 amount 8775.00 status paid created_at 2025-10-23",
+            "order ORD-00507 order_id ORD-00507 customer_id CUST-0120 amount 9859.00 status shipped created_at 2026-05-23",
+            "order_item ITEM-003341 item_id ITEM-003341 order_id ORD-01752 product_id PROD-0108 quantity 6 unit_price 500.00",
+            "customer Enterprise Customer 0001 customer_id CUST-0001 name Enterprise Customer 0001 tier growth region west rep_id REP-002 credit_limit 15000.00",
+            "order ORD-01887 order_id ORD-01887 customer_id CUST-0080 amount 18919.00 status shipped created_at 2025-09-25",
+            "customer Enterprise Customer 0002 customer_id CUST-0002 name Enterprise Customer 0002 tier vip region north rep_id REP-003 credit_limit 20000.00",
+            "customer Enterprise Customer 0003 customer_id CUST-0003 name Enterprise Customer 0003 tier standard region south rep_id REP-004 credit_limit 25000.00",
+            "order ORD-00477 order_id ORD-00477 customer_id CUST-0110 amount 5749.00 status shipped created_at 2026-04-23",
+            "order ORD-01387 order_id ORD-01387 customer_id CUST-0080 amount 10419.00 status shipped created_at 2025-11-04",
+            "customer Enterprise Customer 0004 customer_id CUST-0004 name Enterprise Customer 0004 tier growth region east rep_id REP-005 credit_limit 30000.00",
+            "customer Enterprise Customer 0005 customer_id CUST-0005 name Enterprise Customer 0005 tier vip region west rep_id REP-006 credit_limit 35000.00",
+            "order_item ITEM-001000 item_id ITEM-001000 order_id ORD-01001 product_id PROD-0041 quantity 1 unit_price 325.00",
+            "customer Enterprise Customer 0006 customer_id CUST-0006 name Enterprise Customer 0006 tier standard region north rep_id REP-007 credit_limit 40000.00",
+            "customer Enterprise Customer 0007 customer_id CUST-0007 name Enterprise Customer 0007 tier growth region south rep_id REP-008 credit_limit 45000.00",
+            "order ORD-02477 order_id ORD-02477 customer_id CUST-0110 amount 9749.00 status shipped created_at 2025-11-14",
+            "customer Enterprise Customer 0008 customer_id CUST-0008 name Enterprise Customer 0008 tier vip region east rep_id REP-009 credit_limit 50000.00",
+            "order_item ITEM-001031 item_id ITEM-001031 order_id ORD-01342 product_id PROD-0018 quantity 8 unit_price 500.00",
+            "order ORD-01877 order_id ORD-01877 customer_id CUST-0410 amount 17549.00 status shipped created_at 2025-09-15"
+          ],
+          "retrieval_reference_coverage": 0.0,
+          "answer": "根据提供的证据，金额不低于1000的订单共有 **8** 个，具体如下：\n\n- ORD-01800（金额 7000.00）\n- ORD-01375（金额 8775.00）\n- ORD-00507（金额 9859.00）\n- ORD-01887（金额 18919.00）\n- ORD-00477（金额 5749.00）\n- ORD-01387（金额 10419.00）\n- ORD-02477（金额 9749.00）\n- ORD-01877（金额 17549.00）\n\n注意：证据中仅列出了这些订单记录，未包含其他订单，因此统计基于现有证据。",
+          "prompt_tokens": 839,
+          "completion_tokens": 153,
+          "total_tokens": 992,
+          "latency_ms": 1569.76,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 0.0
+            },
+            "answer_relevancy": {
+              "value": 0.9589
+            },
+            "context_precision": {
+              "value": 0.0
+            },
+            "context_recall": {
+              "value": 0.0
+            },
+            "noise_sensitivity": {
+              "value": 0.6667
+            }
+          }
+        },
+        "minibkn_queryplan": {
+          "contexts": [
+            "order_id ORD-00005 customer_id CUST-0086 amount 1085.00 status paid created_at 2025-01-06",
+            "order_id ORD-00006 customer_id CUST-0103 amount 1222.00 status paid created_at 2025-01-07",
+            "order_id ORD-00007 customer_id CUST-0120 amount 1359.00 status shipped created_at 2025-01-08",
+            "order_id ORD-00008 customer_id CUST-0137 amount 1496.00 status pending created_at 2025-01-09",
+            "order_id ORD-00009 customer_id CUST-0154 amount 1633.00 status cancelled created_at 2025-01-10",
+            "order_id ORD-00010 customer_id CUST-0171 amount 1770.00 status paid created_at 2025-01-11",
+            "order_id ORD-00011 customer_id CUST-0188 amount 1907.00 status paid created_at 2025-01-12",
+            "order_id ORD-00012 customer_id CUST-0205 amount 2044.00 status shipped created_at 2025-01-13",
+            "order_id ORD-00013 customer_id CUST-0222 amount 2181.00 status pending created_at 2025-01-14",
+            "order_id ORD-00014 customer_id CUST-0239 amount 2318.00 status cancelled created_at 2025-01-15",
+            "{'count': 2441}"
+          ],
+          "retrieval_reference_coverage": 1.0,
+          "answer": "根据提供的证据，金额不低于1000的订单共有 **2441** 个（证据[11]明确给出计数）。",
+          "prompt_tokens": 411,
+          "completion_tokens": 26,
+          "total_tokens": 437,
+          "latency_ms": 1087.34,
+          "ragas": {
+            "faithfulness": {
+              "value": 0.0
+            },
+            "factual_correctness": {
+              "value": 1.0
+            },
+            "answer_relevancy": {
+              "value": 0.8736
+            },
+            "context_precision": {
+              "value": 0.0909
+            },
+            "context_recall": {
+              "value": 0.0
+            },
+            "noise_sensitivity": {
+              "value": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "crm-071",
+      "category": "multi_hop",
+      "question": "订单 ORD-00001 是哪个客户下的，请给出双方信息",
+      "reference": "正确结果应包含业务对象 CUST-0018、ORD-00001；对应事实：order_id ORD-00001 customer_id CUST-0018 amount 537.00 status paid created_at 2025-01-02；customer_id CUST-0018 name Enterprise Customer 0018 tier standard region north rep_id REP-019 credit_limit 100000.00",
+      "expected_document_ids": [
+        "instance:customer:CUST-0018",
+        "instance:order:ORD-00001"
+      ],
+      "structured_execution_exact": true,
+      "systems": {
+        "traditional_rag": {
+          "contexts": [
+            "order ORD-00001 order_id ORD-00001 customer_id CUST-0018 amount 537.00 status paid created_at 2025-01-02",
+            "order ORD-00401 order_id ORD-00401 customer_id CUST-0318 amount 25337.00 status paid created_at 2026-02-06",
+            "order ORD-01001 order_id ORD-01001 customer_id CUST-0018 amount 17537.00 status paid created_at 2026-04-07",
+            "order ORD-00010 order_id ORD-00010 customer_id CUST-0171 amount 1770.00 status paid created_at 2025-01-11",
+            "order ORD-01008 order_id ORD-01008 customer_id CUST-0137 amount 18496.00 status pending created_at 2026-04-14",
+            "order_item ITEM-002500 item_id ITEM-002500 order_id ORD-00001 product_id PROD-0101 quantity 5 unit_price 325.00",
+            "order ORD-01006 order_id ORD-01006 customer_id CUST-0103 amount 18222.00 status paid created_at 2026-04-12",
+            "order_item ITEM-005000 item_id ITEM-005000 order_id ORD-00001 product_id PROD-0081 quantity 1 unit_price 575.00",
+            "order ORD-01002 order_id ORD-01002 customer_id CUST-0035 amount 17674.00 status shipped created_at 2026-04-08",
+            "Approve Order Evaluates whether an order may enter approval. The benchmark only simulates this action. order",
+            "customer Enterprise Customer 0001 customer_id CUST-0001 name Enterprise Customer 0001 tier growth region west rep_id REP-002 credit_limit 15000.00",
+            "order ORD-00006 order_id ORD-00006 customer_id CUST-0103 amount 1222.00 status paid created_at 2025-01-07",
+            "order ORD-01020 order_id ORD-01020 customer_id CUST-0341 amount 20140.00 status paid created_at 2026-04-26",
+            "customer Enterprise Customer 0002 customer_id CUST-0002 name Enterprise Customer 0002 tier vip region north rep_id REP-003 credit_limit 20000.00",
+            "customer Enterprise Customer 0003 customer_id CUST-0003 name Enterprise Customer 0003 tier standard region south rep_id REP-004 credit_limit 25000.00",
+            "order ORD-00020 order_id ORD-00020 customer_id CUST-0341 amount 3140.00 status paid created_at 2025-01-21",
+            "order ORD-02410 order_id ORD-02410 customer_id CUST-0471 amount 570.00 status paid created_at 2025-09-08",
+            "customer Enterprise Customer 0004 customer_id CUST-0004 name Enterprise Customer 0004 tier growth region east rep_id REP-005 credit_limit 30000.00",
+            "order ORD-01010 order_id ORD-01010 customer_id CUST-0171 amount 18770.00 status paid created_at 2026-04-16",
+            "order ORD-02090 order_id ORD-02090 customer_id CUST-0031 amount 16730.00 status paid created_at 2026-04-16"
+          ],
+          "retrieval_reference_coverage": 0.5,
+          "answer": "根据证据，订单 ORD-00001 的客户 ID 为 CUST-0018（证据[1]）。但证据中未提供该客户（CUST-0018）的详细信息（如名称、等级、区域等），因此无法给出完整的双方信息。证据中仅包含其他客户（如 CUST-0001 至 CUST-0004）的信息，与 ORD-00001 无关。",
+          "prompt_tokens": 852,
+          "completion_tokens": 90,
+          "total_tokens": 942,
+          "latency_ms": 2662.95,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 0.33
+            },
+            "answer_relevancy": {
+              "value": 0.8165
+            },
+            "context_precision": {
+              "value": 0.0
+            },
+            "context_recall": {
+              "value": 0.0
+            },
+            "noise_sensitivity": {
+              "value": 0.0
+            }
+          }
+        },
+        "minibkn_queryplan": {
+          "contexts": [
+            "order_id ORD-00001 customer_id CUST-0018 amount 537.00 status paid created_at 2025-01-02",
+            "customer_id CUST-0018 name Enterprise Customer 0018 tier standard region north rep_id REP-019 credit_limit 100000.00",
+            "ORD-00001 -[placed_by]-> CUST-0018"
+          ],
+          "retrieval_reference_coverage": 1.0,
+          "answer": "根据证据，订单 ORD-00001 是由客户 CUST-0018 下的。双方信息如下：\n\n- **订单信息**：订单号 ORD-00001，金额 537.00，状态为已支付（paid），创建于 2025-01-02。\n- **客户信息**：客户 ID CUST-0018，名称为 Enterprise Customer 0018，等级为标准（standard），所属区域为 north，销售代表 ID 为 REP-019，信用额度为 100,000.00。\n\n（注：证据中未提供销售代表 REP-019 的姓名或其他详细信息。）",
+          "prompt_tokens": 144,
+          "completion_tokens": 130,
+          "total_tokens": 274,
+          "latency_ms": 1630.55,
+          "ragas": {
+            "faithfulness": {
+              "value": 1.0
+            },
+            "factual_correctness": {
+              "value": 1.0
+            },
+            "answer_relevancy": {
+              "value": 0.8906
+            },
+            "context_precision": {
+              "value": 1.0
+            },
+            "context_recall": {
+              "value": 1.0
+            },
+            "noise_sensitivity": {
+              "value": 0.0
+            }
+          }
+        }
+      }
+    }
+  ]
+}

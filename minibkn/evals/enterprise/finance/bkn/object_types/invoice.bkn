@@ -1,0 +1,31 @@
+---
+type: object_type
+id: invoice
+name: Invoice
+tags: [finance, evaluation, generated]
+---
+
+## ObjectType: Invoice
+
+Generated finance business object.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| invoice_id | Invoice ID | string | Invoice ID | invoice_id |
+| client_id | Client ID | string | Client ID | client_id |
+| amount | Amount | decimal | Amount | amount |
+| status | Status | string | Status | status |
+| due_date | Due Date | date | Due Date | due_date |
+
+### Keys
+
+Primary Keys: invoice_id
+Display Key: invoice_id
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | invoices_csv | invoices.csv |

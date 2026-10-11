@@ -1,0 +1,32 @@
+---
+type: object_type
+id: order
+name: Order
+tags: [crm, sales]
+---
+
+## ObjectType: Order
+
+A commercial order placed by a customer.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| order_id | Order ID | string | Unique order code | order_id |
+| customer_id | Customer ID | string | Customer reference | customer_id |
+| amount | Amount | decimal | Exact order amount | amount |
+| status | Status | string | Current order status | status |
+| created_at | Created Date | date | Order creation date | created_at |
+
+### Keys
+
+Primary Keys: order_id
+Display Key: order_id
+Incremental Key: created_at
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | orders_csv | orders.csv |

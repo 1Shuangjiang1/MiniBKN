@@ -1,0 +1,5035 @@
+{
+  "evaluated_at": "2026-08-17T08:30:02.171449+00:00",
+  "dataset": "enterprise_query_planner_holdout_60.jsonl",
+  "model": "deepseek-chat",
+  "cases": 60,
+  "exact_accuracy": 0.9333333333333333,
+  "component_accuracy": 0.9752066115702479,
+  "usage": {
+    "prompt_tokens": 148606,
+    "completion_tokens": 16529,
+    "total_tokens": 165135
+  },
+  "latency_ms": {
+    "average": 1958.1,
+    "maximum": 2351.97
+  },
+  "results": [
+    {
+      "id": "proc-h-001",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "purchase_order"
+        ],
+        "filters": [
+          [
+            "status",
+            "eq",
+            "approved"
+          ]
+        ],
+        "aggregates": [
+          [
+            "count",
+            ""
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "已批准采购单有多少笔",
+        "rewritten_question": "统计状态为已批准的采购订单的数量",
+        "keywords": [
+          "已批准",
+          "采购单",
+          "数量"
+        ],
+        "synonym_expansions": {
+          "已批准": [
+            "approved"
+          ],
+          "采购单": [
+            "purchase_order"
+          ],
+          "数量": [
+            "count"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "purchase_order"
+          ],
+          "select": [],
+          "filters": [
+            {
+              "field": "status",
+              "operator": "eq",
+              "value": "approved",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "count",
+              "field": "",
+              "alias": "count"
+            }
+          ],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1994.44,
+      "domain": "procurement"
+    },
+    {
+      "id": "proc-h-002",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "purchase_order"
+        ],
+        "filters": [
+          [
+            "status",
+            "eq",
+            "received"
+          ]
+        ],
+        "aggregates": [
+          [
+            "avg",
+            "amount"
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "已收货采购单的平均金额",
+        "rewritten_question": "计算状态为已收货的采购订单的平均金额",
+        "keywords": [
+          "已收货",
+          "采购单",
+          "平均金额"
+        ],
+        "synonym_expansions": {
+          "已收货": [
+            "received"
+          ],
+          "采购单": [
+            "purchase_order"
+          ],
+          "平均金额": [
+            "average amount"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [
+          "状态字段使用purchase_order.status，已收货对应枚举值received"
+        ],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "purchase_order"
+          ],
+          "select": [],
+          "filters": [
+            {
+              "field": "status",
+              "operator": "eq",
+              "value": "received",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "avg",
+              "field": "amount",
+              "alias": "avg_amount"
+            }
+          ],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2351.97,
+      "domain": "procurement"
+    },
+    {
+      "id": "proc-h-003",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "purchase_order"
+        ],
+        "filters": [
+          [
+            "status",
+            "eq",
+            "cancelled"
+          ]
+        ],
+        "aggregates": [
+          [
+            "sum",
+            "amount"
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "已取消采购单的金额总和",
+        "rewritten_question": "所有状态为已取消的采购订单的金额总和是多少？",
+        "keywords": [
+          "已取消",
+          "采购单",
+          "金额",
+          "总和"
+        ],
+        "synonym_expansions": {
+          "已取消": [
+            "cancelled"
+          ],
+          "采购单": [
+            "purchase_order"
+          ],
+          "金额": [
+            "amount"
+          ],
+          "总和": [
+            "sum"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [
+          "状态为已取消的采购订单"
+        ],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "purchase_order"
+          ],
+          "select": [],
+          "filters": [
+            {
+              "field": "status",
+              "operator": "eq",
+              "value": "cancelled",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "sum",
+              "field": "amount",
+              "alias": "total_amount"
+            }
+          ],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2038.99,
+      "domain": "procurement"
+    },
+    {
+      "id": "proc-h-004",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "aggregates": true,
+        "group_by": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "purchase_order"
+        ],
+        "filters": [],
+        "aggregates": [
+          [
+            "count",
+            ""
+          ]
+        ],
+        "traversals": [],
+        "group_by": [
+          "status"
+        ]
+      },
+      "analysis": {
+        "original_question": "按状态统计采购单数量",
+        "rewritten_question": "统计各状态的采购单数量",
+        "keywords": [
+          "采购单",
+          "状态",
+          "数量",
+          "统计"
+        ],
+        "synonym_expansions": {
+          "采购单": [
+            "purchase_order"
+          ],
+          "状态": [
+            "status"
+          ],
+          "数量": [
+            "count"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "purchase_order"
+          ],
+          "select": [],
+          "filters": [],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "count",
+              "field": "",
+              "alias": "count"
+            }
+          ],
+          "group_by": [
+            "status"
+          ],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "table",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1896.02,
+      "domain": "procurement"
+    },
+    {
+      "id": "proc-h-005",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "purchase_order"
+        ],
+        "filters": [],
+        "aggregates": [
+          [
+            "max",
+            "amount"
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "采购单的最大金额是多少",
+        "rewritten_question": "所有采购订单中金额的最大值是多少？",
+        "keywords": [
+          "采购单",
+          "最大金额"
+        ],
+        "synonym_expansions": {
+          "采购单": [
+            "purchase_order",
+            "采购订单"
+          ],
+          "最大金额": [
+            "max amount",
+            "最高金额"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "purchase_order"
+          ],
+          "select": [],
+          "filters": [],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "max",
+              "field": "amount",
+              "alias": "max_amount"
+            }
+          ],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1940.74,
+      "domain": "procurement"
+    },
+    {
+      "id": "proc-h-006",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "supplier"
+        ],
+        "filters": [
+          [
+            "region",
+            "eq",
+            "华东"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "列出华东地区的供应商",
+        "rewritten_question": "列出所有位于华东地区的供应商",
+        "keywords": [
+          "供应商",
+          "华东地区"
+        ],
+        "synonym_expansions": {
+          "供应商": [
+            "supplier"
+          ],
+          "华东地区": [
+            "华东",
+            "region=华东"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "supplier"
+          ],
+          "select": [
+            "supplier_id",
+            "name",
+            "category",
+            "risk_level",
+            "region"
+          ],
+          "filters": [
+            {
+              "field": "region",
+              "operator": "eq",
+              "value": "华东",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "list",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1952.89,
+      "domain": "procurement"
+    },
+    {
+      "id": "proc-h-007",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "supplier"
+        ],
+        "filters": [
+          [
+            "category",
+            "eq",
+            "物流"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "查找物流类供应商",
+        "rewritten_question": "查找所有类别为物流的供应商",
+        "keywords": [
+          "物流",
+          "供应商"
+        ],
+        "synonym_expansions": {
+          "物流": [
+            "物流类",
+            "物流服务"
+          ],
+          "供应商": [
+            "supplier"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "supplier"
+          ],
+          "select": [
+            "supplier_id",
+            "name",
+            "category",
+            "risk_level",
+            "region"
+          ],
+          "filters": [
+            {
+              "field": "category",
+              "operator": "eq",
+              "value": "物流",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "list",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1796.25,
+      "domain": "procurement"
+    },
+    {
+      "id": "proc-h-008",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "supplier"
+        ],
+        "filters": [
+          [
+            "risk_level",
+            "eq",
+            "medium"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "有哪些中风险供应商",
+        "rewritten_question": "列出所有风险等级为中等的供应商。",
+        "keywords": [
+          "中风险",
+          "供应商"
+        ],
+        "synonym_expansions": {
+          "中风险": [
+            "medium",
+            "中等风险"
+          ],
+          "供应商": [
+            "supplier"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "supplier"
+          ],
+          "select": [
+            "supplier_id",
+            "name",
+            "category",
+            "risk_level",
+            "region"
+          ],
+          "filters": [
+            {
+              "field": "risk_level",
+              "operator": "eq",
+              "value": "medium",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "list",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1862.28,
+      "domain": "procurement"
+    },
+    {
+      "id": "proc-h-009",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "payment"
+        ],
+        "filters": [
+          [
+            "status",
+            "eq",
+            "pending"
+          ]
+        ],
+        "aggregates": [
+          [
+            "count",
+            ""
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "待处理付款有多少笔",
+        "rewritten_question": "状态为待处理的付款记录有多少笔？",
+        "keywords": [
+          "待处理",
+          "付款",
+          "数量"
+        ],
+        "synonym_expansions": {
+          "待处理": [
+            "pending",
+            "未处理"
+          ],
+          "付款": [
+            "payment",
+            "支付"
+          ],
+          "数量": [
+            "count",
+            "笔数"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [
+          "将“待处理”理解为付款状态为“pending”"
+        ],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "payment"
+          ],
+          "select": [],
+          "filters": [
+            {
+              "field": "status",
+              "operator": "eq",
+              "value": "pending",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "count",
+              "field": "",
+              "alias": "count"
+            }
+          ],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2002.25,
+      "domain": "procurement"
+    },
+    {
+      "id": "proc-h-010",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "payment"
+        ],
+        "filters": [
+          [
+            "status",
+            "eq",
+            "paid"
+          ]
+        ],
+        "aggregates": [
+          [
+            "sum",
+            "amount"
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "已付款记录的金额总和",
+        "rewritten_question": "所有状态为已付款的支付记录的金额总和是多少？",
+        "keywords": [
+          "已付款",
+          "记录",
+          "金额",
+          "总和"
+        ],
+        "synonym_expansions": {
+          "已付款": [
+            "paid",
+            "已支付"
+          ],
+          "金额": [
+            "amount"
+          ],
+          "总和": [
+            "sum",
+            "合计"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [
+          "“已付款”对应支付状态字段的值为“paid”"
+        ],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "payment"
+          ],
+          "select": [],
+          "filters": [
+            {
+              "field": "status",
+              "operator": "eq",
+              "value": "paid",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "sum",
+              "field": "amount",
+              "alias": "total_amount"
+            }
+          ],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2218.23,
+      "domain": "procurement"
+    },
+    {
+      "id": "proc-h-011",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "purchase_item"
+        ],
+        "filters": [
+          [
+            "quantity",
+            "gt",
+            20
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "列出数量超过20的采购明细",
+        "rewritten_question": "列出数量超过20的采购明细",
+        "keywords": [
+          "数量",
+          "超过",
+          "20",
+          "采购明细"
+        ],
+        "synonym_expansions": {
+          "数量": [
+            "quantity"
+          ],
+          "超过": [
+            "greater than",
+            ">",
+            "gt"
+          ],
+          "采购明细": [
+            "purchase item",
+            "purchase_item"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "purchase_item"
+          ],
+          "select": [
+            "item_id",
+            "po_id",
+            "sku",
+            "quantity",
+            "unit_price"
+          ],
+          "filters": [
+            {
+              "field": "quantity",
+              "operator": "gt",
+              "value": 20,
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "table",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2060.66,
+      "domain": "procurement"
+    },
+    {
+      "id": "proc-h-012",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "purchase_order"
+        ],
+        "filters": [
+          [
+            "po_id",
+            "eq",
+            "PO-00123"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "查询采购单 PO-00123",
+        "rewritten_question": "查询采购单 PO-00123 的详细信息",
+        "keywords": [
+          "采购单",
+          "PO-00123"
+        ],
+        "synonym_expansions": {
+          "采购单": [
+            "purchase_order",
+            "PO"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "purchase_order"
+          ],
+          "select": [
+            "po_id",
+            "supplier_id",
+            "buyer_id",
+            "amount",
+            "status",
+            "created_at"
+          ],
+          "filters": [
+            {
+              "field": "po_id",
+              "operator": "eq",
+              "value": "PO-00123",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 1,
+          "evidence_budget": {
+            "max_items": 1,
+            "max_tokens": 1000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1878.14,
+      "domain": "procurement"
+    },
+    {
+      "id": "proc-h-013",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "supplier"
+        ],
+        "filters": [
+          [
+            "supplier_id",
+            "eq",
+            "SUP-042"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "供应商 SUP-042 的资料",
+        "rewritten_question": "查询供应商 SUP-042 的详细信息",
+        "keywords": [
+          "供应商",
+          "SUP-042",
+          "资料"
+        ],
+        "synonym_expansions": {
+          "供应商": [
+            "supplier"
+          ],
+          "资料": [
+            "信息",
+            "详情",
+            "profile"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "supplier"
+          ],
+          "select": [
+            "supplier_id",
+            "name",
+            "category",
+            "risk_level",
+            "region"
+          ],
+          "filters": [
+            {
+              "field": "supplier_id",
+              "operator": "eq",
+              "value": "SUP-042",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 1,
+          "evidence_budget": {
+            "max_items": 1,
+            "max_tokens": 1000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2096.87,
+      "domain": "procurement"
+    },
+    {
+      "id": "proc-h-014",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "payment"
+        ],
+        "filters": [
+          [
+            "payment_id",
+            "eq",
+            "PAY-00111"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "查询付款 PAY-00111",
+        "rewritten_question": "查询付款 PAY-00111 的详细信息",
+        "keywords": [
+          "付款",
+          "PAY-00111"
+        ],
+        "synonym_expansions": {
+          "付款": [
+            "payment"
+          ],
+          "PAY-00111": [
+            "payment_id"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "payment"
+          ],
+          "select": [
+            "payment_id",
+            "po_id",
+            "amount",
+            "status",
+            "requested_by"
+          ],
+          "filters": [
+            {
+              "field": "payment_id",
+              "operator": "eq",
+              "value": "PAY-00111",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1874.49,
+      "domain": "procurement"
+    },
+    {
+      "id": "proc-h-015",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": false,
+        "object_types": true,
+        "filters": true,
+        "traversals": true
+      },
+      "exact": false,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "purchase_order"
+        ],
+        "filters": [
+          [
+            "po_id",
+            "eq",
+            "PO-00201"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [
+          "ordered_from"
+        ],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "PO-00201 对应哪家供应商",
+        "rewritten_question": "采购订单 PO-00201 对应的供应商是哪家？",
+        "keywords": [
+          "PO-00201",
+          "供应商"
+        ],
+        "synonym_expansions": {
+          "PO-00201": [
+            "采购订单号",
+            "PO编号"
+          ],
+          "供应商": [
+            "supplier",
+            "供应商名称"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "purchase_order"
+          ],
+          "select": [
+            "po_id",
+            "supplier_id"
+          ],
+          "filters": [
+            {
+              "field": "po_id",
+              "operator": "eq",
+              "value": "PO-00201",
+              "value_field": ""
+            }
+          ],
+          "traversals": [
+            {
+              "relation": "ordered_from",
+              "direction": "out",
+              "max_hops": 1
+            }
+          ],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2010.64,
+      "domain": "procurement"
+    },
+    {
+      "id": "proc-h-016",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "traversals": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "traverse",
+        "object_types": [
+          "purchase_order"
+        ],
+        "filters": [
+          [
+            "po_id",
+            "eq",
+            "PO-00202"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [
+          "handled_by"
+        ],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "PO-00202 由哪个采购员负责",
+        "rewritten_question": "采购订单 PO-00202 由哪个采购员负责？",
+        "keywords": [
+          "PO-00202",
+          "采购员",
+          "负责"
+        ],
+        "synonym_expansions": {
+          "采购员": [
+            "buyer"
+          ],
+          "负责": [
+            "handled_by"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "traverse",
+          "object_types": [
+            "purchase_order"
+          ],
+          "select": [
+            "buyer.name"
+          ],
+          "filters": [
+            {
+              "field": "po_id",
+              "operator": "eq",
+              "value": "PO-00202",
+              "value_field": ""
+            }
+          ],
+          "traversals": [
+            {
+              "relation": "handled_by",
+              "direction": "out",
+              "max_hops": 1
+            }
+          ],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1809.99,
+      "domain": "procurement"
+    },
+    {
+      "id": "proc-h-017",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "traversals": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "traverse",
+        "object_types": [
+          "payment"
+        ],
+        "filters": [
+          [
+            "payment_id",
+            "eq",
+            "PAY-00129"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [
+          "payment_for_order"
+        ],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "PAY-00129 是哪张采购单的付款",
+        "rewritten_question": "查询付款记录 PAY-00129 对应的采购单信息",
+        "keywords": [
+          "PAY-00129",
+          "付款",
+          "采购单"
+        ],
+        "synonym_expansions": {
+          "付款": [
+            "payment"
+          ],
+          "采购单": [
+            "purchase order"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "traverse",
+          "object_types": [
+            "payment"
+          ],
+          "select": [
+            "payment.payment_id",
+            "payment.po_id"
+          ],
+          "filters": [
+            {
+              "field": "payment.payment_id",
+              "operator": "eq",
+              "value": "PAY-00129",
+              "value_field": ""
+            }
+          ],
+          "traversals": [
+            {
+              "relation": "payment_for_order",
+              "direction": "out",
+              "max_hops": 1
+            }
+          ],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2113.73,
+      "domain": "procurement"
+    },
+    {
+      "id": "proc-h-018",
+      "status": "needs_clarification",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "ambiguities": true
+      },
+      "exact": true,
+      "ambiguity_count": 2,
+      "actual": {},
+      "analysis": {
+        "original_question": "最近的大额采购单有哪些",
+        "rewritten_question": "最近的大额采购单有哪些",
+        "keywords": [
+          "最近",
+          "大额",
+          "采购单"
+        ],
+        "synonym_expansions": {
+          "最近": [
+            "近期",
+            "latest"
+          ],
+          "大额": [
+            "金额高",
+            "大金额"
+          ],
+          "采购单": [
+            "purchase order",
+            "PO"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [
+          {
+            "id": "time_range",
+            "reason": "相对时间词'最近'未指定具体时间范围，影响过滤条件",
+            "question": "您希望查询哪个时间范围内的采购单？",
+            "options": [
+              "最近7天",
+              "最近30天",
+              "最近90天",
+              "今年至今"
+            ]
+          },
+          {
+            "id": "amount_threshold",
+            "reason": "未定义'大额'的具体金额阈值，影响过滤条件",
+            "question": "您认为'大额'的金额阈值是多少？",
+            "options": [
+              "大于10000",
+              "大于50000",
+              "大于100000",
+              "大于500000"
+            ]
+          }
+        ],
+        "clarification_answers": {},
+        "status": "needs_clarification",
+        "planner": "llm",
+        "plan": null
+      },
+      "latency_ms": 2165.2,
+      "domain": "procurement"
+    },
+    {
+      "id": "proc-h-019",
+      "status": "needs_clarification",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "ambiguities": true
+      },
+      "exact": true,
+      "ambiguity_count": 1,
+      "actual": {},
+      "analysis": {
+        "original_question": "看看它的付款情况",
+        "rewritten_question": "查看某个对象的付款情况",
+        "keywords": [
+          "付款",
+          "情况"
+        ],
+        "synonym_expansions": {
+          "付款": [
+            "payment",
+            "支付"
+          ],
+          "情况": [
+            "状态",
+            "信息"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [
+          {
+            "id": "target_object",
+            "reason": "问题中的“它”指代不明，无法确定要查看哪个对象的付款情况。",
+            "question": "请指定要查看付款情况的对象（例如：采购订单、供应商、采购员等）。",
+            "options": [
+              "采购订单",
+              "供应商",
+              "采购员"
+            ]
+          }
+        ],
+        "clarification_answers": {},
+        "status": "needs_clarification",
+        "planner": "llm",
+        "plan": null
+      },
+      "latency_ms": 1568.04,
+      "domain": "procurement"
+    },
+    {
+      "id": "proc-h-020",
+      "status": "needs_clarification",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "ambiguities": true
+      },
+      "exact": true,
+      "ambiguity_count": 1,
+      "actual": {},
+      "analysis": {
+        "original_question": "最好的供应商是哪家",
+        "rewritten_question": "哪家供应商是最好的？",
+        "keywords": [
+          "供应商",
+          "最好"
+        ],
+        "synonym_expansions": {
+          "供应商": [
+            "supplier"
+          ],
+          "最好": [
+            "top",
+            "best",
+            "highest rated"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [
+          {
+            "id": "best_supplier_criteria",
+            "reason": "“最好”没有明确标准，可能指风险最低、订单金额最高、数量最多等。",
+            "question": "您认为“最好”的供应商应基于哪个标准？",
+            "options": [
+              "风险最低",
+              "订单金额最高",
+              "订单数量最多",
+              "其他"
+            ]
+          }
+        ],
+        "clarification_answers": {},
+        "status": "needs_clarification",
+        "planner": "llm",
+        "plan": null
+      },
+      "latency_ms": 1815.5,
+      "domain": "procurement"
+    },
+    {
+      "id": "fin-h-001",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": false,
+        "aggregates": true
+      },
+      "exact": false,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "invoice"
+        ],
+        "filters": [
+          [
+            "status",
+            "in",
+            [
+              "open",
+              "overdue",
+              "partial"
+            ]
+          ]
+        ],
+        "aggregates": [
+          [
+            "count",
+            ""
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "未结清发票有多少张",
+        "rewritten_question": "未结清发票有多少张",
+        "keywords": [
+          "未结清",
+          "发票",
+          "数量"
+        ],
+        "synonym_expansions": {
+          "未结清": [
+            "open",
+            "overdue",
+            "partial"
+          ],
+          "发票": [
+            "invoice"
+          ],
+          "数量": [
+            "count"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "invoice"
+          ],
+          "select": [],
+          "filters": [
+            {
+              "field": "status",
+              "operator": "in",
+              "value": [
+                "open",
+                "overdue",
+                "partial"
+              ],
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "count",
+              "field": "",
+              "alias": "count"
+            }
+          ],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2018.3,
+      "domain": "finance"
+    },
+    {
+      "id": "fin-h-002",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "invoice"
+        ],
+        "filters": [
+          [
+            "status",
+            "eq",
+            "paid"
+          ]
+        ],
+        "aggregates": [
+          [
+            "avg",
+            "amount"
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "已付清发票的平均金额",
+        "rewritten_question": "计算所有状态为已付清的发票的平均金额",
+        "keywords": [
+          "发票",
+          "已付清",
+          "平均金额"
+        ],
+        "synonym_expansions": {
+          "已付清": [
+            "paid"
+          ],
+          "发票": [
+            "invoice"
+          ],
+          "平均金额": [
+            "average amount"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "invoice"
+          ],
+          "select": [],
+          "filters": [
+            {
+              "field": "status",
+              "operator": "eq",
+              "value": "paid",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "avg",
+              "field": "amount",
+              "alias": "average_amount"
+            }
+          ],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1898.45,
+      "domain": "finance"
+    },
+    {
+      "id": "fin-h-003",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "invoice"
+        ],
+        "filters": [
+          [
+            "status",
+            "eq",
+            "partial"
+          ]
+        ],
+        "aggregates": [
+          [
+            "sum",
+            "amount"
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "部分付款发票的总金额",
+        "rewritten_question": "所有状态为部分付款的发票的总金额是多少？",
+        "keywords": [
+          "部分付款",
+          "发票",
+          "总金额"
+        ],
+        "synonym_expansions": {
+          "部分付款": [
+            "partial"
+          ],
+          "发票": [
+            "invoice"
+          ],
+          "总金额": [
+            "sum",
+            "total amount"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "invoice"
+          ],
+          "select": [],
+          "filters": [
+            {
+              "field": "status",
+              "operator": "eq",
+              "value": "partial",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "sum",
+              "field": "amount",
+              "alias": "total_amount"
+            }
+          ],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2139.18,
+      "domain": "finance"
+    },
+    {
+      "id": "fin-h-004",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "aggregates": true,
+        "group_by": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "invoice"
+        ],
+        "filters": [],
+        "aggregates": [
+          [
+            "count",
+            ""
+          ]
+        ],
+        "traversals": [],
+        "group_by": [
+          "status"
+        ]
+      },
+      "analysis": {
+        "original_question": "按状态汇总发票数量",
+        "rewritten_question": "按状态汇总发票数量",
+        "keywords": [
+          "发票",
+          "状态",
+          "汇总",
+          "数量"
+        ],
+        "synonym_expansions": {
+          "发票": [
+            "invoice"
+          ],
+          "状态": [
+            "status"
+          ],
+          "汇总": [
+            "aggregate",
+            "group by"
+          ],
+          "数量": [
+            "count"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "invoice"
+          ],
+          "select": [],
+          "filters": [],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "count",
+              "field": "",
+              "alias": "invoice_count"
+            }
+          ],
+          "group_by": [
+            "status"
+          ],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "table",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1930.28,
+      "domain": "finance"
+    },
+    {
+      "id": "fin-h-005",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "invoice"
+        ],
+        "filters": [],
+        "aggregates": [
+          [
+            "min",
+            "amount"
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "最小的发票金额是多少",
+        "rewritten_question": "所有发票中金额最小的值是多少？",
+        "keywords": [
+          "发票",
+          "金额",
+          "最小"
+        ],
+        "synonym_expansions": {
+          "发票": [
+            "invoice"
+          ],
+          "金额": [
+            "amount"
+          ],
+          "最小": [
+            "min"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "invoice"
+          ],
+          "select": [],
+          "filters": [],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "min",
+              "field": "amount",
+              "alias": "min_amount"
+            }
+          ],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1874.04,
+      "domain": "finance"
+    },
+    {
+      "id": "fin-h-006",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "client"
+        ],
+        "filters": [
+          [
+            "region",
+            "eq",
+            "east"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "列出东部地区的客户",
+        "rewritten_question": "列出所有位于东部地区的客户。",
+        "keywords": [
+          "客户",
+          "东部地区"
+        ],
+        "synonym_expansions": {
+          "客户": [
+            "client"
+          ],
+          "东部地区": [
+            "east"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "client"
+          ],
+          "select": [
+            "client_id",
+            "name",
+            "segment",
+            "region"
+          ],
+          "filters": [
+            {
+              "field": "region",
+              "operator": "eq",
+              "value": "east",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "list",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2025.79,
+      "domain": "finance"
+    },
+    {
+      "id": "fin-h-007",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "client"
+        ],
+        "filters": [
+          [
+            "segment",
+            "eq",
+            "enterprise"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "企业级客户有哪些",
+        "rewritten_question": "列出所有企业级客户",
+        "keywords": [
+          "企业级",
+          "客户"
+        ],
+        "synonym_expansions": {
+          "企业级": [
+            "enterprise"
+          ],
+          "客户": [
+            "client"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "client"
+          ],
+          "select": [
+            "client_id",
+            "name",
+            "segment",
+            "region"
+          ],
+          "filters": [
+            {
+              "field": "segment",
+              "operator": "eq",
+              "value": "enterprise",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "list",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1958.26,
+      "domain": "finance"
+    },
+    {
+      "id": "fin-h-008",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "receipt"
+        ],
+        "filters": [
+          [
+            "method",
+            "eq",
+            "bank"
+          ]
+        ],
+        "aggregates": [
+          [
+            "count",
+            ""
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "银行方式的收款有多少笔",
+        "rewritten_question": "统计收款方式为银行的收款记录数量",
+        "keywords": [
+          "银行",
+          "收款",
+          "笔数"
+        ],
+        "synonym_expansions": {
+          "银行": [
+            "bank"
+          ],
+          "收款": [
+            "receipt"
+          ],
+          "笔数": [
+            "count"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "receipt"
+          ],
+          "select": [],
+          "filters": [
+            {
+              "field": "method",
+              "operator": "eq",
+              "value": "bank",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "count",
+              "field": "",
+              "alias": "count"
+            }
+          ],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2077.02,
+      "domain": "finance"
+    },
+    {
+      "id": "fin-h-009",
+      "status": "needs_clarification",
+      "planner": "llm",
+      "checks": {
+        "status": false,
+        "plan": false
+      },
+      "exact": false,
+      "ambiguity_count": 1,
+      "actual": {},
+      "analysis": {
+        "original_question": "转账收款的总金额",
+        "rewritten_question": "转账收款的总金额",
+        "keywords": [
+          "转账",
+          "收款",
+          "总金额"
+        ],
+        "synonym_expansions": {
+          "转账": [
+            "transfer"
+          ],
+          "收款": [
+            "receipt"
+          ],
+          "总金额": [
+            "total amount",
+            "sum"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [
+          {
+            "id": "time_range",
+            "reason": "未指定时间范围，可能影响查询结果",
+            "question": "请指定时间范围？",
+            "options": [
+              "全部时间",
+              "最近一个月",
+              "最近三个月",
+              "最近一年"
+            ]
+          }
+        ],
+        "clarification_answers": {},
+        "status": "needs_clarification",
+        "planner": "llm",
+        "plan": null
+      },
+      "latency_ms": 1632.69,
+      "domain": "finance"
+    },
+    {
+      "id": "fin-h-010",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "expense"
+        ],
+        "filters": [
+          [
+            "category",
+            "eq",
+            "travel"
+          ],
+          [
+            "status",
+            "eq",
+            "approved"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "列出已批准的差旅报销",
+        "rewritten_question": "列出所有状态为已批准且类别为差旅的费用记录",
+        "keywords": [
+          "已批准",
+          "差旅",
+          "报销",
+          "费用"
+        ],
+        "synonym_expansions": {
+          "已批准": [
+            "approved"
+          ],
+          "差旅": [
+            "travel"
+          ],
+          "报销": [
+            "expense"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [
+          "差旅报销对应费用类别为travel",
+          "已批准对应费用状态为approved"
+        ],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "expense"
+          ],
+          "select": [
+            "expense_id",
+            "company_code",
+            "department_code",
+            "amount",
+            "status",
+            "category"
+          ],
+          "filters": [
+            {
+              "field": "status",
+              "operator": "eq",
+              "value": "approved",
+              "value_field": ""
+            },
+            {
+              "field": "category",
+              "operator": "eq",
+              "value": "travel",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "table",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2206.36,
+      "domain": "finance"
+    },
+    {
+      "id": "fin-h-011",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "invoice"
+        ],
+        "filters": [
+          [
+            "invoice_id",
+            "eq",
+            "INV-00217"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "查询发票 INV-00217",
+        "rewritten_question": "查询发票 INV-00217 的详细信息",
+        "keywords": [
+          "发票",
+          "INV-00217"
+        ],
+        "synonym_expansions": {
+          "发票": [
+            "invoice"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "invoice"
+          ],
+          "select": [
+            "invoice_id",
+            "client_id",
+            "amount",
+            "status",
+            "due_date"
+          ],
+          "filters": [
+            {
+              "field": "invoice_id",
+              "operator": "eq",
+              "value": "INV-00217",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 1,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2070.48,
+      "domain": "finance"
+    },
+    {
+      "id": "fin-h-012",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "client"
+        ],
+        "filters": [
+          [
+            "client_id",
+            "eq",
+            "CLI-0042"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "客户 CLI-0042 的资料",
+        "rewritten_question": "获取客户ID为CLI-0042的客户详细信息",
+        "keywords": [
+          "客户",
+          "CLI-0042",
+          "资料"
+        ],
+        "synonym_expansions": {
+          "客户": [
+            "client"
+          ],
+          "资料": [
+            "details",
+            "information"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "client"
+          ],
+          "select": [
+            "client_id",
+            "name",
+            "segment",
+            "region"
+          ],
+          "filters": [
+            {
+              "field": "client_id",
+              "operator": "eq",
+              "value": "CLI-0042",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 1,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1939.73,
+      "domain": "finance"
+    },
+    {
+      "id": "fin-h-013",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "receipt"
+        ],
+        "filters": [
+          [
+            "receipt_id",
+            "eq",
+            "REC-00176"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "查询收款 REC-00176",
+        "rewritten_question": "查询收款 REC-00176",
+        "keywords": [
+          "收款",
+          "REC-00176"
+        ],
+        "synonym_expansions": {
+          "收款": [
+            "receipt"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "receipt"
+          ],
+          "select": [],
+          "filters": [
+            {
+              "field": "receipt_id",
+              "operator": "eq",
+              "value": "REC-00176",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "list",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1618.55,
+      "domain": "finance"
+    },
+    {
+      "id": "fin-h-014",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "traversals": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "traverse",
+        "object_types": [
+          "invoice"
+        ],
+        "filters": [
+          [
+            "invoice_id",
+            "eq",
+            "INV-00311"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [
+          "billed_to"
+        ],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "INV-00311 属于哪位客户",
+        "rewritten_question": "查询发票编号为 INV-00311 的发票所属的客户",
+        "keywords": [
+          "INV-00311",
+          "客户",
+          "发票"
+        ],
+        "synonym_expansions": {
+          "客户": [
+            "client"
+          ],
+          "发票": [
+            "invoice"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "traverse",
+          "object_types": [
+            "invoice"
+          ],
+          "select": [
+            "client.name"
+          ],
+          "filters": [
+            {
+              "field": "invoice_id",
+              "operator": "eq",
+              "value": "INV-00311",
+              "value_field": ""
+            }
+          ],
+          "traversals": [
+            {
+              "relation": "billed_to",
+              "direction": "out",
+              "max_hops": 1
+            }
+          ],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2119.74,
+      "domain": "finance"
+    },
+    {
+      "id": "fin-h-015",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "traversals": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "traverse",
+        "object_types": [
+          "receipt"
+        ],
+        "filters": [
+          [
+            "receipt_id",
+            "eq",
+            "REC-00203"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [
+          "receipt_for_invoice"
+        ],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "REC-00203 对应哪张发票",
+        "rewritten_question": "查找receipt_id为REC-00203的收据对应的发票信息",
+        "keywords": [
+          "REC-00203",
+          "发票",
+          "收据"
+        ],
+        "synonym_expansions": {
+          "发票": [
+            "invoice"
+          ],
+          "收据": [
+            "receipt"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "traverse",
+          "object_types": [
+            "receipt"
+          ],
+          "select": [
+            "invoice.invoice_id",
+            "invoice.amount",
+            "invoice.status",
+            "invoice.due_date"
+          ],
+          "filters": [
+            {
+              "field": "receipt_id",
+              "operator": "eq",
+              "value": "REC-00203",
+              "value_field": ""
+            }
+          ],
+          "traversals": [
+            {
+              "relation": "receipt_for_invoice",
+              "direction": "out",
+              "max_hops": 1
+            }
+          ],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "list",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2008.99,
+      "domain": "finance"
+    },
+    {
+      "id": "fin-h-016",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "traversals": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "traverse",
+        "object_types": [
+          "expense"
+        ],
+        "filters": [
+          [
+            "expense_id",
+            "eq",
+            "EXP-00155"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [
+          "expense_department"
+        ],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "EXP-00155 属于哪个部门",
+        "rewritten_question": "查询费用记录 EXP-00155 所属的部门信息",
+        "keywords": [
+          "EXP-00155",
+          "部门"
+        ],
+        "synonym_expansions": {
+          "部门": [
+            "department"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "traverse",
+          "object_types": [
+            "expense"
+          ],
+          "select": [
+            "department.name"
+          ],
+          "filters": [
+            {
+              "field": "expense_id",
+              "operator": "eq",
+              "value": "EXP-00155",
+              "value_field": ""
+            }
+          ],
+          "traversals": [
+            {
+              "relation": "expense_department",
+              "direction": "out",
+              "max_hops": 1
+            }
+          ],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2079.12,
+      "domain": "finance"
+    },
+    {
+      "id": "fin-h-017",
+      "status": "needs_clarification",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "ambiguities": true
+      },
+      "exact": true,
+      "ambiguity_count": 2,
+      "actual": {},
+      "analysis": {
+        "original_question": "最近的高额报销有哪些",
+        "rewritten_question": "最近的高额报销有哪些",
+        "keywords": [
+          "最近",
+          "高额",
+          "报销"
+        ],
+        "synonym_expansions": {
+          "报销": [
+            "expense"
+          ],
+          "高额": [
+            "high amount",
+            "large amount"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [
+          {
+            "id": "time_range",
+            "reason": "The term '最近' (recent) is relative and no exact time range is specified.",
+            "question": "请指定最近的时间范围（例如：最近7天、最近30天、最近90天）？",
+            "options": [
+              "最近7天",
+              "最近30天",
+              "最近90天",
+              "最近一年"
+            ]
+          },
+          {
+            "id": "high_amount_threshold",
+            "reason": "The term '高额' (high amount) is subjective and no threshold is provided.",
+            "question": "请指定高额的金额阈值（例如：金额大于1000）？",
+            "options": [
+              "金额大于1000",
+              "金额大于5000",
+              "金额大于10000",
+              "金额大于50000"
+            ]
+          }
+        ],
+        "clarification_answers": {},
+        "status": "needs_clarification",
+        "planner": "llm",
+        "plan": null
+      },
+      "latency_ms": 2127.42,
+      "domain": "finance"
+    },
+    {
+      "id": "fin-h-018",
+      "status": "needs_clarification",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "ambiguities": true
+      },
+      "exact": true,
+      "ambiguity_count": 2,
+      "actual": {},
+      "analysis": {
+        "original_question": "它还欠多少钱",
+        "rewritten_question": "它还欠多少钱",
+        "keywords": [
+          "欠",
+          "多少钱"
+        ],
+        "synonym_expansions": {},
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [
+          {
+            "id": "entity",
+            "reason": "The pronoun '它' is ambiguous; it could refer to a client, invoice, or other entity.",
+            "question": "Which entity does '它' refer to?",
+            "options": [
+              "client",
+              "invoice",
+              "department"
+            ]
+          },
+          {
+            "id": "time_range",
+            "reason": "No specific time range is provided for the outstanding amount.",
+            "question": "What time range should be considered?",
+            "options": [
+              "all time",
+              "last 30 days",
+              "last quarter",
+              "current fiscal year"
+            ]
+          }
+        ],
+        "clarification_answers": {},
+        "status": "needs_clarification",
+        "planner": "llm",
+        "plan": null
+      },
+      "latency_ms": 1815.0,
+      "domain": "finance"
+    },
+    {
+      "id": "fin-h-019",
+      "status": "needs_clarification",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "ambiguities": true
+      },
+      "exact": true,
+      "ambiguity_count": 1,
+      "actual": {},
+      "analysis": {
+        "original_question": "最重要的客户是谁",
+        "rewritten_question": "最重要的客户是谁",
+        "keywords": [
+          "客户",
+          "最重要"
+        ],
+        "synonym_expansions": {
+          "客户": [
+            "client"
+          ],
+          "最重要": [
+            "top",
+            "highest",
+            "key"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [
+          {
+            "id": "importance_metric",
+            "reason": "The term 'most important' is ambiguous; it could refer to highest total invoice amount, highest number of invoices, or other metrics.",
+            "question": "How should 'most important' be defined?",
+            "options": [
+              "highest total invoice amount",
+              "highest number of invoices",
+              "other"
+            ]
+          }
+        ],
+        "clarification_answers": {},
+        "status": "needs_clarification",
+        "planner": "llm",
+        "plan": null
+      },
+      "latency_ms": 1774.9,
+      "domain": "finance"
+    },
+    {
+      "id": "fin-h-020",
+      "status": "needs_clarification",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "ambiguities": true
+      },
+      "exact": true,
+      "ambiguity_count": 1,
+      "actual": {},
+      "analysis": {
+        "original_question": "近期的发票情况",
+        "rewritten_question": "近期的发票情况",
+        "keywords": [
+          "近期",
+          "发票"
+        ],
+        "synonym_expansions": {
+          "近期": [
+            "recent",
+            "latest"
+          ],
+          "发票": [
+            "invoice"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [
+          {
+            "id": "time_range",
+            "reason": "The term '近期' (recent) is relative and no exact time range is specified.",
+            "question": "What specific time range should be used for '近期'?",
+            "options": [
+              "last 7 days",
+              "last 30 days",
+              "last 90 days",
+              "this month",
+              "this quarter"
+            ]
+          }
+        ],
+        "clarification_answers": {},
+        "status": "needs_clarification",
+        "planner": "llm",
+        "plan": null
+      },
+      "latency_ms": 1548.74,
+      "domain": "finance"
+    },
+    {
+      "id": "hr-h-001",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "employee"
+        ],
+        "filters": [
+          [
+            "status",
+            "eq",
+            "terminated"
+          ]
+        ],
+        "aggregates": [
+          [
+            "count",
+            ""
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "离职员工有多少人",
+        "rewritten_question": "统计状态为离职的员工人数",
+        "keywords": [
+          "离职",
+          "员工",
+          "人数"
+        ],
+        "synonym_expansions": {
+          "离职": [
+            "terminated",
+            "离职员工"
+          ],
+          "员工": [
+            "employee"
+          ],
+          "人数": [
+            "count"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [
+          "离职员工指员工状态为terminated"
+        ],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "employee"
+          ],
+          "select": [],
+          "filters": [
+            {
+              "field": "status",
+              "operator": "eq",
+              "value": "terminated",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "count",
+              "field": "",
+              "alias": "离职员工数"
+            }
+          ],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2013.06,
+      "domain": "hr"
+    },
+    {
+      "id": "hr-h-002",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "leave_request"
+        ],
+        "filters": [
+          [
+            "status",
+            "eq",
+            "submitted"
+          ]
+        ],
+        "aggregates": [
+          [
+            "count",
+            ""
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "已提交请假有多少条",
+        "rewritten_question": "统计状态为已提交的请假申请的数量",
+        "keywords": [
+          "请假",
+          "已提交",
+          "数量"
+        ],
+        "synonym_expansions": {
+          "请假": [
+            "leave_request"
+          ],
+          "已提交": [
+            "submitted"
+          ],
+          "数量": [
+            "count"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "leave_request"
+          ],
+          "select": [],
+          "filters": [
+            {
+              "field": "status",
+              "operator": "eq",
+              "value": "submitted",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "count",
+              "field": "",
+              "alias": "count"
+            }
+          ],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2095.32,
+      "domain": "hr"
+    },
+    {
+      "id": "hr-h-003",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "leave_request"
+        ],
+        "filters": [
+          [
+            "leave_type",
+            "eq",
+            "sick"
+          ]
+        ],
+        "aggregates": [
+          [
+            "avg",
+            "days"
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "病假的平均天数",
+        "rewritten_question": "计算所有病假申请的平均天数",
+        "keywords": [
+          "病假",
+          "平均天数"
+        ],
+        "synonym_expansions": {
+          "病假": [
+            "sick leave",
+            "sick"
+          ],
+          "平均天数": [
+            "average days"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "leave_request"
+          ],
+          "select": [],
+          "filters": [
+            {
+              "field": "leave_type",
+              "operator": "eq",
+              "value": "sick",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "avg",
+              "field": "days",
+              "alias": "avg_days"
+            }
+          ],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1943.31,
+      "domain": "hr"
+    },
+    {
+      "id": "hr-h-004",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "aggregates": true,
+        "group_by": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "employee"
+        ],
+        "filters": [],
+        "aggregates": [
+          [
+            "count",
+            ""
+          ]
+        ],
+        "traversals": [],
+        "group_by": [
+          "status"
+        ]
+      },
+      "analysis": {
+        "original_question": "按状态统计员工人数",
+        "rewritten_question": "统计员工表中不同状态的员工数量",
+        "keywords": [
+          "员工",
+          "状态",
+          "统计",
+          "人数"
+        ],
+        "synonym_expansions": {
+          "员工": [
+            "employee"
+          ],
+          "状态": [
+            "status"
+          ],
+          "统计": [
+            "count",
+            "aggregate"
+          ],
+          "人数": [
+            "count"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "employee"
+          ],
+          "select": [],
+          "filters": [],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "count",
+              "field": "",
+              "alias": "employee_count"
+            }
+          ],
+          "group_by": [
+            "status"
+          ],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "table",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1913.94,
+      "domain": "hr"
+    },
+    {
+      "id": "hr-h-005",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "leave_request"
+        ],
+        "filters": [],
+        "aggregates": [
+          [
+            "max",
+            "days"
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "请假申请的最大天数",
+        "rewritten_question": "请假申请的最大天数",
+        "keywords": [
+          "请假申请",
+          "最大天数"
+        ],
+        "synonym_expansions": {
+          "请假申请": [
+            "leave_request"
+          ],
+          "最大天数": [
+            "max days"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "leave_request"
+          ],
+          "select": [],
+          "filters": [],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "max",
+              "field": "days",
+              "alias": "max_days"
+            }
+          ],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1752.94,
+      "domain": "hr"
+    },
+    {
+      "id": "hr-h-006",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "employee"
+        ],
+        "filters": [
+          [
+            "status",
+            "eq",
+            "leave"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "列出状态为休假的员工",
+        "rewritten_question": "列出所有状态为休假的员工",
+        "keywords": [
+          "员工",
+          "状态",
+          "休假"
+        ],
+        "synonym_expansions": {
+          "休假": [
+            "leave",
+            "on leave"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "employee"
+          ],
+          "select": [
+            "employee_id",
+            "name",
+            "dept_id",
+            "manager_id",
+            "status",
+            "salary_grade"
+          ],
+          "filters": [
+            {
+              "field": "status",
+              "operator": "eq",
+              "value": "leave",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "list",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1918.54,
+      "domain": "hr"
+    },
+    {
+      "id": "hr-h-007",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "leave_request"
+        ],
+        "filters": [
+          [
+            "status",
+            "eq",
+            "rejected"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "已拒绝的请假申请有哪些",
+        "rewritten_question": "列出所有状态为已拒绝的请假申请。",
+        "keywords": [
+          "拒绝",
+          "请假申请"
+        ],
+        "synonym_expansions": {
+          "拒绝": [
+            "rejected"
+          ],
+          "请假申请": [
+            "leave_request"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "leave_request"
+          ],
+          "select": [],
+          "filters": [
+            {
+              "field": "status",
+              "operator": "eq",
+              "value": "rejected",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "list",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1756.03,
+      "domain": "hr"
+    },
+    {
+      "id": "hr-h-008",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "leave_request"
+        ],
+        "filters": [
+          [
+            "days",
+            "lte",
+            3
+          ],
+          [
+            "leave_type",
+            "eq",
+            "personal"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "三天以内的个人假申请",
+        "rewritten_question": "查询请假天数小于等于三天的个人假申请记录",
+        "keywords": [
+          "三天以内",
+          "个人假",
+          "申请"
+        ],
+        "synonym_expansions": {
+          "个人假": [
+            "personal",
+            "personal leave"
+          ],
+          "三天以内": [
+            "<=3 days",
+            "less than or equal to 3 days"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [
+          "个人假对应leave_type为personal",
+          "三天以内指天数小于等于3"
+        ],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "leave_request"
+          ],
+          "select": [],
+          "filters": [
+            {
+              "field": "leave_type",
+              "operator": "eq",
+              "value": "personal",
+              "value_field": ""
+            },
+            {
+              "field": "days",
+              "operator": "lte",
+              "value": 3,
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "list",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2181.31,
+      "domain": "hr"
+    },
+    {
+      "id": "hr-h-009",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "job_change"
+        ],
+        "filters": [
+          [
+            "status",
+            "eq",
+            "planned"
+          ]
+        ],
+        "aggregates": [
+          [
+            "count",
+            ""
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "计划中的调岗有多少个",
+        "rewritten_question": "有多少个状态为计划的调岗记录？",
+        "keywords": [
+          "调岗",
+          "计划",
+          "数量"
+        ],
+        "synonym_expansions": {
+          "调岗": [
+            "job_change",
+            "transfer"
+          ],
+          "计划": [
+            "planned"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "job_change"
+          ],
+          "select": [],
+          "filters": [
+            {
+              "field": "status",
+              "operator": "eq",
+              "value": "planned",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "count",
+              "field": "",
+              "alias": "count"
+            }
+          ],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1831.39,
+      "domain": "hr"
+    },
+    {
+      "id": "hr-h-010",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "leave_request"
+        ],
+        "filters": [
+          [
+            "leave_type",
+            "eq",
+            "annual"
+          ]
+        ],
+        "aggregates": [
+          [
+            "count",
+            ""
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "年假申请总共有多少条",
+        "rewritten_question": "统计所有年假申请记录的总数",
+        "keywords": [
+          "年假",
+          "申请",
+          "总数",
+          "条数"
+        ],
+        "synonym_expansions": {
+          "年假": [
+            "annual leave",
+            "annual"
+          ],
+          "申请": [
+            "request",
+            "application"
+          ],
+          "总数": [
+            "count",
+            "total"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "aggregate",
+          "object_types": [
+            "leave_request"
+          ],
+          "select": [],
+          "filters": [
+            {
+              "field": "leave_type",
+              "operator": "eq",
+              "value": "annual",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [
+            {
+              "function": "count",
+              "field": "",
+              "alias": "total"
+            }
+          ],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2322.76,
+      "domain": "hr"
+    },
+    {
+      "id": "hr-h-011",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "employee"
+        ],
+        "filters": [
+          [
+            "employee_id",
+            "eq",
+            "EMP-0128"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "查询员工 EMP-0128",
+        "rewritten_question": "查询员工 EMP-0128 的详细信息",
+        "keywords": [
+          "员工",
+          "EMP-0128"
+        ],
+        "synonym_expansions": {
+          "员工": [
+            "employee"
+          ],
+          "EMP-0128": [
+            "employee_id"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "employee"
+          ],
+          "select": [
+            "employee_id",
+            "name",
+            "dept_id",
+            "manager_id",
+            "status",
+            "salary_grade"
+          ],
+          "filters": [
+            {
+              "field": "employee_id",
+              "operator": "eq",
+              "value": "EMP-0128",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 1,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1927.59,
+      "domain": "hr"
+    },
+    {
+      "id": "hr-h-012",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "department"
+        ],
+        "filters": [
+          [
+            "dept_id",
+            "eq",
+            "DEP-014"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "查询部门 DEP-014",
+        "rewritten_question": "查询部门 DEP-014 的信息",
+        "keywords": [
+          "部门",
+          "DEP-014"
+        ],
+        "synonym_expansions": {
+          "部门": [
+            "department"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "department"
+          ],
+          "select": [
+            "dept_id",
+            "name",
+            "cost_center"
+          ],
+          "filters": [
+            {
+              "field": "dept_id",
+              "operator": "eq",
+              "value": "DEP-014",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 20,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1708.0,
+      "domain": "hr"
+    },
+    {
+      "id": "hr-h-013",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "leave_request"
+        ],
+        "filters": [
+          [
+            "leave_id",
+            "eq",
+            "LEV-00321"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "查询请假 LEV-00321",
+        "rewritten_question": "查询请假记录 LEV-00321 的详细信息",
+        "keywords": [
+          "请假",
+          "LEV-00321"
+        ],
+        "synonym_expansions": {
+          "请假": [
+            "leave_request",
+            "leave"
+          ],
+          "LEV-00321": [
+            "leave_id"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "leave_request"
+          ],
+          "select": [
+            "leave_id",
+            "employee_id",
+            "days",
+            "leave_type",
+            "status",
+            "start_date"
+          ],
+          "filters": [
+            {
+              "field": "leave_id",
+              "operator": "eq",
+              "value": "LEV-00321",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 1,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1956.6,
+      "domain": "hr"
+    },
+    {
+      "id": "hr-h-014",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": false,
+        "object_types": true,
+        "filters": true,
+        "traversals": false
+      },
+      "exact": false,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "employee"
+        ],
+        "filters": [
+          [
+            "employee_id",
+            "eq",
+            "EMP-0207"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "EMP-0207 属于哪个部门",
+        "rewritten_question": "员工编号为 EMP-0207 的员工属于哪个部门？",
+        "keywords": [
+          "EMP-0207",
+          "部门"
+        ],
+        "synonym_expansions": {
+          "部门": [
+            "department"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "lookup",
+          "object_types": [
+            "employee"
+          ],
+          "select": [
+            "dept_id"
+          ],
+          "filters": [
+            {
+              "field": "employee_id",
+              "operator": "eq",
+              "value": "EMP-0207",
+              "value_field": ""
+            }
+          ],
+          "traversals": [],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 1,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 1927.8,
+      "domain": "hr"
+    },
+    {
+      "id": "hr-h-015",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "traversals": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "traverse",
+        "object_types": [
+          "leave_request"
+        ],
+        "filters": [
+          [
+            "leave_id",
+            "eq",
+            "LEV-00409"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [
+          "leave_employee"
+        ],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "LEV-00409 是谁的请假",
+        "rewritten_question": "查询请假记录 LEV-00409 对应的员工姓名",
+        "keywords": [
+          "LEV-00409",
+          "请假",
+          "员工"
+        ],
+        "synonym_expansions": {
+          "请假": [
+            "leave_request"
+          ],
+          "谁": [
+            "employee"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "traverse",
+          "object_types": [
+            "leave_request"
+          ],
+          "select": [
+            "employee.name"
+          ],
+          "filters": [
+            {
+              "field": "leave_id",
+              "operator": "eq",
+              "value": "LEV-00409",
+              "value_field": ""
+            }
+          ],
+          "traversals": [
+            {
+              "relation": "leave_employee",
+              "direction": "out",
+              "max_hops": 1
+            }
+          ],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 1,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2188.19,
+      "domain": "hr"
+    },
+    {
+      "id": "hr-h-016",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "traversals": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "traverse",
+        "object_types": [
+          "job_change"
+        ],
+        "filters": [
+          [
+            "change_id",
+            "eq",
+            "CHG-00177"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [
+          "change_employee"
+        ],
+        "group_by": []
+      },
+      "analysis": {
+        "original_question": "CHG-00177 是哪位员工的调岗",
+        "rewritten_question": "查询调岗记录CHG-00177对应的员工姓名",
+        "keywords": [
+          "CHG-00177",
+          "调岗",
+          "员工"
+        ],
+        "synonym_expansions": {
+          "调岗": [
+            "job_change",
+            "change"
+          ],
+          "员工": [
+            "employee"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [],
+        "clarification_answers": {},
+        "status": "ready",
+        "planner": "llm",
+        "plan": {
+          "version": "1.0",
+          "intent": "traverse",
+          "object_types": [
+            "job_change"
+          ],
+          "select": [
+            "employee.name"
+          ],
+          "filters": [
+            {
+              "field": "change_id",
+              "operator": "eq",
+              "value": "CHG-00177",
+              "value_field": ""
+            }
+          ],
+          "traversals": [
+            {
+              "relation": "change_employee",
+              "direction": "out",
+              "max_hops": 1
+            }
+          ],
+          "aggregates": [],
+          "group_by": [],
+          "order_by": [],
+          "limit": 1,
+          "evidence_budget": {
+            "max_items": 20,
+            "max_tokens": 4000
+          },
+          "answer_mode": "text",
+          "action_request": null
+        }
+      },
+      "latency_ms": 2220.19,
+      "domain": "hr"
+    },
+    {
+      "id": "hr-h-017",
+      "status": "needs_clarification",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "ambiguities": true
+      },
+      "exact": true,
+      "ambiguity_count": 1,
+      "actual": {},
+      "analysis": {
+        "original_question": "最近的调岗有哪些",
+        "rewritten_question": "最近的调岗有哪些",
+        "keywords": [
+          "调岗",
+          "最近"
+        ],
+        "synonym_expansions": {
+          "调岗": [
+            "job change",
+            "transfer",
+            "岗位变动"
+          ],
+          "最近": [
+            "recent",
+            "latest"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [
+          {
+            "id": "time_range",
+            "reason": "Relative term '最近' lacks an exact time range.",
+            "question": "请指定时间范围，例如最近一个月、最近三个月或具体日期。",
+            "options": [
+              "最近一个月",
+              "最近三个月",
+              "最近半年",
+              "最近一年"
+            ]
+          }
+        ],
+        "clarification_answers": {},
+        "status": "needs_clarification",
+        "planner": "llm",
+        "plan": null
+      },
+      "latency_ms": 1712.26,
+      "domain": "hr"
+    },
+    {
+      "id": "hr-h-018",
+      "status": "needs_clarification",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "ambiguities": true
+      },
+      "exact": true,
+      "ambiguity_count": 1,
+      "actual": {},
+      "analysis": {
+        "original_question": "看看他的请假记录",
+        "rewritten_question": "查看某个员工的请假记录",
+        "keywords": [
+          "请假记录",
+          "员工"
+        ],
+        "synonym_expansions": {
+          "请假记录": [
+            "leave_request"
+          ],
+          "员工": [
+            "employee"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [
+          {
+            "id": "employee_identity",
+            "reason": "问题中的“他”未指明具体员工，无法确定查询对象。",
+            "question": "请提供员工的姓名或ID。",
+            "options": [
+              "提供员工姓名",
+              "提供员工ID"
+            ]
+          }
+        ],
+        "clarification_answers": {},
+        "status": "needs_clarification",
+        "planner": "llm",
+        "plan": null
+      },
+      "latency_ms": 1702.65,
+      "domain": "hr"
+    },
+    {
+      "id": "hr-h-019",
+      "status": "needs_clarification",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "ambiguities": true
+      },
+      "exact": true,
+      "ambiguity_count": 1,
+      "actual": {},
+      "analysis": {
+        "original_question": "表现最好的员工是谁",
+        "rewritten_question": "表现最好的员工是谁",
+        "keywords": [
+          "表现最好",
+          "员工"
+        ],
+        "synonym_expansions": {
+          "表现最好": [
+            "最佳",
+            "优秀",
+            "绩效最高"
+          ],
+          "员工": [
+            "employee"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [
+          {
+            "id": "performance_metric",
+            "reason": "没有明确绩效指标，无法确定如何衡量员工表现。",
+            "question": "如何衡量员工表现？",
+            "options": [
+              "请假天数最少",
+              "薪资等级最高",
+              "其他"
+            ]
+          }
+        ],
+        "clarification_answers": {},
+        "status": "needs_clarification",
+        "planner": "llm",
+        "plan": null
+      },
+      "latency_ms": 1811.11,
+      "domain": "hr"
+    },
+    {
+      "id": "hr-h-020",
+      "status": "needs_clarification",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "ambiguities": true
+      },
+      "exact": true,
+      "ambiguity_count": 2,
+      "actual": {},
+      "analysis": {
+        "original_question": "近期长假申请有哪些",
+        "rewritten_question": "近期长假申请有哪些",
+        "keywords": [
+          "近期",
+          "长假",
+          "申请"
+        ],
+        "synonym_expansions": {
+          "近期": [
+            "recent",
+            "latest"
+          ],
+          "长假": [
+            "long leave",
+            "long vacation"
+          ],
+          "申请": [
+            "request",
+            "application"
+          ]
+        },
+        "sub_questions": [],
+        "assumptions": [],
+        "ambiguities": [
+          {
+            "id": "time_range",
+            "reason": "The term '近期' (recent) is relative and no exact time range is specified.",
+            "question": "What time range should be considered for '近期'?",
+            "options": [
+              "last 7 days",
+              "last 30 days",
+              "last 90 days",
+              "this year"
+            ]
+          },
+          {
+            "id": "long_leave_definition",
+            "reason": "The term '长假' (long leave) is not precisely defined; it could refer to leave requests with a certain number of days or a specific leave type.",
+            "question": "How should '长假' be defined?",
+            "options": [
+              "leave days >= 5",
+              "leave days >= 10",
+              "leave type is annual",
+              "any leave with status approved"
+            ]
+          }
+        ],
+        "clarification_answers": {},
+        "status": "needs_clarification",
+        "planner": "llm",
+        "plan": null
+      },
+      "latency_ms": 2292.36,
+      "domain": "hr"
+    }
+  ]
+}

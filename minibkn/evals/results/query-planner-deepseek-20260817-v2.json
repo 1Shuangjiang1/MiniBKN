@@ -1,0 +1,370 @@
+{
+  "evaluated_at": "2026-08-17T07:48:43.072192+00:00",
+  "dataset": "crm_query_planner_14.jsonl",
+  "model": "deepseek-chat",
+  "cases": 14,
+  "exact_accuracy": 1.0,
+  "component_accuracy": 1.0,
+  "results": [
+    {
+      "id": "qp-001",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "order"
+        ],
+        "filters": [
+          [
+            "status",
+            "eq",
+            "paid"
+          ]
+        ],
+        "aggregates": [
+          [
+            "sum",
+            "amount"
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      }
+    },
+    {
+      "id": "qp-002",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "order"
+        ],
+        "filters": [
+          [
+            "status",
+            "eq",
+            "pending"
+          ]
+        ],
+        "aggregates": [
+          [
+            "count",
+            ""
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      }
+    },
+    {
+      "id": "qp-003",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "customer"
+        ],
+        "filters": [
+          [
+            "city",
+            "eq",
+            "上海"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      }
+    },
+    {
+      "id": "qp-004",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "traversals": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "traverse",
+        "object_types": [
+          "order"
+        ],
+        "filters": [
+          [
+            "order_id",
+            "eq",
+            "ORD-001"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [
+          "placed_by"
+        ],
+        "group_by": []
+      }
+    },
+    {
+      "id": "qp-005",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "order"
+        ],
+        "filters": [
+          [
+            "status",
+            "eq",
+            "paid"
+          ]
+        ],
+        "aggregates": [
+          [
+            "avg",
+            "amount"
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      }
+    },
+    {
+      "id": "qp-006",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "customer"
+        ],
+        "filters": [
+          [
+            "segment",
+            "eq",
+            "enterprise"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      }
+    },
+    {
+      "id": "qp-007",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "order"
+        ],
+        "filters": [
+          [
+            "amount",
+            "gt",
+            10000
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      }
+    },
+    {
+      "id": "qp-008",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "aggregates": true,
+        "group_by": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "order"
+        ],
+        "filters": [],
+        "aggregates": [
+          [
+            "count",
+            ""
+          ]
+        ],
+        "traversals": [],
+        "group_by": [
+          "status"
+        ]
+      }
+    },
+    {
+      "id": "qp-009",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "lookup",
+        "object_types": [
+          "customer"
+        ],
+        "filters": [
+          [
+            "customer_id",
+            "eq",
+            "CUST-001"
+          ]
+        ],
+        "aggregates": [],
+        "traversals": [],
+        "group_by": []
+      }
+    },
+    {
+      "id": "qp-010",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0,
+      "actual": {
+        "intent": "aggregate",
+        "object_types": [
+          "order"
+        ],
+        "filters": [],
+        "aggregates": [
+          [
+            "max",
+            "amount"
+          ]
+        ],
+        "traversals": [],
+        "group_by": []
+      }
+    },
+    {
+      "id": "qp-011",
+      "status": "needs_clarification",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "ambiguities": true
+      },
+      "exact": true,
+      "ambiguity_count": 3,
+      "actual": {}
+    },
+    {
+      "id": "qp-012",
+      "status": "needs_clarification",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "ambiguities": true
+      },
+      "exact": true,
+      "ambiguity_count": 1,
+      "actual": {}
+    },
+    {
+      "id": "qp-013",
+      "status": "needs_clarification",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "ambiguities": true
+      },
+      "exact": true,
+      "ambiguity_count": 1,
+      "actual": {}
+    },
+    {
+      "id": "qp-014",
+      "status": "needs_clarification",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "ambiguities": true
+      },
+      "exact": true,
+      "ambiguity_count": 1,
+      "actual": {}
+    }
+  ]
+}

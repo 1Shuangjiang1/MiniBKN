@@ -1,0 +1,20 @@
+---
+type: relation_type
+id: leave_employee
+name: Leave Employee
+tags: [hr, evaluation, generated]
+---
+
+## RelationType: Leave Employee
+
+### Endpoint
+
+| Source | Target | Type |
+| --- | --- | --- |
+| leave_request | employee | direct |
+
+### Mapping Rules
+
+| Source Property | Target Property |
+| --- | --- |
+| employee_id | employee_id |

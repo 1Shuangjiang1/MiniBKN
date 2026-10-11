@@ -1,0 +1,29 @@
+---
+type: object_type
+id: department
+name: Department
+tags: [finance, evaluation, generated]
+---
+
+## ObjectType: Department
+
+Generated finance business object.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| company_code | Company Code | string | Company Code | company_code |
+| department_code | Department Code | string | Department Code | department_code |
+| name | Name | string | Name | name |
+
+### Keys
+
+Primary Keys: company_code, department_code
+Display Key: name
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | departments_csv | departments.csv |

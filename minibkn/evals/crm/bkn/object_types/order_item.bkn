@@ -1,0 +1,31 @@
+---
+type: object_type
+id: order_item
+name: Order Item
+tags: [crm, sales]
+---
+
+## ObjectType: Order Item
+
+Line item connecting an order and a product.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| item_id | Item ID | string | Unique line identifier | item_id |
+| order_id | Order ID | string | Parent order | order_id |
+| product_id | Product ID | string | Purchased product | product_id |
+| quantity | Quantity | integer | Purchased units | quantity |
+| unit_price | Unit Price | decimal | Agreed unit price | unit_price |
+
+### Keys
+
+Primary Keys: item_id
+Display Key: item_id
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | order_items_csv | order_items.csv |

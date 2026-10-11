@@ -1,0 +1,17 @@
+---
+type: risk_type
+id: rejected_expense_denied
+name: Rejected Expense Denied
+tags: [finance, risk, generated]
+level: high
+policy: deny
+applies_to_actions: [approve_expense]
+condition:
+  eq:
+    - ref: object.status
+    - "rejected"
+---
+
+## RiskType: Rejected Expense Denied
+
+Generated frozen risk rule.

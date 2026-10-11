@@ -1,0 +1,192 @@
+{
+  "report_version": "2.0",
+  "created_at": "2026-08-17T09:27:51.651561+00:00",
+  "status": "completed",
+  "dataset": {
+    "name": "crm_200",
+    "seed": 20260816,
+    "kind": "deterministic realistic synthetic CRM",
+    "questions": 200,
+    "categories": {
+      "single_entity": 70,
+      "multi_hop": 70,
+      "filter_aggregate": 60
+    },
+    "records": {
+      "customers": 500,
+      "orders": 2500,
+      "order_items": 6000,
+      "products": 120,
+      "sales_reps": 20
+    }
+  },
+  "retrieval": {
+    "bm25": {
+      "cases": 200,
+      "hit_rate_at_1": 0.7,
+      "hit_rate_at_5": 0.7,
+      "mean_reciprocal_rank": 0.7,
+      "labeled_context_precision_at_5": 0.14,
+      "labeled_context_recall_at_5": 0.525,
+      "latency_ms_p50": 32.73,
+      "latency_ms_p95": 37.08,
+      "average_context_tokens_at_5": 73.45
+    },
+    "vector": {
+      "cases": 200,
+      "hit_rate_at_1": 0.515,
+      "hit_rate_at_5": 0.625,
+      "mean_reciprocal_rank": 0.5647,
+      "labeled_context_precision_at_5": 0.125,
+      "labeled_context_recall_at_5": 0.4825,
+      "latency_ms_p50": 957.0,
+      "latency_ms_p95": 1044.24,
+      "average_context_tokens_at_5": 69.0
+    },
+    "hybrid": {
+      "cases": 200,
+      "hit_rate_at_1": 0.7,
+      "hit_rate_at_5": 0.7,
+      "mean_reciprocal_rank": 0.7,
+      "labeled_context_precision_at_5": 0.14,
+      "labeled_context_recall_at_5": 0.525,
+      "latency_ms_p50": 431.51,
+      "latency_ms_p95": 445.19,
+      "average_context_tokens_at_5": 70.31
+    }
+  },
+  "ragas": {
+    "id_metrics": {
+      "bm25": {
+        "context_precision_at_5": 0.14,
+        "context_recall_at_5": 0.525
+      },
+      "vector": {
+        "context_precision_at_5": 0.125,
+        "context_recall_at_5": 0.4825
+      },
+      "hybrid": {
+        "context_precision_at_5": 0.14,
+        "context_recall_at_5": 0.525
+      }
+    },
+    "metric": "Ragas Faithfulness with DeepSeek deepseek-chat judge",
+    "sampling": "deterministic stratified sample by CRM question category",
+    "sample_size": 30,
+    "successful_cases": 30,
+    "failed_cases": 0,
+    "mean": 0.9261,
+    "minimum": 0.8148
+  },
+  "query_plan": {
+    "holdout_cases": 60,
+    "holdout_exact_accuracy": 0.9333333333333333,
+    "holdout_component_accuracy": 0.9752066115702479,
+    "holdout_usage": {
+      "prompt_tokens": 148606,
+      "completion_tokens": 16529,
+      "total_tokens": 165135
+    },
+    "holdout_latency_ms": {
+      "average": 1958.1,
+      "maximum": 2351.97
+    },
+    "adversarial_cases": 6,
+    "adversarial_exact_accuracy": 0.8333333333333334,
+    "known_gap": "field-level RBAC is not implemented"
+  },
+  "actions": {
+    "cases": 30,
+    "decision_accuracy": 1.0,
+    "decision_distribution": {
+      "allow": 10,
+      "confirm": 10,
+      "deny": 10
+    },
+    "side_effects": 0
+  },
+  "performance": {
+    "bm25": {
+      "cold_first_request_ms": 4781.08,
+      "cold_error": null,
+      "warm_sequential": {
+        "requests": 20,
+        "successful": 20,
+        "failed": 0,
+        "p50_ms": 31.64,
+        "p95_ms": 34.52,
+        "mean_ms": 31.92,
+        "throughput_rps": 31.33,
+        "wall_time_ms": 638.47,
+        "errors": []
+      },
+      "warm_concurrent": {
+        "requests": 50,
+        "successful": 50,
+        "failed": 0,
+        "p50_ms": 1063.43,
+        "p95_ms": 1639.26,
+        "mean_ms": 1064.37,
+        "throughput_rps": 30.4,
+        "wall_time_ms": 1644.7,
+        "errors": []
+      }
+    },
+    "hybrid": {
+      "cold_first_request_ms": 1019.85,
+      "cold_error": null,
+      "warm_sequential": {
+        "requests": 20,
+        "successful": 20,
+        "failed": 0,
+        "p50_ms": 587.08,
+        "p95_ms": 614.08,
+        "mean_ms": 591.42,
+        "throughput_rps": 1.69,
+        "wall_time_ms": 11828.38,
+        "errors": []
+      },
+      "warm_concurrent": {
+        "requests": 50,
+        "successful": 50,
+        "failed": 0,
+        "p50_ms": 3479.69,
+        "p95_ms": 4312.02,
+        "mean_ms": 3305.57,
+        "throughput_rps": 11.52,
+        "wall_time_ms": 4338.99,
+        "errors": []
+      }
+    }
+  },
+  "coverage": {
+    "covered_lines": 3250,
+    "num_statements": 3646,
+    "percent_covered": 89.13878222709819,
+    "percent_covered_display": "89",
+    "missing_lines": 396,
+    "excluded_lines": 122,
+    "percent_statements_covered": 89.13878222709819,
+    "percent_statements_covered_display": "89"
+  },
+  "claims": {
+    "supported": [
+      "BGE-M3 vector Hit@1 exceeds token hashing by 48 percentage points",
+      "30-case Ragas Faithfulness mean is 0.9261",
+      "50 concurrent hybrid searches completed with zero errors"
+    ],
+    "not_yet_supported": [
+      "Context Precision 0.78",
+      "average context token reduction 36%",
+      "field-level authorization"
+    ]
+  },
+  "artifacts": {
+    "retrieval": "evals\\results\\comprehensive\\retrieval\\latest-siliconflow.json",
+    "ragas": "evals\\results\\comprehensive\\ragas\\bge_m3_faithfulness_30.json",
+    "query_plan": "evals\\results\\comprehensive\\query_planner_holdout_60_v1.json",
+    "adversarial": "evals\\results\\comprehensive\\query_planner_adversarial_v2.json",
+    "performance": "evals\\results\\comprehensive\\performance\\bge_m3_after_numpy.json",
+    "coverage": "evals\\results\\comprehensive\\coverage.json"
+  }
+}

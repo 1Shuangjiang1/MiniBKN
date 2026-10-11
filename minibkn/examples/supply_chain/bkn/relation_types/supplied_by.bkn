@@ -1,0 +1,22 @@
+---
+type: relation_type
+id: supplied_by
+name: Supplied By
+tags: [inventory, procurement]
+---
+
+## RelationType: Supplied By
+
+Connects each material to its supplier using a direct foreign-key mapping.
+
+### Endpoint
+
+| Source | Target | Type |
+| --- | --- | --- |
+| material | supplier | direct |
+
+### Mapping Rules
+
+| Source Property | Target Property |
+| --- | --- |
+| supplier_id | supplier_id |

@@ -1,0 +1,29 @@
+---
+type: object_type
+id: buyer
+name: Buyer
+tags: [procurement, evaluation, generated]
+---
+
+## ObjectType: Buyer
+
+Generated procurement business object.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| buyer_id | Buyer ID | string | Buyer ID | buyer_id |
+| name | Name | string | Name | name |
+| department | Department | string | Department | department |
+
+### Keys
+
+Primary Keys: buyer_id
+Display Key: name
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | buyers_csv | buyers.csv |

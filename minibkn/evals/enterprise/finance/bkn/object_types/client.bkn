@@ -1,0 +1,30 @@
+---
+type: object_type
+id: client
+name: Client
+tags: [finance, evaluation, generated]
+---
+
+## ObjectType: Client
+
+Generated finance business object.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| client_id | Client ID | string | Client ID | client_id |
+| name | Name | string | Name | name |
+| segment | Segment | string | Segment | segment |
+| region | Region | string | Region | region |
+
+### Keys
+
+Primary Keys: client_id
+Display Key: name
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | clients_csv | clients.csv |

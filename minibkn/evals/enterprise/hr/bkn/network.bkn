@@ -1,0 +1,10 @@
+---
+type: knowledge_network
+id: hr_holdout
+name: Hr Holdout
+tags: [hr, evaluation, generated]
+---
+
+# Hr Holdout
+
+Deterministic multi-domain blind evaluation network.

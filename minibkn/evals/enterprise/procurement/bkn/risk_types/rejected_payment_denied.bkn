@@ -1,0 +1,17 @@
+---
+type: risk_type
+id: rejected_payment_denied
+name: Rejected Payment Denied
+tags: [procurement, risk, generated]
+level: high
+policy: deny
+applies_to_actions: [approve_payment]
+condition:
+  eq:
+    - ref: object.status
+    - "rejected"
+---
+
+## RiskType: Rejected Payment Denied
+
+Generated frozen risk rule.

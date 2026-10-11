@@ -1,0 +1,32 @@
+---
+type: object_type
+id: expense
+name: Expense
+tags: [finance, evaluation, generated]
+---
+
+## ObjectType: Expense
+
+Generated finance business object.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| expense_id | Expense ID | string | Expense ID | expense_id |
+| company_code | Company Code | string | Company Code | company_code |
+| department_code | Department Code | string | Department Code | department_code |
+| amount | Amount | decimal | Amount | amount |
+| status | Status | string | Status | status |
+| category | Category | string | Category | category |
+
+### Keys
+
+Primary Keys: expense_id
+Display Key: expense_id
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | expenses_csv | expenses.csv |

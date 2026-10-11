@@ -1,0 +1,31 @@
+---
+type: object_type
+id: supplier
+name: Supplier
+tags: [procurement, evaluation, generated]
+---
+
+## ObjectType: Supplier
+
+Generated procurement business object.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| supplier_id | Supplier ID | string | Supplier ID | supplier_id |
+| name | Name | string | Name | name |
+| category | Category | string | Category | category |
+| risk_level | Risk Level | string | Risk Level | risk_level |
+| region | Region | string | Region | region |
+
+### Keys
+
+Primary Keys: supplier_id
+Display Key: name
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | suppliers_csv | suppliers.csv |

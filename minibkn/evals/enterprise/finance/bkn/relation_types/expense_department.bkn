@@ -1,0 +1,21 @@
+---
+type: relation_type
+id: expense_department
+name: Expense Department
+tags: [finance, evaluation, generated]
+---
+
+## RelationType: Expense Department
+
+### Endpoint
+
+| Source | Target | Type |
+| --- | --- | --- |
+| expense | department | direct |
+
+### Mapping Rules
+
+| Source Property | Target Property |
+| --- | --- |
+| company_code | company_code |
+| department_code | department_code |

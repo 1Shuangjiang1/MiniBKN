@@ -1,0 +1,5 @@
+order_id,customer_id,amount,status,created_at
+ORD-001,CUST-001,128000.50,paid,2026-07-01
+ORD-002,CUST-001,32000.00,pending,2026-07-15
+ORD-003,CUST-002,8600.00,paid,2026-08-02
+ORD-004,CUST-003,1999.99,cancelled,2026-08-05

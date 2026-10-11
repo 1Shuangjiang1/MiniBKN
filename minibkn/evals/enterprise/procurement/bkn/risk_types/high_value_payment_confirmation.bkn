@@ -1,0 +1,17 @@
+---
+type: risk_type
+id: high_value_payment_confirmation
+name: High Value Payment Confirmation
+tags: [procurement, risk, generated]
+level: high
+policy: confirm
+applies_to_actions: [approve_payment]
+condition:
+  gte:
+    - ref: object.amount
+    - 100000
+---
+
+## RiskType: High Value Payment Confirmation
+
+Generated frozen risk rule.

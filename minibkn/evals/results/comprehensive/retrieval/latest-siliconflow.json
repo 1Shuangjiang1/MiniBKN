@@ -1,0 +1,6377 @@
+{
+  "report_version": "1.0",
+  "run_id": "20260817-084601-191953",
+  "created_at": "2026-08-17T08:55:12.905711+00:00",
+  "dataset": {
+    "name": "crm_200",
+    "seed": 20260816,
+    "kind": "deterministic realistic synthetic CRM",
+    "questions": 200,
+    "categories": {
+      "single_entity": 70,
+      "multi_hop": 70,
+      "filter_aggregate": 60
+    },
+    "records": {
+      "customers": 500,
+      "orders": 2500,
+      "order_items": 6000,
+      "products": 120,
+      "sales_reps": 20
+    }
+  },
+  "build": {
+    "status": "published",
+    "inserted_objects": 9140,
+    "inserted_relations": 15000,
+    "embedded_documents": 9150
+  },
+  "retrieval": {
+    "bm25": {
+      "cases": 200,
+      "hit_rate_at_1": 0.7,
+      "hit_rate_at_5": 0.7,
+      "mean_reciprocal_rank": 0.7,
+      "labeled_context_precision_at_5": 0.14,
+      "labeled_context_recall_at_5": 0.525,
+      "latency_ms_p50": 32.73,
+      "latency_ms_p95": 37.08,
+      "average_context_tokens_at_5": 73.45
+    },
+    "vector": {
+      "cases": 200,
+      "hit_rate_at_1": 0.515,
+      "hit_rate_at_5": 0.625,
+      "mean_reciprocal_rank": 0.5647,
+      "labeled_context_precision_at_5": 0.125,
+      "labeled_context_recall_at_5": 0.4825,
+      "latency_ms_p50": 957.0,
+      "latency_ms_p95": 1044.24,
+      "average_context_tokens_at_5": 69.0
+    },
+    "hybrid": {
+      "cases": 200,
+      "hit_rate_at_1": 0.7,
+      "hit_rate_at_5": 0.7,
+      "mean_reciprocal_rank": 0.7,
+      "labeled_context_precision_at_5": 0.14,
+      "labeled_context_recall_at_5": 0.525,
+      "latency_ms_p50": 431.51,
+      "latency_ms_p95": 445.19,
+      "average_context_tokens_at_5": 70.31
+    }
+  },
+  "query_plan": {
+    "cases": 130,
+    "exact_execution_accuracy": 1.0,
+    "latency_ms_p50": 731.69,
+    "latency_ms_p95": 763.83,
+    "planner": "frozen validated QueryPlan; does not claim LLM intent accuracy"
+  },
+  "actions": {
+    "cases": 30,
+    "decision_accuracy": 1.0,
+    "decision_distribution": {
+      "allow": 10,
+      "confirm": 10,
+      "deny": 10
+    },
+    "side_effects": 0
+  },
+  "ragas": {
+    "status": "pending",
+    "id_based_context_precision": null,
+    "faithfulness": null,
+    "faithfulness_note": "not run: evaluator LLM API key is not configured"
+  },
+  "token_accounting": {
+    "method": "MiniBKN tokenizer count over retrieved top-5 context",
+    "llm_input_tokens": 0,
+    "llm_output_tokens": 0,
+    "note": "extractive benchmark invokes no answer LLM"
+  },
+  "baselines": {
+    "B0": "BM25 lexical retrieval",
+    "B1": "semantic vector retrieval with BAAI/bge-m3",
+    "B2": "BM25 + siliconflow vector + RRF",
+    "B3": "reranker not implemented; no result claimed",
+    "B4": "validated QueryPlan executor on 130 traversal/aggregate cases"
+  },
+  "environment": {
+    "python": "3.11.14",
+    "platform": "Windows-10-10.0.22631-SP0",
+    "embedding_version": "siliconflow:BAAI/bge-m3:1024"
+  },
+  "cases": [
+    {
+      "id": "crm-001",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0001 Enterprise Customer 0001 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0001"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0001",
+          "instance:order:ORD-00500",
+          "instance:order:ORD-01000",
+          "instance:order:ORD-01500",
+          "instance:order:ORD-02000"
+        ],
+        "vector": [
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0006",
+          "instance:customer:CUST-0099",
+          "instance:customer:CUST-0101",
+          "instance:customer:CUST-0100"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0006",
+          "instance:customer:CUST-0004",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003"
+        ]
+      }
+    },
+    {
+      "id": "crm-002",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0008 Enterprise Customer 0008 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0008"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0008",
+          "instance:order:ORD-00471",
+          "instance:order:ORD-00971",
+          "instance:order:ORD-01471",
+          "instance:order:ORD-01971"
+        ],
+        "vector": [
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0108",
+          "instance:customer:CUST-0408",
+          "instance:customer:CUST-0208",
+          "instance:customer:CUST-0308"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0006",
+          "instance:customer:CUST-0004",
+          "instance:customer:CUST-0002"
+        ]
+      }
+    },
+    {
+      "id": "crm-003",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0015 Enterprise Customer 0015 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0015"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0015",
+          "instance:order:ORD-00442",
+          "instance:order:ORD-00942",
+          "instance:order:ORD-01442",
+          "instance:order:ORD-01942"
+        ],
+        "vector": [
+          "instance:customer:CUST-0015",
+          "instance:customer:CUST-0315",
+          "instance:customer:CUST-0115",
+          "instance:customer:CUST-0415",
+          "instance:customer:CUST-0215"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0015",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0005",
+          "instance:customer:CUST-0021",
+          "instance:customer:CUST-0016"
+        ]
+      }
+    },
+    {
+      "id": "crm-004",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0022 Enterprise Customer 0022 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0022"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0022",
+          "instance:order:ORD-00413",
+          "instance:order:ORD-00913",
+          "instance:order:ORD-01413",
+          "instance:order:ORD-01913"
+        ],
+        "vector": [
+          "instance:customer:CUST-0022",
+          "instance:customer:CUST-0222",
+          "instance:customer:CUST-0322",
+          "instance:customer:CUST-0122",
+          "instance:customer:CUST-0422"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0022",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0012",
+          "instance:customer:CUST-0027",
+          "instance:customer:CUST-0001"
+        ]
+      }
+    },
+    {
+      "id": "crm-005",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0029 Enterprise Customer 0029 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0029"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0029",
+          "instance:order:ORD-00384",
+          "instance:order:ORD-00884",
+          "instance:order:ORD-01384",
+          "instance:order:ORD-01884"
+        ],
+        "vector": [
+          "instance:customer:CUST-0279",
+          "instance:customer:CUST-0029",
+          "instance:customer:CUST-0429",
+          "instance:customer:CUST-0129",
+          "instance:customer:CUST-0229"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0029",
+          "instance:customer:CUST-0028",
+          "instance:customer:CUST-0019",
+          "instance:customer:CUST-0027",
+          "instance:customer:CUST-0039"
+        ]
+      }
+    },
+    {
+      "id": "crm-006",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0036 Enterprise Customer 0036 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0036"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0036",
+          "instance:order:ORD-00355",
+          "instance:order:ORD-00855",
+          "instance:order:ORD-01355",
+          "instance:order:ORD-01855"
+        ],
+        "vector": [
+          "instance:customer:CUST-0036",
+          "instance:customer:CUST-0436",
+          "instance:customer:CUST-0336",
+          "instance:customer:CUST-0136",
+          "instance:customer:CUST-0236"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0036",
+          "instance:customer:CUST-0006",
+          "instance:customer:CUST-0046",
+          "instance:customer:CUST-0038",
+          "instance:customer:CUST-0039"
+        ]
+      }
+    },
+    {
+      "id": "crm-007",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0043 Enterprise Customer 0043 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0043"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0043",
+          "instance:order:ORD-00326",
+          "instance:order:ORD-00826",
+          "instance:order:ORD-01326",
+          "instance:order:ORD-01826"
+        ],
+        "vector": [
+          "instance:customer:CUST-0043",
+          "instance:customer:CUST-0243",
+          "instance:customer:CUST-0143",
+          "instance:customer:CUST-0343",
+          "instance:customer:CUST-0443"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0043",
+          "instance:customer:CUST-0044",
+          "instance:customer:CUST-0036",
+          "instance:customer:CUST-0046",
+          "instance:customer:CUST-0063"
+        ]
+      }
+    },
+    {
+      "id": "crm-008",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0050 Enterprise Customer 0050 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0050"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0050",
+          "instance:order:ORD-00297",
+          "instance:order:ORD-00797",
+          "instance:order:ORD-01297",
+          "instance:order:ORD-01797"
+        ],
+        "vector": [
+          "instance:customer:CUST-0500",
+          "instance:customer:CUST-0050",
+          "instance:customer:CUST-0052",
+          "instance:customer:CUST-0040",
+          "instance:customer:CUST-0450"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0050",
+          "instance:customer:CUST-0005",
+          "instance:customer:CUST-0020",
+          "instance:customer:CUST-0040",
+          "instance:customer:CUST-0001"
+        ]
+      }
+    },
+    {
+      "id": "crm-009",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0057 Enterprise Customer 0057 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0057"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0057",
+          "instance:order:ORD-00268",
+          "instance:order:ORD-00768",
+          "instance:order:ORD-01268",
+          "instance:order:ORD-01768"
+        ],
+        "vector": [
+          "instance:customer:CUST-0057",
+          "instance:customer:CUST-0257",
+          "instance:customer:CUST-0357",
+          "instance:customer:CUST-0457",
+          "instance:customer:CUST-0157"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0057",
+          "instance:customer:CUST-0027",
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0047",
+          "instance:customer:CUST-0001"
+        ]
+      }
+    },
+    {
+      "id": "crm-010",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0064 Enterprise Customer 0064 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0064"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0064",
+          "instance:order:ORD-00239",
+          "instance:order:ORD-00739",
+          "instance:order:ORD-01239",
+          "instance:order:ORD-01739"
+        ],
+        "vector": [
+          "instance:customer:CUST-0064",
+          "instance:customer:CUST-0364",
+          "instance:customer:CUST-0164",
+          "instance:customer:CUST-0464",
+          "instance:customer:CUST-0264"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0064",
+          "instance:customer:CUST-0004",
+          "instance:customer:CUST-0024",
+          "instance:customer:CUST-0044",
+          "instance:customer:CUST-0066"
+        ]
+      }
+    },
+    {
+      "id": "crm-011",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0071 Enterprise Customer 0071 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0071"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0071",
+          "instance:order:ORD-00210",
+          "instance:order:ORD-00710",
+          "instance:order:ORD-01210",
+          "instance:order:ORD-01710"
+        ],
+        "vector": [
+          "instance:customer:CUST-0071",
+          "instance:customer:CUST-0471",
+          "instance:customer:CUST-0271",
+          "instance:customer:CUST-0371",
+          "instance:customer:CUST-0072"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0071",
+          "instance:customer:CUST-0021",
+          "instance:customer:CUST-0072",
+          "instance:customer:CUST-0061",
+          "instance:customer:CUST-0078"
+        ]
+      }
+    },
+    {
+      "id": "crm-012",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0078 Enterprise Customer 0078 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0078"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0078",
+          "instance:order:ORD-00181",
+          "instance:order:ORD-00681",
+          "instance:order:ORD-01181",
+          "instance:order:ORD-01681"
+        ],
+        "vector": [
+          "instance:customer:CUST-0078",
+          "instance:customer:CUST-0378",
+          "instance:customer:CUST-0478",
+          "instance:customer:CUST-0178",
+          "instance:customer:CUST-0278"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0078",
+          "instance:customer:CUST-0068",
+          "instance:customer:CUST-0076",
+          "instance:customer:CUST-0038",
+          "instance:customer:CUST-0079"
+        ]
+      }
+    },
+    {
+      "id": "crm-013",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0085 Enterprise Customer 0085 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0085"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0085",
+          "instance:order:ORD-00152",
+          "instance:order:ORD-00652",
+          "instance:order:ORD-01152",
+          "instance:order:ORD-01652"
+        ],
+        "vector": [
+          "instance:customer:CUST-0085",
+          "instance:customer:CUST-0285",
+          "instance:customer:CUST-0185",
+          "instance:customer:CUST-0385",
+          "instance:customer:CUST-0485"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0085",
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0084",
+          "instance:customer:CUST-0055",
+          "instance:customer:CUST-0087"
+        ]
+      }
+    },
+    {
+      "id": "crm-014",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0092 Enterprise Customer 0092 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0092"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0092",
+          "instance:order:ORD-00123",
+          "instance:order:ORD-00623",
+          "instance:order:ORD-01123",
+          "instance:order:ORD-01623"
+        ],
+        "vector": [
+          "instance:customer:CUST-0092",
+          "instance:customer:CUST-0492",
+          "instance:customer:CUST-0292",
+          "instance:customer:CUST-0192",
+          "instance:customer:CUST-0392"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0092",
+          "instance:customer:CUST-0072",
+          "instance:customer:CUST-0009",
+          "instance:customer:CUST-0096",
+          "instance:customer:CUST-0022"
+        ]
+      }
+    },
+    {
+      "id": "crm-015",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0099 Enterprise Customer 0099 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0099"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0099",
+          "instance:order:ORD-00094",
+          "instance:order:ORD-00594",
+          "instance:order:ORD-01094",
+          "instance:order:ORD-01594"
+        ],
+        "vector": [
+          "instance:customer:CUST-0099",
+          "instance:customer:CUST-0399",
+          "instance:customer:CUST-0199",
+          "instance:customer:CUST-0499",
+          "instance:customer:CUST-0498"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0099",
+          "instance:customer:CUST-0009",
+          "instance:customer:CUST-0019",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0069"
+        ]
+      }
+    },
+    {
+      "id": "crm-016",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0106 Enterprise Customer 0106 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0106"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0106",
+          "instance:order:ORD-00065",
+          "instance:order:ORD-00565",
+          "instance:order:ORD-01065",
+          "instance:order:ORD-01565"
+        ],
+        "vector": [
+          "instance:customer:CUST-0106",
+          "instance:customer:CUST-0006",
+          "instance:customer:CUST-0306",
+          "instance:customer:CUST-0105",
+          "instance:customer:CUST-0160"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0106",
+          "instance:customer:CUST-0006",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0004",
+          "instance:customer:CUST-0105"
+        ]
+      }
+    },
+    {
+      "id": "crm-017",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0113 Enterprise Customer 0113 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0113"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0113",
+          "instance:order:ORD-00036",
+          "instance:order:ORD-00536",
+          "instance:order:ORD-01036",
+          "instance:order:ORD-01536"
+        ],
+        "vector": [
+          "instance:customer:CUST-0113",
+          "instance:customer:CUST-0112",
+          "instance:customer:CUST-0213",
+          "instance:customer:CUST-0013",
+          "instance:customer:CUST-0114"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0113",
+          "instance:customer:CUST-0013",
+          "instance:customer:CUST-0012",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0016"
+        ]
+      }
+    },
+    {
+      "id": "crm-018",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0120 Enterprise Customer 0120 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0120"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0120",
+          "instance:order:ORD-00007",
+          "instance:order:ORD-00507",
+          "instance:order:ORD-01007",
+          "instance:order:ORD-01507"
+        ],
+        "vector": [
+          "instance:customer:CUST-0120",
+          "instance:customer:CUST-0220",
+          "instance:customer:CUST-0420",
+          "instance:customer:CUST-0020",
+          "instance:customer:CUST-0320"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0120",
+          "instance:customer:CUST-0020",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0012",
+          "instance:customer:CUST-0010"
+        ]
+      }
+    },
+    {
+      "id": "crm-019",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0127 Enterprise Customer 0127 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0127"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0127",
+          "instance:order:ORD-00478",
+          "instance:order:ORD-00978",
+          "instance:order:ORD-01478",
+          "instance:order:ORD-01978"
+        ],
+        "vector": [
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0027",
+          "instance:customer:CUST-0227",
+          "instance:customer:CUST-0327",
+          "instance:customer:CUST-0126"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0027",
+          "instance:customer:CUST-0028",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0026"
+        ]
+      }
+    },
+    {
+      "id": "crm-020",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0134 Enterprise Customer 0134 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0134"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0134",
+          "instance:order:ORD-00449",
+          "instance:order:ORD-00949",
+          "instance:order:ORD-01449",
+          "instance:order:ORD-01949"
+        ],
+        "vector": [
+          "instance:customer:CUST-0134",
+          "instance:customer:CUST-0234",
+          "instance:customer:CUST-0144",
+          "instance:customer:CUST-0034",
+          "instance:customer:CUST-0164"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0134",
+          "instance:customer:CUST-0034",
+          "instance:customer:CUST-0004",
+          "instance:customer:CUST-0044",
+          "instance:customer:CUST-0003"
+        ]
+      }
+    },
+    {
+      "id": "crm-021",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0141 Enterprise Customer 0141 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0141"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0141",
+          "instance:order:ORD-00420",
+          "instance:order:ORD-00920",
+          "instance:order:ORD-01420",
+          "instance:order:ORD-01920"
+        ],
+        "vector": [
+          "instance:customer:CUST-0141",
+          "instance:customer:CUST-0041",
+          "instance:customer:CUST-0144",
+          "instance:customer:CUST-0341",
+          "instance:customer:CUST-0241"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0141",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0041",
+          "instance:customer:CUST-0044",
+          "instance:customer:CUST-0021"
+        ]
+      }
+    },
+    {
+      "id": "crm-022",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0148 Enterprise Customer 0148 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0148"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0148",
+          "instance:order:ORD-00391",
+          "instance:order:ORD-00891",
+          "instance:order:ORD-01391",
+          "instance:order:ORD-01891"
+        ],
+        "vector": [
+          "instance:customer:CUST-0148",
+          "instance:customer:CUST-0248",
+          "instance:customer:CUST-0048",
+          "instance:customer:CUST-0348",
+          "instance:customer:CUST-0448"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0148",
+          "instance:customer:CUST-0048",
+          "instance:customer:CUST-0012",
+          "instance:customer:CUST-0138",
+          "instance:customer:CUST-0147"
+        ]
+      }
+    },
+    {
+      "id": "crm-023",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0155 Enterprise Customer 0155 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0155"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0155",
+          "instance:order:ORD-00362",
+          "instance:order:ORD-00862",
+          "instance:order:ORD-01362",
+          "instance:order:ORD-01862"
+        ],
+        "vector": [
+          "instance:customer:CUST-0155",
+          "instance:customer:CUST-0055",
+          "instance:customer:CUST-0255",
+          "instance:customer:CUST-0165",
+          "instance:customer:CUST-0355"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0155",
+          "instance:customer:CUST-0055",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0051",
+          "instance:order:ORD-00362"
+        ]
+      }
+    },
+    {
+      "id": "crm-024",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0162 Enterprise Customer 0162 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0162"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0162",
+          "instance:order:ORD-00333",
+          "instance:order:ORD-00833",
+          "instance:order:ORD-01333",
+          "instance:order:ORD-01833"
+        ],
+        "vector": [
+          "instance:customer:CUST-0162",
+          "instance:customer:CUST-0462",
+          "instance:customer:CUST-0062",
+          "instance:customer:CUST-0262",
+          "instance:customer:CUST-0192"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0162",
+          "instance:customer:CUST-0062",
+          "instance:customer:CUST-0001",
+          "instance:order:ORD-01333",
+          "instance:customer:CUST-0012"
+        ]
+      }
+    },
+    {
+      "id": "crm-025",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0169 Enterprise Customer 0169 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0169"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0169",
+          "instance:order:ORD-00304",
+          "instance:order:ORD-00804",
+          "instance:order:ORD-01304",
+          "instance:order:ORD-01804"
+        ],
+        "vector": [
+          "instance:customer:CUST-0169",
+          "instance:customer:CUST-0069",
+          "instance:customer:CUST-0369",
+          "instance:customer:CUST-0469",
+          "instance:customer:CUST-0269"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0169",
+          "instance:customer:CUST-0069",
+          "instance:customer:CUST-0159",
+          "instance:customer:CUST-0072",
+          "instance:customer:CUST-0012"
+        ]
+      }
+    },
+    {
+      "id": "crm-026",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0176 Enterprise Customer 0176 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0176"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0176",
+          "instance:order:ORD-00275",
+          "instance:order:ORD-00775",
+          "instance:order:ORD-01275",
+          "instance:order:ORD-01775"
+        ],
+        "vector": [
+          "instance:customer:CUST-0176",
+          "instance:customer:CUST-0276",
+          "instance:customer:CUST-0076",
+          "instance:customer:CUST-0376",
+          "instance:customer:CUST-0476"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0176",
+          "instance:customer:CUST-0076",
+          "instance:customer:CUST-0036",
+          "instance:customer:CUST-0006",
+          "instance:customer:CUST-0126"
+        ]
+      }
+    },
+    {
+      "id": "crm-027",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0183 Enterprise Customer 0183 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0183"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0183",
+          "instance:order:ORD-00246",
+          "instance:order:ORD-00746",
+          "instance:order:ORD-01246",
+          "instance:order:ORD-01746"
+        ],
+        "vector": [
+          "instance:customer:CUST-0183",
+          "instance:customer:CUST-0186",
+          "instance:customer:CUST-0283",
+          "instance:customer:CUST-0083",
+          "instance:customer:CUST-0383"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0183",
+          "instance:customer:CUST-0083",
+          "instance:customer:CUST-0084",
+          "instance:customer:CUST-0186",
+          "instance:customer:CUST-0184"
+        ]
+      }
+    },
+    {
+      "id": "crm-028",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0190 Enterprise Customer 0190 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0190"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0190",
+          "instance:order:ORD-00217",
+          "instance:order:ORD-00717",
+          "instance:order:ORD-01217",
+          "instance:order:ORD-01717"
+        ],
+        "vector": [
+          "instance:customer:CUST-0190",
+          "instance:customer:CUST-0192",
+          "instance:customer:CUST-0090",
+          "instance:customer:CUST-0189",
+          "instance:customer:CUST-0390"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0190",
+          "instance:customer:CUST-0090",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0009",
+          "instance:customer:CUST-0192"
+        ]
+      }
+    },
+    {
+      "id": "crm-029",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0197 Enterprise Customer 0197 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0197"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0197",
+          "instance:order:ORD-00188",
+          "instance:order:ORD-00688",
+          "instance:order:ORD-01188",
+          "instance:order:ORD-01688"
+        ],
+        "vector": [
+          "instance:customer:CUST-0196",
+          "instance:customer:CUST-0197",
+          "instance:customer:CUST-0192",
+          "instance:customer:CUST-0198",
+          "instance:customer:CUST-0096"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0197",
+          "instance:customer:CUST-0096",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0097",
+          "instance:customer:CUST-0196"
+        ]
+      }
+    },
+    {
+      "id": "crm-030",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0204 Enterprise Customer 0204 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0204"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0204",
+          "instance:order:ORD-00159",
+          "instance:order:ORD-00659",
+          "instance:order:ORD-01159",
+          "instance:order:ORD-01659"
+        ],
+        "vector": [
+          "instance:customer:CUST-0204",
+          "instance:customer:CUST-0402",
+          "instance:customer:CUST-0004",
+          "instance:customer:CUST-0404",
+          "instance:customer:CUST-0244"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0204",
+          "instance:customer:CUST-0004",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0104"
+        ]
+      }
+    },
+    {
+      "id": "crm-031",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0211 Enterprise Customer 0211 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0211"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0211",
+          "instance:order:ORD-00130",
+          "instance:order:ORD-00630",
+          "instance:order:ORD-01130",
+          "instance:order:ORD-01630"
+        ],
+        "vector": [
+          "instance:customer:CUST-0211",
+          "instance:customer:CUST-0221",
+          "instance:customer:CUST-0222",
+          "instance:customer:CUST-0216",
+          "instance:customer:CUST-0212"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0211",
+          "instance:customer:CUST-0011",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0021"
+        ]
+      }
+    },
+    {
+      "id": "crm-032",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0218 Enterprise Customer 0218 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0218"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0218",
+          "instance:order:ORD-00101",
+          "instance:order:ORD-00601",
+          "instance:order:ORD-01101",
+          "instance:order:ORD-01601"
+        ],
+        "vector": [
+          "instance:customer:CUST-0218",
+          "instance:customer:CUST-0018",
+          "instance:customer:CUST-0318",
+          "instance:customer:CUST-0216",
+          "instance:customer:CUST-0219"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0218",
+          "instance:customer:CUST-0018",
+          "instance:order:ORD-02101",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0019"
+        ]
+      }
+    },
+    {
+      "id": "crm-033",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0225 Enterprise Customer 0225 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0225"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0225",
+          "instance:order:ORD-00072",
+          "instance:order:ORD-00572",
+          "instance:order:ORD-01072",
+          "instance:order:ORD-01572"
+        ],
+        "vector": [
+          "instance:customer:CUST-0225",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0425",
+          "instance:customer:CUST-0220",
+          "instance:customer:CUST-0125"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0225",
+          "instance:customer:CUST-0025",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0125",
+          "instance:customer:CUST-0226"
+        ]
+      }
+    },
+    {
+      "id": "crm-034",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0232 Enterprise Customer 0232 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0232"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0232",
+          "instance:order:ORD-00043",
+          "instance:order:ORD-00543",
+          "instance:order:ORD-01043",
+          "instance:order:ORD-01543"
+        ],
+        "vector": [
+          "instance:customer:CUST-0232",
+          "instance:customer:CUST-0432",
+          "instance:customer:CUST-0132",
+          "instance:customer:CUST-0032",
+          "instance:customer:CUST-0332"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0232",
+          "instance:customer:CUST-0032",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0132",
+          "instance:customer:CUST-0022"
+        ]
+      }
+    },
+    {
+      "id": "crm-035",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0239 Enterprise Customer 0239 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0239"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0239",
+          "instance:order:ORD-00014",
+          "instance:order:ORD-00514",
+          "instance:order:ORD-01014",
+          "instance:order:ORD-01514"
+        ],
+        "vector": [
+          "instance:customer:CUST-0239",
+          "instance:customer:CUST-0439",
+          "instance:customer:CUST-0039",
+          "instance:customer:CUST-0339",
+          "instance:customer:CUST-0139"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0239",
+          "instance:customer:CUST-0039",
+          "instance:customer:CUST-0139",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0001"
+        ]
+      }
+    },
+    {
+      "id": "crm-036",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0246 Enterprise Customer 0246 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0246"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0246",
+          "instance:order:ORD-00485",
+          "instance:order:ORD-00985",
+          "instance:order:ORD-01485",
+          "instance:order:ORD-01985"
+        ],
+        "vector": [
+          "instance:customer:CUST-0246",
+          "instance:customer:CUST-0276",
+          "instance:customer:CUST-0346",
+          "instance:customer:CUST-0446",
+          "instance:customer:CUST-0146"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0246",
+          "instance:customer:CUST-0046",
+          "instance:customer:CUST-0036",
+          "instance:customer:CUST-0146",
+          "instance:customer:CUST-0276"
+        ]
+      }
+    },
+    {
+      "id": "crm-037",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0253 Enterprise Customer 0253 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0253"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0253",
+          "instance:order:ORD-00456",
+          "instance:order:ORD-00956",
+          "instance:order:ORD-01456",
+          "instance:order:ORD-01956"
+        ],
+        "vector": [
+          "instance:customer:CUST-0253",
+          "instance:customer:CUST-0243",
+          "instance:customer:CUST-0266",
+          "instance:customer:CUST-0263",
+          "instance:customer:CUST-0252"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0253",
+          "instance:customer:CUST-0053",
+          "instance:order:ORD-00956",
+          "instance:order:ORD-02456",
+          "instance:customer:CUST-0243"
+        ]
+      }
+    },
+    {
+      "id": "crm-038",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0260 Enterprise Customer 0260 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0260"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0260",
+          "instance:order:ORD-00427",
+          "instance:order:ORD-00927",
+          "instance:order:ORD-01427",
+          "instance:order:ORD-01927"
+        ],
+        "vector": [
+          "instance:customer:CUST-0260",
+          "instance:customer:CUST-0276",
+          "instance:customer:CUST-0261",
+          "instance:customer:CUST-0296",
+          "instance:customer:CUST-0460"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0260",
+          "instance:customer:CUST-0006",
+          "instance:customer:CUST-0060",
+          "instance:customer:CUST-0276",
+          "instance:customer:CUST-0261"
+        ]
+      }
+    },
+    {
+      "id": "crm-039",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0267 Enterprise Customer 0267 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0267"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0267",
+          "instance:order:ORD-00398",
+          "instance:order:ORD-00898",
+          "instance:order:ORD-01398",
+          "instance:order:ORD-01898"
+        ],
+        "vector": [
+          "instance:customer:CUST-0267",
+          "instance:customer:CUST-0266",
+          "instance:customer:CUST-0467",
+          "instance:customer:CUST-0367",
+          "instance:customer:CUST-0067"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0267",
+          "instance:customer:CUST-0067",
+          "instance:customer:CUST-0066",
+          "instance:order:ORD-02398",
+          "instance:customer:CUST-0167"
+        ]
+      }
+    },
+    {
+      "id": "crm-040",
+      "category": "single_entity",
+      "question": "查询客户 CUST-0274 Enterprise Customer 0274 的资料",
+      "expected_document_ids": [
+        "instance:customer:CUST-0274"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0274",
+          "instance:order:ORD-00369",
+          "instance:order:ORD-00869",
+          "instance:order:ORD-01369",
+          "instance:order:ORD-01869"
+        ],
+        "vector": [
+          "instance:customer:CUST-0274",
+          "instance:customer:CUST-0474",
+          "instance:customer:CUST-0294",
+          "instance:customer:CUST-0271",
+          "instance:customer:CUST-0243"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0274",
+          "instance:customer:CUST-0074",
+          "instance:customer:CUST-0294",
+          "instance:customer:CUST-0243",
+          "instance:customer:CUST-0271"
+        ]
+      }
+    },
+    {
+      "id": "crm-041",
+      "category": "single_entity",
+      "question": "订单 ORD-00001 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00001"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00001",
+          "instance:order_item:ITEM-002500",
+          "instance:order_item:ITEM-005000",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-01001",
+          "instance:order:ORD-00001",
+          "instance:order:ORD-00010",
+          "instance:order:ORD-00401",
+          "instance:order:ORD-01007"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00001",
+          "instance:order:ORD-00010",
+          "instance:order:ORD-01001",
+          "instance:order:ORD-00401",
+          "instance:order_item:ITEM-002500"
+        ]
+      }
+    },
+    {
+      "id": "crm-042",
+      "category": "single_entity",
+      "question": "订单 ORD-00014 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00014"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00014",
+          "instance:order_item:ITEM-000683",
+          "instance:order_item:ITEM-003183",
+          "instance:order_item:ITEM-005683",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00514",
+          "instance:order:ORD-00014",
+          "instance:order:ORD-00437",
+          "instance:order:ORD-00013",
+          "instance:order:ORD-00531"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00014",
+          "instance:order:ORD-00013",
+          "instance:order:ORD-00514",
+          "instance:order:ORD-00437",
+          "instance:order:ORD-00018"
+        ]
+      }
+    },
+    {
+      "id": "crm-043",
+      "category": "single_entity",
+      "question": "订单 ORD-00027 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00027"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00027",
+          "instance:order_item:ITEM-001366",
+          "instance:order_item:ITEM-003866",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00027",
+          "instance:order:ORD-01027",
+          "instance:order:ORD-01827",
+          "instance:order:ORD-00727",
+          "instance:order:ORD-02027"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00027",
+          "instance:order:ORD-01027",
+          "instance:order:ORD-00727",
+          "instance:order_item:ITEM-001366",
+          "instance:order:ORD-01827"
+        ]
+      }
+    },
+    {
+      "id": "crm-044",
+      "category": "single_entity",
+      "question": "订单 ORD-00040 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00040"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00040",
+          "instance:order_item:ITEM-002049",
+          "instance:order_item:ITEM-004549",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00040",
+          "instance:order:ORD-01407",
+          "instance:order:ORD-01040",
+          "instance:order:ORD-02040",
+          "instance:order:ORD-01402"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00040",
+          "instance:order:ORD-01407",
+          "instance:order:ORD-01040",
+          "instance:order_item:ITEM-002049",
+          "instance:order:ORD-00038"
+        ]
+      }
+    },
+    {
+      "id": "crm-045",
+      "category": "single_entity",
+      "question": "订单 ORD-00053 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00053"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00053",
+          "instance:order_item:ITEM-000232",
+          "instance:order_item:ITEM-002732",
+          "instance:order_item:ITEM-005232",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00053",
+          "instance:order:ORD-01053",
+          "instance:order:ORD-00253",
+          "instance:order:ORD-00753",
+          "instance:order:ORD-02053"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00053",
+          "instance:order:ORD-00253",
+          "instance:order:ORD-01053",
+          "instance:order:ORD-00033",
+          "instance:order:ORD-00753"
+        ]
+      }
+    },
+    {
+      "id": "crm-046",
+      "category": "single_entity",
+      "question": "订单 ORD-00066 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00066"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00066",
+          "instance:order_item:ITEM-000915",
+          "instance:order_item:ITEM-003415",
+          "instance:order_item:ITEM-005915",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00066",
+          "instance:order:ORD-01066",
+          "instance:order:ORD-02066",
+          "instance:order:ORD-00266",
+          "instance:order:ORD-01056"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00066",
+          "instance:order:ORD-00266",
+          "instance:order:ORD-01066",
+          "instance:order:ORD-00068",
+          "instance:order_item:ITEM-000915"
+        ]
+      }
+    },
+    {
+      "id": "crm-047",
+      "category": "single_entity",
+      "question": "订单 ORD-00079 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00079"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00079",
+          "instance:order_item:ITEM-001598",
+          "instance:order_item:ITEM-004098",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00077",
+          "instance:order:ORD-00079",
+          "instance:order:ORD-00087",
+          "instance:order:ORD-00081",
+          "instance:order:ORD-02077"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00079",
+          "instance:order:ORD-00077",
+          "instance:order:ORD-00087",
+          "instance:order:ORD-00081",
+          "instance:order_item:ITEM-001598"
+        ]
+      }
+    },
+    {
+      "id": "crm-048",
+      "category": "single_entity",
+      "question": "订单 ORD-00092 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00092"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00092",
+          "instance:order_item:ITEM-002281",
+          "instance:order_item:ITEM-004781",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00092",
+          "instance:order:ORD-00292",
+          "instance:order:ORD-01092",
+          "instance:order:ORD-00992",
+          "instance:order:ORD-00192"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00092",
+          "instance:order:ORD-00292",
+          "instance:order:ORD-00192",
+          "instance:order:ORD-01092",
+          "instance:order_item:ITEM-002281"
+        ]
+      }
+    },
+    {
+      "id": "crm-049",
+      "category": "single_entity",
+      "question": "订单 ORD-00105 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00105"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00105",
+          "instance:order_item:ITEM-000464",
+          "instance:order_item:ITEM-002964",
+          "instance:order_item:ITEM-005464",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00105",
+          "instance:order:ORD-01105",
+          "instance:order:ORD-02105",
+          "instance:order:ORD-00107",
+          "instance:order:ORD-01910"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00105",
+          "instance:order:ORD-00107",
+          "instance:order:ORD-01105",
+          "instance:order:ORD-00106",
+          "instance:order_item:ITEM-000464"
+        ]
+      }
+    },
+    {
+      "id": "crm-050",
+      "category": "single_entity",
+      "question": "订单 ORD-00118 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00118"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00118",
+          "instance:order_item:ITEM-001147",
+          "instance:order_item:ITEM-003647",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-01118",
+          "instance:order:ORD-00118",
+          "instance:order:ORD-02118",
+          "instance:order:ORD-00011",
+          "instance:order:ORD-00511"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00118",
+          "instance:order:ORD-00011",
+          "instance:order:ORD-01118",
+          "instance:order:ORD-00111",
+          "instance:order_item:ITEM-001147"
+        ]
+      }
+    },
+    {
+      "id": "crm-051",
+      "category": "single_entity",
+      "question": "订单 ORD-00131 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00131"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00131",
+          "instance:order_item:ITEM-001830",
+          "instance:order_item:ITEM-004330",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00131",
+          "instance:order:ORD-01131",
+          "instance:order:ORD-02131",
+          "instance:order:ORD-01031",
+          "instance:order:ORD-00151"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00131",
+          "instance:order:ORD-00151",
+          "instance:order:ORD-01131",
+          "instance:order_item:ITEM-001830",
+          "instance:order:ORD-01031"
+        ]
+      }
+    },
+    {
+      "id": "crm-052",
+      "category": "single_entity",
+      "question": "订单 ORD-00144 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00144"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00144",
+          "instance:order_item:ITEM-000013",
+          "instance:order_item:ITEM-002513",
+          "instance:order_item:ITEM-005013",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00437",
+          "instance:order:ORD-00108",
+          "instance:order:ORD-01144",
+          "instance:order:ORD-02144",
+          "instance:order:ORD-00677"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00144",
+          "instance:order:ORD-00108",
+          "instance:order:ORD-00437",
+          "instance:order:ORD-01144",
+          "instance:order_item:ITEM-000013"
+        ]
+      }
+    },
+    {
+      "id": "crm-053",
+      "category": "single_entity",
+      "question": "订单 ORD-00157 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00157"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00157",
+          "instance:order_item:ITEM-000696",
+          "instance:order_item:ITEM-003196",
+          "instance:order_item:ITEM-005696",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-01157",
+          "instance:order:ORD-00157",
+          "instance:order:ORD-02157",
+          "instance:order:ORD-00107",
+          "instance:order:ORD-01147"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00157",
+          "instance:order:ORD-00107",
+          "instance:order:ORD-01157",
+          "instance:order:ORD-00137",
+          "instance:order_item:ITEM-000696"
+        ]
+      }
+    },
+    {
+      "id": "crm-054",
+      "category": "single_entity",
+      "question": "订单 ORD-00170 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00170"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00170",
+          "instance:order_item:ITEM-001379",
+          "instance:order_item:ITEM-003879",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00170",
+          "instance:order:ORD-01170",
+          "instance:order:ORD-00017",
+          "instance:order:ORD-02170",
+          "instance:order:ORD-01017"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00170",
+          "instance:order:ORD-00017",
+          "instance:order:ORD-01170",
+          "instance:order:ORD-00217",
+          "instance:order_item:ITEM-001379"
+        ]
+      }
+    },
+    {
+      "id": "crm-055",
+      "category": "single_entity",
+      "question": "订单 ORD-00183 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00183"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00183",
+          "instance:order_item:ITEM-002062",
+          "instance:order_item:ITEM-004562",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00183",
+          "instance:order:ORD-00083",
+          "instance:order:ORD-01183",
+          "instance:order:ORD-00283",
+          "instance:order:ORD-01083"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00183",
+          "instance:order:ORD-00083",
+          "instance:order:ORD-00283",
+          "instance:order:ORD-00186",
+          "instance:order:ORD-01183"
+        ]
+      }
+    },
+    {
+      "id": "crm-056",
+      "category": "single_entity",
+      "question": "订单 ORD-00196 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00196"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00196",
+          "instance:order_item:ITEM-000245",
+          "instance:order_item:ITEM-002745",
+          "instance:order_item:ITEM-005245",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00196",
+          "instance:order:ORD-01096",
+          "instance:order:ORD-00096",
+          "instance:order:ORD-01596",
+          "instance:order:ORD-01196"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00196",
+          "instance:order:ORD-00096",
+          "instance:order:ORD-01096",
+          "instance:order_item:ITEM-000245",
+          "instance:order_item:ITEM-002745"
+        ]
+      }
+    },
+    {
+      "id": "crm-057",
+      "category": "single_entity",
+      "question": "订单 ORD-00209 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00209"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00209",
+          "instance:order_item:ITEM-000928",
+          "instance:order_item:ITEM-003428",
+          "instance:order_item:ITEM-005928",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00907",
+          "instance:order:ORD-00209",
+          "instance:order:ORD-00307",
+          "instance:order:ORD-01910",
+          "instance:order:ORD-00287"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00209",
+          "instance:order:ORD-00907",
+          "instance:order:ORD-00307",
+          "instance:order:ORD-00287",
+          "instance:order_item:ITEM-000928"
+        ]
+      }
+    },
+    {
+      "id": "crm-058",
+      "category": "single_entity",
+      "question": "订单 ORD-00222 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00222"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00222",
+          "instance:order_item:ITEM-001611",
+          "instance:order_item:ITEM-004111",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00222",
+          "instance:order:ORD-01222",
+          "instance:order:ORD-02222",
+          "instance:order:ORD-00122",
+          "instance:order:ORD-00522"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00222",
+          "instance:order:ORD-00122",
+          "instance:order:ORD-01222",
+          "instance:order_item:ITEM-001611",
+          "instance:order:ORD-00228"
+        ]
+      }
+    },
+    {
+      "id": "crm-059",
+      "category": "single_entity",
+      "question": "订单 ORD-00235 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00235"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00235",
+          "instance:order_item:ITEM-002294",
+          "instance:order_item:ITEM-004794",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00235",
+          "instance:order:ORD-02235",
+          "instance:order:ORD-01235",
+          "instance:order:ORD-00225",
+          "instance:order:ORD-00165"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00235",
+          "instance:order:ORD-00225",
+          "instance:order:ORD-00165",
+          "instance:order:ORD-00065",
+          "instance:order:ORD-02235"
+        ]
+      }
+    },
+    {
+      "id": "crm-060",
+      "category": "single_entity",
+      "question": "订单 ORD-00248 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00248"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00248",
+          "instance:order_item:ITEM-000477",
+          "instance:order_item:ITEM-002977",
+          "instance:order_item:ITEM-005477",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00248",
+          "instance:order:ORD-02248",
+          "instance:order:ORD-01248",
+          "instance:order:ORD-00488",
+          "instance:order:ORD-00228"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00248",
+          "instance:order:ORD-00028",
+          "instance:order:ORD-00228",
+          "instance:order:ORD-00488",
+          "instance:order:ORD-00048"
+        ]
+      }
+    },
+    {
+      "id": "crm-061",
+      "category": "single_entity",
+      "question": "订单 ORD-00261 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00261"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00261",
+          "instance:order_item:ITEM-001160",
+          "instance:order_item:ITEM-003660",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00261",
+          "instance:order:ORD-02061",
+          "instance:order:ORD-01061",
+          "instance:order:ORD-00761",
+          "instance:order:ORD-00061"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00261",
+          "instance:order:ORD-00061",
+          "instance:order:ORD-02061",
+          "instance:order:ORD-01061",
+          "instance:order_item:ITEM-003660"
+        ]
+      }
+    },
+    {
+      "id": "crm-062",
+      "category": "single_entity",
+      "question": "订单 ORD-00274 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00274"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00274",
+          "instance:order_item:ITEM-001843",
+          "instance:order_item:ITEM-004343",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00274",
+          "instance:order:ORD-00074",
+          "instance:order:ORD-00271",
+          "instance:order:ORD-00275",
+          "instance:order:ORD-02074"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00274",
+          "instance:order:ORD-00074",
+          "instance:order:ORD-00271",
+          "instance:order:ORD-00275",
+          "instance:order_item:ITEM-001843"
+        ]
+      }
+    },
+    {
+      "id": "crm-063",
+      "category": "single_entity",
+      "question": "订单 ORD-00287 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00287"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00287",
+          "instance:order_item:ITEM-000026",
+          "instance:order_item:ITEM-002526",
+          "instance:order_item:ITEM-005026",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00287",
+          "instance:order:ORD-02087",
+          "instance:order:ORD-00087",
+          "instance:order:ORD-01087",
+          "instance:order:ORD-02067"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00287",
+          "instance:order:ORD-00087",
+          "instance:order:ORD-02087",
+          "instance:order:ORD-00088",
+          "instance:order:ORD-00267"
+        ]
+      }
+    },
+    {
+      "id": "crm-064",
+      "category": "single_entity",
+      "question": "订单 ORD-00300 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00300"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00300",
+          "instance:order_item:ITEM-000709",
+          "instance:order_item:ITEM-003209",
+          "instance:order_item:ITEM-005709",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00300",
+          "instance:order:ORD-01300",
+          "instance:order:ORD-00900",
+          "instance:order:ORD-02300",
+          "instance:order:ORD-01900"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00300",
+          "instance:order:ORD-01300",
+          "instance:order:ORD-00900",
+          "instance:order_item:ITEM-000709",
+          "instance:order_item:ITEM-003209"
+        ]
+      }
+    },
+    {
+      "id": "crm-065",
+      "category": "single_entity",
+      "question": "订单 ORD-00313 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00313"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00313",
+          "instance:order_item:ITEM-001392",
+          "instance:order_item:ITEM-003892",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00313",
+          "instance:order:ORD-00316",
+          "instance:order:ORD-00317",
+          "instance:order:ORD-00312",
+          "instance:order:ORD-00513"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00313",
+          "instance:order:ORD-00316",
+          "instance:order:ORD-00317",
+          "instance:order:ORD-00312",
+          "instance:order_item:ITEM-001392"
+        ]
+      }
+    },
+    {
+      "id": "crm-066",
+      "category": "single_entity",
+      "question": "订单 ORD-00326 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00326"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00326",
+          "instance:order_item:ITEM-002075",
+          "instance:order_item:ITEM-004575",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00326",
+          "instance:order:ORD-00026",
+          "instance:order:ORD-00526",
+          "instance:order:ORD-01026",
+          "instance:order:ORD-00726"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00326",
+          "instance:order:ORD-00026",
+          "instance:order:ORD-00526",
+          "instance:order:ORD-00226",
+          "instance:order_item:ITEM-002075"
+        ]
+      }
+    },
+    {
+      "id": "crm-067",
+      "category": "single_entity",
+      "question": "订单 ORD-00339 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00339"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00339",
+          "instance:order_item:ITEM-000258",
+          "instance:order_item:ITEM-002758",
+          "instance:order_item:ITEM-005258",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-01332",
+          "instance:order:ORD-01390",
+          "instance:order:ORD-01340",
+          "instance:order:ORD-01347",
+          "instance:order:ORD-00367"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00339",
+          "instance:order:ORD-01332",
+          "instance:order:ORD-01390",
+          "instance:order:ORD-00367",
+          "instance:order:ORD-01340"
+        ]
+      }
+    },
+    {
+      "id": "crm-068",
+      "category": "single_entity",
+      "question": "订单 ORD-00352 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00352"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00352",
+          "instance:order_item:ITEM-000941",
+          "instance:order_item:ITEM-003441",
+          "instance:order_item:ITEM-005941",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00352",
+          "instance:order:ORD-01052",
+          "instance:order:ORD-00752",
+          "instance:order:ORD-02052",
+          "instance:order:ORD-00052"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00352",
+          "instance:order:ORD-00052",
+          "instance:order:ORD-01052",
+          "instance:order:ORD-00752",
+          "instance:order_item:ITEM-000941"
+        ]
+      }
+    },
+    {
+      "id": "crm-069",
+      "category": "single_entity",
+      "question": "订单 ORD-00365 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00365"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00365",
+          "instance:order_item:ITEM-001624",
+          "instance:order_item:ITEM-004124",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-01365",
+          "instance:order:ORD-00365",
+          "instance:order:ORD-02365",
+          "instance:order:ORD-00737",
+          "instance:order:ORD-01357"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00365",
+          "instance:order:ORD-01365",
+          "instance:order:ORD-00737",
+          "instance:order_item:ITEM-001624",
+          "instance:order:ORD-02365"
+        ]
+      }
+    },
+    {
+      "id": "crm-070",
+      "category": "single_entity",
+      "question": "订单 ORD-00378 的金额和状态是什么",
+      "expected_document_ids": [
+        "instance:order:ORD-00378"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00378",
+          "instance:order_item:ITEM-002307",
+          "instance:order_item:ITEM-004807",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00378",
+          "instance:order:ORD-01378",
+          "instance:order:ORD-02378",
+          "instance:order:ORD-01387",
+          "instance:order:ORD-00387"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00378",
+          "instance:order:ORD-01378",
+          "instance:order:ORD-00387",
+          "instance:order_item:ITEM-002307",
+          "instance:order:ORD-02378"
+        ]
+      }
+    },
+    {
+      "id": "crm-071",
+      "category": "multi_hop",
+      "question": "订单 ORD-00001 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00001",
+        "instance:customer:CUST-0018"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00001",
+          "instance:order_item:ITEM-002500",
+          "instance:order_item:ITEM-005000",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00401",
+          "instance:order:ORD-01001",
+          "instance:order:ORD-01008",
+          "instance:order:ORD-01006",
+          "instance:order:ORD-01002"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00001",
+          "instance:order:ORD-00401",
+          "instance:order:ORD-01001",
+          "instance:order:ORD-00010",
+          "instance:order:ORD-01008"
+        ]
+      }
+    },
+    {
+      "id": "crm-072",
+      "category": "multi_hop",
+      "question": "订单 ORD-00020 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00020",
+        "instance:customer:CUST-0341"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00020",
+          "instance:order_item:ITEM-000229",
+          "instance:order_item:ITEM-002729",
+          "instance:order_item:ITEM-005229",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00020",
+          "instance:order:ORD-01020",
+          "instance:order:ORD-02050",
+          "instance:order:ORD-02030",
+          "instance:order:ORD-01602"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00020",
+          "instance:order:ORD-01020",
+          "instance:order:ORD-00050",
+          "instance:order_item:ITEM-000229",
+          "instance:order:ORD-02050"
+        ]
+      }
+    },
+    {
+      "id": "crm-073",
+      "category": "multi_hop",
+      "question": "订单 ORD-00039 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00039",
+        "instance:customer:CUST-0164"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00039",
+          "instance:order_item:ITEM-000458",
+          "instance:order_item:ITEM-002958",
+          "instance:order_item:ITEM-005458",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-01357",
+          "instance:order:ORD-00037",
+          "instance:order:ORD-00039",
+          "instance:order:ORD-01371",
+          "instance:order:ORD-01373"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00039",
+          "instance:order:ORD-00037",
+          "instance:order:ORD-01357",
+          "instance:order:ORD-00036",
+          "instance:order_item:ITEM-000458"
+        ]
+      }
+    },
+    {
+      "id": "crm-074",
+      "category": "multi_hop",
+      "question": "订单 ORD-00058 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00058",
+        "instance:customer:CUST-0487"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00058",
+          "instance:order_item:ITEM-000687",
+          "instance:order_item:ITEM-003187",
+          "instance:order_item:ITEM-005687",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00058",
+          "instance:order:ORD-00258",
+          "instance:order:ORD-01058",
+          "instance:order:ORD-00758",
+          "instance:order:ORD-00458"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00058",
+          "instance:order:ORD-00258",
+          "instance:order_item:ITEM-000687",
+          "instance:order:ORD-01058",
+          "instance:order:ORD-00758"
+        ]
+      }
+    },
+    {
+      "id": "crm-075",
+      "category": "multi_hop",
+      "question": "订单 ORD-00077 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00077",
+        "instance:customer:CUST-0310"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00077",
+          "instance:order_item:ITEM-000916",
+          "instance:order_item:ITEM-003416",
+          "instance:order_item:ITEM-005916",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00077",
+          "instance:order:ORD-00277",
+          "instance:order:ORD-01077",
+          "instance:order:ORD-02077",
+          "instance:order:ORD-00037"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00077",
+          "instance:order:ORD-00277",
+          "instance:order:ORD-00037",
+          "instance:order:ORD-00067",
+          "instance:order:ORD-01077"
+        ]
+      }
+    },
+    {
+      "id": "crm-076",
+      "category": "multi_hop",
+      "question": "订单 ORD-00096 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00096",
+        "instance:customer:CUST-0133"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00096",
+          "instance:order_item:ITEM-001145",
+          "instance:order_item:ITEM-003645",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00396",
+          "instance:order:ORD-00896",
+          "instance:order:ORD-00096",
+          "instance:order:ORD-00196",
+          "instance:order:ORD-02096"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00096",
+          "instance:order:ORD-00396",
+          "instance:order:ORD-00196",
+          "instance:order:ORD-00896",
+          "instance:order_item:ITEM-001145"
+        ]
+      }
+    },
+    {
+      "id": "crm-077",
+      "category": "multi_hop",
+      "question": "订单 ORD-00115 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00115",
+        "instance:customer:CUST-0456"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00115",
+          "instance:order_item:ITEM-001374",
+          "instance:order_item:ITEM-003874",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-02115",
+          "instance:order:ORD-01115",
+          "instance:order:ORD-00115",
+          "instance:order:ORD-02117",
+          "instance:order:ORD-01117"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00115",
+          "instance:order:ORD-02115",
+          "instance:order:ORD-01115",
+          "instance:order:ORD-00117",
+          "instance:order_item:ITEM-001374"
+        ]
+      }
+    },
+    {
+      "id": "crm-078",
+      "category": "multi_hop",
+      "question": "订单 ORD-00134 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00134",
+        "instance:customer:CUST-0279"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00134",
+          "instance:order_item:ITEM-001603",
+          "instance:order_item:ITEM-004103",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-02137",
+          "instance:order:ORD-02136",
+          "instance:order:ORD-02372",
+          "instance:order:ORD-00472",
+          "instance:order:ORD-00372"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00134",
+          "instance:order:ORD-02137",
+          "instance:order:ORD-00472",
+          "instance:order:ORD-02136",
+          "instance:order_item:ITEM-001603"
+        ]
+      }
+    },
+    {
+      "id": "crm-079",
+      "category": "multi_hop",
+      "question": "订单 ORD-00153 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00153",
+        "instance:customer:CUST-0102"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00153",
+          "instance:order_item:ITEM-001832",
+          "instance:order_item:ITEM-004332",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-02153",
+          "instance:order:ORD-00153",
+          "instance:order:ORD-01153",
+          "instance:order:ORD-00073",
+          "instance:order:ORD-00173"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00153",
+          "instance:order:ORD-00073",
+          "instance:order:ORD-02153",
+          "instance:order:ORD-00173",
+          "instance:order:ORD-01153"
+        ]
+      }
+    },
+    {
+      "id": "crm-080",
+      "category": "multi_hop",
+      "question": "订单 ORD-00172 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00172",
+        "instance:customer:CUST-0425"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00172",
+          "instance:order_item:ITEM-002061",
+          "instance:order_item:ITEM-004561",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00172",
+          "instance:order:ORD-00472",
+          "instance:order:ORD-02172",
+          "instance:order:ORD-01172",
+          "instance:order:ORD-02472"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00172",
+          "instance:order:ORD-00472",
+          "instance:order:ORD-00122",
+          "instance:order_item:ITEM-002061",
+          "instance:order:ORD-02172"
+        ]
+      }
+    },
+    {
+      "id": "crm-081",
+      "category": "multi_hop",
+      "question": "订单 ORD-00191 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00191",
+        "instance:customer:CUST-0248"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00191",
+          "instance:order_item:ITEM-002290",
+          "instance:order_item:ITEM-004790",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00191",
+          "instance:order:ORD-00291",
+          "instance:order:ORD-01891",
+          "instance:order:ORD-00691",
+          "instance:order:ORD-00591"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00191",
+          "instance:order:ORD-00291",
+          "instance:order:ORD-00691",
+          "instance:order_item:ITEM-002290",
+          "instance:order:ORD-01891"
+        ]
+      }
+    },
+    {
+      "id": "crm-082",
+      "category": "multi_hop",
+      "question": "订单 ORD-00210 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00210",
+        "instance:customer:CUST-0071"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00210",
+          "instance:order_item:ITEM-000019",
+          "instance:order_item:ITEM-002519",
+          "instance:order_item:ITEM-005019",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-02210",
+          "instance:order:ORD-00210",
+          "instance:order:ORD-01210",
+          "instance:order:ORD-02110",
+          "instance:order:ORD-00310"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00210",
+          "instance:order:ORD-02210",
+          "instance:order:ORD-00310",
+          "instance:order:ORD-01210",
+          "instance:order_item:ITEM-000019"
+        ]
+      }
+    },
+    {
+      "id": "crm-083",
+      "category": "multi_hop",
+      "question": "订单 ORD-00229 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00229",
+        "instance:customer:CUST-0394"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00229",
+          "instance:order_item:ITEM-000248",
+          "instance:order_item:ITEM-002748",
+          "instance:order_item:ITEM-005248",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-02090",
+          "instance:order:ORD-02217",
+          "instance:order:ORD-00248",
+          "instance:order:ORD-02213",
+          "instance:order:ORD-00016"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00229",
+          "instance:order:ORD-00016",
+          "instance:order:ORD-00248",
+          "instance:order:ORD-02090",
+          "instance:order:ORD-02217"
+        ]
+      }
+    },
+    {
+      "id": "crm-084",
+      "category": "multi_hop",
+      "question": "订单 ORD-00248 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00248",
+        "instance:customer:CUST-0217"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00248",
+          "instance:order_item:ITEM-000477",
+          "instance:order_item:ITEM-002977",
+          "instance:order_item:ITEM-005477",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00248",
+          "instance:order:ORD-02248",
+          "instance:order:ORD-01248",
+          "instance:order:ORD-02472",
+          "instance:order:ORD-02228"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00248",
+          "instance:order:ORD-02248",
+          "instance:order_item:ITEM-000477",
+          "instance:order:ORD-01248",
+          "instance:order_item:ITEM-002977"
+        ]
+      }
+    },
+    {
+      "id": "crm-085",
+      "category": "multi_hop",
+      "question": "订单 ORD-00267 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00267",
+        "instance:customer:CUST-0040"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00267",
+          "instance:order_item:ITEM-000706",
+          "instance:order_item:ITEM-003206",
+          "instance:order_item:ITEM-005706",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00267",
+          "instance:order:ORD-02067",
+          "instance:order:ORD-01067",
+          "instance:order:ORD-00067",
+          "instance:order:ORD-02367"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00267",
+          "instance:order:ORD-00067",
+          "instance:order:ORD-02067",
+          "instance:order:ORD-01067",
+          "instance:order_item:ITEM-000706"
+        ]
+      }
+    },
+    {
+      "id": "crm-086",
+      "category": "multi_hop",
+      "question": "订单 ORD-00286 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00286",
+        "instance:customer:CUST-0363"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00286",
+          "instance:order_item:ITEM-000935",
+          "instance:order_item:ITEM-003435",
+          "instance:order_item:ITEM-005935",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00286",
+          "instance:order:ORD-00186",
+          "instance:order:ORD-01086",
+          "instance:order:ORD-02086",
+          "instance:order:ORD-00086"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00286",
+          "instance:order:ORD-00186",
+          "instance:order:ORD-00086",
+          "instance:order:ORD-01086",
+          "instance:order_item:ITEM-000935"
+        ]
+      }
+    },
+    {
+      "id": "crm-087",
+      "category": "multi_hop",
+      "question": "订单 ORD-00305 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00305",
+        "instance:customer:CUST-0186"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00305",
+          "instance:order_item:ITEM-001164",
+          "instance:order_item:ITEM-003664",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00305",
+          "instance:order:ORD-02305",
+          "instance:order:ORD-01305",
+          "instance:order:ORD-01312",
+          "instance:order:ORD-01430"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00305",
+          "instance:order:ORD-02305",
+          "instance:order:ORD-01305",
+          "instance:order_item:ITEM-001164",
+          "instance:order:ORD-01312"
+        ]
+      }
+    },
+    {
+      "id": "crm-088",
+      "category": "multi_hop",
+      "question": "订单 ORD-00324 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00324",
+        "instance:customer:CUST-0009"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00324",
+          "instance:order_item:ITEM-001393",
+          "instance:order_item:ITEM-003893",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00312",
+          "instance:order:ORD-00022",
+          "instance:order:ORD-00400",
+          "instance:order:ORD-00313",
+          "instance:order:ORD-00316"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00324",
+          "instance:order:ORD-00022",
+          "instance:order:ORD-00312",
+          "instance:order:ORD-00400",
+          "instance:order:ORD-00313"
+        ]
+      }
+    },
+    {
+      "id": "crm-089",
+      "category": "multi_hop",
+      "question": "订单 ORD-00343 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00343",
+        "instance:customer:CUST-0332"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00343",
+          "instance:order_item:ITEM-001622",
+          "instance:order_item:ITEM-004122",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00343",
+          "instance:order:ORD-00043",
+          "instance:order:ORD-00643",
+          "instance:order:ORD-00243",
+          "instance:order:ORD-00743"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00343",
+          "instance:order:ORD-00043",
+          "instance:order:ORD-00243",
+          "instance:order:ORD-00643",
+          "instance:order_item:ITEM-001622"
+        ]
+      }
+    },
+    {
+      "id": "crm-090",
+      "category": "multi_hop",
+      "question": "订单 ORD-00362 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00362",
+        "instance:customer:CUST-0155"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00362",
+          "instance:order_item:ITEM-001851",
+          "instance:order_item:ITEM-004351",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00362",
+          "instance:order:ORD-00962",
+          "instance:order:ORD-01062",
+          "instance:order:ORD-00262",
+          "instance:order:ORD-00062"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00362",
+          "instance:order:ORD-00062",
+          "instance:order:ORD-00262",
+          "instance:order:ORD-00962",
+          "instance:order:ORD-00162"
+        ]
+      }
+    },
+    {
+      "id": "crm-091",
+      "category": "multi_hop",
+      "question": "订单 ORD-00381 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00381",
+        "instance:customer:CUST-0478"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00381",
+          "instance:order_item:ITEM-002080",
+          "instance:order_item:ITEM-004580",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00381",
+          "instance:order:ORD-02381",
+          "instance:order:ORD-01381",
+          "instance:order:ORD-02361",
+          "instance:order:ORD-00461"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00381",
+          "instance:order:ORD-02381",
+          "instance:order:ORD-01381",
+          "instance:order:ORD-00461",
+          "instance:order_item:ITEM-002080"
+        ]
+      }
+    },
+    {
+      "id": "crm-092",
+      "category": "multi_hop",
+      "question": "订单 ORD-00400 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00400",
+        "instance:customer:CUST-0301"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00400",
+          "instance:order_item:ITEM-002309",
+          "instance:order_item:ITEM-004809",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00400",
+          "instance:order:ORD-02400",
+          "instance:order:ORD-01400",
+          "instance:order:ORD-02408",
+          "instance:order:ORD-00647"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00400",
+          "instance:order:ORD-02400",
+          "instance:order:ORD-01400",
+          "instance:order_item:ITEM-002309",
+          "instance:order:ORD-00647"
+        ]
+      }
+    },
+    {
+      "id": "crm-093",
+      "category": "multi_hop",
+      "question": "订单 ORD-00419 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00419",
+        "instance:customer:CUST-0124"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00419",
+          "instance:order_item:ITEM-000038",
+          "instance:order_item:ITEM-002538",
+          "instance:order_item:ITEM-005038",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00411",
+          "instance:order:ORD-00457",
+          "instance:order:ORD-00473",
+          "instance:order:ORD-00447",
+          "instance:order:ORD-00418"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00419",
+          "instance:order:ORD-00411",
+          "instance:order:ORD-00457",
+          "instance:order:ORD-00473",
+          "instance:order:ORD-00447"
+        ]
+      }
+    },
+    {
+      "id": "crm-094",
+      "category": "multi_hop",
+      "question": "订单 ORD-00438 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00438",
+        "instance:customer:CUST-0447"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00438",
+          "instance:order_item:ITEM-000267",
+          "instance:order_item:ITEM-002767",
+          "instance:order_item:ITEM-005267",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-02438",
+          "instance:order:ORD-00438",
+          "instance:order:ORD-01438",
+          "instance:order:ORD-02408",
+          "instance:order:ORD-02478"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00438",
+          "instance:order:ORD-02438",
+          "instance:order:ORD-01438",
+          "instance:order_item:ITEM-000267",
+          "instance:order_item:ITEM-002767"
+        ]
+      }
+    },
+    {
+      "id": "crm-095",
+      "category": "multi_hop",
+      "question": "订单 ORD-00457 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00457",
+        "instance:customer:CUST-0270"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00457",
+          "instance:order_item:ITEM-000496",
+          "instance:order_item:ITEM-002996",
+          "instance:order_item:ITEM-005496",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00457",
+          "instance:order:ORD-00957",
+          "instance:order:ORD-00057",
+          "instance:order:ORD-00475",
+          "instance:order:ORD-00257"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00457",
+          "instance:order:ORD-00057",
+          "instance:order:ORD-00957",
+          "instance:order:ORD-00257",
+          "instance:order:ORD-00475"
+        ]
+      }
+    },
+    {
+      "id": "crm-096",
+      "category": "multi_hop",
+      "question": "订单 ORD-00476 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00476",
+        "instance:customer:CUST-0093"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00476",
+          "instance:order_item:ITEM-000725",
+          "instance:order_item:ITEM-003225",
+          "instance:order_item:ITEM-005725",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00476",
+          "instance:order:ORD-00472",
+          "instance:order:ORD-01476",
+          "instance:order:ORD-02476",
+          "instance:order:ORD-02472"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00476",
+          "instance:order:ORD-00472",
+          "instance:order_item:ITEM-000725",
+          "instance:order:ORD-01476",
+          "instance:order_item:ITEM-003225"
+        ]
+      }
+    },
+    {
+      "id": "crm-097",
+      "category": "multi_hop",
+      "question": "订单 ORD-00495 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00495",
+        "instance:customer:CUST-0416"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00495",
+          "instance:order_item:ITEM-000954",
+          "instance:order_item:ITEM-003454",
+          "instance:order_item:ITEM-005954",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00495",
+          "instance:order:ORD-01495",
+          "instance:order:ORD-02495",
+          "instance:order:ORD-00497",
+          "instance:order:ORD-00647"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00495",
+          "instance:order:ORD-01495",
+          "instance:order:ORD-00497",
+          "instance:order_item:ITEM-000954",
+          "instance:order:ORD-00250"
+        ]
+      }
+    },
+    {
+      "id": "crm-098",
+      "category": "multi_hop",
+      "question": "订单 ORD-00514 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00514",
+        "instance:customer:CUST-0239"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00514",
+          "instance:order_item:ITEM-001183",
+          "instance:order_item:ITEM-003683",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00513",
+          "instance:order:ORD-00512",
+          "instance:order:ORD-00517",
+          "instance:order:ORD-00518",
+          "instance:order:ORD-00516"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00514",
+          "instance:order:ORD-00513",
+          "instance:order:ORD-00512",
+          "instance:order:ORD-00517",
+          "instance:order:ORD-00518"
+        ]
+      }
+    },
+    {
+      "id": "crm-099",
+      "category": "multi_hop",
+      "question": "订单 ORD-00533 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00533",
+        "instance:customer:CUST-0062"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00533",
+          "instance:order_item:ITEM-001412",
+          "instance:order_item:ITEM-003912",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00533",
+          "instance:order:ORD-00733",
+          "instance:order:ORD-00033",
+          "instance:order:ORD-01353",
+          "instance:order:ORD-00596"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00533",
+          "instance:order:ORD-00033",
+          "instance:order:ORD-00733",
+          "instance:order_item:ITEM-001412",
+          "instance:order:ORD-00596"
+        ]
+      }
+    },
+    {
+      "id": "crm-100",
+      "category": "multi_hop",
+      "question": "订单 ORD-00552 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00552",
+        "instance:customer:CUST-0385"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00552",
+          "instance:order_item:ITEM-001641",
+          "instance:order_item:ITEM-004141",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-01552",
+          "instance:order:ORD-00552",
+          "instance:order:ORD-02462",
+          "instance:order:ORD-02472",
+          "instance:order:ORD-01592"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00552",
+          "instance:order:ORD-01552",
+          "instance:order_item:ITEM-001641",
+          "instance:order:ORD-02462",
+          "instance:order_item:ITEM-004141"
+        ]
+      }
+    },
+    {
+      "id": "crm-101",
+      "category": "multi_hop",
+      "question": "订单 ORD-00571 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00571",
+        "instance:customer:CUST-0208"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00571",
+          "instance:order_item:ITEM-001870",
+          "instance:order_item:ITEM-004370",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-01571",
+          "instance:order:ORD-00571",
+          "instance:order:ORD-00641",
+          "instance:order:ORD-00051",
+          "instance:order:ORD-00451"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00571",
+          "instance:order:ORD-00051",
+          "instance:order:ORD-01571",
+          "instance:order:ORD-00641",
+          "instance:order_item:ITEM-001870"
+        ]
+      }
+    },
+    {
+      "id": "crm-102",
+      "category": "multi_hop",
+      "question": "订单 ORD-00590 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00590",
+        "instance:customer:CUST-0031"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00590",
+          "instance:order_item:ITEM-002099",
+          "instance:order_item:ITEM-004599",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-01590",
+          "instance:order:ORD-00590",
+          "instance:order:ORD-00870",
+          "instance:order:ORD-01592",
+          "instance:order:ORD-01907"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00590",
+          "instance:order:ORD-01590",
+          "instance:order:ORD-00870",
+          "instance:order_item:ITEM-002099",
+          "instance:order_item:ITEM-004599"
+        ]
+      }
+    },
+    {
+      "id": "crm-103",
+      "category": "multi_hop",
+      "question": "订单 ORD-00609 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00609",
+        "instance:customer:CUST-0354"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00609",
+          "instance:order_item:ITEM-002328",
+          "instance:order_item:ITEM-004828",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-02090",
+          "instance:order:ORD-02472",
+          "instance:order:ORD-00907",
+          "instance:order:ORD-00647",
+          "instance:order:ORD-02407"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00609",
+          "instance:order:ORD-02090",
+          "instance:order:ORD-00907",
+          "instance:order:ORD-02472",
+          "instance:order:ORD-00090"
+        ]
+      }
+    },
+    {
+      "id": "crm-104",
+      "category": "multi_hop",
+      "question": "订单 ORD-00628 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00628",
+        "instance:customer:CUST-0177"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00628",
+          "instance:order_item:ITEM-000057",
+          "instance:order_item:ITEM-002557",
+          "instance:order_item:ITEM-005057",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00628",
+          "instance:order:ORD-00631",
+          "instance:order:ORD-00728",
+          "instance:order:ORD-00528",
+          "instance:order:ORD-00028"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00628",
+          "instance:order:ORD-00028",
+          "instance:order:ORD-00631",
+          "instance:order:ORD-00728",
+          "instance:order:ORD-00528"
+        ]
+      }
+    },
+    {
+      "id": "crm-105",
+      "category": "multi_hop",
+      "question": "订单 ORD-00647 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00647",
+        "instance:customer:CUST-0500"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00647",
+          "instance:order_item:ITEM-000286",
+          "instance:order_item:ITEM-002786",
+          "instance:order_item:ITEM-005286",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00647",
+          "instance:order:ORD-01647",
+          "instance:order:ORD-00471",
+          "instance:order:ORD-02347",
+          "instance:order:ORD-01347"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00647",
+          "instance:order:ORD-00471",
+          "instance:order:ORD-01647",
+          "instance:order_item:ITEM-000286",
+          "instance:order_item:ITEM-002786"
+        ]
+      }
+    },
+    {
+      "id": "crm-106",
+      "category": "multi_hop",
+      "question": "订单 ORD-00666 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00666",
+        "instance:customer:CUST-0323"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00666",
+          "instance:order_item:ITEM-000515",
+          "instance:order_item:ITEM-003015",
+          "instance:order_item:ITEM-005515",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00666",
+          "instance:order:ORD-01666",
+          "instance:order:ORD-00868",
+          "instance:order:ORD-01868",
+          "instance:order:ORD-00866"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00666",
+          "instance:order:ORD-01666",
+          "instance:order:ORD-00868",
+          "instance:order:ORD-00046",
+          "instance:order_item:ITEM-000515"
+        ]
+      }
+    },
+    {
+      "id": "crm-107",
+      "category": "multi_hop",
+      "question": "订单 ORD-00685 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00685",
+        "instance:customer:CUST-0146"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00685",
+          "instance:order_item:ITEM-000744",
+          "instance:order_item:ITEM-003244",
+          "instance:order_item:ITEM-005744",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00685",
+          "instance:order:ORD-01685",
+          "instance:order:ORD-00686",
+          "instance:order:ORD-00695",
+          "instance:order:ORD-00655"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00685",
+          "instance:order:ORD-00686",
+          "instance:order:ORD-01685",
+          "instance:order:ORD-00695",
+          "instance:order_item:ITEM-000744"
+        ]
+      }
+    },
+    {
+      "id": "crm-108",
+      "category": "multi_hop",
+      "question": "订单 ORD-00704 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00704",
+        "instance:customer:CUST-0469"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00704",
+          "instance:order_item:ITEM-000973",
+          "instance:order_item:ITEM-003473",
+          "instance:order_item:ITEM-005973",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00907",
+          "instance:order:ORD-00706",
+          "instance:order:ORD-00407",
+          "instance:order:ORD-00402",
+          "instance:order:ORD-00703"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00704",
+          "instance:order:ORD-00907",
+          "instance:order:ORD-00706",
+          "instance:order:ORD-00407",
+          "instance:order:ORD-00402"
+        ]
+      }
+    },
+    {
+      "id": "crm-109",
+      "category": "multi_hop",
+      "question": "订单 ORD-00723 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00723",
+        "instance:customer:CUST-0292"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00723",
+          "instance:order_item:ITEM-001202",
+          "instance:order_item:ITEM-003702",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00723",
+          "instance:order:ORD-01723",
+          "instance:order:ORD-00721",
+          "instance:order:ORD-00023",
+          "instance:order:ORD-00713"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00723",
+          "instance:order:ORD-00023",
+          "instance:order:ORD-00721",
+          "instance:order:ORD-01723",
+          "instance:order_item:ITEM-001202"
+        ]
+      }
+    },
+    {
+      "id": "crm-110",
+      "category": "multi_hop",
+      "question": "订单 ORD-00742 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00742",
+        "instance:customer:CUST-0115"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00742",
+          "instance:order_item:ITEM-001431",
+          "instance:order_item:ITEM-003931",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00742",
+          "instance:order:ORD-00842",
+          "instance:order:ORD-00722",
+          "instance:order:ORD-01742",
+          "instance:order:ORD-02472"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00742",
+          "instance:order:ORD-00842",
+          "instance:order:ORD-00722",
+          "instance:order_item:ITEM-001431",
+          "instance:order:ORD-00472"
+        ]
+      }
+    },
+    {
+      "id": "crm-111",
+      "category": "multi_hop",
+      "question": "订单 ORD-00761 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00761",
+        "instance:customer:CUST-0438"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00761",
+          "instance:order_item:ITEM-001660",
+          "instance:order_item:ITEM-004160",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00761",
+          "instance:order:ORD-00751",
+          "instance:order:ORD-00261",
+          "instance:order:ORD-01061",
+          "instance:order:ORD-00781"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00761",
+          "instance:order:ORD-00261",
+          "instance:order:ORD-00751",
+          "instance:order_item:ITEM-001660",
+          "instance:order:ORD-01061"
+        ]
+      }
+    },
+    {
+      "id": "crm-112",
+      "category": "multi_hop",
+      "question": "订单 ORD-00780 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00780",
+        "instance:customer:CUST-0261"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00780",
+          "instance:order_item:ITEM-001889",
+          "instance:order_item:ITEM-004389",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-01780",
+          "instance:order:ORD-00780",
+          "instance:order:ORD-02477",
+          "instance:order:ORD-01787",
+          "instance:order:ORD-00787"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00780",
+          "instance:order:ORD-01780",
+          "instance:order_item:ITEM-001889",
+          "instance:order:ORD-02477",
+          "instance:order:ORD-00787"
+        ]
+      }
+    },
+    {
+      "id": "crm-113",
+      "category": "multi_hop",
+      "question": "订单 ORD-00799 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00799",
+        "instance:customer:CUST-0084"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00799",
+          "instance:order_item:ITEM-002118",
+          "instance:order_item:ITEM-004618",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00747",
+          "instance:order:ORD-01747",
+          "instance:order:ORD-02493",
+          "instance:order:ORD-00697",
+          "instance:order:ORD-00870"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00799",
+          "instance:order:ORD-00747",
+          "instance:order:ORD-01747",
+          "instance:order:ORD-00697",
+          "instance:order_item:ITEM-002118"
+        ]
+      }
+    },
+    {
+      "id": "crm-114",
+      "category": "multi_hop",
+      "question": "订单 ORD-00818 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00818",
+        "instance:customer:CUST-0407"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00818",
+          "instance:order_item:ITEM-002347",
+          "instance:order_item:ITEM-004847",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00818",
+          "instance:order:ORD-00718",
+          "instance:order:ORD-00811",
+          "instance:order:ORD-00816",
+          "instance:order:ORD-01818"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00818",
+          "instance:order:ORD-00718",
+          "instance:order:ORD-00811",
+          "instance:order_item:ITEM-002347",
+          "instance:order:ORD-00816"
+        ]
+      }
+    },
+    {
+      "id": "crm-115",
+      "category": "multi_hop",
+      "question": "订单 ORD-00837 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00837",
+        "instance:customer:CUST-0230"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00837",
+          "instance:order_item:ITEM-000076",
+          "instance:order_item:ITEM-002576",
+          "instance:order_item:ITEM-005076",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00837",
+          "instance:order:ORD-01837",
+          "instance:order:ORD-00867",
+          "instance:order:ORD-01357",
+          "instance:order:ORD-00287"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00837",
+          "instance:order:ORD-00867",
+          "instance:order:ORD-00287",
+          "instance:order:ORD-01837",
+          "instance:order_item:ITEM-000076"
+        ]
+      }
+    },
+    {
+      "id": "crm-116",
+      "category": "multi_hop",
+      "question": "订单 ORD-00856 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00856",
+        "instance:customer:CUST-0053"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00856",
+          "instance:order_item:ITEM-000305",
+          "instance:order_item:ITEM-002805",
+          "instance:order_item:ITEM-005305",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00856",
+          "instance:order:ORD-00056",
+          "instance:order:ORD-01856",
+          "instance:order:ORD-01056",
+          "instance:order:ORD-00956"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00856",
+          "instance:order:ORD-00056",
+          "instance:order_item:ITEM-000305",
+          "instance:order:ORD-01856",
+          "instance:order:ORD-01056"
+        ]
+      }
+    },
+    {
+      "id": "crm-117",
+      "category": "multi_hop",
+      "question": "订单 ORD-00875 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00875",
+        "instance:customer:CUST-0376"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00875",
+          "instance:order_item:ITEM-000534",
+          "instance:order_item:ITEM-003034",
+          "instance:order_item:ITEM-005534",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00875",
+          "instance:order:ORD-00275",
+          "instance:order:ORD-01875",
+          "instance:order:ORD-00876",
+          "instance:order:ORD-00857"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00875",
+          "instance:order:ORD-00275",
+          "instance:order_item:ITEM-000534",
+          "instance:order:ORD-00876",
+          "instance:order:ORD-01875"
+        ]
+      }
+    },
+    {
+      "id": "crm-118",
+      "category": "multi_hop",
+      "question": "订单 ORD-00894 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00894",
+        "instance:customer:CUST-0199"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00894",
+          "instance:order_item:ITEM-000763",
+          "instance:order_item:ITEM-003263",
+          "instance:order_item:ITEM-005763",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00897",
+          "instance:order:ORD-00891",
+          "instance:order:ORD-00896",
+          "instance:order:ORD-00894",
+          "instance:order:ORD-00846"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00894",
+          "instance:order:ORD-00897",
+          "instance:order:ORD-00891",
+          "instance:order:ORD-00896",
+          "instance:order_item:ITEM-000763"
+        ]
+      }
+    },
+    {
+      "id": "crm-119",
+      "category": "multi_hop",
+      "question": "订单 ORD-00913 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00913",
+        "instance:customer:CUST-0022"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00913",
+          "instance:order_item:ITEM-000992",
+          "instance:order_item:ITEM-003492",
+          "instance:order_item:ITEM-005992",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-00913",
+          "instance:order:ORD-00910",
+          "instance:order:ORD-00911",
+          "instance:order:ORD-00513",
+          "instance:order:ORD-00213"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00913",
+          "instance:order:ORD-00910",
+          "instance:order:ORD-00213",
+          "instance:order:ORD-00513",
+          "instance:order:ORD-00911"
+        ]
+      }
+    },
+    {
+      "id": "crm-120",
+      "category": "multi_hop",
+      "question": "订单 ORD-00932 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00932",
+        "instance:customer:CUST-0345"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00932",
+          "instance:order_item:ITEM-001221",
+          "instance:order_item:ITEM-003721",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00932",
+          "instance:order:ORD-00432",
+          "instance:order:ORD-00832",
+          "instance:order:ORD-00032",
+          "instance:order:ORD-01032"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00932",
+          "instance:order:ORD-00032",
+          "instance:order:ORD-00432",
+          "instance:order:ORD-00832",
+          "instance:order_item:ITEM-001221"
+        ]
+      }
+    },
+    {
+      "id": "crm-121",
+      "category": "multi_hop",
+      "question": "订单 ORD-00951 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00951",
+        "instance:customer:CUST-0168"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00951",
+          "instance:order_item:ITEM-001450",
+          "instance:order_item:ITEM-003950",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00951",
+          "instance:order:ORD-01051",
+          "instance:order:ORD-00251",
+          "instance:order:ORD-00941",
+          "instance:order:ORD-00451"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00951",
+          "instance:order:ORD-00251",
+          "instance:order:ORD-00051",
+          "instance:order:ORD-01051",
+          "instance:order_item:ITEM-001450"
+        ]
+      }
+    },
+    {
+      "id": "crm-122",
+      "category": "multi_hop",
+      "question": "订单 ORD-00970 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00970",
+        "instance:customer:CUST-0491"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00970",
+          "instance:order_item:ITEM-001679",
+          "instance:order_item:ITEM-004179",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00970",
+          "instance:order:ORD-00870",
+          "instance:order:ORD-02070",
+          "instance:order:ORD-00997",
+          "instance:order:ORD-01870"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00970",
+          "instance:order:ORD-00870",
+          "instance:order_item:ITEM-001679",
+          "instance:order:ORD-00997",
+          "instance:order:ORD-02070"
+        ]
+      }
+    },
+    {
+      "id": "crm-123",
+      "category": "multi_hop",
+      "question": "订单 ORD-00989 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-00989",
+        "instance:customer:CUST-0314"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-00989",
+          "instance:order_item:ITEM-001908",
+          "instance:order_item:ITEM-004408",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-00987",
+          "instance:order:ORD-00998",
+          "instance:order:ORD-00967",
+          "instance:order:ORD-00990",
+          "instance:order:ORD-00997"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00989",
+          "instance:order:ORD-00987",
+          "instance:order:ORD-00998",
+          "instance:order:ORD-00967",
+          "instance:order_item:ITEM-001908"
+        ]
+      }
+    },
+    {
+      "id": "crm-124",
+      "category": "multi_hop",
+      "question": "订单 ORD-01008 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-01008",
+        "instance:customer:CUST-0137"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-01008",
+          "instance:order_item:ITEM-002137",
+          "instance:order_item:ITEM-004637",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-01008",
+          "instance:order:ORD-01108",
+          "instance:order:ORD-00008",
+          "instance:order:ORD-01018",
+          "instance:order:ORD-01308"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01008",
+          "instance:order:ORD-00008",
+          "instance:order:ORD-01108",
+          "instance:order_item:ITEM-002137",
+          "instance:order:ORD-01018"
+        ]
+      }
+    },
+    {
+      "id": "crm-125",
+      "category": "multi_hop",
+      "question": "订单 ORD-01027 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-01027",
+        "instance:customer:CUST-0460"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-01027",
+          "instance:order_item:ITEM-002366",
+          "instance:order_item:ITEM-004866",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-01027",
+          "instance:order:ORD-01827",
+          "instance:order:ORD-00947",
+          "instance:order:ORD-01017",
+          "instance:order:ORD-00027"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01027",
+          "instance:order:ORD-00027",
+          "instance:order:ORD-01827",
+          "instance:order:ORD-00947",
+          "instance:order_item:ITEM-002366"
+        ]
+      }
+    },
+    {
+      "id": "crm-126",
+      "category": "multi_hop",
+      "question": "订单 ORD-01046 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-01046",
+        "instance:customer:CUST-0283"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-01046",
+          "instance:order_item:ITEM-000095",
+          "instance:order_item:ITEM-002595",
+          "instance:order_item:ITEM-005095",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-01046",
+          "instance:order:ORD-02046",
+          "instance:order:ORD-00246",
+          "instance:order:ORD-00946",
+          "instance:order:ORD-00046"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01046",
+          "instance:order:ORD-00246",
+          "instance:order:ORD-00046",
+          "instance:order:ORD-02046",
+          "instance:order_item:ITEM-000095"
+        ]
+      }
+    },
+    {
+      "id": "crm-127",
+      "category": "multi_hop",
+      "question": "订单 ORD-01065 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-01065",
+        "instance:customer:CUST-0106"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-01065",
+          "instance:order_item:ITEM-000324",
+          "instance:order_item:ITEM-002824",
+          "instance:order_item:ITEM-005324",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-01065",
+          "instance:order:ORD-00065",
+          "instance:order:ORD-02065",
+          "instance:order:ORD-01085",
+          "instance:order:ORD-01068"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01065",
+          "instance:order:ORD-00065",
+          "instance:order_item:ITEM-000324",
+          "instance:order:ORD-02065",
+          "instance:order:ORD-01085"
+        ]
+      }
+    },
+    {
+      "id": "crm-128",
+      "category": "multi_hop",
+      "question": "订单 ORD-01084 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-01084",
+        "instance:customer:CUST-0429"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-01084",
+          "instance:order_item:ITEM-000553",
+          "instance:order_item:ITEM-003053",
+          "instance:order_item:ITEM-005553",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-01085",
+          "instance:order:ORD-01086",
+          "instance:order:ORD-01087",
+          "instance:order:ORD-01088",
+          "instance:order:ORD-01077"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01084",
+          "instance:order:ORD-01085",
+          "instance:order:ORD-01086",
+          "instance:order:ORD-01087",
+          "instance:order_item:ITEM-000553"
+        ]
+      }
+    },
+    {
+      "id": "crm-129",
+      "category": "multi_hop",
+      "question": "订单 ORD-01103 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-01103",
+        "instance:customer:CUST-0252"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-01103",
+          "instance:order_item:ITEM-000782",
+          "instance:order_item:ITEM-003282",
+          "instance:order_item:ITEM-005782",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-01103",
+          "instance:order:ORD-02103",
+          "instance:order:ORD-01106",
+          "instance:order:ORD-01108",
+          "instance:order:ORD-00103"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01103",
+          "instance:order:ORD-00103",
+          "instance:order:ORD-02103",
+          "instance:order:ORD-01106",
+          "instance:order_item:ITEM-000782"
+        ]
+      }
+    },
+    {
+      "id": "crm-130",
+      "category": "multi_hop",
+      "question": "订单 ORD-01122 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-01122",
+        "instance:customer:CUST-0075"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-01122",
+          "instance:order_item:ITEM-001011",
+          "instance:order_item:ITEM-003511",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-01122",
+          "instance:order:ORD-02122",
+          "instance:order:ORD-01132",
+          "instance:order:ORD-00122",
+          "instance:order:ORD-01102"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01122",
+          "instance:order:ORD-00122",
+          "instance:order:ORD-02122",
+          "instance:order_item:ITEM-001011",
+          "instance:order:ORD-01132"
+        ]
+      }
+    },
+    {
+      "id": "crm-131",
+      "category": "multi_hop",
+      "question": "订单 ORD-01141 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-01141",
+        "instance:customer:CUST-0398"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-01141",
+          "instance:order_item:ITEM-001240",
+          "instance:order_item:ITEM-003740",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-01141",
+          "instance:order:ORD-00141",
+          "instance:order:ORD-02141",
+          "instance:order:ORD-01131",
+          "instance:order:ORD-01571"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01141",
+          "instance:order:ORD-00141",
+          "instance:order_item:ITEM-001240",
+          "instance:order:ORD-02141",
+          "instance:order_item:ITEM-003740"
+        ]
+      }
+    },
+    {
+      "id": "crm-132",
+      "category": "multi_hop",
+      "question": "订单 ORD-01160 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-01160",
+        "instance:customer:CUST-0221"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-01160",
+          "instance:order_item:ITEM-001469",
+          "instance:order_item:ITEM-003969",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-01160",
+          "instance:order:ORD-00160",
+          "instance:order:ORD-01016",
+          "instance:order:ORD-01168",
+          "instance:order:ORD-02160"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01160",
+          "instance:order:ORD-00160",
+          "instance:order:ORD-01016",
+          "instance:order_item:ITEM-001469",
+          "instance:order:ORD-01168"
+        ]
+      }
+    },
+    {
+      "id": "crm-133",
+      "category": "multi_hop",
+      "question": "订单 ORD-01179 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-01179",
+        "instance:customer:CUST-0044"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-01179",
+          "instance:order_item:ITEM-001698",
+          "instance:order_item:ITEM-004198",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-01173",
+          "instance:order:ORD-01757",
+          "instance:order:ORD-01190",
+          "instance:order:ORD-01357",
+          "instance:order:ORD-01170"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01179",
+          "instance:order:ORD-01173",
+          "instance:order:ORD-01757",
+          "instance:order:ORD-01190",
+          "instance:order_item:ITEM-001698"
+        ]
+      }
+    },
+    {
+      "id": "crm-134",
+      "category": "multi_hop",
+      "question": "订单 ORD-01198 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-01198",
+        "instance:customer:CUST-0367"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-01198",
+          "instance:order_item:ITEM-001927",
+          "instance:order_item:ITEM-004427",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-01198",
+          "instance:order:ORD-01197",
+          "instance:order:ORD-01196",
+          "instance:order:ORD-01186",
+          "instance:order:ORD-00098"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01198",
+          "instance:order:ORD-00098",
+          "instance:order:ORD-01197",
+          "instance:order_item:ITEM-001927",
+          "instance:order:ORD-01196"
+        ]
+      }
+    },
+    {
+      "id": "crm-135",
+      "category": "multi_hop",
+      "question": "订单 ORD-01217 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-01217",
+        "instance:customer:CUST-0190"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-01217",
+          "instance:order_item:ITEM-002156",
+          "instance:order_item:ITEM-004656",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-01217",
+          "instance:order:ORD-01218",
+          "instance:order:ORD-02217",
+          "instance:order:ORD-01216",
+          "instance:order:ORD-01277"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01217",
+          "instance:order:ORD-01218",
+          "instance:order:ORD-00217",
+          "instance:order_item:ITEM-002156",
+          "instance:order:ORD-02217"
+        ]
+      }
+    },
+    {
+      "id": "crm-136",
+      "category": "multi_hop",
+      "question": "订单 ORD-01236 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-01236",
+        "instance:customer:CUST-0013"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-01236",
+          "instance:order_item:ITEM-002385",
+          "instance:order_item:ITEM-004885",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ],
+        "vector": [
+          "instance:order:ORD-02336",
+          "instance:order:ORD-00036",
+          "instance:order:ORD-01036",
+          "instance:order:ORD-02036",
+          "instance:order:ORD-01236"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01236",
+          "instance:order:ORD-00036",
+          "instance:order:ORD-02336",
+          "instance:order:ORD-01036",
+          "instance:order_item:ITEM-002385"
+        ]
+      }
+    },
+    {
+      "id": "crm-137",
+      "category": "multi_hop",
+      "question": "订单 ORD-01255 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-01255",
+        "instance:customer:CUST-0336"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-01255",
+          "instance:order_item:ITEM-000114",
+          "instance:order_item:ITEM-002614",
+          "instance:order_item:ITEM-005114",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-01255",
+          "instance:order:ORD-00255",
+          "instance:order:ORD-02255",
+          "instance:order:ORD-01225",
+          "instance:order:ORD-01772"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01255",
+          "instance:order:ORD-00255",
+          "instance:order_item:ITEM-000114",
+          "instance:order:ORD-02255",
+          "instance:order:ORD-01225"
+        ]
+      }
+    },
+    {
+      "id": "crm-138",
+      "category": "multi_hop",
+      "question": "订单 ORD-01274 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-01274",
+        "instance:customer:CUST-0159"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-01274",
+          "instance:order_item:ITEM-000343",
+          "instance:order_item:ITEM-002843",
+          "instance:order_item:ITEM-005343",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-01277",
+          "instance:order:ORD-01272",
+          "instance:order:ORD-01472",
+          "instance:order:ORD-01477",
+          "instance:order:ORD-01410"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01274",
+          "instance:order:ORD-01277",
+          "instance:order:ORD-01272",
+          "instance:order_item:ITEM-000343",
+          "instance:order:ORD-01472"
+        ]
+      }
+    },
+    {
+      "id": "crm-139",
+      "category": "multi_hop",
+      "question": "订单 ORD-01293 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-01293",
+        "instance:customer:CUST-0482"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-01293",
+          "instance:order_item:ITEM-000572",
+          "instance:order_item:ITEM-003072",
+          "instance:order_item:ITEM-005572",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-01293",
+          "instance:order:ORD-01343",
+          "instance:order:ORD-01743",
+          "instance:order:ORD-01243",
+          "instance:order:ORD-01273"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01293",
+          "instance:order:ORD-01343",
+          "instance:order:ORD-01743",
+          "instance:order_item:ITEM-000572",
+          "instance:order_item:ITEM-003072"
+        ]
+      }
+    },
+    {
+      "id": "crm-140",
+      "category": "multi_hop",
+      "question": "订单 ORD-01312 是哪个客户下的，请给出双方信息",
+      "expected_document_ids": [
+        "instance:order:ORD-01312",
+        "instance:customer:CUST-0305"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:order:ORD-01312",
+          "instance:order_item:ITEM-000801",
+          "instance:order_item:ITEM-003301",
+          "instance:order_item:ITEM-005801",
+          "action:approve_order"
+        ],
+        "vector": [
+          "instance:order:ORD-01312",
+          "instance:order:ORD-02312",
+          "instance:order:ORD-01313",
+          "instance:order:ORD-01006",
+          "instance:order:ORD-01212"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01312",
+          "instance:order:ORD-02312",
+          "instance:order:ORD-01313",
+          "instance:order_item:ITEM-000801",
+          "instance:order:ORD-01006"
+        ]
+      }
+    },
+    {
+      "id": "crm-141",
+      "category": "filter_aggregate",
+      "question": "金额不低于 1000 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-01800",
+          "instance:order_item:ITEM-003341",
+          "instance:order:ORD-01375",
+          "instance:order:ORD-01887",
+          "instance:order:ORD-00507"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01800",
+          "action:approve_order",
+          "instance:order:ORD-01375",
+          "instance:order:ORD-00507",
+          "instance:order_item:ITEM-003341"
+        ]
+      }
+    },
+    {
+      "id": "crm-142",
+      "category": "filter_aggregate",
+      "question": "金额不低于 1750 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-01217",
+          "instance:order_item:ITEM-005182",
+          "instance:order_item:ITEM-001751",
+          "instance:order:ORD-01877",
+          "instance:order_item:ITEM-001752"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01217",
+          "instance:order:ORD-00017",
+          "action:approve_order",
+          "instance:order_item:ITEM-005182",
+          "instance:customer:CUST-0001"
+        ]
+      }
+    },
+    {
+      "id": "crm-143",
+      "category": "filter_aggregate",
+      "question": "金额不低于 2500 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order_item:ITEM-002500",
+          "instance:order:ORD-00837",
+          "instance:order:ORD-02446",
+          "instance:order:ORD-02375",
+          "instance:order_item:ITEM-002521"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00837",
+          "instance:order_item:ITEM-002500",
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:order:ORD-02446"
+        ]
+      }
+    },
+    {
+      "id": "crm-144",
+      "category": "filter_aggregate",
+      "question": "金额不低于 3250 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order_item:ITEM-003250",
+          "instance:order_item:ITEM-002250",
+          "instance:order:ORD-00250",
+          "instance:order_item:ITEM-000250",
+          "instance:order:ORD-00677"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00250",
+          "instance:order_item:ITEM-003250",
+          "action:approve_order",
+          "instance:order_item:ITEM-002250",
+          "instance:customer:CUST-0001"
+        ]
+      }
+    },
+    {
+      "id": "crm-145",
+      "category": "filter_aggregate",
+      "question": "金额不低于 4000 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order_item:ITEM-003499",
+          "instance:order_item:ITEM-000499",
+          "instance:order_item:ITEM-005299",
+          "instance:order_item:ITEM-003259",
+          "instance:order_item:ITEM-004699"
+        ],
+        "hybrid": [
+          "instance:order_item:ITEM-003499",
+          "action:approve_order",
+          "instance:order_item:ITEM-000499",
+          "instance:customer:CUST-0001",
+          "instance:order_item:ITEM-005299"
+        ]
+      }
+    },
+    {
+      "id": "crm-146",
+      "category": "filter_aggregate",
+      "question": "金额不低于 4750 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order_item:ITEM-004750",
+          "instance:order:ORD-00750",
+          "instance:order_item:ITEM-003750",
+          "instance:order_item:ITEM-000750",
+          "instance:order_item:ITEM-001750"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00750",
+          "instance:order_item:ITEM-004750",
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:order:ORD-00475"
+        ]
+      }
+    },
+    {
+      "id": "crm-147",
+      "category": "filter_aggregate",
+      "question": "金额不低于 5500 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order_item:ITEM-000500",
+          "instance:order_item:ITEM-005500",
+          "instance:order_item:ITEM-003500",
+          "instance:order:ORD-00035",
+          "instance:order_item:ITEM-004500"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00035",
+          "instance:order_item:ITEM-000500",
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:order_item:ITEM-005500"
+        ]
+      }
+    },
+    {
+      "id": "crm-148",
+      "category": "filter_aggregate",
+      "question": "金额不低于 6250 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-00625",
+          "instance:order_item:ITEM-002250",
+          "instance:order:ORD-00250",
+          "instance:order:ORD-00626",
+          "instance:order_item:ITEM-002501"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00625",
+          "instance:order:ORD-00250",
+          "action:approve_order",
+          "instance:order:ORD-00626",
+          "instance:order_item:ITEM-002250"
+        ]
+      }
+    },
+    {
+      "id": "crm-149",
+      "category": "filter_aggregate",
+      "question": "金额不低于 7000 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order_item:ITEM-000726",
+          "instance:order_item:ITEM-000838",
+          "instance:order_item:ITEM-003718",
+          "instance:order_item:ITEM-000358",
+          "instance:order_item:ITEM-000710"
+        ],
+        "hybrid": [
+          "instance:order_item:ITEM-000726",
+          "action:approve_order",
+          "instance:order_item:ITEM-000838",
+          "instance:customer:CUST-0001",
+          "instance:order_item:ITEM-003718"
+        ]
+      }
+    },
+    {
+      "id": "crm-150",
+      "category": "filter_aggregate",
+      "question": "金额不低于 7750 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order_item:ITEM-000750",
+          "instance:order_item:ITEM-003750",
+          "instance:order_item:ITEM-002750",
+          "instance:order:ORD-00750",
+          "instance:order_item:ITEM-005750"
+        ],
+        "hybrid": [
+          "instance:order_item:ITEM-000750",
+          "action:approve_order",
+          "instance:order:ORD-00750",
+          "instance:order_item:ITEM-003750",
+          "instance:customer:CUST-0001"
+        ]
+      }
+    },
+    {
+      "id": "crm-151",
+      "category": "filter_aggregate",
+      "question": "金额不低于 8500 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-00500",
+          "instance:order:ORD-00497",
+          "instance:order_item:ITEM-004500",
+          "instance:order_item:ITEM-000500",
+          "instance:order_item:ITEM-003500"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00500",
+          "instance:order:ORD-00497",
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:order_item:ITEM-004500"
+        ]
+      }
+    },
+    {
+      "id": "crm-152",
+      "category": "filter_aggregate",
+      "question": "金额不低于 9250 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-00925",
+          "instance:order:ORD-01378",
+          "instance:order:ORD-02477",
+          "instance:order:ORD-00940",
+          "instance:order:ORD-01925"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00925",
+          "instance:order:ORD-01378",
+          "action:approve_order",
+          "instance:order:ORD-00940",
+          "instance:customer:CUST-0001"
+        ]
+      }
+    },
+    {
+      "id": "crm-153",
+      "category": "filter_aggregate",
+      "question": "金额不低于 10000 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order_item:ITEM-000910",
+          "instance:order_item:ITEM-000110",
+          "instance:order_item:ITEM-000911",
+          "instance:order_item:ITEM-000510",
+          "instance:order_item:ITEM-001015"
+        ],
+        "hybrid": [
+          "instance:order_item:ITEM-000910",
+          "action:approve_order",
+          "instance:order_item:ITEM-000110",
+          "instance:customer:CUST-0001",
+          "instance:order_item:ITEM-000911"
+        ]
+      }
+    },
+    {
+      "id": "crm-154",
+      "category": "filter_aggregate",
+      "question": "金额不低于 10750 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-00750",
+          "instance:order_item:ITEM-000750",
+          "instance:order_item:ITEM-001750",
+          "instance:order:ORD-01750",
+          "instance:order_item:ITEM-003750"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00750",
+          "action:approve_order",
+          "instance:order_item:ITEM-000750",
+          "instance:customer:CUST-0001",
+          "instance:order_item:ITEM-001750"
+        ]
+      }
+    },
+    {
+      "id": "crm-155",
+      "category": "filter_aggregate",
+      "question": "金额不低于 11500 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-00735",
+          "instance:order:ORD-00297",
+          "instance:order:ORD-01197",
+          "instance:order:ORD-00737",
+          "instance:order:ORD-01397"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00297",
+          "instance:order:ORD-00735",
+          "action:approve_order",
+          "instance:order:ORD-01197",
+          "instance:order:ORD-00737"
+        ]
+      }
+    },
+    {
+      "id": "crm-156",
+      "category": "filter_aggregate",
+      "question": "金额不低于 12250 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-02250",
+          "instance:order:ORD-02275",
+          "instance:order:ORD-01837",
+          "instance:order:ORD-02495",
+          "instance:order:ORD-02497"
+        ],
+        "hybrid": [
+          "instance:order:ORD-02250",
+          "action:approve_order",
+          "instance:order:ORD-02275",
+          "instance:order:ORD-00250",
+          "instance:order:ORD-01837"
+        ]
+      }
+    },
+    {
+      "id": "crm-157",
+      "category": "filter_aggregate",
+      "question": "金额不低于 13000 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-01837",
+          "instance:order:ORD-01637",
+          "instance:order:ORD-01375",
+          "instance:order:ORD-01667",
+          "instance:order:ORD-00737"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01837",
+          "instance:order:ORD-01637",
+          "action:approve_order",
+          "instance:order:ORD-01375",
+          "instance:customer:CUST-0001"
+        ]
+      }
+    },
+    {
+      "id": "crm-158",
+      "category": "filter_aggregate",
+      "question": "金额不低于 13750 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-00750",
+          "instance:order_item:ITEM-003750",
+          "instance:order_item:ITEM-001750",
+          "instance:order_item:ITEM-000750",
+          "instance:order_item:ITEM-002750"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00750",
+          "action:approve_order",
+          "instance:order_item:ITEM-003750",
+          "instance:customer:CUST-0001",
+          "instance:order_item:ITEM-001750"
+        ]
+      }
+    },
+    {
+      "id": "crm-159",
+      "category": "filter_aggregate",
+      "question": "金额不低于 14500 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-00757",
+          "instance:order:ORD-01415",
+          "instance:order_item:ITEM-004500",
+          "instance:order:ORD-00500",
+          "instance:order:ORD-01407"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00757",
+          "instance:order:ORD-01415",
+          "instance:order:ORD-00500",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ]
+      }
+    },
+    {
+      "id": "crm-160",
+      "category": "filter_aggregate",
+      "question": "金额不低于 15250 的订单有多少",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-01425",
+          "instance:order:ORD-02297",
+          "instance:order:ORD-01250",
+          "instance:order:ORD-01422",
+          "instance:order:ORD-01207"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01425",
+          "action:approve_order",
+          "instance:order:ORD-02297",
+          "instance:order:ORD-01250",
+          "instance:order:ORD-00108"
+        ]
+      }
+    },
+    {
+      "id": "crm-161",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 500 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-02005",
+          "instance:order:ORD-02446",
+          "instance:order:ORD-00035",
+          "instance:order:ORD-01375",
+          "instance:order:ORD-01315"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00035",
+          "instance:order:ORD-02005",
+          "action:approve_order",
+          "instance:order:ORD-02446",
+          "instance:customer:CUST-0001"
+        ]
+      }
+    },
+    {
+      "id": "crm-162",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 1000 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-01375",
+          "instance:order:ORD-01121",
+          "instance:order:ORD-00441",
+          "instance:order:ORD-01361",
+          "instance:order:ORD-01441"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01375",
+          "instance:order:ORD-00441",
+          "instance:order:ORD-01121",
+          "action:approve_order",
+          "instance:customer:CUST-0001"
+        ]
+      }
+    },
+    {
+      "id": "crm-163",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 1500 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-01421",
+          "instance:order:ORD-02015",
+          "instance:order:ORD-01715",
+          "instance:order:ORD-01215",
+          "instance:order:ORD-01415"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01421",
+          "instance:order:ORD-02015",
+          "action:approve_order",
+          "instance:order:ORD-01715",
+          "instance:customer:CUST-0001"
+        ]
+      }
+    },
+    {
+      "id": "crm-164",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 2000 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-02131",
+          "instance:order:ORD-02231",
+          "instance:order:ORD-02121",
+          "instance:order:ORD-02135",
+          "instance:order:ORD-02446"
+        ],
+        "hybrid": [
+          "instance:order:ORD-02131",
+          "action:approve_order",
+          "instance:order:ORD-02231",
+          "instance:order:ORD-02121",
+          "instance:customer:CUST-0001"
+        ]
+      }
+    },
+    {
+      "id": "crm-165",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 2500 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-02446",
+          "instance:order:ORD-00185",
+          "instance:order:ORD-02375",
+          "instance:order:ORD-02165",
+          "instance:order:ORD-02345"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00185",
+          "instance:order:ORD-02446",
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:order:ORD-02375"
+        ]
+      }
+    },
+    {
+      "id": "crm-166",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 3000 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-00431",
+          "instance:order:ORD-00435",
+          "instance:order:ORD-01531",
+          "instance:order:ORD-02231",
+          "instance:order:ORD-02430"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00431",
+          "instance:order:ORD-00435",
+          "action:approve_order",
+          "instance:order:ORD-01531",
+          "instance:customer:CUST-0001"
+        ]
+      }
+    },
+    {
+      "id": "crm-167",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 3500 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-00435",
+          "instance:order:ORD-02435",
+          "instance:order:ORD-00655",
+          "instance:order:ORD-00035",
+          "instance:order:ORD-00031"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00435",
+          "instance:order:ORD-00035",
+          "instance:order:ORD-00031",
+          "instance:order:ORD-00655",
+          "action:approve_order"
+        ]
+      }
+    },
+    {
+      "id": "crm-168",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 4000 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-00475",
+          "instance:order:ORD-00470",
+          "instance:order:ORD-00466",
+          "instance:order:ORD-02231",
+          "instance:order:ORD-00465"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00475",
+          "instance:order:ORD-00470",
+          "instance:order:ORD-00466",
+          "action:approve_order",
+          "instance:order:ORD-00465"
+        ]
+      }
+    },
+    {
+      "id": "crm-169",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 4500 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-00475",
+          "instance:order:ORD-02446",
+          "instance:order:ORD-02445",
+          "instance:order:ORD-02441",
+          "instance:order:ORD-00465"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00475",
+          "action:approve_order",
+          "instance:order:ORD-02446",
+          "instance:order:ORD-00465",
+          "instance:customer:CUST-0001"
+        ]
+      }
+    },
+    {
+      "id": "crm-170",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 5000 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-02005",
+          "instance:order:ORD-00035",
+          "instance:order:ORD-02446",
+          "instance:order:ORD-00505",
+          "instance:order:ORD-00585"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00035",
+          "instance:order:ORD-02005",
+          "instance:order:ORD-00505",
+          "action:approve_order",
+          "instance:order:ORD-00585"
+        ]
+      }
+    },
+    {
+      "id": "crm-171",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 5500 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-00035",
+          "instance:order:ORD-02005",
+          "instance:order:ORD-00535",
+          "instance:order:ORD-00585",
+          "instance:order:ORD-00496"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00035",
+          "instance:order:ORD-00535",
+          "instance:order:ORD-02005",
+          "action:approve_order",
+          "instance:order:ORD-00585"
+        ]
+      }
+    },
+    {
+      "id": "crm-172",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 6000 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-02006",
+          "instance:order:ORD-00631",
+          "instance:order:ORD-00630",
+          "instance:order:ORD-00491",
+          "instance:order:ORD-00481"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00631",
+          "instance:order:ORD-02006",
+          "instance:order:ORD-00630",
+          "instance:order:ORD-00491",
+          "action:approve_order"
+        ]
+      }
+    },
+    {
+      "id": "crm-173",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 6500 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-00631",
+          "instance:order:ORD-00491",
+          "instance:order:ORD-00630",
+          "instance:order:ORD-00485",
+          "instance:order:ORD-00695"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00631",
+          "instance:order:ORD-00491",
+          "instance:order:ORD-00630",
+          "instance:order:ORD-00485",
+          "action:approve_order"
+        ]
+      }
+    },
+    {
+      "id": "crm-174",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 7000 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-01731",
+          "instance:order:ORD-00731",
+          "instance:order:ORD-02457",
+          "instance:order:ORD-01145",
+          "instance:order:ORD-00707"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00731",
+          "instance:order:ORD-01731",
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:order:ORD-01145"
+        ]
+      }
+    },
+    {
+      "id": "crm-175",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 7500 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-01731",
+          "instance:order:ORD-00731",
+          "instance:order:ORD-01145",
+          "instance:order:ORD-00491",
+          "instance:order:ORD-02021"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00731",
+          "instance:order:ORD-01731",
+          "instance:order:ORD-00491",
+          "action:approve_order",
+          "instance:order:ORD-01145"
+        ]
+      }
+    },
+    {
+      "id": "crm-176",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 8000 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-01810",
+          "instance:order:ORD-00441",
+          "instance:order:ORD-00831",
+          "instance:order:ORD-00881",
+          "instance:order:ORD-01821"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00441",
+          "instance:order:ORD-01810",
+          "instance:order:ORD-00831",
+          "action:approve_order",
+          "instance:order:ORD-00881"
+        ]
+      }
+    },
+    {
+      "id": "crm-177",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 8500 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-00500",
+          "instance:order:ORD-00496",
+          "instance:order:ORD-00705",
+          "instance:order:ORD-00495",
+          "instance:order:ORD-02465"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00500",
+          "instance:order:ORD-00496",
+          "instance:order:ORD-00705",
+          "instance:order:ORD-00495",
+          "action:approve_order"
+        ]
+      }
+    },
+    {
+      "id": "crm-178",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 9000 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-00935",
+          "instance:order:ORD-00931",
+          "instance:order:ORD-00911",
+          "instance:order:ORD-00941",
+          "instance:order:ORD-00945"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00935",
+          "instance:order:ORD-00931",
+          "instance:order:ORD-00911",
+          "action:approve_order",
+          "instance:order:ORD-00941"
+        ]
+      }
+    },
+    {
+      "id": "crm-179",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 9500 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-00935",
+          "instance:order:ORD-00941",
+          "instance:order:ORD-00931",
+          "instance:order:ORD-00500",
+          "instance:order:ORD-00940"
+        ],
+        "hybrid": [
+          "instance:order:ORD-00935",
+          "instance:order:ORD-00941",
+          "instance:order:ORD-00500",
+          "instance:order:ORD-00931",
+          "action:approve_order"
+        ]
+      }
+    },
+    {
+      "id": "crm-180",
+      "category": "filter_aggregate",
+      "question": "已支付且金额不低于 10000 的订单总额",
+      "expected_document_ids": [
+        "schema:object:order"
+      ],
+      "rankings": {
+        "bm25": [
+          "action:approve_order",
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0004"
+        ],
+        "vector": [
+          "instance:order:ORD-01910",
+          "instance:order:ORD-01375",
+          "instance:order:ORD-00910",
+          "instance:order:ORD-02010",
+          "instance:order:ORD-00285"
+        ],
+        "hybrid": [
+          "instance:order:ORD-01910",
+          "instance:order:ORD-01375",
+          "instance:order:ORD-00285",
+          "instance:order:ORD-00910",
+          "action:approve_order"
+        ]
+      }
+    },
+    {
+      "id": "crm-181",
+      "category": "filter_aggregate",
+      "question": "standard 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0006",
+          "instance:customer:CUST-0009",
+          "instance:customer:CUST-0012",
+          "instance:customer:CUST-0015"
+        ],
+        "vector": [
+          "instance:customer:CUST-0279",
+          "instance:customer:CUST-0183",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0483",
+          "instance:customer:CUST-0063"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0027",
+          "instance:customer:CUST-0063",
+          "instance:customer:CUST-0009",
+          "instance:customer:CUST-0006"
+        ]
+      }
+    },
+    {
+      "id": "crm-182",
+      "category": "filter_aggregate",
+      "question": "growth 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0004",
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0010",
+          "instance:customer:CUST-0013"
+        ],
+        "vector": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0028"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0016",
+          "instance:customer:CUST-0028",
+          "instance:customer:CUST-0046",
+          "instance:customer:CUST-0127"
+        ]
+      }
+    },
+    {
+      "id": "crm-183",
+      "category": "filter_aggregate",
+      "question": "vip 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0005",
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0011",
+          "instance:customer:CUST-0014"
+        ],
+        "vector": [
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0116",
+          "instance:customer:CUST-0278",
+          "instance:customer:CUST-0128",
+          "instance:customer:CUST-0308"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0026",
+          "instance:customer:CUST-0116",
+          "instance:customer:CUST-0023",
+          "instance:customer:CUST-0056"
+        ]
+      }
+    },
+    {
+      "id": "crm-184",
+      "category": "filter_aggregate",
+      "question": "standard 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0006",
+          "instance:customer:CUST-0009",
+          "instance:customer:CUST-0012",
+          "instance:customer:CUST-0015"
+        ],
+        "vector": [
+          "instance:customer:CUST-0279",
+          "instance:customer:CUST-0183",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0483",
+          "instance:customer:CUST-0063"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0027",
+          "instance:customer:CUST-0063",
+          "instance:customer:CUST-0009",
+          "instance:customer:CUST-0006"
+        ]
+      }
+    },
+    {
+      "id": "crm-185",
+      "category": "filter_aggregate",
+      "question": "growth 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0004",
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0010",
+          "instance:customer:CUST-0013"
+        ],
+        "vector": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0028"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0016",
+          "instance:customer:CUST-0028",
+          "instance:customer:CUST-0046",
+          "instance:customer:CUST-0127"
+        ]
+      }
+    },
+    {
+      "id": "crm-186",
+      "category": "filter_aggregate",
+      "question": "vip 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0005",
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0011",
+          "instance:customer:CUST-0014"
+        ],
+        "vector": [
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0116",
+          "instance:customer:CUST-0278",
+          "instance:customer:CUST-0128",
+          "instance:customer:CUST-0308"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0026",
+          "instance:customer:CUST-0116",
+          "instance:customer:CUST-0023",
+          "instance:customer:CUST-0056"
+        ]
+      }
+    },
+    {
+      "id": "crm-187",
+      "category": "filter_aggregate",
+      "question": "standard 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0006",
+          "instance:customer:CUST-0009",
+          "instance:customer:CUST-0012",
+          "instance:customer:CUST-0015"
+        ],
+        "vector": [
+          "instance:customer:CUST-0279",
+          "instance:customer:CUST-0183",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0483",
+          "instance:customer:CUST-0063"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0027",
+          "instance:customer:CUST-0063",
+          "instance:customer:CUST-0009",
+          "instance:customer:CUST-0006"
+        ]
+      }
+    },
+    {
+      "id": "crm-188",
+      "category": "filter_aggregate",
+      "question": "growth 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0004",
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0010",
+          "instance:customer:CUST-0013"
+        ],
+        "vector": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0028"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0016",
+          "instance:customer:CUST-0028",
+          "instance:customer:CUST-0046",
+          "instance:customer:CUST-0127"
+        ]
+      }
+    },
+    {
+      "id": "crm-189",
+      "category": "filter_aggregate",
+      "question": "vip 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0005",
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0011",
+          "instance:customer:CUST-0014"
+        ],
+        "vector": [
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0116",
+          "instance:customer:CUST-0278",
+          "instance:customer:CUST-0128",
+          "instance:customer:CUST-0308"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0026",
+          "instance:customer:CUST-0116",
+          "instance:customer:CUST-0023",
+          "instance:customer:CUST-0056"
+        ]
+      }
+    },
+    {
+      "id": "crm-190",
+      "category": "filter_aggregate",
+      "question": "standard 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0006",
+          "instance:customer:CUST-0009",
+          "instance:customer:CUST-0012",
+          "instance:customer:CUST-0015"
+        ],
+        "vector": [
+          "instance:customer:CUST-0279",
+          "instance:customer:CUST-0183",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0483",
+          "instance:customer:CUST-0063"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0027",
+          "instance:customer:CUST-0063",
+          "instance:customer:CUST-0009",
+          "instance:customer:CUST-0006"
+        ]
+      }
+    },
+    {
+      "id": "crm-191",
+      "category": "filter_aggregate",
+      "question": "growth 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0004",
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0010",
+          "instance:customer:CUST-0013"
+        ],
+        "vector": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0028"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0016",
+          "instance:customer:CUST-0028",
+          "instance:customer:CUST-0046",
+          "instance:customer:CUST-0127"
+        ]
+      }
+    },
+    {
+      "id": "crm-192",
+      "category": "filter_aggregate",
+      "question": "vip 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0005",
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0011",
+          "instance:customer:CUST-0014"
+        ],
+        "vector": [
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0116",
+          "instance:customer:CUST-0278",
+          "instance:customer:CUST-0128",
+          "instance:customer:CUST-0308"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0026",
+          "instance:customer:CUST-0116",
+          "instance:customer:CUST-0023",
+          "instance:customer:CUST-0056"
+        ]
+      }
+    },
+    {
+      "id": "crm-193",
+      "category": "filter_aggregate",
+      "question": "standard 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0006",
+          "instance:customer:CUST-0009",
+          "instance:customer:CUST-0012",
+          "instance:customer:CUST-0015"
+        ],
+        "vector": [
+          "instance:customer:CUST-0279",
+          "instance:customer:CUST-0183",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0483",
+          "instance:customer:CUST-0063"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0027",
+          "instance:customer:CUST-0063",
+          "instance:customer:CUST-0009",
+          "instance:customer:CUST-0006"
+        ]
+      }
+    },
+    {
+      "id": "crm-194",
+      "category": "filter_aggregate",
+      "question": "growth 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0004",
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0010",
+          "instance:customer:CUST-0013"
+        ],
+        "vector": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0028"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0016",
+          "instance:customer:CUST-0028",
+          "instance:customer:CUST-0046",
+          "instance:customer:CUST-0127"
+        ]
+      }
+    },
+    {
+      "id": "crm-195",
+      "category": "filter_aggregate",
+      "question": "vip 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0005",
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0011",
+          "instance:customer:CUST-0014"
+        ],
+        "vector": [
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0116",
+          "instance:customer:CUST-0278",
+          "instance:customer:CUST-0128",
+          "instance:customer:CUST-0308"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0026",
+          "instance:customer:CUST-0116",
+          "instance:customer:CUST-0023",
+          "instance:customer:CUST-0056"
+        ]
+      }
+    },
+    {
+      "id": "crm-196",
+      "category": "filter_aggregate",
+      "question": "standard 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0006",
+          "instance:customer:CUST-0009",
+          "instance:customer:CUST-0012",
+          "instance:customer:CUST-0015"
+        ],
+        "vector": [
+          "instance:customer:CUST-0279",
+          "instance:customer:CUST-0183",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0483",
+          "instance:customer:CUST-0063"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0027",
+          "instance:customer:CUST-0063",
+          "instance:customer:CUST-0009",
+          "instance:customer:CUST-0006"
+        ]
+      }
+    },
+    {
+      "id": "crm-197",
+      "category": "filter_aggregate",
+      "question": "growth 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0004",
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0010",
+          "instance:customer:CUST-0013"
+        ],
+        "vector": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0028"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0016",
+          "instance:customer:CUST-0028",
+          "instance:customer:CUST-0046",
+          "instance:customer:CUST-0127"
+        ]
+      }
+    },
+    {
+      "id": "crm-198",
+      "category": "filter_aggregate",
+      "question": "vip 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0005",
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0011",
+          "instance:customer:CUST-0014"
+        ],
+        "vector": [
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0116",
+          "instance:customer:CUST-0278",
+          "instance:customer:CUST-0128",
+          "instance:customer:CUST-0308"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0008",
+          "instance:customer:CUST-0026",
+          "instance:customer:CUST-0116",
+          "instance:customer:CUST-0023",
+          "instance:customer:CUST-0056"
+        ]
+      }
+    },
+    {
+      "id": "crm-199",
+      "category": "filter_aggregate",
+      "question": "standard 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0006",
+          "instance:customer:CUST-0009",
+          "instance:customer:CUST-0012",
+          "instance:customer:CUST-0015"
+        ],
+        "vector": [
+          "instance:customer:CUST-0279",
+          "instance:customer:CUST-0183",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0483",
+          "instance:customer:CUST-0063"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0027",
+          "instance:customer:CUST-0063",
+          "instance:customer:CUST-0009",
+          "instance:customer:CUST-0006"
+        ]
+      }
+    },
+    {
+      "id": "crm-200",
+      "category": "filter_aggregate",
+      "question": "growth 等级客户有多少",
+      "expected_document_ids": [
+        "schema:object:customer"
+      ],
+      "rankings": {
+        "bm25": [
+          "instance:customer:CUST-0001",
+          "instance:customer:CUST-0004",
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0010",
+          "instance:customer:CUST-0013"
+        ],
+        "vector": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0028"
+        ],
+        "hybrid": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0016",
+          "instance:customer:CUST-0028",
+          "instance:customer:CUST-0046",
+          "instance:customer:CUST-0127"
+        ]
+      }
+    }
+  ]
+}

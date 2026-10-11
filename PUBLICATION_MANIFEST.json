@@ -1,0 +1,1501 @@
+{
+  "format": 1,
+  "version": "0.6.0",
+  "files": [
+    {
+      "path": ".github/workflows/ci-check.yml",
+      "sha256": "653dae03878e549e42abd53ecbea84ba9cb7ba3c5d47be200e193146ec8fd29c"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "f7bd742360697bd193f5de23bc8149962aae5ca8e4206604019bcb5a3517051a"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "3b5bb8d79b2c7e97250a3dbe102a4ee467bd822e88966c42d7187fe28e584c48"
+    },
+    {
+      "path": "DEVELOPMENT_STATUS.md",
+      "sha256": "3f95473688bfafedbc42fb145d6f502a527285af8b449d738df4890e55c534fd"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "a28691c00d19381c3e36023a3dd53548dae16c65a1a17658574313acb8e274e3"
+    },
+    {
+      "path": "LICENSE-APACHE.txt",
+      "sha256": "d1938d64067577e3fca91a7c67ac30a34dfc9b93be90d9a0e061384d3febe642"
+    },
+    {
+      "path": "LICENSE-OPENBKN.txt",
+      "sha256": "6e4c2aab5df7217a8080625f02ea92a0b3e7f39da3d453d38e8e4dee35e50452"
+    },
+    {
+      "path": "NOTICE",
+      "sha256": "614088776d46ac510d30d3723818d17dcc4a5c2344eced6e99e2a68e8953f475"
+    },
+    {
+      "path": "README.md",
+      "sha256": "e5b1726e9d5981642924d49dd6d9b8215ef9614e988c8ace20242651d2a28016"
+    },
+    {
+      "path": "README.zh.md",
+      "sha256": "9368b9dbea2878003f2224b92db83cbfce0c531a614a7925e873e1b384acc4c0"
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "e98623f2ba540bccca161e53918af8e0f658381600842779bb0e323abdf5f76e"
+    },
+    {
+      "path": "docs/EVALUATION.md",
+      "sha256": "1c341c194ac70d9bf23ab2e48aa3d757b75f087000e2f2dde960f600c13e9755"
+    },
+    {
+      "path": "docs/LIGHTRAG.md",
+      "sha256": "04922b3c309c99cb72821fd0f0e75766a6a8f235525af1a01b87cb993b243372"
+    },
+    {
+      "path": "docs/PROVENANCE.md",
+      "sha256": "3b38debddd835dd3a3d57a6b7eee950bc4b369e37bdf857c479eeef73ef5f8bc"
+    },
+    {
+      "path": "docs/PUBLICATION_REPORT.md",
+      "sha256": "603b952a08018d12961c3e1471444ab5c497b4bf132e8be975353a95509a6753"
+    },
+    {
+      "path": "docs/PUBLISHING.md",
+      "sha256": "b6a8645aa2993e88ebfb2741e5a129b963f879bf5e4a957351e0cd292ca36a03"
+    },
+    {
+      "path": "docs/README.md",
+      "sha256": "0f0f66b8fac8030dace6d5a525372af92c079f4f4b677ed79015f4e5c3f5b87a"
+    },
+    {
+      "path": "minibkn-ui/.gitignore",
+      "sha256": "ed05d0a2ee67a19f6319d2e33ba49de701b30fb7d172ece3a909d0fbbbcc9e48"
+    },
+    {
+      "path": "minibkn-ui/README.md",
+      "sha256": "c79e662cb8047eafa77441af20c4bd5575ec492adfeaccf7d916fa1aead3adc7"
+    },
+    {
+      "path": "minibkn-ui/index.html",
+      "sha256": "b2de5a225f4fee839aff89012e76bc433d85db0619183253a1edbb4d468a2ee4"
+    },
+    {
+      "path": "minibkn-ui/package-lock.json",
+      "sha256": "8d7fc199c2e668e9b5388c4390b603cb45b747610537ab1e1c3068004c7d8114"
+    },
+    {
+      "path": "minibkn-ui/package.json",
+      "sha256": "da1c46ae78117c81b7ae842252f0e76b4e68ae1c4a474f98925d242cfa0dd1b6"
+    },
+    {
+      "path": "minibkn-ui/src/App.test.tsx",
+      "sha256": "8942525c035a3637035d5288605739258548c09b0955570399a0e9256dff8234"
+    },
+    {
+      "path": "minibkn-ui/src/App.tsx",
+      "sha256": "2f08abe94245c73a9c8cc4fc063447970a5093f967b69f8c8ad2feda7fd4b8b2"
+    },
+    {
+      "path": "minibkn-ui/src/api.ts",
+      "sha256": "e007e2f5dd7358361b7023de4515d8ae06c09f3724170588dc02b459febb130f"
+    },
+    {
+      "path": "minibkn-ui/src/main.tsx",
+      "sha256": "9abbafa120f0cd4ed04b6d76ea696f353578e118b7bc975767ef41528dd5d5a0"
+    },
+    {
+      "path": "minibkn-ui/src/styles.css",
+      "sha256": "2214040bcc62e2c04dbc4080f2900a8b5e2d79bf0698a5a28964022299abae9e"
+    },
+    {
+      "path": "minibkn-ui/src/test/setup.ts",
+      "sha256": "977afde26bba6a51325908cd7713cbfdc87d18f06b78b237c8f364c44864b7de"
+    },
+    {
+      "path": "minibkn-ui/src/types.ts",
+      "sha256": "7ca5fdfc964ea3562ec9aa93516bac1a2ec5a7a90cd64ad1a1d84d190fc0c539"
+    },
+    {
+      "path": "minibkn-ui/tsconfig.app.json",
+      "sha256": "56408a39654cd1e24d3c32f95ada8e0dd2e1e7502041704a7f48d68b55179ca1"
+    },
+    {
+      "path": "minibkn-ui/tsconfig.json",
+      "sha256": "3a11d1d758b82ceae1687b3b3b673d98febb16b81305239be576b6aa30148fed"
+    },
+    {
+      "path": "minibkn-ui/tsconfig.node.json",
+      "sha256": "76b4203db69fa7cda52f87bcc909425fc2a7f029bb4e485268a4bc5f446eba26"
+    },
+    {
+      "path": "minibkn-ui/vite.config.ts",
+      "sha256": "b98fec1acf52fbebed57e045e80d2a449659e5776497a895b62b45937a498663"
+    },
+    {
+      "path": "minibkn/.dockerignore",
+      "sha256": "83d710ef49c2e278a46271e9cb323c219a063e77955055776f315aff5189abd0"
+    },
+    {
+      "path": "minibkn/.env.example",
+      "sha256": "e0014cf6658f5f11e08ba65634a9156819234e93ee411fcdf22c6658d0b93d15"
+    },
+    {
+      "path": "minibkn/.gitignore",
+      "sha256": "2eb7d7c0d2012f703277999c116edbbb55d8e1edb7405fd93cee85898b928f26"
+    },
+    {
+      "path": "minibkn/Dockerfile",
+      "sha256": "b08b4e278cb30e12e5871bb603e0b03974816e90036275a3dbef0d4a47e34d41"
+    },
+    {
+      "path": "minibkn/Makefile",
+      "sha256": "e8e5ab90d1caeb8a4d125e6e612ca8c18ef1422083425fe4567fa55915aa466b"
+    },
+    {
+      "path": "minibkn/README.md",
+      "sha256": "096172c6c6bdde1dcec1f193a94d3fecf363e6e816ba107af0ed4a3ef0acc47f"
+    },
+    {
+      "path": "minibkn/compose.yaml",
+      "sha256": "0958943ed6a5cce065a34c57d1fcc542ae37f2effcf5e110fd6863c547c8f89c"
+    },
+    {
+      "path": "minibkn/config/access-policy.example.json",
+      "sha256": "3794cd1e388c8383f092a5100448d84faba9b3cf88c61e15b281e2c00cc812e9"
+    },
+    {
+      "path": "minibkn/config/lightrag-endpoints.example.json",
+      "sha256": "c515daa03fb1300ad8a45d25f79d35c0a239333a4fbc163b42d6d1bfc8f8bfd8"
+    },
+    {
+      "path": "minibkn/docs/ACCEPTANCE.md",
+      "sha256": "8a9567347d5ee01b1c67d012b35a9a98f0a47dd798d7c1450234625a895b79d0"
+    },
+    {
+      "path": "minibkn/docs/ARCHITECTURE.md",
+      "sha256": "1b9c70c61db4d248c05e15168153026312339cd4326d9fcdf872b8068d003a2b"
+    },
+    {
+      "path": "minibkn/docs/MINIBKN_DOCUMENTATION_NAVIGATION.md",
+      "sha256": "c4cc330d2df72aa079629bd36ae88dba5fcd86be639becf109aab01769abc485"
+    },
+    {
+      "path": "minibkn/docs/README.md",
+      "sha256": "bbc220379fde5b7a664cae8669e1883fedf777e8d764ab72e682782b02f72fc3"
+    },
+    {
+      "path": "minibkn/docs/guides/MINIBKN_INITIAL_FLOW_UNDERSTANDING_AND_QA.md",
+      "sha256": "adb6af1d7e3c285220f1e988c0c4df08aa24c576d5c746127dfa3c969687516f"
+    },
+    {
+      "path": "minibkn/docs/guides/MINIBKN_NON_TECHNICAL_FULL_REPORT.md",
+      "sha256": "29b7fcf7389efbcf0c3052ad4ff4aaef6881392fa87b6e6454e727c6d51c6a9c"
+    },
+    {
+      "path": "minibkn/docs/guides/MINIBKN_QUERY_PLAN_EXPLANATION_AND_REMAINING_WORK.md",
+      "sha256": "65341055e0e12a914abd901c42ff0733999ea9937da0e6a102aff21f03972343"
+    },
+    {
+      "path": "minibkn/docs/guides/QueryPlan大白话解读版.md",
+      "sha256": "a89e6eb9a25f3a06d13444405932f74d26750cab8a6a0f06171b6fb805bd2212"
+    },
+    {
+      "path": "minibkn/docs/guides/qa/MINIBKN_10_QUESTIONS_ANSWER_PART2.md",
+      "sha256": "714f43b276f1d4b5620b26e47d3d1940cece51d1627df8fa5861b976d112cde3"
+    },
+    {
+      "path": "minibkn/docs/guides/qa/MINIBKN_5_QUESTIONS_ANSWER_PART3.md",
+      "sha256": "6f5f3b075bc157504bb258f6ac258516a53d4ab9e87e23367433e3fc074ac983"
+    },
+    {
+      "path": "minibkn/docs/guides/qa/MINIBKN_6_QUESTIONS_ANSWER_PART4.md",
+      "sha256": "42277ef93b89d571e1fb8d3a2b2e851b741483cad09b906adf9559158b89e040"
+    },
+    {
+      "path": "minibkn/docs/guides/qa/MINIBKN_8_QUESTIONS_ANSWER.md",
+      "sha256": "54b54d977ef06791f3f540ef83cd0e9d02cb58f6182269475e5ea0fecf67ff5f"
+    },
+    {
+      "path": "minibkn/docs/handoffs/MINIBKN_AUTUMN_RECRUITMENT_PROJECT_HANDOFF_FOR_AI.md",
+      "sha256": "6bf9a09e1b76c5cfb292b4c06fab9349f29af7911fb21f2c140680dfb1c5705c"
+    },
+    {
+      "path": "minibkn/docs/handoffs/MINIBKN_COMPLETE_REPOSITORY_HANDOFF_FOR_AI.md",
+      "sha256": "c0181557992d61d5ef316d20334cb74bb78847e13c6a534e50bed69b8123e0e7"
+    },
+    {
+      "path": "minibkn/docs/handoffs/MINIBKN_COMPREHENSIVE_EVALUATION_HANDOFF_FOR_AI.md",
+      "sha256": "38fa2aa6a531dacff8f31520a6f0864558460bdf22a9ce8975f7bef3899d9ec5"
+    },
+    {
+      "path": "minibkn/docs/handoffs/MINIBKN_PROJECT_HANDOFF_FOR_AI.md",
+      "sha256": "db53cb5992a1a616ecb6d3fb8356d9030e8378ed63d9c20aba9f37aab84d36e3"
+    },
+    {
+      "path": "minibkn/docs/handoffs/MINIBKN_QUERY_INTELLIGENCE_AND_EVALUATION_HANDOFF_FOR_AI.md",
+      "sha256": "454129b471795704b81b89ab468928610997173867a19afa0ae8897a51cfcdda"
+    },
+    {
+      "path": "minibkn/docs/handoffs/全量评测结果大白话解读.md",
+      "sha256": "d02f3a8e4ddd01058e92854510fb62572da10db4bf556dba5aa235da9d477b34"
+    },
+    {
+      "path": "minibkn/docs/handoffs/查询智能与评测结果大白话解读.md",
+      "sha256": "c83a69d23bb310621243eae3d1fa97e74afe58a3ad05a70424142f2a58eceecb"
+    },
+    {
+      "path": "minibkn/docs/plans/MINIBKN_COMPREHENSIVE_EXECUTION_PLAN.md",
+      "sha256": "b3fb0ac05d2ff753aea3733b826bfa7b76758fdd9067513669ea9681552e68cd"
+    },
+    {
+      "path": "minibkn/docs/plans/MINIBKN_COMPREHENSIVE_TEST_AND_EVALUATION_PLAN.md",
+      "sha256": "63f026a0e2afd456ca6bbabb6e67f90404215b563e6a6ebd29cccba0ca8a8ac6"
+    },
+    {
+      "path": "minibkn/docs/plans/MINIBKN_EVALUATION_LIGHTRAG_FEASIBILITY_AND_ROADMAP.md",
+      "sha256": "ad7722e00ff144616e373384caadc4d33a61892215a49356378deda1eea79348"
+    },
+    {
+      "path": "minibkn/docs/plans/MINIBKN_OPTIMIZATION_ROADMAP.md",
+      "sha256": "19e08911c5b254dbce8e7f90c5e7a6925b92b553d360cb63416472006a79ab23"
+    },
+    {
+      "path": "minibkn/docs/plans/MINIBKN_QUERY_INTELLIGENCE_AND_EVALUATION_EXECUTION_PLAN.md",
+      "sha256": "df283aef6e24b730c68e3e57635caa47feb7810f256df1e8c939fc7fbec9f3ad"
+    },
+    {
+      "path": "minibkn/docs/plans/MINIBKN_REPRODUCTION_PLAN.md",
+      "sha256": "60328d2a59fe1b27554225a82242a2968307494405dff41a058ebc6630b8ad26"
+    },
+    {
+      "path": "minibkn/docs/plans/MINIBKN_STEPWISE_DEVELOPMENT_PLAN.md",
+      "sha256": "9ac4da9c83a7c9d9b0b3d7a8e7c61d7bd9f7b742ec4ce72d25a84c651e74c607"
+    },
+    {
+      "path": "minibkn/docs/plans/综合执行方案中文解读.md",
+      "sha256": "34ae1d7c325d5b22c5ef97f73d7412249f8b23d7c8cb718ae078ab9566e34f39"
+    },
+    {
+      "path": "minibkn/docs/plans/综合执行方案大白话解读.md",
+      "sha256": "7aee9741833dd40ce68670e8484305e7ede19fc4734d1d5dce95ef2d5f737873"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_0_6_FINAL_ACCEPTANCE_REPORT.md",
+      "sha256": "03ddb9483bd2f34153fcade96d44519e3f649f33e894a00d919208b1eaa58bc2"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_AUTUMN_RECRUITMENT_COMPLETE_PROJECT_DESCRIPTION.md",
+      "sha256": "b2dcf40dc1d19b6b00a7c89799ce0a9d68b72bfd831d702813d3536a9d0d61e4"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_COMPREHENSIVE_TEST_ACCEPTANCE_REPORT.md",
+      "sha256": "a4c603e0dd53370712ed9b60c84906874dacb59b121880caa44a5c321ff49a5f"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_COMPREHENSIVE_TEST_PLAIN_LANGUAGE_REPORT.md",
+      "sha256": "dcb4e8e7bdb2ca1a877bb58cb95664b3fb51fa5f3abcc2fc213e3a682e3bbe8c"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_DETERMINISTIC_TEST_FOUNDATION_REPORT.md",
+      "sha256": "43dbd38a69da637f5f4fe179318397b69b5c1c8feac4a87e520a671d23d582e8"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_DEVELOPMENT_REPORT_PHASE_A.md",
+      "sha256": "34d857a40444ffffa1bc6eb08c15af206aafa71271199b26c62e10c8daf0097f"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_DEVELOPMENT_REPORT_PHASE_B.md",
+      "sha256": "ec2de505dc5716a1ca93573dd2a3a41dc655a7e419bb47723d66952d37305f78"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_DEVELOPMENT_REPORT_PHASE_C.md",
+      "sha256": "bfbed62c4192d1d22096e132bdcc13fe98038314d27b0086d469f49eb0d6ab2e"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_DEVELOPMENT_REPORT_PHASE_D.md",
+      "sha256": "816515fa3c42420823dab569b7fc9ea0fc2b3a09b62ba3e797b60b96012ca652"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_ENTERPRISE_ACCESS_CONTROL_DEVELOPMENT_REPORT.md",
+      "sha256": "e9c573f5223799e753bf3389ac034d4a81d75a2842d054211f705b8fd1973a94"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_ENTERPRISE_TEST_DATASET_DEVELOPMENT_REPORT.md",
+      "sha256": "7f5bb57c99eeb46345ac8a1199a755678aed135466a3dbd633663b2a981e40ae"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_FINAL_ACCEPTANCE_REPORT.md",
+      "sha256": "5259e8c88fe4898f99f9692c150cfb2eece5cd598428735743af5018746b4a82"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_LIGHTRAG_INTEGRATION_AND_EVALUATION_REPORT.md",
+      "sha256": "374a2de59f040d67db91705faf48f205b9e7f8d9accf63843ab3e80a615d0eb1"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_P0_QUERY_INTELLIGENCE_AND_DATA_DISCOVERY_DEVELOPMENT_REPORT.md",
+      "sha256": "32f30fa1a551d52d78f18284346288cf6a6b2d3ea9901bcc62d7facf21362218"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_PERFORMANCE_RESILIENCE_SECURITY_REPORT.md",
+      "sha256": "f6955da7cc94dd1f30566316f30d0f60913c998a3cd608f038068cc45470d0e2"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_QUERY_INTELLIGENCE_AND_FULL_EVALUATION_REPORT.md",
+      "sha256": "8c325f8daded7aaae808cf86b5a19cf9653f88b76fbb23415bf27da2d8180c7a"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_QUERY_PLAN_BLIND_AND_ADVERSARIAL_EVALUATION_REPORT.md",
+      "sha256": "cb3fbf49bcc1e23810288d203666432f991a4626955cacc14f5940e3efc3fa57"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_RETRIEVAL_AND_RAGAS_EVALUATION_REPORT.md",
+      "sha256": "f96f3ae1aa875748c51b81c8ce9120eefb072924bade144ac020045d4849ca06"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_S0_BASELINE_CONTRACTS_DEVELOPMENT_REPORT.md",
+      "sha256": "489df117eb0df1cc8fc08561ee0d4eb5ffce86432f5f0481fde37a07e4f7da28"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_S10_CRM_EVALUATION_DEVELOPMENT_REPORT.md",
+      "sha256": "d97976de3b780aaa49046fd40433b87b21fa4531e8409991acd505a1f49b3d62"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_S1_GENERIC_CORE_DEVELOPMENT_REPORT.md",
+      "sha256": "59d88be56a7ec2199cc593da67b139d9b0695e6aa9a771ebd8011aec5de7aabe"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_S3_EMBEDDING_DEVELOPMENT_REPORT.md",
+      "sha256": "af7ec6e918866a0a36c99d2c25f4cfcffad4c19405004cce2480ff1068a0ec24"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_S3_S10_LONG_HORIZON_ACCEPTANCE_REPORT.md",
+      "sha256": "e6c0ba08615477c55c88c576840186574a56b0e5527ba91e019d76b9f80a3c32"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_S4_QUERY_PLAN_DEVELOPMENT_REPORT.md",
+      "sha256": "35951b1ecc589f871e3a2429a8b1593bef487d4cebc921e1cea2223f55280ce1"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_S5_RISK_DSL_DEVELOPMENT_REPORT.md",
+      "sha256": "83eeb4a5a1320d617376bd1a9083d08a6f4b900964affc8a8bbe10eeae074d48"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_S6_INCREMENTAL_BUILD_DEVELOPMENT_REPORT.md",
+      "sha256": "3e0cb13ecd466021d5b32cc13c4be4a5bae7bb5dfade218541f3d02d9497e00f"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_S7_AI_MODELING_WORKFLOW_DEVELOPMENT_REPORT.md",
+      "sha256": "58a28c92b9f0a07a2cc33a835db923754708941d20b707514fe2b9d59cdaa793"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_S8_DOCUMENT_KNOWLEDGE_INTERFACE_DEVELOPMENT_REPORT.md",
+      "sha256": "b0cdab1781117eee104284250772e02f55afb1607d8f6b16415bddcc45ce730c"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_S9_CONTROL_ROOM_UI_DEVELOPMENT_REPORT.md",
+      "sha256": "668e9efadf01ad53d853e7d53e9ffd0a1f40473905341e5faaf64fb722c9d950"
+    },
+    {
+      "path": "minibkn/docs/reports/MINIBKN_UI_BROWSER_ACCEPTANCE_REPORT.md",
+      "sha256": "279db2892f9bfa7745bc81821250693ad68979b90799372db2fb1efb7573c8d6"
+    },
+    {
+      "path": "minibkn/docs/technical_deep_dive/01_UI_FRAMEWORK_AND_INTERVIEW_POSITIONING.md",
+      "sha256": "f5d477ade533f28e28568f1db4f3be313716d0bf6ab5085487d7605dc1ce86fc"
+    },
+    {
+      "path": "minibkn/docs/technical_deep_dive/02_STARTUP_AND_FUNCTIONAL_TEST_CASES.md",
+      "sha256": "5bbd31e51ed69283fee6fd089f2a5d231b2797fcc692674099931c231e90f7d0"
+    },
+    {
+      "path": "minibkn/docs/technical_deep_dive/03_IMPORT_INDEX_AND_PAYROLL_SCENARIO.md",
+      "sha256": "f1fc5fc1c4ab858655e7f33b4f30e4fd41292117664ecfef961560ca59f9366d"
+    },
+    {
+      "path": "minibkn/docs/technical_deep_dive/04_AUTHENTICATION_AND_RBAC_INTERNALS.md",
+      "sha256": "a232f5ebcb5ccbea2f0a497d174474403a2307656db9ac51a06840891df47d96"
+    },
+    {
+      "path": "minibkn/docs/technical_deep_dive/05_QUERY_UNDERSTANDING_AND_ROUTING_INTERNALS.md",
+      "sha256": "2c4b8c681d8c369f7df158c9bac9470f424de1e0ce04f19d00d6da0c07138c8c"
+    },
+    {
+      "path": "minibkn/docs/technical_deep_dive/06_STRUCTURED_BRANCH_INTERNALS.md",
+      "sha256": "48cd3aabe6a38576d471495ea492d7f4923a0935063b3344674fb5e61562c6e4"
+    },
+    {
+      "path": "minibkn/docs/technical_deep_dive/07_ACTION_AUTHORIZATION_AND_RISK_INTERNALS.md",
+      "sha256": "3ce739bda370494a176161efc10dab881a5094bebe36fe6668c7b3bc67616eca"
+    },
+    {
+      "path": "minibkn/docs/technical_deep_dive/08_ACTION_INTENT_DECISION_INTERNALS.md",
+      "sha256": "8a68de87af5eafe7b4fe4c1d10d0324e1c541ce212b2f22008c86264063aa209"
+    },
+    {
+      "path": "minibkn/docs/technical_deep_dive/09_PAYROLL_END_TO_END_CASE_STUDY.md",
+      "sha256": "ae34ebd8cb093e4727617843f88d5c2a9f571293b546578fc8e54780f25d8acb"
+    },
+    {
+      "path": "minibkn/docs/technical_deep_dive/10_EVALUATION_SYSTEM_DATASETS_AND_RESULTS.md",
+      "sha256": "817abddf2aa8b35eacbd4154e7d4a41a38cc7b0efb53506074ed7494cb2daf31"
+    },
+    {
+      "path": "minibkn/docs/technical_deep_dive/11_QUERYPLAN_AND_AI_MODELING_INTERVIEW_GUIDE.md",
+      "sha256": "5cd68819b965b58d479bed743751a93ee49e6f08a79018836d6d7dadc1f47f33"
+    },
+    {
+      "path": "minibkn/docs/technical_deep_dive/README.md",
+      "sha256": "e95dd18ac960497cac09252d9ae4c0f954d8a78ec9e26b46c41d98a3d8c67416"
+    },
+    {
+      "path": "minibkn/evals/README.md",
+      "sha256": "f1cf5cb93cb9d9979d171a40d76b8ea3a53dbb87c3c2777a4fea2097d5dfcc20"
+    },
+    {
+      "path": "minibkn/evals/config/lightrag-local.json",
+      "sha256": "485985218bb6969204028c2cfc2f5c691ce40ce5a6e8f808fb729e59cac81a15"
+    },
+    {
+      "path": "minibkn/evals/crm/bkn/action_types/approve_order.bkn",
+      "sha256": "af9996de562076ab5cdb8148e1c85ada7eb5bd09fe9f1ca3b339b82e9999ac58"
+    },
+    {
+      "path": "minibkn/evals/crm/bkn/network.bkn",
+      "sha256": "b314d0f35c4ca8487c59c4a5a280547e76adf6060e3a917711f0d642ab0becb1"
+    },
+    {
+      "path": "minibkn/evals/crm/bkn/object_types/customer.bkn",
+      "sha256": "f26c59143cbe16d395c9e5d6a3d07deb71869912b674407247b552fe9a10c3e8"
+    },
+    {
+      "path": "minibkn/evals/crm/bkn/object_types/order.bkn",
+      "sha256": "5bb3446eb73054b671e80ad383fe7e9b1df7e8c3db87b4bc7a637e1a5279f659"
+    },
+    {
+      "path": "minibkn/evals/crm/bkn/object_types/order_item.bkn",
+      "sha256": "f80d1e3f6237f26e97fab2f25265305996010dbb886a8c65ed9b14319a17d7db"
+    },
+    {
+      "path": "minibkn/evals/crm/bkn/object_types/product.bkn",
+      "sha256": "b2dde16927006ac131ef4a4d0bb3e833a1a32e1a0000aee03bedf367949b0422"
+    },
+    {
+      "path": "minibkn/evals/crm/bkn/object_types/sales_rep.bkn",
+      "sha256": "5d56aab92bec1f2db36bf5fbe456c817837804ce48e992b501f4c7fab67ed8fa"
+    },
+    {
+      "path": "minibkn/evals/crm/bkn/relation_types/contains_item.bkn",
+      "sha256": "e0fa792e70043615ee4d78baf3104403301936d8c2772de54b249955166b709a"
+    },
+    {
+      "path": "minibkn/evals/crm/bkn/relation_types/item_product.bkn",
+      "sha256": "f4b7dcc7063222677e276ca2d3596221c84110fcfe621db18a3e7f4fa444042c"
+    },
+    {
+      "path": "minibkn/evals/crm/bkn/relation_types/managed_by.bkn",
+      "sha256": "a6a92aa8f6edf0b65594082c3d305171f0f4eeb8f748daa6daf3d82d7db35e9e"
+    },
+    {
+      "path": "minibkn/evals/crm/bkn/relation_types/placed_by.bkn",
+      "sha256": "34935542d1dcc927a9f338b91b44b58b7e853a08b98b78f388c16516ac871651"
+    },
+    {
+      "path": "minibkn/evals/crm/bkn/risk_types/cancelled_order_denied.bkn",
+      "sha256": "a4911a8d149bcb4fb88ae01257b5b99f91573ff5d7d029fa42749b2cec3754d4"
+    },
+    {
+      "path": "minibkn/evals/crm/bkn/risk_types/high_value_order_confirmation.bkn",
+      "sha256": "736fbc09b7ed6f8b272701e5c01bcb688f94e6a253580ccada8c32a834d781c7"
+    },
+    {
+      "path": "minibkn/evals/crm/data/customers.csv",
+      "sha256": "ea9dbe96a3e08751daa1c3c2f285019a03c977e68d6d3359a237b5a685ba5d25"
+    },
+    {
+      "path": "minibkn/evals/crm/data/order_items.csv",
+      "sha256": "0444139893c4d3bf3037807997e0fcdd2d0ae9c20848bfed016c183ff07b7c97"
+    },
+    {
+      "path": "minibkn/evals/crm/data/orders.csv",
+      "sha256": "15f09b63908b389e0051ab989ce8d1bbad7112dec6c88ffaddd80059996efd39"
+    },
+    {
+      "path": "minibkn/evals/crm/data/products.csv",
+      "sha256": "dd2ab20341325f2ceb93fd06b9f55d539bbe019750ff9a0c248639cd9ebda72d"
+    },
+    {
+      "path": "minibkn/evals/crm/data/sales_reps.csv",
+      "sha256": "c642cb8b7bf7f537d86ad988aaae2f4c9978971cd7a0fdc14b768698358d3389"
+    },
+    {
+      "path": "minibkn/evals/datasets/crm_200.jsonl",
+      "sha256": "8efa6b9785f5af6d0a0ee459a668139f0ccf94586ed403b7c991f704517e6f5f"
+    },
+    {
+      "path": "minibkn/evals/datasets/crm_actions_30.jsonl",
+      "sha256": "81ae6c6f1ca4c4aeb632915c381c5b01a10f8e7896545cdaeac64055d99d5918"
+    },
+    {
+      "path": "minibkn/evals/datasets/crm_query_planner_14.jsonl",
+      "sha256": "a72df0251f03299861d138d259978b6d3b595114d5ac1fce7122d5438be65758"
+    },
+    {
+      "path": "minibkn/evals/datasets/enterprise_actions_holdout_45.jsonl",
+      "sha256": "15c169b5e65a633a36f0dc78617db05bafb6540d1a76e5572e557fa7185ff55b"
+    },
+    {
+      "path": "minibkn/evals/datasets/enterprise_query_adversarial_6.jsonl",
+      "sha256": "3820c4aa86e6020e08c47737b8c3aeebaf1ede8b5042233259b4b6dd2ba6275e"
+    },
+    {
+      "path": "minibkn/evals/datasets/enterprise_query_planner_holdout_15.jsonl",
+      "sha256": "d430457dbadf303758edf6570be7bb2efecb69d5c17ec2e2dd2bdf32b6bf462b"
+    },
+    {
+      "path": "minibkn/evals/datasets/enterprise_query_planner_holdout_60.jsonl",
+      "sha256": "7a81f7701c961fbeb30e0e04f3cbf03f826d396cde9c5e499b17cd780adec1d3"
+    },
+    {
+      "path": "minibkn/evals/datasets/enterprise_retrieval_holdout_120.jsonl",
+      "sha256": "978cfacf41999a5be4a1a60fea88ec2fa08c4f5a78e7de3527f5c6cffd2f8ebb"
+    },
+    {
+      "path": "minibkn/evals/datasets/supply_chain_200.jsonl",
+      "sha256": "ffc54e147e08c7f10492f2f88d8062ace4a262cf12130f612f454dc03a4a0b58"
+    },
+    {
+      "path": "minibkn/evals/enterprise/data_quality/composite_child.csv",
+      "sha256": "8726ed728abc6091ed862722d0b8aafe04d44c936dc26605147b10f96e1d5dc8"
+    },
+    {
+      "path": "minibkn/evals/enterprise/data_quality/composite_parent.csv",
+      "sha256": "7ed235f80593929471b7771b7e15f48dcb4f87675b60d46d58ead21d441fd7d8"
+    },
+    {
+      "path": "minibkn/evals/enterprise/data_quality/duplicate_and_null.csv",
+      "sha256": "02df40c59dc3da82d1fbcba6c67b103e95351c85d798b0a66504e3e4cea8b5a5"
+    },
+    {
+      "path": "minibkn/evals/enterprise/data_quality/manifest.json",
+      "sha256": "d7247540ce5e4f8b1c2394913c10225cad95770e53bbccf25eea146791165cf4"
+    },
+    {
+      "path": "minibkn/evals/enterprise/data_quality/orphan_child.csv",
+      "sha256": "40718c7cfb27d42e3361e171190107b9e144c15bcbaf8ebb2cb2913aa52fd77b"
+    },
+    {
+      "path": "minibkn/evals/enterprise/data_quality/parent.csv",
+      "sha256": "f08e7b754b1ceff6c7ca6d77f22fa3c9a2803a00eba799793fb7fb8b97384671"
+    },
+    {
+      "path": "minibkn/evals/enterprise/finance/bkn/action_types/approve_expense.bkn",
+      "sha256": "aa7ceb3e53b3022c83e3557bbdeab4315b87e144bbad68e41ebe701495f8934b"
+    },
+    {
+      "path": "minibkn/evals/enterprise/finance/bkn/network.bkn",
+      "sha256": "ec74aa92abc9171d1adf994f552bf35a06643b7917a6fd614f65ade57d48b906"
+    },
+    {
+      "path": "minibkn/evals/enterprise/finance/bkn/object_types/client.bkn",
+      "sha256": "833f3a359b59d80c4055f09e8c85bed73b0795b19562d9ff302fc0149471b033"
+    },
+    {
+      "path": "minibkn/evals/enterprise/finance/bkn/object_types/department.bkn",
+      "sha256": "a72b41765d9ae1bfdc9d90a7d353f1179fc524d469f2c7e9e5b90ea382c0c95d"
+    },
+    {
+      "path": "minibkn/evals/enterprise/finance/bkn/object_types/expense.bkn",
+      "sha256": "23dac5b46a2979ed13905ac92c9dcb1e6824e33cb35df2efb7ce3c2a2eb07eac"
+    },
+    {
+      "path": "minibkn/evals/enterprise/finance/bkn/object_types/invoice.bkn",
+      "sha256": "a088d8d25a877f199de0913ed8a5dd0c4f14bbb4573697d42c64082e8272f792"
+    },
+    {
+      "path": "minibkn/evals/enterprise/finance/bkn/object_types/receipt.bkn",
+      "sha256": "f3216a6d0cce03b0c7b634cd5ec69c644fe98dee1de2ac3b346d2a20506ca44c"
+    },
+    {
+      "path": "minibkn/evals/enterprise/finance/bkn/relation_types/billed_to.bkn",
+      "sha256": "22b83243d0e7a586ca73be6fb824d8038716c5de47a11343a46995e64b0d07a3"
+    },
+    {
+      "path": "minibkn/evals/enterprise/finance/bkn/relation_types/expense_department.bkn",
+      "sha256": "4950c6f065985a1dcfd93e7d52a00fd51860f633f8107fb24a56088d8a731e8c"
+    },
+    {
+      "path": "minibkn/evals/enterprise/finance/bkn/relation_types/receipt_for_invoice.bkn",
+      "sha256": "f6b177c6470a9fdad9edb539106d65f1c9b3f4eb5eb8a5230acf3e10954a4b14"
+    },
+    {
+      "path": "minibkn/evals/enterprise/finance/bkn/risk_types/high_value_expense_confirmation.bkn",
+      "sha256": "8c78456a597d8f97cddedaaee8e552811c0ce76135f6106d362d3beaee4a99e9"
+    },
+    {
+      "path": "minibkn/evals/enterprise/finance/bkn/risk_types/rejected_expense_denied.bkn",
+      "sha256": "032e2b8452754243940489dbb351c44335f5349a5c3ebaa477e42c4c0ad23f50"
+    },
+    {
+      "path": "minibkn/evals/enterprise/finance/data/clients.csv",
+      "sha256": "33ab5d7f968911d078acbee3a23275841112a1f01c5fd4e0e4f11dfaa61bedd2"
+    },
+    {
+      "path": "minibkn/evals/enterprise/finance/data/departments.csv",
+      "sha256": "ad0bd13428f3484f89bae12987134bc38bb3309e9ac769222965bc30852be3a7"
+    },
+    {
+      "path": "minibkn/evals/enterprise/finance/data/expenses.csv",
+      "sha256": "be9176d389241700ebc184e718e2313d8c49793926bce60d96e7bc950e7da92d"
+    },
+    {
+      "path": "minibkn/evals/enterprise/finance/data/invoices.csv",
+      "sha256": "bb90abee3dc0627fa2a52d5a340098c0637e7a0e06d79b9df7468982fbee933e"
+    },
+    {
+      "path": "minibkn/evals/enterprise/finance/data/receipts.csv",
+      "sha256": "468199790bf1b24802ece82682d971cce3ecbae519e88b4bb8e054a6ed807545"
+    },
+    {
+      "path": "minibkn/evals/enterprise/hr/bkn/action_types/approve_leave.bkn",
+      "sha256": "3d0577ca78f89d2adf01c07c82288282d85d072592d5ae5e46ad20853e8468c6"
+    },
+    {
+      "path": "minibkn/evals/enterprise/hr/bkn/network.bkn",
+      "sha256": "7014e62b9714eaf5aebe55130d5a6a82a165bc4d0e5465dff2ebc203711b8a41"
+    },
+    {
+      "path": "minibkn/evals/enterprise/hr/bkn/object_types/department.bkn",
+      "sha256": "2fe963435811aafdf6d3ff6f9eeed13dc40b575bcba2a0618fbf3994ea2573fb"
+    },
+    {
+      "path": "minibkn/evals/enterprise/hr/bkn/object_types/employee.bkn",
+      "sha256": "099c2e44756a5034a21e264b508e5d391ede6db10bc4f917c0693a7484de5fb0"
+    },
+    {
+      "path": "minibkn/evals/enterprise/hr/bkn/object_types/job_change.bkn",
+      "sha256": "8f8817a77b0c1bd64062e30b203ea0d7c63c7f02ab67c858156d71f67887f0e8"
+    },
+    {
+      "path": "minibkn/evals/enterprise/hr/bkn/object_types/leave_request.bkn",
+      "sha256": "487a016fbd61c268b01d6220fe48deaa2a65c20e2c02437646a70b84ba6e0afd"
+    },
+    {
+      "path": "minibkn/evals/enterprise/hr/bkn/relation_types/change_employee.bkn",
+      "sha256": "1ca705c7bc045e32087bef068daaa34abe15dc8c48491eb4c96a7ea0228133f6"
+    },
+    {
+      "path": "minibkn/evals/enterprise/hr/bkn/relation_types/employee_department.bkn",
+      "sha256": "f7d17e27f49cee5be5c705c3e5c01905ceb16b9afb426293d9dacc39a8ee1978"
+    },
+    {
+      "path": "minibkn/evals/enterprise/hr/bkn/relation_types/leave_employee.bkn",
+      "sha256": "a1c6de9fc68dbb3c8659146617bb3bcf26c62171a7d14387b8697d01c52e06c8"
+    },
+    {
+      "path": "minibkn/evals/enterprise/hr/bkn/risk_types/long_leave_confirmation.bkn",
+      "sha256": "ae5387847a480bba48a1c02299dd07c94e798fa2ce71d7cdc248c566bf297cd5"
+    },
+    {
+      "path": "minibkn/evals/enterprise/hr/bkn/risk_types/rejected_leave_denied.bkn",
+      "sha256": "f59144b9891c1afeb9dc8ddf1375d1870b55809e7d4b7ce5ae586ee8e821e582"
+    },
+    {
+      "path": "minibkn/evals/enterprise/hr/data/departments.csv",
+      "sha256": "e76104f2c4aa420fedad0437a05b08eb03c16fe7bb83880bc6eac59874251d89"
+    },
+    {
+      "path": "minibkn/evals/enterprise/hr/data/employees.csv",
+      "sha256": "472337cc106c37b58c2cbfea52566c7589d4a4a034b76d415ff89f3299229d2c"
+    },
+    {
+      "path": "minibkn/evals/enterprise/hr/data/job_changes.csv",
+      "sha256": "42b64ce493ebb9d7d25204c88dee5c1213dcb3771a9ac7f066e81dd1e14a8c41"
+    },
+    {
+      "path": "minibkn/evals/enterprise/hr/data/leave_requests.csv",
+      "sha256": "2b7f5f58f16b937f4d6cb3ab3e826864d0c09d3f19b8bea9a5c2dcda0f7c0845"
+    },
+    {
+      "path": "minibkn/evals/enterprise/manifest.json",
+      "sha256": "a11ac18056bccdda72ce0c00510fabf82ad9b8acb7de7a94c8684c70680ab20c"
+    },
+    {
+      "path": "minibkn/evals/enterprise/procurement/bkn/action_types/approve_payment.bkn",
+      "sha256": "ce630c43659eca85e9c2a1425dc9ca7057834e42605674a73685f43217fb2527"
+    },
+    {
+      "path": "minibkn/evals/enterprise/procurement/bkn/network.bkn",
+      "sha256": "a189f49c9f4a1327a33774160041a044f3a6442d86e853e819783ffa08dafa00"
+    },
+    {
+      "path": "minibkn/evals/enterprise/procurement/bkn/object_types/buyer.bkn",
+      "sha256": "9addf48d8c733d85f21b462bcfe56ddb3bcb2ce6c89c4147c2a93f8402c7a89e"
+    },
+    {
+      "path": "minibkn/evals/enterprise/procurement/bkn/object_types/payment.bkn",
+      "sha256": "1987ee8db4ea0fcbd72b46558b62f291b4468250d8dd81d86dc9bcceea17717e"
+    },
+    {
+      "path": "minibkn/evals/enterprise/procurement/bkn/object_types/purchase_item.bkn",
+      "sha256": "9983f708099b426a22e56f512e51c46c730333d72d22ecae912483714db0e6b5"
+    },
+    {
+      "path": "minibkn/evals/enterprise/procurement/bkn/object_types/purchase_order.bkn",
+      "sha256": "944352bb4aad2e42c5bebfbb15b8c55893c87e669677feaef5de109123e4cf08"
+    },
+    {
+      "path": "minibkn/evals/enterprise/procurement/bkn/object_types/supplier.bkn",
+      "sha256": "ba644e5bf1110e9202e25f4b7dedd73d2bb8ec14d3bd9c6baec47c8780faef35"
+    },
+    {
+      "path": "minibkn/evals/enterprise/procurement/bkn/relation_types/contains_purchase_item.bkn",
+      "sha256": "3007346af9bd0e3d942cfe86313c623a90d2fe29949c7e1289c2daae8a0feae5"
+    },
+    {
+      "path": "minibkn/evals/enterprise/procurement/bkn/relation_types/handled_by.bkn",
+      "sha256": "c65aae08a1bb3cf1420280446e9d0edf8cea3f7e4a4f8298dbc03ada97ab61cf"
+    },
+    {
+      "path": "minibkn/evals/enterprise/procurement/bkn/relation_types/ordered_from.bkn",
+      "sha256": "88798ef244e4d7755cd530e71619bb08f6e9d2fb6c5ff02db428adc90fb1ca70"
+    },
+    {
+      "path": "minibkn/evals/enterprise/procurement/bkn/relation_types/payment_for_order.bkn",
+      "sha256": "72158af8b6b2cfd4990b5ac186d1e647cac94866c5ee59c96a8e269d45caa3ad"
+    },
+    {
+      "path": "minibkn/evals/enterprise/procurement/bkn/risk_types/high_value_payment_confirmation.bkn",
+      "sha256": "5d1486eaa38632fa745ed7ddb0f6879623679b25055d0eda01748275d3ea9b5a"
+    },
+    {
+      "path": "minibkn/evals/enterprise/procurement/bkn/risk_types/rejected_payment_denied.bkn",
+      "sha256": "a2526999be5dbdcc43a110eaf7ff374503cca0e3b0901c6704d0ef33cbbc8cad"
+    },
+    {
+      "path": "minibkn/evals/enterprise/procurement/data/buyers.csv",
+      "sha256": "76c20261f4c9e95bd633f3b5cb379ac36371dba49554b0f5c6bad8a8e6799ec1"
+    },
+    {
+      "path": "minibkn/evals/enterprise/procurement/data/payments.csv",
+      "sha256": "7873356dad928ac5ae92d7431875681ec86deba72fa50124aac3604f672ecf1a"
+    },
+    {
+      "path": "minibkn/evals/enterprise/procurement/data/purchase_items.csv",
+      "sha256": "c2eef97432b66a432b38276d8ef9bfeda81e2460c4e0b3b96431a615a22a74aa"
+    },
+    {
+      "path": "minibkn/evals/enterprise/procurement/data/purchase_orders.csv",
+      "sha256": "ca42fc62d5e651b2f745b821aafa2b5478f60cd9a258ee9c5031f7ca698eb685"
+    },
+    {
+      "path": "minibkn/evals/enterprise/procurement/data/suppliers.csv",
+      "sha256": "e9bed5f519fab71fafc0b8d35edb1b7a9c54c32ed00dd49fc59555eb781a625e"
+    },
+    {
+      "path": "minibkn/evals/fixtures/documents/crm_public/customer_service_handbook.md",
+      "sha256": "ceada4960f29d6e8f91653623d74f7b0f6ab6b7f3dbc6e3c8525a4bf77a41620"
+    },
+    {
+      "path": "minibkn/evals/fixtures/documents/crm_public/data_governance_policy.md",
+      "sha256": "aec6d82a71a4731ec3a35f1d61aab83dc65e8564b34951842e80ba4bbf57a28c"
+    },
+    {
+      "path": "minibkn/evals/fixtures/documents/crm_public/sales_discount_policy.md",
+      "sha256": "25f195315b94342d64e4e0ed409b9723bc3345cbc5004818d651a197758893dc"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/coverage-latest.json",
+      "sha256": "a18be155d0dcc928bc835ade1c3f0cb74f89a1155c3f2d7e63d3d61c4691680b"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/coverage.json",
+      "sha256": "4883a36f54f81d262bc99010bda7ad1f96a95f88d97ba923b595a530fef2810b"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/performance/bge_m3_after_numpy.json",
+      "sha256": "8daa365edf60cc14ed1208bf34cfcb2eab0c25d3b1575feeae97b014c19f452f"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/performance/bge_m3_single_process.json",
+      "sha256": "a5723c58fca52ba8391525a7e645ca59a450ed1034bf8afef140c0217e68761f"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/performance/bge_m3_single_process_after_thread_offload.json",
+      "sha256": "6bd2db0deb9c85a0ea09bd740b043a6587a13998b033436da1e4b8f1987c8272"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/query_planner_adversarial_v1.json",
+      "sha256": "e727e3ed138ea62678a064960dfa10028ad408bffd5dcc3a9455afb9311c7341"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/query_planner_adversarial_v2.json",
+      "sha256": "16396f5ce2dd38d0840a4749371c36432d7964fcf5d0ce86fe46c140b472d15b"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/query_planner_holdout_60_v1.json",
+      "sha256": "f9ac623907a2b104f7523bfd55fa2f05cdc01964c978105225013aaabc729b03"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/query_planner_holdout_v1.json",
+      "sha256": "08fb909990db7788d6967d542c30fddc0e236cd680764d38db8d292da0d25ba1"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/ragas/bge_m3_faithfulness_30.json",
+      "sha256": "28968c3afc8c8d3c35e00cb595830a52f42be2d0ef9f601c0cd0e197d005dfdf"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/ragas/bge_m3_smoke_3.json",
+      "sha256": "2d41af192e157df87c8f643836d69f8b438aca1b83a26ec9c09aee17bac637e2"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/ragas/bge_m3_smoke_3_v2.json",
+      "sha256": "1e6e219f7dcf58ab8abf2a3c4751fcd37f95a029d5e0492d6b953312b52c7014"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/ragas/bge_m3_smoke_3_v3.json",
+      "sha256": "97f03d5103f741bbe7ec96098ca7de4f6791f2671b7a9f5657f67a38e167dd05"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/ragas/rag_vs_bkn_factual_correctness_rescore_10.json",
+      "sha256": "f87c9fdb06fd5b683084ec1d6f7c72d37e05bf20d4169edb100fe281ed5d8a59"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/ragas/rag_vs_bkn_full_metrics_10.json",
+      "sha256": "37040fa81dd4f67c4589b1cf2ab731482a186e266ae8cb9c6716e3da92735673"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/ragas/rag_vs_bkn_smoke_2.json",
+      "sha256": "c761e230753034dff033826651187deea7041906be6a371268901f5a6f55fb3f"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/ragas/rag_vs_bkn_smoke_2_v2.json",
+      "sha256": "d0980036b879e3bbaa383f70ec616b4a765dcd4c2d96000efc2194f96da5af19"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/retrieval/crm-siliconflow-20260817-084601-191953.json",
+      "sha256": "76ec93dc7268d64837f5f9ade285783c31f3aa94528c34ce8f635a5698e1d1f3"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/retrieval/crm-token_hashing-20260817-083435-183489.json",
+      "sha256": "e49135b48caa71ac196ad7df0699950e38345331c4cf1c9f5325608d581749e1"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/retrieval/crm-token_hashing-20260817-084312-511928.json",
+      "sha256": "703e5a7916e11a910b0a4c483d9b4138043a41e590aaaed4f2821d913d07e518"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/retrieval/latest-siliconflow.json",
+      "sha256": "76ec93dc7268d64837f5f9ade285783c31f3aa94528c34ce8f635a5698e1d1f3"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/retrieval/latest-token_hashing.json",
+      "sha256": "703e5a7916e11a910b0a4c483d9b4138043a41e590aaaed4f2821d913d07e518"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/retrieval/replay_after_numpy.json",
+      "sha256": "56868b569313ca37e26cc5227df751e0363247c50b7c3517dc0c4d23288460e3"
+    },
+    {
+      "path": "minibkn/evals/results/comprehensive/token/rag_vs_bkn_token_30.json",
+      "sha256": "71587290913b29ba7db11ef47d895191e48c7e0ea962a69bb7c54cead4e0a8a2"
+    },
+    {
+      "path": "minibkn/evals/results/crm-20260816-124843-683506.json",
+      "sha256": "77fe62a6b7ba3168e6501f70dbd1885fb70e390ac0dd077b999beae12c95c33d"
+    },
+    {
+      "path": "minibkn/evals/results/crm-ragas-20260816-130058-755217.json",
+      "sha256": "693c03ab2ee061bf6e7d84bfc55c7b76c5448f1adeedcc02d79518ca8c547e30"
+    },
+    {
+      "path": "minibkn/evals/results/latest.json",
+      "sha256": "4ea90d955dc23011bd0d0064e4f170dfca96534d45af5822b06c5e2204451212"
+    },
+    {
+      "path": "minibkn/evals/results/lightrag/integration.json",
+      "sha256": "60237e0bdf038a92b9d4e08ec3f0d7b20106b3f2a9548dbcc384d2251b6cf45e"
+    },
+    {
+      "path": "minibkn/evals/results/offline-20260810-195710-535149.json",
+      "sha256": "2047116d39cc7d3710eae89447f1c7479ce0be797675b67ee8b9a9385967ebe6"
+    },
+    {
+      "path": "minibkn/evals/results/offline-20260810-200057-329518.json",
+      "sha256": "83eb55ac9b36c3e2679fa385618a006fb6c4d7542ef24f5c59f231e1d718d5fd"
+    },
+    {
+      "path": "minibkn/evals/results/offline-20260810-201136-533116.json",
+      "sha256": "83eb55ac9b36c3e2679fa385618a006fb6c4d7542ef24f5c59f231e1d718d5fd"
+    },
+    {
+      "path": "minibkn/evals/results/publication/offline-crm-20261011.json",
+      "sha256": "4e83d1b70ed4598ecab8e44d1fdf73f9b014594bfa46b7c0b34ce68a8645c6f5"
+    },
+    {
+      "path": "minibkn/evals/results/query-planner-deepseek-20260817-v2.json",
+      "sha256": "b4857f289455819b7cfdc0eb9cc7c1d2d93996b56e2868256e732b199aa48489"
+    },
+    {
+      "path": "minibkn/evals/results/query-planner-deepseek-20260817.json",
+      "sha256": "537e9433b794cf82b223ce11f59383ca3f20dfb28b2462b439b948326de292c3"
+    },
+    {
+      "path": "minibkn/evals/results/ragas-id-20260810-200629-737752.json",
+      "sha256": "9285c8d689ed7faae35b7f9cedc2afd70e444bae06c30c229cb109993b1faea2"
+    },
+    {
+      "path": "minibkn/evals/results/ragas-id-20260810-201221-175873.json",
+      "sha256": "47bf830307ce38905a267b4dd7479c1d6de6e31c679d5d922d07e449af455a59"
+    },
+    {
+      "path": "minibkn/examples/crm/bkn/network.bkn",
+      "sha256": "5e824692ed01f4870a3e6fd8923df380e226a27317185c21adac6e1d2ab6b67a"
+    },
+    {
+      "path": "minibkn/examples/crm/bkn/object_types/customer.bkn",
+      "sha256": "b38a2b22423ada91d7742ac38973173ecf38ed445ce6d658df3f26087c4d76ab"
+    },
+    {
+      "path": "minibkn/examples/crm/bkn/object_types/order.bkn",
+      "sha256": "7c10051c194ee846d91604d32f0c3591bb070644f7d152be1027e180ea37f93c"
+    },
+    {
+      "path": "minibkn/examples/crm/bkn/relation_types/placed_by.bkn",
+      "sha256": "102f0aea2fdc196680db0b92a422efdb847da7d9acdbd324933517f39ecc5261"
+    },
+    {
+      "path": "minibkn/examples/crm/data/customers.csv",
+      "sha256": "94336f81ccbf82cd0568fae06dc5a3e018ae3e54d402d43f326ee146751c071b"
+    },
+    {
+      "path": "minibkn/examples/crm/data/orders.csv",
+      "sha256": "766dcedb3f667aa222e43d3c82884531eaa27b54fd37925a9ca06fa57a732fc4"
+    },
+    {
+      "path": "minibkn/examples/supply_chain/bkn/action_types/create_replenishment_alert.bkn",
+      "sha256": "9aa85f4cfdb790c0d3408110de45f21a3920c2107b7365cd805c60b53925d9da"
+    },
+    {
+      "path": "minibkn/examples/supply_chain/bkn/network.bkn",
+      "sha256": "aac797b1f96668035d62cd14741bf7de0584da3aa1a881b92fa21dd73f45fa3b"
+    },
+    {
+      "path": "minibkn/examples/supply_chain/bkn/object_types/material.bkn",
+      "sha256": "745f98719e610c2e42f85343643dba7f15a633e354aafd566911a4d3588f6458"
+    },
+    {
+      "path": "minibkn/examples/supply_chain/bkn/object_types/supplier.bkn",
+      "sha256": "5a86a0f8959b8cae86ea8c183881bf4e71f032ad020da182227e673c080a09af"
+    },
+    {
+      "path": "minibkn/examples/supply_chain/bkn/relation_types/supplied_by.bkn",
+      "sha256": "050b076d2b4c5532218afe641b8249e95ccdb75247bb4718d106ee9d87090baa"
+    },
+    {
+      "path": "minibkn/examples/supply_chain/bkn/risk_types/high_value_replenishment.bkn",
+      "sha256": "e188b1a7fc7a36763a7989482edd033fa23c0f27ca4eddb5c8fd24a26b3d5dfb"
+    },
+    {
+      "path": "minibkn/examples/supply_chain/data/materials.csv",
+      "sha256": "e519d42396f741080d8229e75763478886e803b6e3dc70ac74b1c6305ad5dc08"
+    },
+    {
+      "path": "minibkn/examples/supply_chain/data/suppliers.csv",
+      "sha256": "a1b5424a8fe156e77571db9e19090250aeb6d8df1a1056ad9e5795b39428a80d"
+    },
+    {
+      "path": "minibkn/pyproject.toml",
+      "sha256": "d0dc68779c8295aa19fa8a296302dc1b4b255328d75ab16448576767a5af173c"
+    },
+    {
+      "path": "minibkn/scripts/compile_evaluation_summary.py",
+      "sha256": "7ba2739e41327f9fe7023c17a7a1367f317be2b262ea9f082da0ce87d03bff51"
+    },
+    {
+      "path": "minibkn/scripts/demo.ps1",
+      "sha256": "64cb0da2e5d9b3da4de6b2c626a385be37e8f09245c3defce26f867283842a44"
+    },
+    {
+      "path": "minibkn/scripts/demo.py",
+      "sha256": "a9131f74c3463c8e8f5f5dd4af70117667c3321429e9815bd16e2556109cb181"
+    },
+    {
+      "path": "minibkn/scripts/demo_with_ai.ps1",
+      "sha256": "d23e0ca7714d78f9ddabe5274698105b1bb011963402575ed270751524cd6bc9"
+    },
+    {
+      "path": "minibkn/scripts/evaluate_crm.py",
+      "sha256": "ead63a4a422d750af9ff69e1b83c6e14697141cd3c14e1d76940550a1c8fb38d"
+    },
+    {
+      "path": "minibkn/scripts/evaluate_lightrag_integration.py",
+      "sha256": "db59d85f2f701b65903cd51ae9592ef5ef73ecd29246dbead0c641cc0cd67f34"
+    },
+    {
+      "path": "minibkn/scripts/evaluate_offline.py",
+      "sha256": "394aa32bd8f445301649cdd0e8c6f15b3f2fe4d117cffeb75fa6a15e02e94c53"
+    },
+    {
+      "path": "minibkn/scripts/evaluate_performance.py",
+      "sha256": "70e8035c5bde3e93b05198189f57c59d766f11656a1febb9a10d2391c4599b45"
+    },
+    {
+      "path": "minibkn/scripts/evaluate_query_planner.py",
+      "sha256": "2055104e6c586dd15cc20e33908de9200ae321f9eaee83227b749696d2f1a660"
+    },
+    {
+      "path": "minibkn/scripts/evaluate_rag_vs_bkn.py",
+      "sha256": "46795ee764e8c2ae1f40457c0d84bff2d6414a3494e77cd4c1c917d719697727"
+    },
+    {
+      "path": "minibkn/scripts/evaluate_ragas.py",
+      "sha256": "bbc382da887289d50b702b7f4ff50e9a3e5326a2e88f1a4f80014cc41cf72888"
+    },
+    {
+      "path": "minibkn/scripts/evaluate_ragas_comprehensive.py",
+      "sha256": "2a775622a8ce4f28f779063cee99abd7ad687e6459e2f88c8f2c3268be8bebc6"
+    },
+    {
+      "path": "minibkn/scripts/generate_crm_benchmark.py",
+      "sha256": "bb660a42e90081a4cfeb5dec0fe9cdcc799cec2bf2372a681c4eb1ed40695016"
+    },
+    {
+      "path": "minibkn/scripts/generate_enterprise_test_suite.py",
+      "sha256": "71e7c5fd8fa3b5c6d3739dc8de204502a8dbf14f76071ba683a2c2fa09057f64"
+    },
+    {
+      "path": "minibkn/scripts/generate_query_planner_holdout.py",
+      "sha256": "cc17d71f220e0593bd58451ca0246db870d0fee7e4d6f0903a67faa7781db91a"
+    },
+    {
+      "path": "minibkn/scripts/seed_demo.py",
+      "sha256": "aba8800998a5c6df6427fc9a220898821ffc4489ca23e32f0262382294d45cd9"
+    },
+    {
+      "path": "minibkn/scripts/start_lightrag.ps1",
+      "sha256": "4c29468b754d914d4bf46aa78413b11cde6487b214603c0e8c2164437f09162f"
+    },
+    {
+      "path": "minibkn/scripts/verify_ai_demo.py",
+      "sha256": "778240e2b2a57e80c2e46d4d755af321239e5a65a9ba5de51ebab2e22e1843be"
+    },
+    {
+      "path": "minibkn/scripts/verify_ai_providers.py",
+      "sha256": "e82acfe2b7fb71f07965acaf06383f3a5b56ac64d17c1fbf19c107df2687bc58"
+    },
+    {
+      "path": "minibkn/scripts/verify_retrieval_replay.py",
+      "sha256": "ea3c616ad87fa12cf1aa95ac4bfa30156b7ab46b2218e5ee24e43a3713bd2ffb"
+    },
+    {
+      "path": "minibkn/src/minibkn/__init__.py",
+      "sha256": "f6b2e6728fb5fbc0d720994c92e05d0b43c7b3f0ba304d78a4dc84732dffa888"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/__init__.py",
+      "sha256": "61fe6ee98fc1f8e8d52296e73838df721c7ae17f3f52d7f9f2b934ea87a6e8aa"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/bkn_lang/__init__.py",
+      "sha256": "408b634dc7b2e9594a2d9d105203120ae5ae4b22e80484420f73c06cdf5c45c4"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/bkn_lang/parser.py",
+      "sha256": "9c1b16946fd46161237db87f774149732a0c238ea34a83279325fc6b62a313e1"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/bkn_lang/validator.py",
+      "sha256": "c800c71e77d3bd7d79127245bd80d12d83b925b9aeb1ee8ff0e58228a08b0d3c"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/datasource/__init__.py",
+      "sha256": "f64ec267838c3739b893f09b3230680c19b50ecda5d4cb8f0744ea32b6338248"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/datasource/local.py",
+      "sha256": "e5700bb6b019f4c6d5b4f0cea6112a80b64ac6f107c42a7f6d2adbfe652b1a5b"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/document_knowledge.py",
+      "sha256": "ef8745738e0d1225b858c7d8ed4cf5ba96b0738f1a8f3054b350d764e77efb47"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/llm/__init__.py",
+      "sha256": "34fc81bbbe0bfd712117a1bc37753581ecb666bd06c7df06c77d5ece30e74ae7"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/llm/openai_compatible.py",
+      "sha256": "d2b96b55214c61666deb83628775f13ede3427216c9442116ad1c39fdf4d721a"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/llm/query_planner.py",
+      "sha256": "caf6b11c00fe9f225ca6b3d16c5c200216c572d58c24e6d8ad4207a59a06d96e"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/persistence/__init__.py",
+      "sha256": "7296f379f4b997d52f354cdd5e6ce5314187146e117f02f04b6fa86f39bf6cd6"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/persistence/database.py",
+      "sha256": "ede2a8276d240e49e0ad06494fb942512988044e6ba7afa27dd464ff2d065c3c"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/persistence/repository.py",
+      "sha256": "65cbb014f92a64a3b09aeb9dccff4722dddc4c4a961a497c13e5dd015e5a6908"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/persistence/tables.py",
+      "sha256": "f495f2a135fc598d3b57242b8e2b7d9e97b3e5467f2a8f0125ac606880667e73"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/search/__init__.py",
+      "sha256": "82bb5d5157f5f6c25fa60639a8bc81fdae9de46d49495730d92d39fcecbabd6c"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/search/hybrid.py",
+      "sha256": "3f05e3f9090bef868c865e26ea97d9732d32db043b2da3581e0afebccd864aca"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/search/remote.py",
+      "sha256": "b3f7abf3b75d2c78d0d0ed3823f9d7d76a1c05936440dbeed233746f5a6d201f"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/search/semantic.py",
+      "sha256": "a1ab98f542300f186164c20f79dc3b3f48551a3defbb5656e9760d588715035a"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/tools/__init__.py",
+      "sha256": "593f1ecf2be3876c9b7f7b2b81f1d135679347bc9b495f015f0a659b773e2c06"
+    },
+    {
+      "path": "minibkn/src/minibkn/adapters/tools/registry.py",
+      "sha256": "53179a0d31f643ca7a2efd168e40ec9071df8acbeb22eed9b94aa5a8e50e709d"
+    },
+    {
+      "path": "minibkn/src/minibkn/api/__init__.py",
+      "sha256": "ac2c28350cbb67bb5528f3e139701223e4de49d4102abe6fc89da90ba5f38ae9"
+    },
+    {
+      "path": "minibkn/src/minibkn/api/errors.py",
+      "sha256": "516e327e6dbe006a686c9103b12270241d4d4e57fe4ed8116f81890430be247a"
+    },
+    {
+      "path": "minibkn/src/minibkn/api/routes.py",
+      "sha256": "99c39325ff314df1c6fd2014b255abdecc9f7b1199f9ad36237332a131d517dc"
+    },
+    {
+      "path": "minibkn/src/minibkn/api/schemas.py",
+      "sha256": "364506489d3bff77320631beaafb4436ecacd7a19593b7ffcce270c2f6ed65a7"
+    },
+    {
+      "path": "minibkn/src/minibkn/application/__init__.py",
+      "sha256": "5ee368b8b403ddb926e38792d6c660d7a6ec88ea5bd628ded82a91e52931d2f1"
+    },
+    {
+      "path": "minibkn/src/minibkn/application/access_control_service.py",
+      "sha256": "3fab38f14ded024033bdfc53e4869bdf14af8334201497332cb35f0917b96334"
+    },
+    {
+      "path": "minibkn/src/minibkn/application/action_service.py",
+      "sha256": "a9e24fbac6e989555fb727b9bb0941d38b9e13dc26896f8c7e8633bfad4657af"
+    },
+    {
+      "path": "minibkn/src/minibkn/application/answer_generator.py",
+      "sha256": "2a01eb044eac12dada717309c21eed8d67fbae9a82cd909a68d90110db48db03"
+    },
+    {
+      "path": "minibkn/src/minibkn/application/build_service.py",
+      "sha256": "3676a90712ff57cf7668fe49a784431284de201d77e55c73271dc37679161662"
+    },
+    {
+      "path": "minibkn/src/minibkn/application/data_profiling.py",
+      "sha256": "84e114d74db2e2980cbfe832c9bd2accf4b369802f91fd3233be05fa9ff5bdf1"
+    },
+    {
+      "path": "minibkn/src/minibkn/application/evaluation_service.py",
+      "sha256": "99f3f7e9d4426ba14ca5420c9edb840dfaa91709381809f06c07ebf700f53239"
+    },
+    {
+      "path": "minibkn/src/minibkn/application/graph_service.py",
+      "sha256": "4a4a9c416d42d6f4b55d4606fee05475021b27420cda56b9214a9706cf587bbc"
+    },
+    {
+      "path": "minibkn/src/minibkn/application/knowledge_router_service.py",
+      "sha256": "19dc14e741f78e147acc5ac34395f41e8b4d3fb7bb3e0f62983d9a94761ff500"
+    },
+    {
+      "path": "minibkn/src/minibkn/application/modeling_service.py",
+      "sha256": "ac827cfd0acede797c78d2f5dad3b5680f88f187054171649b2b0e42f2ecc719"
+    },
+    {
+      "path": "minibkn/src/minibkn/application/network_service.py",
+      "sha256": "60c85967142c81f2fc02add2888c92c8e46445373954ee345b2b9b5e477617d3"
+    },
+    {
+      "path": "minibkn/src/minibkn/application/query_plan_service.py",
+      "sha256": "e2595361d4e993486230d3ec0015d4cdbdc1daeb524a451c889e61d236e05319"
+    },
+    {
+      "path": "minibkn/src/minibkn/application/retrieval_service.py",
+      "sha256": "d8d16a631c1f36c54d42561e5cda9680fe1b8132ad32314847ebfd339a9926bb"
+    },
+    {
+      "path": "minibkn/src/minibkn/application/schema_generation_service.py",
+      "sha256": "e7351c9ddf446456931265938aad58768c4e60ec81f142dfcf9e9aaf8da79f45"
+    },
+    {
+      "path": "minibkn/src/minibkn/config.py",
+      "sha256": "3402ea0cecdcdff92b78ce95017d8bb493d9f4bd95f41e54420db35ca24e1ce1"
+    },
+    {
+      "path": "minibkn/src/minibkn/domain/__init__.py",
+      "sha256": "8b11acf52c9c4829d79830ea9c4bb8cfde9f6c352eaac8c4041b040e7235083f"
+    },
+    {
+      "path": "minibkn/src/minibkn/domain/access_control.py",
+      "sha256": "b1922ec62b24f32bdf6caf9dbe33d65544b880d628366f7433a949b5ac10c3c0"
+    },
+    {
+      "path": "minibkn/src/minibkn/domain/base.py",
+      "sha256": "72fd7b52b24ba773c9b3d616f57312893de0378aa9fb7cce4e4f751b9392e2cb"
+    },
+    {
+      "path": "minibkn/src/minibkn/domain/build.py",
+      "sha256": "10149cebab1081ed948431b80e053b7c303d57792b1d875c8ec99abd0714a96a"
+    },
+    {
+      "path": "minibkn/src/minibkn/domain/document_knowledge.py",
+      "sha256": "0818a995f30ae1e25223f4620ccb0ffc4f5402a58405fd46b476fcc4b5c68343"
+    },
+    {
+      "path": "minibkn/src/minibkn/domain/errors.py",
+      "sha256": "36abf7224268182ca9a77fb3c7ed3a38b311ef8abb1efe8bb7901efe9028615f"
+    },
+    {
+      "path": "minibkn/src/minibkn/domain/evidence.py",
+      "sha256": "1f41aff8841e243c07bc0997013dca11f5c6259bdda6c206fee3a2fe8975f82b"
+    },
+    {
+      "path": "minibkn/src/minibkn/domain/modeling.py",
+      "sha256": "89871c583e940fac80bb9c2c4c699a1801e38738d7d81e375c84c6106603dd4c"
+    },
+    {
+      "path": "minibkn/src/minibkn/domain/models.py",
+      "sha256": "45a84d05a7ff0f6b3c483c730ca6689e41fab1701aa8e21921b61bc8a7f08f6a"
+    },
+    {
+      "path": "minibkn/src/minibkn/domain/policy.py",
+      "sha256": "72c6abb28f151a423cea19fbe56fc2fda80cd7aa7ac723a475dc868b7ddf90b9"
+    },
+    {
+      "path": "minibkn/src/minibkn/domain/query.py",
+      "sha256": "07840a9f0adc26b620cd7753cd40b77284b3b93b0b022acdfb272614559e7e92"
+    },
+    {
+      "path": "minibkn/src/minibkn/evaluation/__init__.py",
+      "sha256": "b7b144858579c99ebfaa3a58c26c8d13a85312ed68ae8ab36fdd8c8bb0c54e6e"
+    },
+    {
+      "path": "minibkn/src/minibkn/evaluation/benchmark.py",
+      "sha256": "429c538b17f8bbd05d5bcdf553b4b2cc9b1d8f2995595aa72fed93c39b40d491"
+    },
+    {
+      "path": "minibkn/src/minibkn/main.py",
+      "sha256": "49562cb730335ee6597cb51845f7b732b5c11b9a1c3b0b841e822f9b2e593cc1"
+    },
+    {
+      "path": "minibkn/src/minibkn/mcp_server.py",
+      "sha256": "fc6e41dde1c7b8686304d6ce065b38d46d251762273015f25f2e9fced1bc5d84"
+    },
+    {
+      "path": "minibkn/src/minibkn/observability/__init__.py",
+      "sha256": "8b08c95aa646e94fd1960838b933e524bcc4b76bd27e82373fba7c3f8d079702"
+    },
+    {
+      "path": "minibkn/src/minibkn/observability/trace.py",
+      "sha256": "03f587e14d7b8ee52c5eba6cefa40e71d224dcb2ea1e3b9f82f50eb96720f9cf"
+    },
+    {
+      "path": "minibkn/src/minibkn/ports/__init__.py",
+      "sha256": "0d979fc29330dbbdf0b360671d998771664f2969f68d28c00ba90728c97f6547"
+    },
+    {
+      "path": "minibkn/src/minibkn/ports/datasource.py",
+      "sha256": "10a8e6abd1005a614b98eb2a47906f42125d79563ad9bec4aa234051aa3dbbc6"
+    },
+    {
+      "path": "minibkn/src/minibkn/ports/document_knowledge.py",
+      "sha256": "42705a3ce5a81c9923265e2d7c9aa0e8554fb232c2b29369f6bf5f3ec7a54731"
+    },
+    {
+      "path": "minibkn/src/minibkn/ports/modeling.py",
+      "sha256": "889107a0a4595f815bda3d22d0f96efa8ea41183ca6bd1c014c5a15103c0a966"
+    },
+    {
+      "path": "minibkn/src/minibkn/ports/planner.py",
+      "sha256": "389fd3e4bc9f4d855d461d47292d6d3dcfe12575b537a0101474c254d1637900"
+    },
+    {
+      "path": "minibkn/src/minibkn/ports/repository.py",
+      "sha256": "c54c8575852e345b8f1ccf1183459bb008b7384b154713327f539a22e9e39fcb"
+    },
+    {
+      "path": "minibkn/src/minibkn/ports/schema_ai.py",
+      "sha256": "b0163125a6d9bb1939c3bed5c17ce0bdaff9fa2231fcb5959f1dfc8bbf7d3b65"
+    },
+    {
+      "path": "minibkn/src/minibkn/ports/search.py",
+      "sha256": "e4761ac95e66dcf0d4127851604096ac8d2841ae748a18742a3bed8176e36995"
+    },
+    {
+      "path": "minibkn/src/minibkn/ports/tools.py",
+      "sha256": "7cfc80a5348dbf1aabf8d963c77fb391f4163b37752c9a692c98e9ee05042ed2"
+    },
+    {
+      "path": "minibkn/tests/integration/test_api_key_auth.py",
+      "sha256": "90ebf6b042fe2ccf1b12b1c25cf5129ddf11f1460a27b3e1437829007eb886ad"
+    },
+    {
+      "path": "minibkn/tests/integration/test_authorization_api.py",
+      "sha256": "78cc11a65506277bc6cbb26925dfb6a673c517147cf35a0a626fe353347698b7"
+    },
+    {
+      "path": "minibkn/tests/integration/test_document_knowledge_routing_api.py",
+      "sha256": "99d93a8efb790a728309f33ec0d53a54797de1cf1aaa57601b44739f1c44de7b"
+    },
+    {
+      "path": "minibkn/tests/integration/test_enterprise_domains_api.py",
+      "sha256": "864b748d98042515c13da34d6be97e6c1cbbe63bf71c098bf80606b5e4fe5df9"
+    },
+    {
+      "path": "minibkn/tests/integration/test_evaluation_report_api.py",
+      "sha256": "261fe81a23df4dcf191f55c3483a5eb64cae9b08cbc323503f619f5db03dcaf6"
+    },
+    {
+      "path": "minibkn/tests/integration/test_generic_crm_api.py",
+      "sha256": "9836d698aed41975ae5845ee3676d05a965a4cf37b6af9963bad793003411456"
+    },
+    {
+      "path": "minibkn/tests/integration/test_incremental_build_api.py",
+      "sha256": "2531ad89220da6b13634783199ed08b7690ebfb75ceb3eb8579bea989c0140ef"
+    },
+    {
+      "path": "minibkn/tests/integration/test_index_version_api.py",
+      "sha256": "bef0fe6109647013638eaa6d864db6f72532f9878365521dd5dbfe3d38860359"
+    },
+    {
+      "path": "minibkn/tests/integration/test_mcp_server.py",
+      "sha256": "1e1c946cbcdbdca374ba8fe8a3fca25f38af9120501407387a54be4dd0b569c1"
+    },
+    {
+      "path": "minibkn/tests/integration/test_modeling_workflow_api.py",
+      "sha256": "b722d29c9a5d56a5653cb38a11539a9e1986651cc20370d3b8bd4b46a3742e7a"
+    },
+    {
+      "path": "minibkn/tests/integration/test_network_api.py",
+      "sha256": "e942b612bbe9f41fa0c89d6f019f0bc3c7a2dcc81a6aad97118a84058ae5cae1"
+    },
+    {
+      "path": "minibkn/tests/integration/test_phase_b_api.py",
+      "sha256": "06e2c0cfec6a7b153d457d2e3913d965372616198d04aaa526576fe3f1359899"
+    },
+    {
+      "path": "minibkn/tests/integration/test_phase_c_action_api.py",
+      "sha256": "13df439fb217df9ee75b1b60352ab7ded8eece5d9608048d45e7b1f9e1ce1b51"
+    },
+    {
+      "path": "minibkn/tests/integration/test_query_plan_api.py",
+      "sha256": "771c678ef5667ff60c6bfc094022a2632fd83561a5e63643cf10d25aa00dbeee"
+    },
+    {
+      "path": "minibkn/tests/integration/test_schema_generation_api.py",
+      "sha256": "e39d0d8677381a9db7b71b3be05e9a2db1cab90fb5303075f25124913916cc85"
+    },
+    {
+      "path": "minibkn/tests/integration/test_search_concurrency.py",
+      "sha256": "653ba521879a849170d6182dcdf3d1682fc973e7d3b6946569f401df39667ad3"
+    },
+    {
+      "path": "minibkn/tests/unit/test_bkn_parser.py",
+      "sha256": "dfeb3ec472421b3dbf3e711286d31cf8883c3b33021c8340a76dca1f9c4bf467"
+    },
+    {
+      "path": "minibkn/tests/unit/test_crm_evaluation_dataset.py",
+      "sha256": "591d3f3ae6edc1aafbdd1f80f83296ef68e6912ddb985e4ee4e463e43e8df362"
+    },
+    {
+      "path": "minibkn/tests/unit/test_datasource_adapters.py",
+      "sha256": "277f3324d1b1b5623f21753a468bff5589727225aafb540e06ab2653e967715b"
+    },
+    {
+      "path": "minibkn/tests/unit/test_domain_contracts.py",
+      "sha256": "9652b1caf6f7d77148e386e21a971f485be7cc0300a748a09adfd5cbc9980d9b"
+    },
+    {
+      "path": "minibkn/tests/unit/test_enterprise_evaluation_dataset.py",
+      "sha256": "ac37856c3b2a1136cd363bca1c7f84470a0b9bab912fa01259d94234ed029260"
+    },
+    {
+      "path": "minibkn/tests/unit/test_evaluation_benchmark.py",
+      "sha256": "02f8cf24895a5058a1f79aa61b311eb060c42c0f65d0c413ad59a716c402724e"
+    },
+    {
+      "path": "minibkn/tests/unit/test_generic_value_types.py",
+      "sha256": "669b677a6a54d0c3eefce1e530e38e5441429afb045fe6094d7a50b982b087f2"
+    },
+    {
+      "path": "minibkn/tests/unit/test_hybrid_retriever_cache.py",
+      "sha256": "faf4b7f1dcbbe96c3130f37290629b101a8ff6bcdb9d838055d50fba447ecaaf"
+    },
+    {
+      "path": "minibkn/tests/unit/test_lightrag_adapter.py",
+      "sha256": "27f25b2d6e83afb1b020b5c472834ec8dc93e8a061700ede012f683927381cf1"
+    },
+    {
+      "path": "minibkn/tests/unit/test_policy_evaluator.py",
+      "sha256": "41b4eecb7fc0b58a569ebc511eecd87cbb1c5d7c5cec403ae2d16375a7be3490"
+    },
+    {
+      "path": "minibkn/tests/unit/test_query_planner_adapter.py",
+      "sha256": "5276c70b29c36cc55eb39182ab62b592c30bb85b06e6674da780014a3ffe9cc8"
+    },
+    {
+      "path": "minibkn/tests/unit/test_rag_vs_bkn_evaluation.py",
+      "sha256": "09acf45bfc821d671ffbfaaaf5f35fc1193dd15be297a8bd65b738a381912d62"
+    },
+    {
+      "path": "minibkn/tests/unit/test_remote_embedder.py",
+      "sha256": "b254401279beb889d6189640bd4c686422519bb9d80f707d9363a1436bf96f7e"
+    },
+    {
+      "path": "minibkn/tests/unit/test_schema_ai_adapter.py",
+      "sha256": "e875f9180bc17a1c64afb8b5d2ae93e21f7d179a8683a6f92196096113804ab8"
+    },
+    {
+      "path": "minibkn/tests/unit/test_seed_demo.py",
+      "sha256": "60bd826ae3ebd1de57a163d46cc0f919e1769a408f8b8eefe8d438be455cc312"
+    },
+    {
+      "path": "minibkn/tests/unit/test_semantic_embedder.py",
+      "sha256": "1be7e23c57352894c89f8a435217f82c9a49078ed7418ec6904b9442a1c2b2fc"
+    },
+    {
+      "path": "minibkn/uv.lock",
+      "sha256": "c250c5fc8795656aa379611f70e796fdcee2b0799935da10ee8efed8960bc0fb"
+    },
+    {
+      "path": "tools/check_release.py",
+      "sha256": "c5b3165d2896f0e6e0240bd24075caefbaa133659532c28b274910d2d540f1f4"
+    }
+  ],
+  "omitted": [
+    "upstream Foundry services and Git history",
+    "credentials",
+    "runtime databases/caches/environments",
+    "private learner profiles",
+    "personal interview coaching (qa_docs)"
+  ]
+}

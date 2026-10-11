@@ -1,0 +1,189 @@
+{
+  "evaluated_at": "2026-08-17T07:47:41.497573+00:00",
+  "dataset": "crm_query_planner_14.jsonl",
+  "model": "deepseek-chat",
+  "cases": 14,
+  "exact_accuracy": 0.5,
+  "component_accuracy": 0.8301886792452831,
+  "results": [
+    {
+      "id": "qp-001",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0
+    },
+    {
+      "id": "qp-002",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "aggregates": false
+      },
+      "exact": false,
+      "ambiguity_count": 0
+    },
+    {
+      "id": "qp-003",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": false,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": false,
+      "ambiguity_count": 0
+    },
+    {
+      "id": "qp-004",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": false,
+        "object_types": false,
+        "filters": true,
+        "traversals": true
+      },
+      "exact": false,
+      "ambiguity_count": 0
+    },
+    {
+      "id": "qp-005",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0
+    },
+    {
+      "id": "qp-006",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": false,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": false,
+      "ambiguity_count": 0
+    },
+    {
+      "id": "qp-007",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": false,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": false,
+      "ambiguity_count": 0
+    },
+    {
+      "id": "qp-008",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "aggregates": false,
+        "group_by": true
+      },
+      "exact": false,
+      "ambiguity_count": 0
+    },
+    {
+      "id": "qp-009",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "filters": true
+      },
+      "exact": true,
+      "ambiguity_count": 0
+    },
+    {
+      "id": "qp-010",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "intent": true,
+        "object_types": true,
+        "aggregates": true
+      },
+      "exact": true,
+      "ambiguity_count": 0
+    },
+    {
+      "id": "qp-011",
+      "status": "needs_clarification",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "ambiguities": true
+      },
+      "exact": true,
+      "ambiguity_count": 3
+    },
+    {
+      "id": "qp-012",
+      "status": "needs_clarification",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "ambiguities": true
+      },
+      "exact": true,
+      "ambiguity_count": 1
+    },
+    {
+      "id": "qp-013",
+      "status": "ready",
+      "planner": "llm",
+      "checks": {
+        "status": false,
+        "ambiguities": false
+      },
+      "exact": false,
+      "ambiguity_count": 0
+    },
+    {
+      "id": "qp-014",
+      "status": "needs_clarification",
+      "planner": "llm",
+      "checks": {
+        "status": true,
+        "ambiguities": true
+      },
+      "exact": true,
+      "ambiguity_count": 1
+    }
+  ]
+}

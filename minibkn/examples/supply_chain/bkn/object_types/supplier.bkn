@@ -1,0 +1,31 @@
+---
+type: object_type
+id: supplier
+name: Supplier
+tags: [procurement]
+---
+
+## ObjectType: Supplier
+
+A supplier responsible for delivering inventory materials.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| supplier_id | Supplier ID | string | Unique supplier code | supplier_id |
+| name | Name | string | Supplier name | name |
+| contact_email | Contact Email | string | Alert destination | contact_email |
+| expedite_supported | Expedite Supported | boolean | Whether urgent delivery is supported | expedite_supported |
+
+### Keys
+
+Primary Keys: supplier_id
+Display Key: name
+Incremental Key:
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | suppliers_csv | suppliers.csv |

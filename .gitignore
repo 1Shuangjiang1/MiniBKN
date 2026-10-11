@@ -1,0 +1,35 @@
+# Local credentials and private configuration
+.env
+.env.*
+!.env.example
+secrets/
+*-key.txt
+api-key.txt
+*.pem
+*.key
+# Runtime environments, caches and data
+.venv/
+.lightrag-venv/
+node_modules/
+dist/
+__pycache__/
+*.py[cod]
+*.tsbuildinfo
+.pytest_cache/
+.pytest-tmp/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+test-result/
+*.egg-info/
+*.log
+/minibkn/data/
+/minibkn/.build-check/
+*.db
+*.sqlite
+*.sqlite3
+*.db-wal
+*.db-shm
+.DS_Store
+Thumbs.db

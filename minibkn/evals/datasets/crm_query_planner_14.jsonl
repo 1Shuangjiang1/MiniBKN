@@ -1,0 +1,14 @@
+{"id": "qp-001", "question": "统计已付款订单的总金额", "expected_status": "ready", "expected": {"intent": "aggregate", "object_types": ["order"], "filters": [["status", "eq", "paid"]], "aggregates": [["sum", "amount"]]}}
+{"id": "qp-002", "question": "待处理订单一共有多少笔", "expected_status": "ready", "expected": {"intent": "aggregate", "object_types": ["order"], "filters": [["status", "eq", "pending"]], "aggregates": [["count", ""]]}}
+{"id": "qp-003", "question": "列出上海的客户", "expected_status": "ready", "expected": {"intent": "lookup", "object_types": ["customer"], "filters": [["city", "eq", "上海"]]}}
+{"id": "qp-004", "question": "ORD-001 这笔订单是哪个客户下的", "expected_status": "ready", "expected": {"intent": "traverse", "object_types": ["order"], "filters": [["order_id", "eq", "ORD-001"]], "traversals": ["placed_by"]}}
+{"id": "qp-005", "question": "已付款订单的平均金额是多少", "expected_status": "ready", "expected": {"intent": "aggregate", "object_types": ["order"], "filters": [["status", "eq", "paid"]], "aggregates": [["avg", "amount"]]}}
+{"id": "qp-006", "question": "列出 enterprise 等级的客户", "expected_status": "ready", "expected": {"intent": "lookup", "object_types": ["customer"], "filters": [["segment", "eq", "enterprise"]]}}
+{"id": "qp-007", "question": "找出金额大于一万元的订单", "expected_status": "ready", "expected": {"intent": "lookup", "object_types": ["order"], "filters": [["amount", "gt", 10000]]}}
+{"id": "qp-008", "question": "按状态统计订单数量", "expected_status": "ready", "expected": {"intent": "aggregate", "object_types": ["order"], "aggregates": [["count", ""]], "group_by": ["status"]}}
+{"id": "qp-009", "question": "查询客户 CUST-001", "expected_status": "ready", "expected": {"intent": "lookup", "object_types": ["customer"], "filters": [["customer_id", "eq", "CUST-001"]]}}
+{"id": "qp-010", "question": "订单的最大金额是多少", "expected_status": "ready", "expected": {"intent": "aggregate", "object_types": ["order"], "aggregates": [["max", "amount"]]}}
+{"id": "qp-011", "question": "最近的大客户怎么样", "expected_status": "needs_clarification", "minimum_ambiguities": 2}
+{"id": "qp-012", "question": "看看它的情况", "expected_status": "needs_clarification", "minimum_ambiguities": 1}
+{"id": "qp-013", "question": "最近的订单有哪些", "expected_status": "needs_clarification", "minimum_ambiguities": 1}
+{"id": "qp-014", "question": "最好的客户是谁", "expected_status": "needs_clarification", "minimum_ambiguities": 1}

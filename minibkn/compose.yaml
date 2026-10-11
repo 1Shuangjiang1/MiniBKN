@@ -1,0 +1,13 @@
+services:
+  minibkn:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      MINIBKN_DATABASE_URL: sqlite+aiosqlite:////app/data/minibkn.db
+      MINIBKN_DATA_DIR: /app/data
+    volumes:
+      - minibkn-data:/app/data
+
+volumes:
+  minibkn-data:

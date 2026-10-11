@@ -1,0 +1,31 @@
+---
+type: object_type
+id: payment
+name: Payment
+tags: [procurement, evaluation, generated]
+---
+
+## ObjectType: Payment
+
+Generated procurement business object.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| payment_id | Payment ID | string | Payment ID | payment_id |
+| po_id | PO ID | string | PO ID | po_id |
+| amount | Amount | decimal | Amount | amount |
+| status | Status | string | Status | status |
+| requested_by | Requested By | string | Requested By | requested_by |
+
+### Keys
+
+Primary Keys: payment_id
+Display Key: payment_id
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | payments_csv | payments.csv |

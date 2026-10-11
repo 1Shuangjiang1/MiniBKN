@@ -1,0 +1,20 @@
+---
+type: relation_type
+id: item_product
+name: Item Product
+tags: [crm, catalog]
+---
+
+## RelationType: Item Product
+
+### Endpoint
+
+| Source | Target | Type |
+| --- | --- | --- |
+| order_item | product | direct |
+
+### Mapping Rules
+
+| Source Property | Target Property |
+| --- | --- |
+| product_id | product_id |

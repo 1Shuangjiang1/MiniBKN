@@ -1,0 +1,20 @@
+---
+type: relation_type
+id: contains_purchase_item
+name: Contains Purchase Item
+tags: [procurement, evaluation, generated]
+---
+
+## RelationType: Contains Purchase Item
+
+### Endpoint
+
+| Source | Target | Type |
+| --- | --- | --- |
+| purchase_item | purchase_order | direct |
+
+### Mapping Rules
+
+| Source Property | Target Property |
+| --- | --- |
+| po_id | po_id |

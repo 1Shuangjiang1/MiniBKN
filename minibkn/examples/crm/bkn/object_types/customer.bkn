@@ -1,0 +1,31 @@
+---
+type: object_type
+id: customer
+name: Customer
+tags: [crm]
+---
+
+## ObjectType: Customer
+
+A company or organization served by the business.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| customer_id | Customer ID | string | Unique customer code | customer_id |
+| name | Name | string | Customer display name | name |
+| segment | Segment | string | Commercial customer segment | segment |
+| city | City | string | Customer city | city |
+
+### Keys
+
+Primary Keys: customer_id
+Display Key: name
+Incremental Key:
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | customers_csv | customers.csv |

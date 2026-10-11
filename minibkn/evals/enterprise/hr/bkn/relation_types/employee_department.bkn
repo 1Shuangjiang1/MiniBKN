@@ -1,0 +1,20 @@
+---
+type: relation_type
+id: employee_department
+name: Employee Department
+tags: [hr, evaluation, generated]
+---
+
+## RelationType: Employee Department
+
+### Endpoint
+
+| Source | Target | Type |
+| --- | --- | --- |
+| employee | department | direct |
+
+### Mapping Rules
+
+| Source Property | Target Property |
+| --- | --- |
+| dept_id | dept_id |

@@ -1,0 +1,20 @@
+---
+type: relation_type
+id: ordered_from
+name: Ordered From
+tags: [procurement, evaluation, generated]
+---
+
+## RelationType: Ordered From
+
+### Endpoint
+
+| Source | Target | Type |
+| --- | --- | --- |
+| purchase_order | supplier | direct |
+
+### Mapping Rules
+
+| Source Property | Target Property |
+| --- | --- |
+| supplier_id | supplier_id |

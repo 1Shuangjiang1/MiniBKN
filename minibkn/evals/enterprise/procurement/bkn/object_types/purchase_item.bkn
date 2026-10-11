@@ -1,0 +1,31 @@
+---
+type: object_type
+id: purchase_item
+name: Purchase Item
+tags: [procurement, evaluation, generated]
+---
+
+## ObjectType: Purchase Item
+
+Generated procurement business object.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| item_id | Item ID | string | Item ID | item_id |
+| po_id | PO ID | string | PO ID | po_id |
+| sku | SKU | string | SKU | sku |
+| quantity | Quantity | integer | Quantity | quantity |
+| unit_price | Unit Price | decimal | Unit Price | unit_price |
+
+### Keys
+
+Primary Keys: item_id
+Display Key: item_id
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | purchase_items_csv | purchase_items.csv |

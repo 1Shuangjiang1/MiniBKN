@@ -1,0 +1,20 @@
+---
+type: relation_type
+id: payment_for_order
+name: Payment For Order
+tags: [procurement, evaluation, generated]
+---
+
+## RelationType: Payment For Order
+
+### Endpoint
+
+| Source | Target | Type |
+| --- | --- | --- |
+| payment | purchase_order | direct |
+
+### Mapping Rules
+
+| Source Property | Target Property |
+| --- | --- |
+| po_id | po_id |

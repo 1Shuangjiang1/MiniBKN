@@ -1,0 +1,17 @@
+---
+type: risk_type
+id: rejected_leave_denied
+name: Rejected Leave Denied
+tags: [hr, risk, generated]
+level: high
+policy: deny
+applies_to_actions: [approve_leave]
+condition:
+  eq:
+    - ref: object.status
+    - "rejected"
+---
+
+## RiskType: Rejected Leave Denied
+
+Generated frozen risk rule.

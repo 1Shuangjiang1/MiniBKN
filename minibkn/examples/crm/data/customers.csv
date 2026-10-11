@@ -1,0 +1,4 @@
+customer_id,name,segment,city
+CUST-001,星河科技,enterprise,上海
+CUST-002,远航零售,mid_market,杭州
+CUST-003,青云教育,small_business,南京

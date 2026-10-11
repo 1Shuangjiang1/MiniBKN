@@ -1,0 +1,32 @@
+---
+type: object_type
+id: customer
+name: Customer
+tags: [crm, sales]
+---
+
+## ObjectType: Customer
+
+Enterprise account managed by a sales representative.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| customer_id | Customer ID | string | Unique customer code | customer_id |
+| name | Customer Name | string | Legal display name | name |
+| tier | Customer Tier | string | Standard, growth, or VIP | tier |
+| region | Region | string | Commercial region | region |
+| rep_id | Sales Rep ID | string | Assigned representative | rep_id |
+| credit_limit | Credit Limit | decimal | Approved credit limit | credit_limit |
+
+### Keys
+
+Primary Keys: customer_id
+Display Key: name
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | customers_csv | customers.csv |

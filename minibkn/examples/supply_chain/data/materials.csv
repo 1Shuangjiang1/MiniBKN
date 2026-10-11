@@ -1,0 +1,4 @@
+sku,name,current_stock,safety_stock,supplier_id,unit_cost
+MAT-001,Temperature Sensor,8,30,SUP-001,42.50
+MAT-002,Smart Gateway,65,40,SUP-002,310.00
+MAT-003,Relay Module,4,25,SUP-001,18.80

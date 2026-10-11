@@ -1,0 +1,44 @@
+---
+type: action_type
+id: create_replenishment_alert
+name: Create Replenishment Alert
+tags: [inventory, alert]
+action_type: create
+enabled: true
+risk_level: medium
+requires_approval: false
+---
+
+## ActionType: Create Replenishment Alert
+
+Creates a replenishment alert when a material falls below its safety stock.
+
+### Bound Object
+
+| Bound Object | Action Type |
+| --- | --- |
+| material | create |
+
+### Trigger Condition
+
+```yaml
+condition:
+  object_type_id: material
+  field: current_stock
+  operation: lt_field
+  value: safety_stock
+```
+
+### Tool Configuration
+
+| Type | Toolbox ID | Tool ID |
+| --- | --- | --- |
+| http | procurement | create_replenishment_alert |
+
+### Parameter Binding
+
+| Parameter | Source | Binding | Description |
+| --- | --- | --- | --- |
+| sku | property | sku | Material code |
+| current_stock | property | current_stock | Current inventory |
+| safety_stock | property | safety_stock | Replenishment threshold |

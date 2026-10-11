@@ -1,0 +1,17 @@
+---
+type: risk_type
+id: long_leave_confirmation
+name: Long Leave Confirmation
+tags: [hr, risk, generated]
+level: high
+policy: confirm
+applies_to_actions: [approve_leave]
+condition:
+  gte:
+    - ref: object.days
+    - 8
+---
+
+## RiskType: Long Leave Confirmation
+
+Generated frozen risk rule.

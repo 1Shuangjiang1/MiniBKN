@@ -1,0 +1,20 @@
+---
+type: relation_type
+id: change_employee
+name: Change Employee
+tags: [hr, evaluation, generated]
+---
+
+## RelationType: Change Employee
+
+### Endpoint
+
+| Source | Target | Type |
+| --- | --- | --- |
+| job_change | employee | direct |
+
+### Mapping Rules
+
+| Source Property | Target Property |
+| --- | --- |
+| employee_id | employee_id |

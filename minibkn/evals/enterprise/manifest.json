@@ -1,0 +1,12 @@
+{
+  "seed": 20260817,
+  "domains": [
+    "procurement",
+    "finance",
+    "hr"
+  ],
+  "retrieval_cases": 120,
+  "query_planner_cases": 15,
+  "adversarial_cases": 6,
+  "action_cases": 45
+}

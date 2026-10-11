@@ -1,0 +1,12 @@
+---
+type: knowledge_network
+id: crm
+name: Customer Relationship Network
+version: 1
+tags: [portfolio, crm]
+business_domain: sales
+---
+
+# Customer Relationship Network
+
+Models customers, orders, and the relationship between them.

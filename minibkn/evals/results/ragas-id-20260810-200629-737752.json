@@ -1,0 +1,19 @@
+{
+  "source": ".\\minibkn\\evals\\results\\offline-20260810-200057-329518.json",
+  "metric": "Ragas IDBasedContextPrecision on the first retrieved document",
+  "metrics": {
+    "vector": {
+      "cases": 200,
+      "ragas_id_context_precision_at_1": 0.515
+    },
+    "bm25": {
+      "cases": 200,
+      "ragas_id_context_precision_at_1": 0.735
+    },
+    "hybrid": {
+      "cases": 200,
+      "ragas_id_context_precision_at_1": 0.73
+    }
+  },
+  "faithfulness": "not run: the Ragas Faithfulness metric requires a configured evaluator LLM"
+}

@@ -1,0 +1,346 @@
+{
+  "created_at": "2026-08-17T09:35:11.930503+00:00",
+  "source_result": "evals\\results\\comprehensive\\retrieval\\latest-siliconflow.json",
+  "cases": 200,
+  "embedding_version": "siliconflow:BAAI/bge-m3:1024",
+  "exact_top5_matches": {
+    "bm25": 200,
+    "vector": 186,
+    "hybrid": 195
+  },
+  "mismatch_counts": {
+    "bm25": 0,
+    "vector": 14,
+    "hybrid": 5
+  },
+  "mismatches": {
+    "bm25": [],
+    "vector": [
+      {
+        "id": "crm-036",
+        "expected": [
+          "instance:customer:CUST-0246",
+          "instance:customer:CUST-0276",
+          "instance:customer:CUST-0346",
+          "instance:customer:CUST-0446",
+          "instance:customer:CUST-0146"
+        ],
+        "actual": [
+          "instance:customer:CUST-0246",
+          "instance:customer:CUST-0276",
+          "instance:customer:CUST-0446",
+          "instance:customer:CUST-0346",
+          "instance:customer:CUST-0146"
+        ]
+      },
+      {
+        "id": "crm-067",
+        "expected": [
+          "instance:order:ORD-01332",
+          "instance:order:ORD-01390",
+          "instance:order:ORD-01340",
+          "instance:order:ORD-01347",
+          "instance:order:ORD-00367"
+        ],
+        "actual": [
+          "instance:order:ORD-01332",
+          "instance:order:ORD-01340",
+          "instance:order:ORD-01390",
+          "instance:order:ORD-01347",
+          "instance:order:ORD-00367"
+        ]
+      },
+      {
+        "id": "crm-107",
+        "expected": [
+          "instance:order:ORD-00685",
+          "instance:order:ORD-01685",
+          "instance:order:ORD-00686",
+          "instance:order:ORD-00695",
+          "instance:order:ORD-00655"
+        ],
+        "actual": [
+          "instance:order:ORD-00685",
+          "instance:order:ORD-01685",
+          "instance:order:ORD-00686",
+          "instance:order:ORD-00695",
+          "instance:order:ORD-00688"
+        ]
+      },
+      {
+        "id": "crm-120",
+        "expected": [
+          "instance:order:ORD-00932",
+          "instance:order:ORD-00432",
+          "instance:order:ORD-00832",
+          "instance:order:ORD-00032",
+          "instance:order:ORD-01032"
+        ],
+        "actual": [
+          "instance:order:ORD-00932",
+          "instance:order:ORD-00432",
+          "instance:order:ORD-00832",
+          "instance:order:ORD-00032",
+          "instance:order:ORD-00732"
+        ]
+      },
+      {
+        "id": "crm-165",
+        "expected": [
+          "instance:order:ORD-02446",
+          "instance:order:ORD-00185",
+          "instance:order:ORD-02375",
+          "instance:order:ORD-02165",
+          "instance:order:ORD-02345"
+        ],
+        "actual": [
+          "instance:order:ORD-02446",
+          "instance:order:ORD-00185",
+          "instance:order:ORD-02375",
+          "instance:order:ORD-02345",
+          "instance:order:ORD-02165"
+        ]
+      },
+      {
+        "id": "crm-169",
+        "expected": [
+          "instance:order:ORD-00475",
+          "instance:order:ORD-02446",
+          "instance:order:ORD-02445",
+          "instance:order:ORD-02441",
+          "instance:order:ORD-00465"
+        ],
+        "actual": [
+          "instance:order:ORD-00475",
+          "instance:order:ORD-02446",
+          "instance:order:ORD-02445",
+          "instance:order:ORD-00465",
+          "instance:order:ORD-02441"
+        ]
+      },
+      {
+        "id": "crm-171",
+        "expected": [
+          "instance:order:ORD-00035",
+          "instance:order:ORD-02005",
+          "instance:order:ORD-00535",
+          "instance:order:ORD-00585",
+          "instance:order:ORD-00496"
+        ],
+        "actual": [
+          "instance:order:ORD-00035",
+          "instance:order:ORD-02005",
+          "instance:order:ORD-00535",
+          "instance:order:ORD-00585",
+          "instance:order:ORD-00531"
+        ]
+      },
+      {
+        "id": "crm-182",
+        "expected": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0028"
+        ],
+        "actual": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0016"
+        ]
+      },
+      {
+        "id": "crm-185",
+        "expected": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0028"
+        ],
+        "actual": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0016"
+        ]
+      },
+      {
+        "id": "crm-188",
+        "expected": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0028"
+        ],
+        "actual": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0016"
+        ]
+      },
+      {
+        "id": "crm-191",
+        "expected": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0028"
+        ],
+        "actual": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0016"
+        ]
+      },
+      {
+        "id": "crm-194",
+        "expected": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0028"
+        ],
+        "actual": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0016"
+        ]
+      },
+      {
+        "id": "crm-197",
+        "expected": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0028"
+        ],
+        "actual": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0016"
+        ]
+      },
+      {
+        "id": "crm-200",
+        "expected": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0028"
+        ],
+        "actual": [
+          "instance:customer:CUST-0007",
+          "instance:customer:CUST-0127",
+          "instance:customer:CUST-0226",
+          "instance:customer:CUST-0286",
+          "instance:customer:CUST-0016"
+        ]
+      }
+    ],
+    "hybrid": [
+      {
+        "id": "crm-030",
+        "expected": [
+          "instance:customer:CUST-0204",
+          "instance:customer:CUST-0004",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0104"
+        ],
+        "actual": [
+          "instance:customer:CUST-0204",
+          "instance:customer:CUST-0004",
+          "instance:customer:CUST-0003",
+          "instance:customer:CUST-0002",
+          "instance:customer:CUST-0006"
+        ]
+      },
+      {
+        "id": "crm-038",
+        "expected": [
+          "instance:customer:CUST-0260",
+          "instance:customer:CUST-0006",
+          "instance:customer:CUST-0060",
+          "instance:customer:CUST-0276",
+          "instance:customer:CUST-0261"
+        ],
+        "actual": [
+          "instance:customer:CUST-0260",
+          "instance:customer:CUST-0060",
+          "instance:customer:CUST-0006",
+          "instance:customer:CUST-0276",
+          "instance:customer:CUST-0261"
+        ]
+      },
+      {
+        "id": "crm-067",
+        "expected": [
+          "instance:order:ORD-00339",
+          "instance:order:ORD-01332",
+          "instance:order:ORD-01390",
+          "instance:order:ORD-00367",
+          "instance:order:ORD-01340"
+        ],
+        "actual": [
+          "instance:order:ORD-00339",
+          "instance:order:ORD-01332",
+          "instance:order:ORD-01340",
+          "instance:order:ORD-00367",
+          "instance:order:ORD-01390"
+        ]
+      },
+      {
+        "id": "crm-103",
+        "expected": [
+          "instance:order:ORD-00609",
+          "instance:order:ORD-02090",
+          "instance:order:ORD-00907",
+          "instance:order:ORD-02472",
+          "instance:order:ORD-00090"
+        ],
+        "actual": [
+          "instance:order:ORD-00609",
+          "instance:order:ORD-02090",
+          "instance:order:ORD-00907",
+          "instance:order:ORD-02472",
+          "instance:order:ORD-00647"
+        ]
+      },
+      {
+        "id": "crm-169",
+        "expected": [
+          "instance:order:ORD-00475",
+          "action:approve_order",
+          "instance:order:ORD-02446",
+          "instance:order:ORD-00465",
+          "instance:customer:CUST-0001"
+        ],
+        "actual": [
+          "instance:order:ORD-00475",
+          "instance:order:ORD-00465",
+          "action:approve_order",
+          "instance:order:ORD-02446",
+          "instance:customer:CUST-0001"
+        ]
+      }
+    ]
+  }
+}

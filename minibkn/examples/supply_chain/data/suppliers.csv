@@ -1,0 +1,3 @@
+supplier_id,name,contact_email,expedite_supported
+SUP-001,Precision Components,supply@example.com,true
+SUP-002,Connected Devices,orders@example.com,false

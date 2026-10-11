@@ -1,0 +1,31 @@
+{
+  "dataset": ".\\minibkn\\evals\\datasets\\supply_chain_200.jsonl",
+  "dataset_kind": "deterministic synthetic supply-chain retrieval benchmark",
+  "metrics_note": "context_precision_proxy equals reciprocal rank for one labeled relevant document; it is not an LLM-judged Ragas score",
+  "metrics": {
+    "vector": {
+      "cases": 200,
+      "hit_rate_at_1": 0.515,
+      "hit_rate_at_3": 0.76,
+      "mean_reciprocal_rank": 0.6442,
+      "context_precision_proxy": 0.6442,
+      "average_context_characters_at_5": 862.39
+    },
+    "bm25": {
+      "cases": 200,
+      "hit_rate_at_1": 0.735,
+      "hit_rate_at_3": 0.89,
+      "mean_reciprocal_rank": 0.8227,
+      "context_precision_proxy": 0.8227,
+      "average_context_characters_at_5": 687.94
+    },
+    "hybrid": {
+      "cases": 200,
+      "hit_rate_at_1": 0.73,
+      "hit_rate_at_3": 0.835,
+      "mean_reciprocal_rank": 0.7934,
+      "context_precision_proxy": 0.7934,
+      "average_context_characters_at_5": 802.56
+    }
+  }
+}

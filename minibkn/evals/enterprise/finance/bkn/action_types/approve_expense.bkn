@@ -1,0 +1,26 @@
+---
+type: action_type
+id: approve_expense
+name: Approve Expense
+tags: [finance, action, generated]
+action_type: modify
+enabled: true
+risk_level: high
+requires_approval: false
+---
+
+## ActionType: Approve Expense
+
+Generated simulation-only action.
+
+### Bound Object
+
+| Bound Object | Action Type |
+| --- | --- |
+| expense | modify |
+
+### Tool Configuration
+
+| Type | Toolbox ID | Tool ID |
+| --- | --- | --- |
+| mcp | evaluation | unconfigured |

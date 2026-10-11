@@ -1,0 +1,29 @@
+---
+type: object_type
+id: department
+name: Department
+tags: [hr, evaluation, generated]
+---
+
+## ObjectType: Department
+
+Generated hr business object.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| dept_id | Department ID | string | Department ID | dept_id |
+| name | Name | string | Name | name |
+| cost_center | Cost Center | string | Cost Center | cost_center |
+
+### Keys
+
+Primary Keys: dept_id
+Display Key: name
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | departments_csv | departments.csv |

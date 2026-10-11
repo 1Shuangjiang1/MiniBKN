@@ -1,0 +1,28 @@
+---
+type: risk_type
+id: high_value_replenishment
+name: High Value Replenishment
+tags: [risk, procurement]
+level: high
+policy: confirm
+applies_to_actions: [create_replenishment_alert]
+condition:
+  gte:
+    - mul:
+        - max:
+            - 0
+            - sub:
+                - ref: object.safety_stock
+                - ref: object.current_stock
+        - ref: object.unit_cost
+    - 500
+---
+
+## RiskType: High Value Replenishment
+
+Requires human confirmation before a high-value replenishment request is sent.
+
+### Control Policy
+
+- Estimate the order value from shortage quantity and unit cost.
+- Require confirmation when the configured value threshold is exceeded.

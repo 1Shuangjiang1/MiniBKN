@@ -1,0 +1,32 @@
+---
+type: object_type
+id: employee
+name: Employee
+tags: [hr, evaluation, generated]
+---
+
+## ObjectType: Employee
+
+Generated hr business object.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| employee_id | Employee ID | string | Employee ID | employee_id |
+| name | Name | string | Name | name |
+| dept_id | Department ID | string | Department ID | dept_id |
+| manager_id | Manager ID | string | Manager ID | manager_id |
+| status | Status | string | Status | status |
+| salary_grade | Salary Grade | string | Salary Grade | salary_grade |
+
+### Keys
+
+Primary Keys: employee_id
+Display Key: name
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | employees_csv | employees.csv |

@@ -1,0 +1,31 @@
+---
+type: object_type
+id: receipt
+name: Receipt
+tags: [finance, evaluation, generated]
+---
+
+## ObjectType: Receipt
+
+Generated finance business object.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| receipt_id | Receipt ID | string | Receipt ID | receipt_id |
+| invoice_id | Invoice ID | string | Invoice ID | invoice_id |
+| amount | Amount | decimal | Amount | amount |
+| method | Method | string | Method | method |
+| paid_at | Paid At | date | Paid At | paid_at |
+
+### Keys
+
+Primary Keys: receipt_id
+Display Key: receipt_id
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | receipts_csv | receipts.csv |

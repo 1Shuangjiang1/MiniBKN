@@ -1,0 +1,10 @@
+---
+type: knowledge_network
+id: procurement_holdout
+name: Procurement Holdout
+tags: [procurement, evaluation, generated]
+---
+
+# Procurement Holdout
+
+Deterministic multi-domain blind evaluation network.

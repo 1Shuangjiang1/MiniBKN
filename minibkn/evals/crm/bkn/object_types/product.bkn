@@ -1,0 +1,30 @@
+---
+type: object_type
+id: product
+name: Product
+tags: [crm, catalog]
+---
+
+## ObjectType: Product
+
+Product sold through CRM orders.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| product_id | Product ID | string | Unique product code | product_id |
+| name | Product Name | string | Commercial name | name |
+| category | Category | string | Product family | category |
+| list_price | List Price | decimal | Catalog price | list_price |
+
+### Keys
+
+Primary Keys: product_id
+Display Key: name
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | products_csv | products.csv |

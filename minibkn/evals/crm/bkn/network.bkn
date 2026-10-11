@@ -1,0 +1,12 @@
+---
+type: knowledge_network
+id: crm_benchmark
+name: CRM Benchmark Network
+version: 1
+tags: [crm, evaluation, frozen]
+business_domain: sales
+---
+
+# CRM Benchmark Network
+
+Deterministic synthetic CRM network for reproducible retrieval, QueryPlan, and action tests.

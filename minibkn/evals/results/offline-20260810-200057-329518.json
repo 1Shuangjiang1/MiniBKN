@@ -1,0 +1,5633 @@
+{
+  "dataset": ".\\minibkn\\evals\\datasets\\supply_chain_200.jsonl",
+  "dataset_kind": "deterministic synthetic supply-chain retrieval benchmark",
+  "metrics_note": "context_precision_proxy equals reciprocal rank for one labeled relevant document; it is not an LLM-judged Ragas score",
+  "metrics": {
+    "vector": {
+      "cases": 200,
+      "hit_rate_at_1": 0.515,
+      "hit_rate_at_3": 0.76,
+      "mean_reciprocal_rank": 0.6442,
+      "context_precision_proxy": 0.6442,
+      "average_context_characters_at_5": 862.39
+    },
+    "bm25": {
+      "cases": 200,
+      "hit_rate_at_1": 0.735,
+      "hit_rate_at_3": 0.89,
+      "mean_reciprocal_rank": 0.8227,
+      "context_precision_proxy": 0.8227,
+      "average_context_characters_at_5": 687.94
+    },
+    "hybrid": {
+      "cases": 200,
+      "hit_rate_at_1": 0.73,
+      "hit_rate_at_3": 0.835,
+      "mean_reciprocal_rank": 0.7934,
+      "context_precision_proxy": 0.7934,
+      "average_context_characters_at_5": 802.56
+    }
+  },
+  "cases": [
+    {
+      "id": "case-001",
+      "query": "MAT-001",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-002",
+      "query": "Temperature Sensor",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-003",
+      "query": "temperature sensor stock",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-002"
+        ]
+      }
+    },
+    {
+      "id": "case-004",
+      "query": "温度传感器库存",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-005",
+      "query": "安全库存 MAT-001",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-006",
+      "query": "who supplies MAT-001",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-007",
+      "query": "Temperature Sensor supplier",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-008",
+      "query": "缺货的温度传感器",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-002",
+          "schema:object:supplier"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-009",
+      "query": "请查询 MAT-001",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-010",
+      "query": "请查询 Temperature Sensor",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-002",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-011",
+      "query": "请查询 temperature sensor stock",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-012",
+      "query": "请查询 温度传感器库存",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-013",
+      "query": "请查询 安全库存 MAT-001",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-001",
+          "schema:object:supplier"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-014",
+      "query": "请查询 who supplies MAT-001",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-015",
+      "query": "请查询 Temperature Sensor supplier",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-002",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-016",
+      "query": "请查询 缺货的温度传感器",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-017",
+      "query": "帮我找到 MAT-001 的业务记录",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002"
+        ]
+      }
+    },
+    {
+      "id": "case-018",
+      "query": "帮我找到 Temperature Sensor 的业务记录",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002"
+        ]
+      }
+    },
+    {
+      "id": "case-019",
+      "query": "帮我找到 temperature sensor stock 的业务记录",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-020",
+      "query": "帮我找到 温度传感器库存 的业务记录",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "schema:relation:supplied_by"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-002"
+        ]
+      }
+    },
+    {
+      "id": "case-021",
+      "query": "帮我找到 安全库存 MAT-001 的业务记录",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "schema:relation:supplied_by"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-022",
+      "query": "帮我找到 who supplies MAT-001 的业务记录",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-023",
+      "query": "帮我找到 Temperature Sensor supplier 的业务记录",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "schema:object:material",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-024",
+      "query": "帮我找到 缺货的温度传感器 的业务记录",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-025",
+      "query": "business lookup: MAT-001",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "schema:object:material",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-026",
+      "query": "business lookup: Temperature Sensor",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "schema:object:material"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-027",
+      "query": "business lookup: temperature sensor stock",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-003",
+          "schema:object:supplier"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-002"
+        ]
+      }
+    },
+    {
+      "id": "case-028",
+      "query": "business lookup: 温度传感器库存",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-029",
+      "query": "business lookup: 安全库存 MAT-001",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "instance:material:MAT-003",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-030",
+      "query": "business lookup: who supplies MAT-001",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-031",
+      "query": "business lookup: Temperature Sensor supplier",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "schema:relation:supplied_by",
+          "schema:object:material"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-032",
+      "query": "business lookup: 缺货的温度传感器",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-033",
+      "query": "show details and relationships for MAT-001",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-034",
+      "query": "show details and relationships for Temperature Sensor",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-035",
+      "query": "show details and relationships for temperature sensor stock",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002"
+        ]
+      }
+    },
+    {
+      "id": "case-036",
+      "query": "show details and relationships for 温度传感器库存",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "instance:supplier:SUP-002"
+        ]
+      }
+    },
+    {
+      "id": "case-037",
+      "query": "show details and relationships for 安全库存 MAT-001",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-038",
+      "query": "show details and relationships for who supplies MAT-001",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-039",
+      "query": "show details and relationships for Temperature Sensor supplier",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-040",
+      "query": "show details and relationships for 缺货的温度传感器",
+      "expected_document_id": "instance:material:MAT-001",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "schema:object:supplier",
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-041",
+      "query": "MAT-002",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-042",
+      "query": "Smart Gateway",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-043",
+      "query": "smart gateway stock",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-044",
+      "query": "智能网关库存",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "schema:relation:supplied_by",
+          "schema:object:supplier",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-045",
+      "query": "安全库存 MAT-002",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-046",
+      "query": "who supplies MAT-002",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-047",
+      "query": "Smart Gateway supplier",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-048",
+      "query": "智能网关供应信息",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "action:create_replenishment_alert",
+          "schema:object:supplier",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-049",
+      "query": "请查询 MAT-002",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-050",
+      "query": "请查询 Smart Gateway",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-051",
+      "query": "请查询 smart gateway stock",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002",
+          "schema:object:material",
+          "schema:object:supplier"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-052",
+      "query": "请查询 智能网关库存",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:material:MAT-002",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-053",
+      "query": "请查询 安全库存 MAT-002",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-002",
+          "schema:object:supplier"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-054",
+      "query": "请查询 who supplies MAT-002",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-055",
+      "query": "请查询 Smart Gateway supplier",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "schema:relation:supplied_by"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-056",
+      "query": "请查询 智能网关供应信息",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-057",
+      "query": "帮我找到 MAT-002 的业务记录",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-002"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-058",
+      "query": "帮我找到 Smart Gateway 的业务记录",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-002",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-001",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-059",
+      "query": "帮我找到 smart gateway stock 的业务记录",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-002"
+        ]
+      }
+    },
+    {
+      "id": "case-060",
+      "query": "帮我找到 智能网关库存 的业务记录",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "schema:relation:supplied_by"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:material:MAT-002",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-061",
+      "query": "帮我找到 安全库存 MAT-002 的业务记录",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-062",
+      "query": "帮我找到 who supplies MAT-002 的业务记录",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-002"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "schema:object:material",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-063",
+      "query": "帮我找到 Smart Gateway supplier 的业务记录",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-002",
+          "schema:object:material",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-064",
+      "query": "帮我找到 智能网关供应信息 的业务记录",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "schema:object:material",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-065",
+      "query": "business lookup: MAT-002",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "schema:object:material",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-066",
+      "query": "business lookup: Smart Gateway",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-003",
+          "schema:object:supplier"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-003",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-067",
+      "query": "business lookup: smart gateway stock",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-002",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-003"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-068",
+      "query": "business lookup: 智能网关库存",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-003",
+          "schema:object:supplier"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-069",
+      "query": "business lookup: 安全库存 MAT-002",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "instance:material:MAT-003",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-070",
+      "query": "business lookup: who supplies MAT-002",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-071",
+      "query": "business lookup: Smart Gateway supplier",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "schema:relation:supplied_by",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-072",
+      "query": "business lookup: 智能网关供应信息",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "instance:material:MAT-003",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-073",
+      "query": "show details and relationships for MAT-002",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-074",
+      "query": "show details and relationships for Smart Gateway",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "schema:object:supplier",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-075",
+      "query": "show details and relationships for smart gateway stock",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "schema:object:supplier"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002"
+        ]
+      }
+    },
+    {
+      "id": "case-076",
+      "query": "show details and relationships for 智能网关库存",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "schema:relation:supplied_by",
+          "schema:object:supplier",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "action:create_replenishment_alert",
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-077",
+      "query": "show details and relationships for 安全库存 MAT-002",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-078",
+      "query": "show details and relationships for who supplies MAT-002",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-079",
+      "query": "show details and relationships for Smart Gateway supplier",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "schema:relation:supplied_by",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-080",
+      "query": "show details and relationships for 智能网关供应信息",
+      "expected_document_id": "instance:material:MAT-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-081",
+      "query": "MAT-003",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-082",
+      "query": "Relay Module",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-083",
+      "query": "relay module stock",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-084",
+      "query": "继电器模块库存",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "schema:relation:supplied_by",
+          "schema:object:material",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "schema:object:supplier"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "schema:relation:supplied_by"
+        ]
+      }
+    },
+    {
+      "id": "case-085",
+      "query": "安全库存 MAT-003",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-086",
+      "query": "who supplies MAT-003",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-087",
+      "query": "Relay Module supplier",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "schema:relation:supplied_by"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-088",
+      "query": "缺货的继电器模块",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "schema:object:material",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-089",
+      "query": "请查询 MAT-003",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-090",
+      "query": "请查询 Relay Module",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-091",
+      "query": "请查询 relay module stock",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "schema:object:supplier",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-092",
+      "query": "请查询 继电器模块库存",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "schema:relation:supplied_by",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "schema:object:supplier",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "schema:relation:supplied_by"
+        ]
+      }
+    },
+    {
+      "id": "case-093",
+      "query": "请查询 安全库存 MAT-003",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-003",
+          "schema:object:supplier"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-094",
+      "query": "请查询 who supplies MAT-003",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-095",
+      "query": "请查询 Relay Module supplier",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "schema:relation:supplied_by"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-096",
+      "query": "请查询 缺货的继电器模块",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "schema:object:material",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "schema:object:supplier",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-097",
+      "query": "帮我找到 MAT-003 的业务记录",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-002"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-098",
+      "query": "帮我找到 Relay Module 的业务记录",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002"
+        ]
+      }
+    },
+    {
+      "id": "case-099",
+      "query": "帮我找到 relay module stock 的业务记录",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-100",
+      "query": "帮我找到 继电器模块库存 的业务记录",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "instance:material:MAT-002",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-101",
+      "query": "帮我找到 安全库存 MAT-003 的业务记录",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-102",
+      "query": "帮我找到 who supplies MAT-003 的业务记录",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-002"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "schema:object:material",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-103",
+      "query": "帮我找到 Relay Module supplier 的业务记录",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "schema:object:material",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-104",
+      "query": "帮我找到 缺货的继电器模块 的业务记录",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-105",
+      "query": "business lookup: MAT-003",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-106",
+      "query": "business lookup: Relay Module",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "schema:object:material"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-107",
+      "query": "business lookup: relay module stock",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "schema:object:supplier"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-108",
+      "query": "business lookup: 继电器模块库存",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "instance:material:MAT-003",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-109",
+      "query": "business lookup: 安全库存 MAT-003",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "instance:material:MAT-003",
+          "schema:relation:supplied_by",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-110",
+      "query": "business lookup: who supplies MAT-003",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-111",
+      "query": "business lookup: Relay Module supplier",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "schema:relation:supplied_by"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-112",
+      "query": "business lookup: 缺货的继电器模块",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "schema:object:material",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-113",
+      "query": "show details and relationships for MAT-003",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-114",
+      "query": "show details and relationships for Relay Module",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-115",
+      "query": "show details and relationships for relay module stock",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "schema:object:supplier"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002"
+        ]
+      }
+    },
+    {
+      "id": "case-116",
+      "query": "show details and relationships for 继电器模块库存",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "schema:relation:supplied_by",
+          "schema:object:material",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "schema:object:supplier"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-001",
+          "schema:relation:supplied_by"
+        ]
+      }
+    },
+    {
+      "id": "case-117",
+      "query": "show details and relationships for 安全库存 MAT-003",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-118",
+      "query": "show details and relationships for who supplies MAT-003",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-119",
+      "query": "show details and relationships for Relay Module supplier",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "schema:relation:supplied_by"
+        ],
+        "bm25": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-120",
+      "query": "show details and relationships for 缺货的继电器模块",
+      "expected_document_id": "instance:material:MAT-003",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "schema:object:material",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-121",
+      "query": "SUP-001",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-122",
+      "query": "Precision Components",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-123",
+      "query": "precision components supplier",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "action:create_replenishment_alert",
+          "schema:object:material"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-002",
+          "schema:object:material"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002"
+        ]
+      }
+    },
+    {
+      "id": "case-124",
+      "query": "精密组件供应商",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-125",
+      "query": "SUP-001 contact",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-003",
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-126",
+      "query": "expedite SUP-001",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-127",
+      "query": "supply@example.com",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-003",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-128",
+      "query": "供应商 Precision Components",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "schema:object:supplier"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-129",
+      "query": "请查询 SUP-001",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "action:create_replenishment_alert",
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-130",
+      "query": "请查询 Precision Components",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "schema:object:supplier",
+          "schema:object:material",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-131",
+      "query": "请查询 precision components supplier",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "schema:relation:supplied_by",
+          "schema:object:material"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-002",
+          "schema:object:material"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002"
+        ]
+      }
+    },
+    {
+      "id": "case-132",
+      "query": "请查询 精密组件供应商",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-133",
+      "query": "请查询 SUP-001 contact",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ],
+        "hybrid": [
+          "schema:object:supplier",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-134",
+      "query": "请查询 expedite SUP-001",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "action:create_replenishment_alert",
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ],
+        "hybrid": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-135",
+      "query": "请查询 supply@example.com",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-003",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-136",
+      "query": "请查询 供应商 Precision Components",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "schema:object:supplier",
+          "schema:object:material",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-137",
+      "query": "帮我找到 SUP-001 的业务记录",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-003"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-001",
+          "schema:object:material",
+          "instance:material:MAT-003",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-138",
+      "query": "帮我找到 Precision Components 的业务记录",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-139",
+      "query": "帮我找到 precision components supplier 的业务记录",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "schema:relation:supplied_by"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-002",
+          "schema:object:material"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "schema:object:material",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-002"
+        ]
+      }
+    },
+    {
+      "id": "case-140",
+      "query": "帮我找到 精密组件供应商 的业务记录",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-141",
+      "query": "帮我找到 SUP-001 contact 的业务记录",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ],
+        "hybrid": [
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-003",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-142",
+      "query": "帮我找到 expedite SUP-001 的业务记录",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-003"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ],
+        "hybrid": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-143",
+      "query": "帮我找到 supply@example.com 的业务记录",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "schema:object:material",
+          "instance:supplier:SUP-002"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-003",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-144",
+      "query": "帮我找到 供应商 Precision Components 的业务记录",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-145",
+      "query": "business lookup: SUP-001",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-146",
+      "query": "business lookup: Precision Components",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "schema:object:supplier"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-003",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-147",
+      "query": "business lookup: precision components supplier",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "schema:object:material",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-002",
+          "schema:object:material"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "schema:object:material",
+          "instance:supplier:SUP-002"
+        ]
+      }
+    },
+    {
+      "id": "case-148",
+      "query": "business lookup: 精密组件供应商",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-149",
+      "query": "business lookup: SUP-001 contact",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ],
+        "hybrid": [
+          "schema:object:supplier",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-150",
+      "query": "business lookup: expedite SUP-001",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ],
+        "hybrid": [
+          "schema:object:supplier",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-151",
+      "query": "business lookup: supply@example.com",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-003",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-152",
+      "query": "business lookup: 供应商 Precision Components",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "schema:object:supplier",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-153",
+      "query": "show details and relationships for SUP-001",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "schema:object:supplier",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-154",
+      "query": "show details and relationships for Precision Components",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "schema:object:supplier",
+          "schema:object:material",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-155",
+      "query": "show details and relationships for precision components supplier",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "action:create_replenishment_alert",
+          "schema:object:material"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-002",
+          "schema:object:material"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "action:create_replenishment_alert",
+          "instance:supplier:SUP-002"
+        ]
+      }
+    },
+    {
+      "id": "case-156",
+      "query": "show details and relationships for 精密组件供应商",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-157",
+      "query": "show details and relationships for SUP-001 contact",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "schema:object:material"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ],
+        "hybrid": [
+          "schema:object:supplier",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-158",
+      "query": "show details and relationships for expedite SUP-001",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "schema:object:material"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ],
+        "hybrid": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-159",
+      "query": "show details and relationships for supply@example.com",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-003",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-160",
+      "query": "show details and relationships for 供应商 Precision Components",
+      "expected_document_id": "instance:supplier:SUP-001",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-161",
+      "query": "SUP-002",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-162",
+      "query": "Connected Devices",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-163",
+      "query": "connected devices supplier",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "schema:object:material"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-164",
+      "query": "联网设备供应商",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-165",
+      "query": "SUP-002 contact",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-166",
+      "query": "expedite SUP-002",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-167",
+      "query": "orders@example.com",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-003",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-168",
+      "query": "供应商 Connected Devices",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "schema:object:supplier"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-169",
+      "query": "请查询 SUP-002",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "schema:object:supplier",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-170",
+      "query": "请查询 Connected Devices",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "instance:material:MAT-001",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-171",
+      "query": "请查询 connected devices supplier",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "schema:object:material"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-172",
+      "query": "请查询 联网设备供应商",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-173",
+      "query": "请查询 SUP-002 contact",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-174",
+      "query": "请查询 expedite SUP-002",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-175",
+      "query": "请查询 orders@example.com",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-176",
+      "query": "请查询 供应商 Connected Devices",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "schema:object:material"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-177",
+      "query": "帮我找到 SUP-002 的业务记录",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "schema:object:supplier"
+        ]
+      }
+    },
+    {
+      "id": "case-178",
+      "query": "帮我找到 Connected Devices 的业务记录",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-179",
+      "query": "帮我找到 connected devices supplier 的业务记录",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "schema:object:material",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "schema:object:material"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "schema:object:material",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001"
+        ]
+      }
+    },
+    {
+      "id": "case-180",
+      "query": "帮我找到 联网设备供应商 的业务记录",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "schema:object:supplier",
+          "schema:object:material",
+          "instance:material:MAT-002"
+        ]
+      }
+    },
+    {
+      "id": "case-181",
+      "query": "帮我找到 SUP-002 contact 的业务记录",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "hybrid": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "instance:material:MAT-001",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-182",
+      "query": "帮我找到 expedite SUP-002 的业务记录",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "schema:object:material",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "hybrid": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "instance:material:MAT-001",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-183",
+      "query": "帮我找到 orders@example.com 的业务记录",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-003",
+          "schema:object:material",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-184",
+      "query": "帮我找到 供应商 Connected Devices 的业务记录",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-185",
+      "query": "business lookup: SUP-002",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "schema:object:material"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-186",
+      "query": "business lookup: Connected Devices",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "schema:object:material"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-003",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-187",
+      "query": "business lookup: connected devices supplier",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-002",
+          "schema:object:material"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "schema:object:material"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-188",
+      "query": "business lookup: 联网设备供应商",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "schema:object:material",
+          "instance:material:MAT-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001"
+        ],
+        "hybrid": [
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-189",
+      "query": "business lookup: SUP-002 contact",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "schema:object:material"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-003",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-190",
+      "query": "business lookup: expedite SUP-002",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "schema:object:material"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-191",
+      "query": "business lookup: orders@example.com",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "schema:object:material"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-192",
+      "query": "business lookup: 供应商 Connected Devices",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "schema:object:material",
+          "schema:object:supplier",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-193",
+      "query": "show details and relationships for SUP-002",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-194",
+      "query": "show details and relationships for Connected Devices",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-195",
+      "query": "show details and relationships for connected devices supplier",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:material:MAT-002",
+          "instance:supplier:SUP-001"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "schema:object:material"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "schema:relation:supplied_by",
+          "instance:supplier:SUP-001",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-196",
+      "query": "show details and relationships for 联网设备供应商",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "schema:object:material",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003"
+        ],
+        "hybrid": [
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-002",
+          "schema:object:material"
+        ]
+      }
+    },
+    {
+      "id": "case-197",
+      "query": "show details and relationships for SUP-002 contact",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "hybrid": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-003"
+        ]
+      }
+    },
+    {
+      "id": "case-198",
+      "query": "show details and relationships for expedite SUP-002",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "bm25": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "hybrid": [
+          "schema:object:supplier",
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ]
+      }
+    },
+    {
+      "id": "case-199",
+      "query": "show details and relationships for orders@example.com",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-003",
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "action:create_replenishment_alert"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "instance:supplier:SUP-001",
+          "schema:object:supplier",
+          "instance:material:MAT-003",
+          "action:create_replenishment_alert"
+        ]
+      }
+    },
+    {
+      "id": "case-200",
+      "query": "show details and relationships for 供应商 Connected Devices",
+      "expected_document_id": "instance:supplier:SUP-002",
+      "rankings": {
+        "vector": [
+          "instance:supplier:SUP-002",
+          "instance:material:MAT-002",
+          "schema:object:supplier",
+          "instance:material:MAT-001",
+          "schema:object:material"
+        ],
+        "bm25": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "action:create_replenishment_alert",
+          "instance:material:MAT-001",
+          "instance:material:MAT-002"
+        ],
+        "hybrid": [
+          "instance:supplier:SUP-002",
+          "schema:object:supplier",
+          "instance:material:MAT-002",
+          "instance:material:MAT-001",
+          "action:create_replenishment_alert"
+        ]
+      }
+    }
+  ]
+}

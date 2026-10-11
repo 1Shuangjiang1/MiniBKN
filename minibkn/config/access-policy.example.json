@@ -1,0 +1,85 @@
+{
+  "roles": {
+    "sales": {
+      "permissions": [
+        "read",
+        "execute"
+      ],
+      "networks": [
+        "crm"
+      ],
+      "resources": [
+        "customers_csv",
+        "orders_csv"
+      ],
+      "document_collections": [
+        "public",
+        "sales"
+      ],
+      "actions": [
+        "create_followup_task"
+      ]
+    },
+    "finance": {
+      "permissions": [
+        "read"
+      ],
+      "networks": [
+        "crm"
+      ],
+      "resources": [
+        "customers_csv",
+        "orders_csv"
+      ],
+      "document_collections": [
+        "public",
+        "finance"
+      ],
+      "actions": []
+    },
+    "manager": {
+      "permissions": [
+        "read",
+        "model",
+        "execute",
+        "approve",
+        "audit"
+      ],
+      "networks": [
+        "crm"
+      ],
+      "resources": [
+        "*"
+      ],
+      "document_collections": [
+        "*"
+      ],
+      "actions": [
+        "*"
+      ]
+    }
+  },
+  "principals": [
+    {
+      "id": "sales-demo",
+      "roles": [
+        "sales"
+      ],
+      "api_key_sha256": "2e31555da0419daf4f3c32fc0f82de1ae01b8e6160702ca85ae3a21c69f4366d"
+    },
+    {
+      "id": "finance-demo",
+      "roles": [
+        "finance"
+      ],
+      "api_key_sha256": "554880fc3173cb35803024dfe2846a5774b6dd6f7af7e5523324daa3933a8172"
+    },
+    {
+      "id": "manager-demo",
+      "roles": [
+        "manager"
+      ],
+      "api_key_sha256": "b19ae5019d1b8a2f3d25c7f5db0e40b4256f97d2721522e2a620f4be7c2851c2"
+    }
+  ]
+}

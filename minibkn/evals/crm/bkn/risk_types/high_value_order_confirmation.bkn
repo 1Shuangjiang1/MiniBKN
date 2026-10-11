@@ -1,0 +1,17 @@
+---
+type: risk_type
+id: high_value_order_confirmation
+name: High Value Order Confirmation
+tags: [crm, risk]
+level: high
+policy: confirm
+applies_to_actions: [approve_order]
+condition:
+  gte:
+    - ref: object.amount
+    - 10000
+---
+
+## RiskType: High Value Order Confirmation
+
+Orders of 10,000 or more require explicit approval.

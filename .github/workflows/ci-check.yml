@@ -1,0 +1,43 @@
+name: MiniBKN checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: minibkn
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+      - run: uv sync --frozen --python 3.11 --extra dev --no-editable
+      - run: uv run --no-sync python -m ruff format --check src tests scripts
+      - run: uv run --no-sync python -m ruff check src tests scripts
+      - run: uv run --no-sync python -m mypy src/minibkn
+      - run: uv run --no-sync python -m pytest -q
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: minibkn-ui
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: minibkn-ui/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+  publication:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python tools/check_release.py

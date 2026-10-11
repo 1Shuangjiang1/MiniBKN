@@ -1,0 +1,33 @@
+---
+type: object_type
+id: material
+name: Material
+tags: [inventory]
+---
+
+## ObjectType: Material
+
+An inventory item whose live stock is compared with its safety stock.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| sku | SKU | string | Unique material code | sku |
+| name | Name | string | Material display name | name |
+| current_stock | Current Stock | integer | Current available quantity | current_stock |
+| safety_stock | Safety Stock | integer | Replenishment threshold | safety_stock |
+| supplier_id | Supplier ID | string | Foreign key to supplier | supplier_id |
+| unit_cost | Unit Cost | number | Cost of one item | unit_cost |
+
+### Keys
+
+Primary Keys: sku
+Display Key: name
+Incremental Key:
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | materials_csv | materials.csv |

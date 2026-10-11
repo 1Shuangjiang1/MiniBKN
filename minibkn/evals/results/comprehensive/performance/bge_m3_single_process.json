@@ -1,0 +1,66 @@
+{
+  "created_at": "2026-08-17T09:07:36.921569+00:00",
+  "database": "data\\crm-evaluation-20260817-084601-191953.db",
+  "network_id": "crm_benchmark",
+  "embedding_version": "siliconflow:BAAI/bge-m3:1024",
+  "methodology": {
+    "client": "in-process ASGI HTTP",
+    "distinct_questions": true,
+    "concurrency": 50,
+    "note": "Measures one application process and includes remote query embedding."
+  },
+  "modes": {
+    "bm25": {
+      "cold_first_request_ms": 4652.28,
+      "cold_error": null,
+      "warm_sequential": {
+        "requests": 20,
+        "successful": 20,
+        "failed": 0,
+        "p50_ms": 29.58,
+        "p95_ms": 34.05,
+        "mean_ms": 30.66,
+        "throughput_rps": 32.61,
+        "wall_time_ms": 613.29,
+        "errors": []
+      },
+      "warm_concurrent": {
+        "requests": 50,
+        "successful": 50,
+        "failed": 0,
+        "p50_ms": 980.79,
+        "p95_ms": 1576.26,
+        "mean_ms": 968.62,
+        "throughput_rps": 30.59,
+        "wall_time_ms": 1634.53,
+        "errors": []
+      }
+    },
+    "hybrid": {
+      "cold_first_request_ms": 1244.24,
+      "cold_error": null,
+      "warm_sequential": {
+        "requests": 20,
+        "successful": 20,
+        "failed": 0,
+        "p50_ms": 971.85,
+        "p95_ms": 1025.04,
+        "mean_ms": 975.22,
+        "throughput_rps": 1.03,
+        "wall_time_ms": 19504.46,
+        "errors": []
+      },
+      "warm_concurrent": {
+        "requests": 50,
+        "successful": 50,
+        "failed": 0,
+        "p50_ms": 28463.76,
+        "p95_ms": 49038.37,
+        "mean_ms": 27991.22,
+        "throughput_rps": 1.02,
+        "wall_time_ms": 49042.75,
+        "errors": []
+      }
+    }
+  }
+}

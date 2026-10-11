@@ -1,0 +1,29 @@
+---
+type: object_type
+id: sales_rep
+name: Sales Representative
+tags: [crm, sales]
+---
+
+## ObjectType: Sales Representative
+
+Employee responsible for customer accounts.
+
+### Data Properties
+
+| Name | Display Name | Type | Description | Mapped Field |
+| --- | --- | --- | --- | --- |
+| rep_id | Sales Rep ID | string | Unique representative code | rep_id |
+| name | Name | string | Representative name | name |
+| region | Region | string | Assigned region | region |
+
+### Keys
+
+Primary Keys: rep_id
+Display Key: name
+
+### Data Source
+
+| Type | ID | Name |
+| --- | --- | --- |
+| resource | sales_reps_csv | sales_reps.csv |
